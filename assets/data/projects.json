@@ -1,0 +1,41 @@
+[
+  {
+    "title": "Auto-Remediating Security-Group Drift",
+    "one_liner": "Detects and auto-reverts unauthorized EC2 SG rule changes (keeps only 80/443 open).",
+    "tags": ["aws", "security", "lambda", "cloudwatch"],
+    "timeline": "2025",
+    "context": "Self-initiated",
+    "problem": "SG rules drift over time, exposing ports beyond policy.",
+    "approach": "AWS Config custom rule -> EventBridge -> Lambda evaluates SG state and removes non-compliant rules; logs to CloudWatch.",
+    "tech_stack": "AWS Config, Lambda (Python), EventBridge, CloudWatch Logs, IAM",
+    "results": "Prevents risky exposure automatically and provides audit-ready logs of each remediation.",
+    "links": { "repo": "#", "docs": "#" },
+    "status": "completed"
+  },
+  {
+    "title": "CloudTrail Monitoring & Alerting",
+    "one_liner": "Real-time alerts for sensitive AWS API events + Logs Insights queries for triage.",
+    "tags": ["aws", "cloudtrail", "eventbridge", "sns", "cloudwatch"],
+    "timeline": "2025",
+    "context": "Course/Lab",
+    "problem": "No immediate visibility into risky actions (root usage, failed logins, IAM/S3/KMS changes).",
+    "approach": "Org trail -> EventBridge rules (ConsoleLogin failures, DeleteTrail, PutUserPolicy, PutBucketAcl, DisableKey) -> SNS notifications + CloudWatch Logs retention and Insights queries.",
+    "tech_stack": "CloudTrail, EventBridge, SNS, CloudWatch Logs, IAM",
+    "results": "Cut MTTA to < 1 min on critical events; standardized investigations with reusable queries.",
+    "links": { "repo": "#", "docs": "#" },
+    "status": "completed"
+  },
+  {
+    "title": "Simple Python Port Scanner",
+    "one_liner": "Threaded TCP port scanner with safe defaults and readable output for demos.",
+    "tags": ["python", "networking", "cli"],
+    "timeline": "2024",
+    "context": "Personal project",
+    "problem": "Needed a simple, fast, and safe demo scanner for learning and labs.",
+    "approach": "Python sockets + threading; configurable port ranges; timeout and error handling; clear stdout table.",
+    "tech_stack": "Python, sockets, threading",
+    "results": "Quickly identifies open ports for lab hosts; good teaching tool for basics of scanning.",
+    "links": { "repo": "#", "docs": "#" },
+    "status": "completed"
+  }
+]
