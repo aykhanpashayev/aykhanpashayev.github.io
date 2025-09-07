@@ -29,12 +29,21 @@
     <h1>Projects</h1>
     <p class="small">Focused on cloud security, blue team engineering, and practical tooling.</p>
 
+    <!-- Filters -->
+    <section class="filters" aria-label="Project filters">
+      <input type="search" id="q" placeholder="Search projects (title, tags, one-liner)..." aria-label="Search projects" autocomplete="off" />
+      <div id="tag-bar" class="tags" role="group" aria-label="Filter by tag"></div>
+      <p id="counter" class="small" aria-live="polite"></p>
+    </section>
+
     <!-- Dynamic grid populated from JSON -->
     <ul class="cards" id="project-grid">
       <noscript>
         <li class="card">Enable JavaScript to view projects.</li>
       </noscript>
     </ul>
+
+    <p id="empty" class="small" style="display:none;">No projects match your filters.</p>
   </main>
 
   <footer class="site-footer">
@@ -54,63 +63,141 @@
       links.classList.toggle('open');
     });
 
-    // Render projects from JSON
-    async function renderProjects() {
-      const grid = document.getElementById('project-grid');
-      try {
-        const res = await fetch('assets/data/projects.json', { cache: 'no-store' });
-        if (!res.ok) throw new Error('Failed to load projects.json');
-        const items = await res.json();
+    // ---- Data + rendering ----
+    let DATA = [];
+    let SELECTED = new Set();
+    let QUERY = "";
 
-        items.forEach(p => {
-          const li = document.createElement('li');
-          li.className = 'card';
+    const gridEl = document.getElementById('project-grid');
+    const tagBar = document.getElementById('tag-bar');
+    const counter = document.getElementById('counter');
+    const emptyMsg = document.getElementById('empty');
+    const qInput = document.getElementById('q');
 
-          const title = document.createElement('h3');
-          title.textContent = p.title;
-
-          const small = document.createElement('p');
-          small.className = 'small';
-          small.textContent = (p.tags || []).join(' • ');
-
-          const oneliner = document.createElement('p');
-          oneliner.innerHTML = `<strong>One-liner:</strong> ${p.one_liner}`;
-
-          const details = document.createElement('details');
-          const summary = document.createElement('summary');
-          summary.textContent = 'Details';
-          details.appendChild(summary);
-
-          const prob = document.createElement('p');
-          prob.innerHTML = `<strong>Problem:</strong> ${p.problem}`;
-
-          const appr = document.createElement('p');
-          appr.innerHTML = `<strong>Approach:</strong> ${p.approach}`;
-
-          const tech = document.createElement('p');
-          tech.innerHTML = `<strong>Tech:</strong> ${p.tech_stack}`;
-
-          const resu = document.createElement('p');
-          resu.innerHTML = `<strong>Result (So what?):</strong> ${p.results}`;
-
-          const linksP = document.createElement('p');
-          const repo = p?.links?.repo;
-          const docs = p?.links?.docs;
-          const linkBits = [];
-          if (repo && repo !== '#') linkBits.push(`<a href="${repo}" target="_blank" rel="noopener">GitHub</a>`);
-          if (docs && docs !== '#') linkBits.push(`<a href="${docs}" target="_blank" rel="noopener">Docs</a>`);
-          linksP.innerHTML = linkBits.length ? `<strong>Links:</strong> ${linkBits.join(' · ')}` : '';
-
-          details.append(prob, appr, tech, resu, linksP);
-          li.append(title, small, oneliner, details);
-          grid.appendChild(li);
-        });
-      } catch (e) {
-        grid.innerHTML = `<li class="card">Couldn’t load projects. Please refresh.</li>`;
-        console.error(e);
-      }
+    async function loadData() {
+      const res = await fetch('assets/data/projects.json', { cache: 'no-store' });
+      if (!res.ok) throw new Error('Failed to load projects.json');
+      DATA = await res.json();
     }
-    renderProjects();
+
+    function buildTagBar() {
+      // collect unique tags
+      const allTags = new Set();
+      DATA.forEach(p => (p.tags || []).forEach(t => allTags.add(t)));
+      const sorted = Array.from(allTags).sort();
+
+      // Clear + add "All/Clear" button
+      tagBar.innerHTML = '';
+      const allBtn = makeTagButton('clear', 'Clear');
+      allBtn.addEventListener('click', () => {
+        SELECTED.clear();
+        updateTagButtons();
+        render();
+      });
+      tagBar.appendChild(allBtn);
+
+      sorted.forEach(tag => {
+        const btn = makeTagButton(tag, tag);
+        btn.addEventListener('click', () => {
+          if (SELECTED.has(tag)) SELECTED.delete(tag);
+          else SELECTED.add(tag);
+          updateTagButtons();
+          render();
+        });
+        tagBar.appendChild(btn);
+      });
+
+      updateTagButtons();
+    }
+
+    function makeTagButton(value, label) {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'tag';
+      b.dataset.value = value;
+      b.setAttribute('aria-pressed', 'false');
+      b.textContent = label;
+      return b;
+    }
+
+    function updateTagButtons() {
+      tagBar.querySelectorAll('button.tag').forEach(b => {
+        const val = b.dataset.value;
+        const active = val !== 'clear' && SELECTED.has(val);
+        b.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+    }
+
+    function matches(p) {
+      const hay = `${p.title} ${p.one_liner} ${(p.tags||[]).join(' ')}`.toLowerCase();
+      const searchOk = !QUERY || hay.includes(QUERY);
+      const tagsOk = SELECTED.size === 0 || (p.tags && [...SELECTED].every(t => p.tags.includes(t)));
+      return searchOk && tagsOk;
+    }
+
+    function cardFor(p) {
+      const li = document.createElement('li');
+      li.className = 'card';
+
+      const title = document.createElement('h3');
+      title.textContent = p.title;
+
+      const small = document.createElement('p');
+      small.className = 'small';
+      small.textContent = (p.tags || []).join(' • ');
+
+      const oneliner = document.createElement('p');
+      oneliner.innerHTML = `<strong>One-liner:</strong> ${p.one_liner}`;
+
+      const details = document.createElement('details');
+      const summary = document.createElement('summary');
+      summary.textContent = 'Details';
+      details.appendChild(summary);
+
+      const prob = document.createElement('p');
+      prob.innerHTML = `<strong>Problem:</strong> ${p.problem}`;
+
+      const appr = document.createElement('p');
+      appr.innerHTML = `<strong>Approach:</strong> ${p.approach}`;
+
+      const tech = document.createElement('p');
+      tech.innerHTML = `<strong>Tech:</strong> ${p.tech_stack}`;
+
+      const resu = document.createElement('p');
+      resu.innerHTML = `<strong>Result (So what?):</strong> ${p.results}`;
+
+      const linksP = document.createElement('p');
+      const repo = p?.links?.repo;
+      const docs = p?.links?.docs;
+      const bits = [];
+      if (repo && repo !== '#') bits.push(`<a href="${repo}" target="_blank" rel="noopener">GitHub</a>`);
+      if (docs && docs !== '#') bits.push(`<a href="${docs}" target="_blank" rel="noopener">Docs</a>`);
+      linksP.innerHTML = bits.length ? `<strong>Links:</strong> ${bits.join(' · ')}` : '';
+
+      details.append(prob, appr, tech, resu, linksP);
+      li.append(title, small, oneliner, details);
+      return li;
+    }
+
+    function render() {
+      const filtered = DATA.filter(matches);
+      gridEl.innerHTML = '';
+      filtered.forEach(p => gridEl.appendChild(cardFor(p)));
+      counter.textContent = `Showing ${filtered.length} of ${DATA.length} projects`;
+      emptyMsg.style.display = filtered.length ? 'none' : 'block';
+    }
+
+    // search input (simple live filter)
+    qInput.addEventListener('input', (e) => {
+      QUERY = (e.target.value || '').trim().toLowerCase();
+      render();
+    });
+
+    (async function init() {
+      await loadData();
+      buildTagBar();
+      render();
+    })();
   </script>
 </body>
 </html>
