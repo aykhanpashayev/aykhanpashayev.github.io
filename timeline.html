@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Timeline — Aykhan Pashayev</title>
+  <meta name="description" content="Semester-by-semester timeline of Aykhan Pashayev's work." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="container">
+      <a class="logo" href="/">AP</a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul id="nav-links" class="nav-links">
+        <li><a href="/projects.html">Projects</a></li>
+        <li><a href="/github.html">GitHub</a></li>
+        <li><a href="/timeline.html" aria-current="page">Timeline</a></li>
+        <li><a href="/#resume">Resume</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="content" class="container">
+    <h1>Semester Timeline</h1>
+    <p class="small">From Fall 2022 to now. Each term shows courses, highlights, and artifacts (repos/docs).</p>
+
+    <ul class="timeline" id="timeline">
+      <noscript><li class="card">Enable JavaScript to view timeline.</li></noscript>
+    </ul>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container small">
+      <p>© <span id="year"></span> Aykhan Pashayev.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Year + mobile menu
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const btn = document.querySelector('.menu-toggle');
+    const links = document.getElementById('nav-links');
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      links.classList.toggle('open');
+    });
+
+    // Render timeline
+    async function init() {
+      const res = await fetch('assets/data/semesters.json', { cache: 'no-store' });
+      const data = await res.json();
+
+      const list = document.getElementById('timeline');
+      list.innerHTML = '';
+
+      // newest first
+      data.slice().reverse().forEach(s => list.appendChild(cardFor(s)));
+    }
+
+    function cardFor(s) {
+      const li = document.createElement('li');
+      li.className = 'card term';
+
+      const h = document.createElement('h2');
+      h.textContent = s.term;
+      li.appendChild(h);
+
+      const meta = document.createElement('p');
+      meta.className = 'small';
+      meta.textContent = s.dates || '';
+      li.appendChild(meta);
+
+      if (s.summary) {
+        const sum = document.createElement('p');
+        sum.textContent = s.summary;
+        li.appendChild(sum);
+      }
+
+      if (s.courses?.length) {
+        li.appendChild(sectionList('Courses', s.courses));
+      }
+      if (s.highlights?.length) {
+        li.appendChild(sectionList('Highlights', s.highlights));
+      }
+      if (s.artifacts?.length) {
+        const sec = document.createElement('section');
+        const h3 = document.createElement('h3');
+        h3.textContent = 'Artifacts';
+        sec.appendChild(h3);
+
+        const ul = document.createElement('ul');
+        ul.className = 'artifacts';
+        s.artifacts.forEach(a => {
+          const it = document.createElement('li');
+          const title = document.createElement('a');
+          title.textContent = a.title;
+          title.href = a.link || '#';
+          if (a.link && a.link !== '#') { title.target = '_blank'; title.rel = 'noopener'; }
+
+          const meta = document.createElement('span');
+          meta.className = 'small';
+          const tagText = (a.tags || []).join(' • ');
+          meta.textContent = [a.type, tagText].filter(Boolean).join(' — ');
+
+          it.append(title, document.createElement('br'), meta);
+          ul.appendChild(it);
+        });
+        sec.appendChild(ul);
+        li.appendChild(sec);
+      }
+
+      return li;
+    }
+
+    function sectionList(title, items) {
+      const sec = document.createElement('section');
+      const h3 = document.createElement('h3');
+      h3.textContent = title;
+      sec.appendChild(h3);
+
+      const ul = document.createElement('ul');
+      items.forEach(x => {
+        const li = document.createElement('li');
+        li.textContent = x;
+        ul.appendChild(li);
+      });
+      sec.appendChild(ul);
+      return sec;
+    }
+
+    init();
+  </script>
+</body>
+</html>
