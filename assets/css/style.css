@@ -80,3 +80,11 @@ html { scroll-behavior: smooth; }
 /* link contrast tweak */
 a { color: #9bd8ff; }
 a:hover { color: #c5ecff; }
+
+/* tag pills (we're using a simple text list now, but keep styles for future) */
+.tags { display: flex; flex-wrap: wrap; gap: .4rem; margin: .25rem 0 .5rem; }
+.tag { font-size: .75rem; padding: .2rem .5rem; border: 1px solid var(--border); border-radius: 999px; color: var(--muted); }
+
+/* details summary styling */
+details summary { cursor: pointer; margin-top: .5rem; font-weight: 600; }
+details[open] summary { opacity: .9; }
