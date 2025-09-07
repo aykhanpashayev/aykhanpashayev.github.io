@@ -48,16 +48,22 @@
 
       <!-- Placeholder cards you’ll fill next -->
       <li class="card">
-        <h3>CloudTrail Monitoring & Alerting</h3>
-        <p class="small">CloudWatch • EventBridge • SNS</p>
-        <p>Real-time alerts on sensitive API events + Logs Insights queries for triage.</p>
-      </li>
+  <h3>CloudTrail Monitoring & Alerting</h3>
+  <p class="small">CloudWatch • EventBridge • SNS • Logs Insights</p>
 
-      <li class="card">
-        <h3>Simple Python Port Scanner</h3>
-        <p class="small">Python • Networking</p>
-        <p>Threaded scanner with safe defaults and readable output for demos.</p>
-      </li>
+  <p><strong>One-liner:</strong> Real-time alerts for sensitive AWS API activity + ready-to-run Logs Insights queries for triage.</p>
+
+  <details>
+    <summary>Details</summary>
+    <p><strong>Problem:</strong> No immediate visibility into risky actions (root usage, failed logins, IAM/S3/KMS changes), slowing incident response.</p>
+    <p><strong>Approach:</strong> 
+      Organization trail → EventBridge rules (e.g., <em>ConsoleLogin</em> failures, <em>DeleteTrail</em>, <em>PutUserPolicy</em>, <em>PutBucketAcl</em>, <em>DisableKey</em>) → SNS notifications; 
+      CloudWatch Logs retention + Logs Insights queries (by <code>eventName</code>, <code>userIdentity.arn</code>, <code>sourceIPAddress</code>).</p>
+    <p><strong>Tech:</strong> AWS CloudTrail, EventBridge, SNS, CloudWatch Logs, IAM least-privilege.</p>
+    <p><strong>Result (So what?):</strong> Cut MTTA to &lt;1 min on critical events; standardized investigation with reusable queries.</p>
+    <p><strong>Links:</strong> <a href="#" aria-disabled="true">GitHub (coming soon)</a> · <a href="#" aria-disabled="true">Docs (coming soon)</a></p>
+  </details>
+</li>
     </ul>
   </main>
 
