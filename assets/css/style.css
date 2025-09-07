@@ -117,3 +117,10 @@ details[open] summary { opacity: .9; }
   background: var(--accent);
   border-color: transparent;
 }
+
+/* timeline layout */
+.timeline { list-style: none; padding: 0; display: grid; gap: 1rem; }
+.term h2 { margin: .25rem 0; }
+.term section h3 { margin: 1rem 0 .5rem; font-size: 1rem; }
+.artifacts { list-style: none; padding: 0; display: grid; gap: .5rem; }
+.artifacts a { font-weight: 600; }
