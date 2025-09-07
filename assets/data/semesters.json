@@ -51,20 +51,7 @@
       "MUL 1010 — Music Literature/Appreciation"
     ],
     "highlights": ["Automated routine Linux checks; started publishing code to GitHub."],
-    "artifacts": [
-      {
-        "title": "Linux Administration & Security Scripts",
-        "type": "GitHub",
-        "link": "https://github.com/aykhanpashayev/Linux_Administration_Scripts",
-        "tags": ["bash", "linux", "security"]
-      },
-      {
-        "title": "Simple Python Port Scanner",
-        "type": "GitHub",
-        "link": "https://github.com/aykhanpashayev/port-scanner",
-        "tags": ["python", "networking"]
-      }
-    ]
+    "artifacts": []
   },
   {
     "term": "Fall 2024",
@@ -78,14 +65,7 @@
       "REL 2011 — Intro to Religion"
     ],
     "highlights": ["Dean’s List; deeper systems knowledge and problem-solving."],
-    "artifacts": [
-      {
-        "title": "Python Keylogger (Educational)",
-        "type": "GitHub",
-        "link": "https://github.com/aykhanpashayev/keylogger",
-        "tags": ["python", "education", "pynput", "defense-labs"]
-      }
-    ]
+    "artifacts": []
   },
   {
     "term": "Spring 2025 - My hardest semester at college",
@@ -101,12 +81,7 @@
       "SYG 3002 — Basic Ideas of Sociology"
     ],
     "highlights": ["Dean’s List; began building cloud security monitoring labs."],
-    "artifacts": [
-      {
-        "title": "Monitoring & Alerting with CloudTrail, CloudWatch, SNS & EventBridge",
-        "type": "GitHub",
-        "link": "https://github.com/aykhanpashayev/cloudtrail-cloudwatch-monitoring-lab",
-        "tags": ["aws", "cloudtrail", "eventbridge", "sns", "cloudwatch"]
+    "artifacts": []
       },
       {
         "title": "AWS KMS Encryption Lab",
@@ -126,14 +101,7 @@
       "COP 4703 — Information Retrieval"
     ],
     "highlights": ["Dean’s List; drift auto-remediation mini-project."],
-    "artifacts": [
-      {
-        "title": "Auto-Remediating Security-Group Drift (Config + Lambda)",
-        "type": "GitHub",
-        "link": "https://github.com/aykhanpashayev/aws-config-lambda-remediation-lab",
-        "tags": ["aws", "config", "lambda", "cloudwatch"]
-      }
-    ]
+    "artifacts": []
   },
   {
     "term": "Fall 2025 — In Progress",
@@ -150,13 +118,6 @@
     "highlights": [
       "Capstone I underway; continue Cyber Intel & Info Policy certificate."
     ],
-    "artifacts": [
-      {
-        "title": "Capstone: AnomAI (in progress)",
-        "type": "Coming soon",
-        "link": "#",
-        "tags": ["aws", "ai", "soc"]
-      }
-    ]
+    "artifacts": []
   }
 ]
