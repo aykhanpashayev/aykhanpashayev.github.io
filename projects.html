@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects — Aykhan Pashayev</title>
+  <meta name="description" content="Cybersecurity & cloud security projects by Aykhan Pashayev." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="container">
+      <a class="logo" href="/">AP</a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul id="nav-links" class="nav-links">
+        <li><a href="/projects.html" aria-current="page">Projects</a></li>
+        <li><a href="/#resume">Resume</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="content" class="container">
+    <h1>Projects</h1>
+    <p class="small">Focused on cloud security, blue team engineering, and practical tooling.</p>
+
+    <ul class="cards">
+      <!-- Project 1 (real content) -->
+      <li class="card">
+        <h3>Auto-Remediating Security-Group Drift</h3>
+        <p class="small">AWS Config • Lambda • CloudWatch</p>
+        <p><strong>One-liner:</strong> Detects and auto-reverts unauthorized EC2 Security Group rule changes (keeps only 80/443 open).</p>
+
+        <details>
+          <summary>Details</summary>
+          <p><strong>Problem:</strong> SG rules drift over time, exposing ports beyond policy.</p>
+          <p><strong>Approach:</strong> Custom AWS Config rule → EventBridge triggers Lambda → evaluates SG state → removes non-compliant rules → logs to CloudWatch.</p>
+          <p><strong>Tech:</strong> AWS Config, Lambda (Python), EventBridge, CloudWatch Logs, IAM least-privilege.</p>
+          <p><strong>Result (So what?):</strong> Prevents risky exposure automatically and documents each remediation for audit.</p>
+          <p><strong>Links:</strong> <a href="#" aria-disabled="true">GitHub (coming soon)</a></p>
+        </details>
+      </li>
+
+      <!-- Placeholder cards you’ll fill next -->
+      <li class="card">
+        <h3>CloudTrail Monitoring & Alerting</h3>
+        <p class="small">CloudWatch • EventBridge • SNS</p>
+        <p>Real-time alerts on sensitive API events + Logs Insights queries for triage.</p>
+      </li>
+
+      <li class="card">
+        <h3>Simple Python Port Scanner</h3>
+        <p class="small">Python • Networking</p>
+        <p>Threaded scanner with safe defaults and readable output for demos.</p>
+      </li>
+    </ul>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container small">
+      <p>© <span id="year"></span> Aykhan Pashayev.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const btn = document.querySelector('.menu-toggle');
+    const links = document.getElementById('nav-links');
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      links.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
