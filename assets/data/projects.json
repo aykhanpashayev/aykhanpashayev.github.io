@@ -1,17 +1,17 @@
 [
   {
-  "title": "TEST — If you see this, JSON works",
-  "one_liner": "Temporary card to verify data-driven render.",
-  "tags": ["test"],
-  "timeline": "now",
-  "context": "test",
-  "problem": "n/a",
-  "approach": "n/a",
-  "tech_stack": "n/a",
-  "results": "n/a",
-  "links": { "repo": "#", "docs": "#" },
-  "status": "completed"
-}
+    "title": "TEST — If you see this, JSON works",
+    "one_liner": "Temporary card to verify data-driven render.",
+    "tags": ["test"],
+    "timeline": "now",
+    "context": "test",
+    "problem": "n/a",
+    "approach": "n/a",
+    "tech_stack": "n/a",
+    "results": "n/a",
+    "links": { "repo": "#", "docs": "#" },
+    "status": "completed"
+  }
 
   {
     "title": "Auto-Remediating Security-Group Drift",
