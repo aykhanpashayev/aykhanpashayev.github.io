@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GitHub Projects — Aykhan Pashayev</title>
+  <meta name="description" content="GitHub repositories by Aykhan Pashayev." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="container">
+      <a class="logo" href="/">AP</a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul id="nav-links" class="nav-links">
+        <li><a href="/projects.html">Projects</a></li>
+        <li><a href="/github.html" aria-current="page">GitHub</a></li>
+        <li><a href="/#resume">Resume</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="content" class="container">
+    <h1>GitHub Projects</h1>
+    <p class="small">This pulls from <code>assets/data/projects.json</code> and shows only items with a real repo URL.</p>
+
+    <ul class="cards" id="project-grid">
+      <noscript><li class="card">Enable JavaScript to view projects.</li></noscript>
+    </ul>
+
+    <p id="empty" class="small" style="display:none;">No repositories yet. Add a <code>links.repo</code> URL in your JSON.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container small">
+      <p>© <span id="year"></span> Aykhan Pashayev.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Year + mobile menu
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const btn = document.querySelector('.menu-toggle');
+    const links = document.getElementById('nav-links');
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      links.classList.toggle('open');
+    });
+
+    // Render GitHub-only projects
+    async function init() {
+      const res = await fetch('assets/data/projects.json', { cache: 'no-store' });
+      const data = await res.json();
+      const onlyRepos = data.filter(p => p?.links?.repo && p.links.repo !== '#');
+
+      const grid = document.getElementById('project-grid');
+      const empty = document.getElementById('empty');
+
+      if (!onlyRepos.length) {
+        empty.style.display = 'block';
+        return;
+      }
+
+      onlyRepos.forEach(p => grid.appendChild(cardFor(p)));
+    }
+
+    function cardFor(p) {
+      const li = document.createElement('li');
+      li.className = 'card';
+
+      const title = document.createElement('h3');
+      const a = document.createElement('a');
+      a.href = p.links.repo;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.textContent = p.title;
+      title.appendChild(a);
+
+      const small = document.createElement('p');
+      small.className = 'small';
+      small.textContent = (p.tags || []).join(' • ');
+
+      const oneliner = document.createElement('p');
+      oneliner.innerHTML = `<strong>One-liner:</strong> ${p.one_liner}`;
+
+      const meta = document.createElement('p');
+      meta.className = 'small';
+      meta.textContent = [p.timeline, p.context].filter(Boolean).join(' • ');
+
+      li.append(title, small, oneliner, meta);
+      return li;
+    }
+
+    init();
+  </script>
+</body>
+</html>
