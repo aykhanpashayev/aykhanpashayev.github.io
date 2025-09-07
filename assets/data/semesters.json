@@ -8,7 +8,15 @@
       "MATH 125 — Intro to Statistics"
     ],
     "highlights": ["Established study workflow; first exposure to structured problem solving."],
-    "artifacts": []
+    "artifacts": [
+      {
+        "title": "Display Connector Catalog (VGA, DVI, HDMI, DP, Thunderbolt) — Group Project",
+        "type": "pdf",
+        "link": "assets/artifacts/2022-fall/display-connectors-catalog.pdf",
+        "tags": ["hardware", "video-ports", "group", "foundations"],
+        "desc": "Quick reference comparing purpose, ports, and trivia for common display connectors; collaborative class assignment."
+      }
+    ]
   },
   {
     "term": "Spring 2023",
