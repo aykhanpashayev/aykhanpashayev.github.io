@@ -1,0 +1,162 @@
+[
+  {
+    "term": "Fall 2022",
+    "dates": "Sep–Dec 2022",
+    "summary": "Starting college at UMass Boston; foundations and problem solving.",
+    "courses": [
+      "FRENCH 101 — Elementary French I",
+      "IT 110 — IT Problem Solving",
+      "MATH 125 — Intro to Statistics",
+      "SEMINR 114G — Invest Across Curr"
+    ],
+    "highlights": ["Established study workflow; first exposure to structured problem solving."],
+    "artifacts": []
+  },
+  {
+    "term": "Spring 2023",
+    "dates": "Jan–May 2023",
+    "summary": "Second semester at UMass Boston; databases, networks, and core writing.",
+    "courses": [
+      "ENGL 101 — Freshman English I",
+      "IT 230L — Relational Databases",
+      "IT 246 — Introduction to Networks",
+      "MATH 115 — College Algebra",
+      "SOCIOL 101 — Intro Sociology"
+    ],
+    "highlights": ["Hands-on with ER modeling and basic subnetting and cisco packet tracer labs."],
+    "artifacts": []
+  },
+  {
+    "term": "Fall 2023",
+    "dates": "Aug–Dec 2023",
+    "summary": "I transferred to Florida International University (FIU): Java, precalc, gov, and public speaking.",
+    "courses": [
+      "COP 2250 — Java Programming",
+      "MAC 1147 — Precalculus Algebra & Trig",
+      "POS 2041 — American Government",
+      "SPC 2608 — Public Speaking"
+    ],
+    "highlights": ["Strong start at FIU (Term GPA 3.92)."],
+    "artifacts": []
+  },
+  {
+    "term": "Spring 2024",
+    "dates": "Jan–May 2024",
+    "summary": "Python for engineers, macroeconomics, and writing; built first ops/security scripts.",
+    "courses": [
+      "COP 2270 — Sec C Prog for Engineers",
+      "ECO 2013 — Principles of Macroeconomics",
+      "EGC 1100L — English for Academic Purposes",
+      "ENC 1102 — Writing & Rhetoric II",
+      "MUL 1010 — Music Literature/Appreciation"
+    ],
+    "highlights": ["Automated routine Linux checks; started publishing code to GitHub."],
+    "artifacts": [
+      {
+        "title": "Linux Administration & Security Scripts",
+        "type": "GitHub",
+        "link": "https://github.com/aykhanpashayev/Linux_Administration_Scripts",
+        "tags": ["bash", "linux", "security"]
+      },
+      {
+        "title": "Simple Python Port Scanner",
+        "type": "GitHub",
+        "link": "https://github.com/aykhanpashayev/port-scanner",
+        "tags": ["python", "networking"]
+      }
+    ]
+  },
+  {
+    "term": "Fall 2024",
+    "dates": "Aug–Dec 2024",
+    "summary": "Going more deep into Cybersecurity field; OS, Java, discrete math, and socials.",
+    "courses": [
+      "CGS 3767 — Computer OS",
+      "COP 3804 — Intermediate Java",
+      "COT 3100 — Discrete Structures",
+      "PSY 2012 — Intro to Psychology",
+      "REL 2011 — Intro to Religion"
+    ],
+    "highlights": ["Dean’s List; deeper systems knowledge and problem-solving."],
+    "artifacts": [
+      {
+        "title": "Python Keylogger (Educational)",
+        "type": "GitHub",
+        "link": "https://github.com/aykhanpashayev/keylogger",
+        "tags": ["python", "education", "pynput", "defense-labs"]
+      }
+    ]
+  },
+  {
+    "term": "Spring 2025 - My hardest semester at college",
+    "dates": "Jan–May 2025",
+    "summary": "Applied networking, professional tech writing, physics lab, HCI.",
+    "courses": [
+      "CEN 3721 — Intro to Human-Computer Interaction",
+      "CGS 1920 — Intro. Field to Computing",
+      "CGS 4285 — Applied Networking",
+      "ENC 3249 — Professional Technical Writing (Computing)",
+      "PHY 2048L — General Physics Lab I",
+      "PHY 2053 — Physics without Calculus I",
+      "SYG 3002 — Basic Ideas of Sociology"
+    ],
+    "highlights": ["Dean’s List; began building cloud security monitoring labs."],
+    "artifacts": [
+      {
+        "title": "Monitoring & Alerting with CloudTrail, CloudWatch, SNS & EventBridge",
+        "type": "GitHub",
+        "link": "https://github.com/aykhanpashayev/cloudtrail-cloudwatch-monitoring-lab",
+        "tags": ["aws", "cloudtrail", "eventbridge", "sns", "cloudwatch"]
+      },
+      {
+        "title": "AWS KMS Encryption Lab",
+        "type": "GitHub",
+        "link": "https://github.com/aykhanpashayev/aws-kms-encryption-lab",
+        "tags": ["aws", "kms", "s3", "ec2", "ebs"]
+      }
+    ]
+  },
+  {
+    "term": "Summer 2025 — Cybersecurity BS + Certificate",
+    "dates": "May–Aug 2025",
+    "summary": "Automation, information retrieval, and global policy; started certificate in Cyber Intel & Info Policy.",
+    "courses": [
+      "CIS 4431 — IT Automation",
+      "ISS 3613 — Issues in Global Policy",
+      "COP 4703 — Information Retrieval"
+    ],
+    "highlights": ["Dean’s List; drift auto-remediation mini-project."],
+    "artifacts": [
+      {
+        "title": "Auto-Remediating Security-Group Drift (Config + Lambda)",
+        "type": "GitHub",
+        "link": "https://github.com/aykhanpashayev/aws-config-lambda-remediation-lab",
+        "tags": ["aws", "config", "lambda", "cloudwatch"]
+      }
+    ]
+  },
+  {
+    "term": "Fall 2025 — In Progress",
+    "dates": "Aug–Dec 2025",
+    "summary": "Capstone + comms, chemistry, data comms, and cyber policy.",
+    "courses": [
+      "CGS 3095 — Technology in the Global Arena",
+      "CHM 1033 — Survey of Chemistry",
+      "CHM 1033L — Survey of Chemistry Lab",
+      "CIS 3950 — Capstone I",
+      "CNT 4513 — Data Communications",
+      "ISS 4651 — Topics in Cyber Policy"
+    ],
+    "highlights": [
+      "Capstone I underway; continue Cyber Intel & Info Policy certificate."
+    ],
+    "artifacts": [
+      {
+        "title": "Capstone: AnomAI (in progress)",
+        "type": "Coming soon",
+        "link": "#",
+        "tags": ["aws", "ai", "soc"]
+      }
+    ]
+  }
+]
