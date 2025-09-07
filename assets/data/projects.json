@@ -1,5 +1,19 @@
 [
   {
+  "title": "TEST — If you see this, JSON works",
+  "one_liner": "Temporary card to verify data-driven render.",
+  "tags": ["test"],
+  "timeline": "now",
+  "context": "test",
+  "problem": "n/a",
+  "approach": "n/a",
+  "tech_stack": "n/a",
+  "results": "n/a",
+  "links": { "repo": "#", "docs": "#" },
+  "status": "completed"
+}
+
+  {
     "title": "Auto-Remediating Security-Group Drift",
     "one_liner": "Detects and auto-reverts unauthorized EC2 SG rule changes (keeps only 80/443 open).",
     "tags": ["aws", "security", "lambda", "cloudwatch"],
