@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aykhan Pashayev — Cybersecurity Portfolio</title>
+  <meta name="description" content="Cybersecurity & Cloud Security projects, labs, and leadership by Aykhan Pashayev." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="container">
+      <a class="logo" href="/">AP</a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul id="nav-links" class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="content">
+    <section class="hero container">
+      <h1>Hi, I’m <span class="accent">Aykhan Pashayev</span>.</h1>
+      <p class="lead">Senior at FIU focused on cloud security, ethical hacking, and SOC engineering.</p>
+      <div class="cta">
+        <a class="btn" href="#projects">See Projects</a>
+        <a class="btn secondary" href="#resume">Download Resume (PDF)</a>
+      </div>
+    </section>
+
+    <section id="projects" class="container">
+      <h2>Featured Projects (coming soon)</h2>
+      <ul class="cards">
+        <li class="card">
+          <h3>Auto-Remediating Security-Group Drift</h3>
+          <p class="small">AWS Config + Lambda • Security</p>
+          <p>Serverless rule that detects and reverts unauthorized SG changes (keeps only 80/443 open).</p>
+        </li>
+        <li class="card">
+          <h3>CloudTrail Monitoring & Alerting</h3>
+          <p class="small">CloudWatch • EventBridge • SNS</p>
+          <p>Monitors API activity and alerts on sensitive events; adds Logs Insights queries for analysis.</p>
+        </li>
+        <li class="card">
+          <h3>Simple Python Port Scanner</h3>
+          <p class="small">Python • Networking</p>
+          <p>Fast threaded scanner with clear output and safe defaults for demos.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="resume" class="container">
+      <h2>Resume</h2>
+      <p>Later, add <code>assets/Aykhan_Pashayev_Resume.pdf</code> and this link will work:</p>
+      <p><a href="assets/Aykhan_Pashayev_Resume.pdf" class="btn" download>Download PDF</a></p>
+    </section>
+
+    <section id="contact" class="container">
+      <h2>Contact</h2>
+      <ul class="contact-list">
+        <li><a href="mailto:">Email</a></li>
+        <li><a href="https://github.com/USERNAME">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/USERNAME">LinkedIn</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container small">
+      <p>© <span id="year"></span> Aykhan Pashayev. Built with GitHub Pages.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const btn = document.querySelector('.menu-toggle');
+    const links = document.getElementById('nav-links');
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      links.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
