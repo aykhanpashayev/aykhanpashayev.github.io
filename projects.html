@@ -29,30 +29,12 @@
     <h1>Projects</h1>
     <p class="small">Focused on cloud security, blue team engineering, and practical tooling.</p>
 
-    <ul class="cards">
-      <!-- Project 1 (real content) -->
-      <li class="card">
-        <h3>Auto-Remediating Security-Group Drift</h3>
-        <p class="small">AWS Config • Lambda • CloudWatch</p>
-        <p><strong>One-liner:</strong> Detects and auto-reverts unauthorized EC2 Security Group rule changes (keeps only 80/443 open).</p>
-
-        <details>
-          <summary>Details</summary>
-          <p><strong>Problem:</strong> SG rules drift over time, exposing ports beyond policy.</p>
-          <p><strong>Approach:</strong> Custom AWS Config rule → EventBridge triggers Lambda → evaluates SG state → removes non-compliant rules → logs to CloudWatch.</p>
-          <p><strong>Tech:</strong> AWS Config, Lambda (Python), EventBridge, CloudWatch Logs, IAM least-privilege.</p>
-          <p><strong>Result (So what?):</strong> Prevents risky exposure automatically and documents each remediation for audit.</p>
-          <p><strong>Links:</strong> <a href="#" aria-disabled="true">GitHub (coming soon)</a></p>
-        </details>
-      </li>
-
-      <!-- Placeholder cards you’ll fill next -->
-<ul class="cards" id="project-grid">
-  <noscript>
-    <li class="card">Enable JavaScript to view projects.</li>
-  </noscript>
-</ul>
-
+    <!-- Dynamic grid populated from JSON -->
+    <ul class="cards" id="project-grid">
+      <noscript>
+        <li class="card">Enable JavaScript to view projects.</li>
+      </noscript>
+    </ul>
   </main>
 
   <footer class="site-footer">
@@ -62,6 +44,7 @@
   </footer>
 
   <script>
+    // Year + mobile menu
     document.getElementById('year').textContent = new Date().getFullYear();
     const btn = document.querySelector('.menu-toggle');
     const links = document.getElementById('nav-links');
@@ -70,77 +53,64 @@
       btn.setAttribute('aria-expanded', String(!expanded));
       links.classList.toggle('open');
     });
+
+    // Render projects from JSON
+    async function renderProjects() {
+      const grid = document.getElementById('project-grid');
+      try {
+        const res = await fetch('assets/data/projects.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error('Failed to load projects.json');
+        const items = await res.json();
+
+        items.forEach(p => {
+          const li = document.createElement('li');
+          li.className = 'card';
+
+          const title = document.createElement('h3');
+          title.textContent = p.title;
+
+          const small = document.createElement('p');
+          small.className = 'small';
+          small.textContent = (p.tags || []).join(' • ');
+
+          const oneliner = document.createElement('p');
+          oneliner.innerHTML = `<strong>One-liner:</strong> ${p.one_liner}`;
+
+          const details = document.createElement('details');
+          const summary = document.createElement('summary');
+          summary.textContent = 'Details';
+          details.appendChild(summary);
+
+          const prob = document.createElement('p');
+          prob.innerHTML = `<strong>Problem:</strong> ${p.problem}`;
+
+          const appr = document.createElement('p');
+          appr.innerHTML = `<strong>Approach:</strong> ${p.approach}`;
+
+          const tech = document.createElement('p');
+          tech.innerHTML = `<strong>Tech:</strong> ${p.tech_stack}`;
+
+          const resu = document.createElement('p');
+          resu.innerHTML = `<strong>Result (So what?):</strong> ${p.results}`;
+
+          const linksP = document.createElement('p');
+          const repo = p?.links?.repo;
+          const docs = p?.links?.docs;
+          const linkBits = [];
+          if (repo && repo !== '#') linkBits.push(`<a href="${repo}" target="_blank" rel="noopener">GitHub</a>`);
+          if (docs && docs !== '#') linkBits.push(`<a href="${docs}" target="_blank" rel="noopener">Docs</a>`);
+          linksP.innerHTML = linkBits.length ? `<strong>Links:</strong> ${linkBits.join(' · ')}` : '';
+
+          details.append(prob, appr, tech, resu, linksP);
+          li.append(title, small, oneliner, details);
+          grid.appendChild(li);
+        });
+      } catch (e) {
+        grid.innerHTML = `<li class="card">Couldn’t load projects. Please refresh.</li>`;
+        console.error(e);
+      }
+    }
+    renderProjects();
   </script>
 </body>
-  <script>
-  async function renderProjects() {
-    const grid = document.getElementById('project-grid');
-    try {
-      const res = await fetch('assets/data/projects.json', { cache: 'no-store' });
-      const items = await res.json();
-
-      items.forEach(p => {
-        const li = document.createElement('li');
-        li.className = 'card';
-
-        const title = document.createElement('h3');
-        title.textContent = p.title;
-
-        const small = document.createElement('p');
-        small.className = 'small';
-        small.textContent = p.tags.join(' • ');
-
-        const oneliner = document.createElement('p');
-        oneliner.innerHTML = `<strong>One-liner:</strong> ${p.one_liner}`;
-
-        const details = document.createElement('details');
-        const summary = document.createElement('summary');
-        summary.textContent = 'Details';
-        details.appendChild(summary);
-
-        const prob = document.createElement('p');
-        prob.innerHTML = `<strong>Problem:</strong> ${p.problem}`;
-
-        const appr = document.createElement('p');
-        appr.innerHTML = `<strong>Approach:</strong> ${p.approach}`;
-
-        const tech = document.createElement('p');
-        tech.innerHTML = `<strong>Tech:</strong> ${p.tech_stack}`;
-
-        const resu = document.createElement('p');
-        resu.innerHTML = `<strong>Result (So what?):</strong> ${p.results}`;
-
-        const linksP = document.createElement('p');
-        const repo = p?.links?.repo;
-        const docs = p?.links?.docs;
-        let linksHtml = [];
-        if (repo && repo !== '#') linksHtml.push(`<a href="${repo}" target="_blank" rel="noopener">GitHub</a>`);
-        if (docs && docs !== '#') linksHtml.push(`<a href="${docs}" target="_blank" rel="noopener">Docs</a>`);
-        linksP.innerHTML = linksHtml.length ? `<strong>Links:</strong> ${linksHtml.join(' · ')}` : '';
-
-        details.append(prob, appr, tech, resu, linksP);
-
-        li.append(title, small, oneliner, details);
-        grid.appendChild(li);
-      });
-    } catch (e) {
-      grid.innerHTML = `<li class="card">Couldn’t load projects. Please refresh.</li>`;
-      console.error(e);
-    }
-  }
-
-  // keep this: sets the year + mobile menu toggle
-  document.getElementById('year').textContent = new Date().getFullYear();
-  const btn = document.querySelector('.menu-toggle');
-  const links = document.getElementById('nav-links');
-  btn.addEventListener('click', () => {
-    const expanded = btn.getAttribute('aria-expanded') === 'true';
-    btn.setAttribute('aria-expanded', String(!expanded));
-    links.classList.toggle('open');
-  });
-
-  // new: render data-driven projects
-  renderProjects();
-</script>
-
 </html>
