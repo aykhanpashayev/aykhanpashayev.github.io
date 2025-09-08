@@ -164,6 +164,13 @@
         "link": "assets/artifacts/2023-fall/security-threats-speech.mp4",
         "tags": ["public-speaking", "security", "awareness"],
         "desc": "Explains hacking and common attack vectors: eavesdropping, social engineering, phishing, shoulder surfing, and dumpster diving."
+      },
+      {
+        "title": "Persuasive Speech — Cybersecurity Awareness (SPC 2608)",
+        "type": "video",
+        "link": "assets/artifacts/2023-fall/cybersecurity-awareness-persuasive.mp4",
+        "tags": ["public-speaking", "security-awareness", "phishing", "human-firewall"],
+        "desc": "Case: 2016 phishing (John Podesta) → argue for a 'human firewall' culture: Train • Analyze • Win, plus device hardening, safe browsing, and handling confidential info."
       }
     ]
   },
