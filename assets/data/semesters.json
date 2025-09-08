@@ -22,6 +22,13 @@
         "link": "assets/artifacts/2022-fall/devices-inventory.xlsx",
         "tags": ["hardware", "inventory", "group"],
         "desc": "Spreadsheet comparing our devices by specs and purpose."
+      },
+      {
+        "title": "Packet Tracer — Project 8 (Tasks 1–6)",
+        "type": "pdf",
+        "link": "assets/artifacts/2022-fall/project-8-packet-tracer.pdf",
+        "tags": ["networking", "packet-tracer", "coursework"],
+        "desc": "Configured end devices, deployed & cabled a small LAN, validated paths with PDUs, and documented physical/logical views."
       }
     ]
   },
