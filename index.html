@@ -18,6 +18,7 @@
       <a class="logo" href="/">AP</a>
       <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
       <ul id="nav-links" class="nav-links">
+        <li><a href="#experience">Experience</a></li>
         <li><a href="/projects.html">Projects</a></li>
         <li><a href="/github.html">GitHub</a></li>
         <li><a href="/timeline.html">Timeline</a></li>
@@ -28,6 +29,13 @@
   </header>
 
   <main id="content">
+    <section id="experience" class="container">
+      <h2>Experience</h2>
+      <ul class="cards" id="experience-list">
+      <noscript><li class="card">Enable JavaScript to view experience.</li></noscript>
+  </ul>
+</section>
+
     <section class="hero container">
       <h1>Aspiring Cloud Security Engineer — <span class="accent">detection engineering, IAM, and automation</span>.</h1>
       <p class="lead">Senior @ Florida International University. I build serverless guardrails and alerting that cut MTTA and prevent misconfigurations.</p>
@@ -80,14 +88,48 @@
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const btn = document.querySelector('.menu-toggle');
-    const links = document.getElementById('nav-links');
-    btn.addEventListener('click', () => {
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!expanded));
-      links.classList.toggle('open');
-    });
-  </script>
+  async function renderExperience() {
+    const list = document.getElementById('experience-list');
+    if (!list) return;
+    try {
+      const res = await fetch('assets/data/experience.json', { cache: 'no-store' });
+      const items = await res.json();
+
+      list.innerHTML = '';
+      items.forEach(x => {
+        const li = document.createElement('li');
+        li.className = 'card';
+
+        const h3 = document.createElement('h3');
+        h3.textContent = `${x.role} — ${x.org}`;
+
+        const small = document.createElement('p');
+        small.className = 'small';
+        small.textContent = `${x.location} • ${x.dates}`;
+
+        const sum = document.createElement('p');
+        sum.textContent = x.summary || '';
+
+        const ul = document.createElement('ul');
+        (x.highlights || []).forEach(h => {
+          const li2 = document.createElement('li'); li2.textContent = h; ul.appendChild(li2);
+        });
+
+        const tags = document.createElement('p');
+        tags.className = 'small';
+        tags.textContent = (x.skills || []).join(' • ');
+
+        li.append(h3, small, sum, ul, tags);
+        list.appendChild(li);
+      });
+    } catch (e) {
+      console.error(e);
+      document.getElementById('experience-list').innerHTML =
+        '<li class="card">Couldn’t load experience.</li>';
+    }
+  }
+  renderExperience();
+</script>
+
 </body>
 </html>
