@@ -111,6 +111,13 @@
         "link": "assets/artifacts/2023-spring/building-patch-cable.pdf",
         "tags": ["hardware", "networking", "cabling", "rj-45"],
         "desc": "One-page guide: cut/strip cable, twist pairs, crimp RJ-45, and verify with a cable tester."
+      },
+      {
+        "title": "SQL Coursework — KIMTAY Sales DB (DDL/DML + Queries)",
+        "type": "sql",
+        "link": "assets/artifacts/2023-spring/ch1-8.sql",
+        "tags": ["sql", "mysql", "relational", "coursework"],
+        "desc": "Built a sample sales database (tables, FKs, views, indexes) and practiced joins, subqueries, GROUP BY/HAVING, and stored procedures with cursors."
       }
     ]
   },
