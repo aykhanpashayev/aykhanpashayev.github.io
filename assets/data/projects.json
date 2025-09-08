@@ -47,7 +47,7 @@
     "links": { "repo": "https://github.com/aykhanpashayev/aws-kms-encryption-lab", "docs": "#" },
     "status": "completed"
   },
-
+  
   {
     "slug": "linux-admin-security-scripts",
     "title": "Linux Administration & Security Scripts",
@@ -171,6 +171,22 @@
     "tech_stack": "Cisco (concepts), IP addressing, routing",
     "results": "Clear IP plan with growth headroom; isolated server segment; concise topology diagrams.",
     "links": { "repo": "#", "docs": "assets/artifacts/2025-spring/network-design-subnetting-topology.pdf" },
+    "status": "completed"
+  },
+  {
+    "title": "Recommendation Report — Premium Membership Program (Noble 33)",
+    "one_liner": "Business/UX research + strategy: design a tiered membership that boosts retention, revenue, and brand prestige.",
+    "tags": ["writing", "research", "business", "ux", "loyalty"],
+    "timeline": "Spring 2025",
+    "context": "Team project",
+    "problem": "Create a loyalty/membership strategy for a premium restaurant group that fits the brand and improves margins.",
+    "approach": "Industry + academic research, stakeholder interview, evaluation criteria (retention, revenue, brand fit, feasibility), and a tiered program design with launch plan.",
+    "tech_stack": "Research methods, data synthesis, stakeholder analysis",
+    "results": "Recommended a tiered model with experiential perks; outlined pricing, rollout (pilot → scale), and targeted marketing to maximize WOM and repeat visits.",
+    "links": {
+      "repo": "#",
+      "docs": "assets/artifacts/2025-spring/premium-membership-program-noble33.pdf"
+    },
     "status": "completed"
   }
 ]
