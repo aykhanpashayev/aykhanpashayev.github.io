@@ -258,7 +258,15 @@
       "ENC 3249 — Professional Technical Writing (Computing)"
     ],
     "highlights": ["Dean’s List; began publishing more often in GitHub and attending CTFs."],
-    "artifacts": []
+    "artifacts": [
+      {
+        "title": "Network Design — Subnetting, Routing & Firewall Segmentation",
+        "type": "pdf",
+        "link": "assets/artifacts/2025-spring/network-design-subnetting-topology.pdf",
+        "tags": ["networking", "subnetting", "routing", "firewall"],
+        "desc": "Designed a multi-site network from 128.60.80.0/23: VLSM plan, /30 serial links, router interfaces, and a router-firewall segment for servers; includes L3 diagram and site topologies."
+      }
+    ]
   },
   {
     "term": "Summer 2025 - Preparations started for AWS Security Specialty",
