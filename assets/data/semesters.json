@@ -36,6 +36,13 @@
         "link": "assets/artifacts/2022-fall/vbox-fedora-vm-demo.mp4",
         "tags": ["virtualization", "fedora", "virtualbox"],
         "desc": "Short screen recording showing I'm being introduced to Linux via Fedore in Virtual Box."
+      },
+      {
+        "title": "My First Website — “Wlacien’s Favorite Hobby”",
+        "type": "link",
+        "link": "assets/artifacts/2022-fall/Wlacien.html",
+        "tags": ["html", "it110", "beginner"],
+        "desc": "My first HTML page for IT 110 (Fall 2022): headings, images, and paragraphs—no frameworks."
       }
     ]
   },
