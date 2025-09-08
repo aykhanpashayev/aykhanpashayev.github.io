@@ -62,6 +62,13 @@
         "link": "assets/artifacts/2023-spring/pt-lab-basic-ip-ping.mp4",
         "tags": ["networking", "packet-tracer", "icmp"],
         "desc": "Configured PC0 (IP 192.168.100.1/24, GW/DNS 192.168.100.250), verified local pings (.250, .100), and confirmed cross-subnet ping to 192.168.101.1 fails as expected (no routing)."
+      },
+      {
+        "title": "Packet Tracer — HTTP Request Simulation & PDU Layer Analysis",
+        "type": "video",
+        "link": "assets/artifacts/2023-spring/pt-http-layers-simulation.mp4",
+        "tags": ["networking", "packet-tracer", "tcp/ip", "http", "simulation"],
+        "desc": "Used Simulation mode to browse to 192.168.100.2, inspected the PDU, and identified Ethernet II → IPv4 → TCP → HTTP fields per the lab guide."
       }
     ]
   },
