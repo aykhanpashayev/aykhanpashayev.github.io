@@ -1,0 +1,15 @@
+[
+  {
+    "role": "Hardware Lab Assistant",
+    "org": "Florida International University (FIU)",
+    "location": "Miami, FL",
+    "dates": "Sep 2024 – Apr 2025",
+    "summary": "Supported programming labs and lab readiness; helped students debug code and OS issues.",
+    "highlights": [
+      "Mentored 150+ students in C/Java, Linux and OS fundamentals; improved assignment pass rates by ~60%.",
+      "Configured and verified 30+ Windows/Linux lab workstations before classes.",
+      "Helped troubleshoot scripts during lab hours; reduced recurring script errors by ~50%."
+    ],
+    "skills": ["java", "c", "linux", "windows", "scripting", "troubleshooting"]
+  }
+]
