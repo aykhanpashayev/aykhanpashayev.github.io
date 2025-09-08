@@ -203,6 +203,13 @@
         "link": "assets/artifacts/2024-spring/c-program-math-strings-arrays.c",
         "tags": ["c", "math", "strings", "arrays"],
         "desc": "Demonstrates math.h routines (round/ceil/floor/min/max/trig/exp/log/sqrt), rand() usage, and string parsing (vowel/consonant, case transforms, ASCII) with a simple pyramid formatter."
+      },
+      {
+        "title": "C Program — 2D Arrays, Swapping/Sorting, ASCII & Loops",
+        "type": "c",
+        "link": "assets/artifacts/2024-spring/c-program-2d-arrays-sorting-ascii.c",
+        "tags": ["c", "arrays", "loops", "io"],
+        "desc": "Builds a 10×10 table and computes row/column totals; sorts three numbers ascending; prints ASCII letters down from 'Z'; safe division loop with sentinel; modulo filter and parallel string arrays."
       }
     ]
   },
