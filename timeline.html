@@ -100,8 +100,9 @@
         ul.className = 'artifacts';
         s.artifacts.forEach(a => {
           const it = document.createElement('li');
+
           const title = document.createElement('a');
-          title.textContent = a.title;
+          title.textContent = a.title || 'Untitled artifact';
           title.href = a.link || '#';
           if (a.link && a.link !== '#') { title.target = '_blank'; title.rel = 'noopener'; }
 
@@ -111,8 +112,18 @@
           meta.textContent = [a.type, tagText].filter(Boolean).join(' — ');
 
           it.append(title, document.createElement('br'), meta);
-          ul.appendChild(it);
+
+          // NEW: optional one-line description
+            if (a.desc) {
+              const d = document.createElement('p');
+              d.className = 'small';
+              d.textContent = a.desc;
+              it.appendChild(d);
+            }
+
+            ul.appendChild(it);
         });
+
         sec.appendChild(ul);
         li.appendChild(sec);
       }
