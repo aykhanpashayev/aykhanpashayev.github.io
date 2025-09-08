@@ -125,6 +125,13 @@
         "link": "assets/artifacts/2023-spring/pt-home-network-dhcp-renew.mp4",
         "tags": ["networking", "packet-tracer", "dhcp", "home-network"],
         "desc": "Released/renewed DHCP on the laptop, obtained 192.168.0.101, and verified connectivity to 192.168.0.1 via ping."
+      },
+      {
+        "title": "Networking a Stand-Alone Windows Machine",
+        "type": "pdf",
+        "link": "assets/artifacts/2023-spring/networking-standalone-machine.pdf",
+        "tags": ["networking", "windows", "file-sharing", "apipa"],
+        "desc": "Checked MAC/IP with ipconfig, enabled folder sharing, direct-cabled to a peer, observed APIPA assignment, and discovered the other host."
       }
     ]
   },
