@@ -132,6 +132,13 @@
         "link": "assets/artifacts/2023-spring/networking-standalone-machine.pdf",
         "tags": ["networking", "windows", "file-sharing", "apipa"],
         "desc": "Checked MAC/IP with ipconfig, enabled folder sharing, direct-cabled to a peer, observed APIPA assignment, and discovered the other host."
+      },
+      {
+        "title": "Wi-Fi Router Security Lab (Project 10)",
+        "type": "pdf",
+        "link": "assets/artifacts/2023-spring/wifi-router-security-lab.pdf",
+        "tags": ["networking", "wifi", "security", "home-network"],
+        "desc": "Reviewed/adjusted SSID broadcast, 2.4 GHz channel & width (20/40 MHz), WPA/WPA2-PSK modes, AES vs TKIP, passphrase strength, guest isolation, and LAN client filtering—plus pros/cons and recommendations."
       }
     ]
   },
