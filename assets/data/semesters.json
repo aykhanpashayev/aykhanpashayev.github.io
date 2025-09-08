@@ -223,7 +223,15 @@
       "COT 3100 — Discrete Structures"
     ],
     "highlights": ["Dean’s List; deeper systems knowledge and problem solving. Using Kali Linux everyday in VirtualBox"],
-    "artifacts": []
+    "artifacts": [
+      {
+        "title": "Java OOP — Library Mini-Project (Book + Tester)",
+        "type": "link",
+        "link": "assets/artifacts/2024-fall/library-mini-project.zip",
+        "tags": ["java", "oop", "fundamentals"],
+        "desc": "Modeled a Book with availability and a static counter; includes borrow/return, late-fee calc, displayInfo, and a small driver + UML sketch."
+      }
+    ]
   },
   {
     "term": "Spring 2025 — My hardest semester at college",
