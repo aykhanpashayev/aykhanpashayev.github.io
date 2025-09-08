@@ -90,6 +90,13 @@
         "link": "assets/artifacts/2023-spring/pt-arp-broadcast-analysis.mp4",
         "tags": ["networking", "packet-tracer", "arp", "simulation", "tcp/ip"],
         "desc": "Pinged 192.168.101.1 in Simulation mode to trigger ARP, then inspected the outbound PDU (Ethernet II + ARP) and reviewed MAC/IP fields."
+      },
+      {
+        "title": "Essay — AI in Gaming (ENGL 101)",
+        "type": "pdf",
+        "link": "assets/artifacts/2023-spring/ai-in-gaming-essay.pdf",
+        "tags": ["writing", "essay", "ai", "gaming"],
+        "desc": "Short essay on how AI enhances visuals, NPC behavior, and dynamic gameplay (Mar 25, 2023)."
       }
     ]
   },
