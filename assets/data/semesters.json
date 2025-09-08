@@ -189,6 +189,13 @@
         "link": "assets/artifacts/2024-spring/ai-role-in-cybersecurity-essay.pdf",
         "tags": ["writing", "essay", "ai", "cybersecurity"],
         "desc": "Explores AI for detections/anomaly spotting, phishing and APT detection, plus emerging offensive-AI risks; includes sources and reflection."
+      },
+      {
+        "title": "C Program — Functions, Loops, and Basic Arithmetic",
+        "type": "c",
+        "link": "assets/artifacts/2024-spring/c-program-functions-loops.c",
+        "tags": ["c", "programming", "functions", "loops"],
+        "desc": "Practice program showcasing small arithmetic routines, for/while loop variants, and a simple info function, all orchestrated in main."
       }
     ]
   },
