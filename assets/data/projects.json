@@ -109,7 +109,7 @@
     "approach": "Configured end devices; deployed and cabled routers/switches; assigned addresses/VLANs; sent PDUs to trace paths; captured physical/logical views.",
     "tech_stack": "Cisco Packet Tracer",
     "results": "All hosts achieved reachability; PDUs confirmed correct forwarding; final topology documented in the PDF.",
-    "links": { "repo": "#", "docs": "assets/artifacts/2023-spring/project-8-packet-tracer.pdf" },
+    "links": { "repo": "#", "docs": "assets/artifacts/2022-fall/project-8-packet-tracer.pdf" },
     "status": "completed"
   }
 ]
