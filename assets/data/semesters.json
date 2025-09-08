@@ -286,6 +286,13 @@
         "link": "assets/artifacts/2025-spring/memo-billing-error.pdf",
         "tags": ["writing", "business-communication", "operations"],
         "desc": "Explains a 13% over-billing issue, outlines client engagement/operational support/feedback duties, and proposes service-based remediation instead of refunds."
+      },
+      {
+        "title": "Proposal — Fixing Leadership Engagement in PantherSec",
+        "type": "pdf",
+        "link": "assets/artifacts/2025-spring/panthersec-leadership-engagement-proposal.pdf",
+        "tags": ["writing", "proposal", "leadership", "club"],
+        "desc": "Plan to investigate low leadership participation via interviews, best-practice research, and a scheduled recommendation report (Mar–Apr 2025)."
       }
     ]
   },
