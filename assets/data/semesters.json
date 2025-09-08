@@ -55,7 +55,15 @@
       "IT 246 — Introduction to Networks"
     ],
     "highlights": ["Hands-on with ER modeling, mySQL and basic subnetting; Cisco Packet Tracer labs."],
-    "artifacts": []
+    "artifacts": [
+      {
+        "title": "Packet Tracer — Basic IP Config & Ping Validation",
+        "type": "video",
+        "link": "assets/artifacts/2023-spring/pt-lab-basic-ip-ping.mp4",
+        "tags": ["networking", "packet-tracer", "icmp"],
+        "desc": "Configured PC0 (IP 192.168.100.1/24, GW/DNS 192.168.100.250), verified local pings (.250, .100), and confirmed cross-subnet ping to 192.168.101.1 fails as expected (no routing)."
+      }
+    ]
   },
   {
     "term": "Fall 2023",
