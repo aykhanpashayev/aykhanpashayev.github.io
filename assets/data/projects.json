@@ -127,5 +127,21 @@
       "docs": "assets/artifacts/2024-fall/library-mini-project.zip"
     },
     "status": "completed"
+  },
+  {
+    "title": "Java OOP — Inheritance (Animal → Bird → Canary)",
+    "one_liner": "Multi-level inheritance with overridden display methods; tiny driver + UML.",
+    "tags": ["java", "oop", "inheritance"],
+    "timeline": "Fall 2024",
+    "context": "Coursework",
+    "problem": "Practice clean OO modeling and method overriding across a small class hierarchy.",
+    "approach": "Encapsulation in Animal; Bird extends Animal adding canFly; Canary extends Bird adding color; simple driver to exercise behavior.",
+    "tech_stack": "Java",
+    "results": "Demonstrated inheritance and overrides; ready to add toString() and unit tests.",
+    "links": {
+      "repo": "#",
+      "docs": "assets/artifacts/2024-fall/fall24-inheritance-canary.zip"
+    },
+    "status": "completed"
   }
 ]
