@@ -150,7 +150,15 @@
       "COP 2250 — Java Programming"
     ],
     "highlights": ["Strong start at FIU (Term GPA 3.92)."],
-    "artifacts": []
+    "artifacts": [
+      {
+        "title": "Java labs Pack (Fall 2023)",
+        "type": "link",
+        "link": "assets/artifacts/2023-fall/intro-level-java-all-labs.zip",
+        "tags": ["java", "coursework", "oop"],
+        "desc": "All intro level Java labs in one bundle."
+      }
+    ]
   },
   {
     "term": "Spring 2024",
