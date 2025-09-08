@@ -19,6 +19,7 @@
       <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
       <ul id="nav-links" class="nav-links">
         <li><a href="#experience">Experience</a></li>
+        <li><a href="#certs">Certifications</a></li>
         <li><a href="/projects.html">Projects</a></li>
         <li><a href="/github.html">GitHub</a></li>
         <li><a href="/timeline.html">Timeline</a></li>
@@ -33,8 +34,15 @@
       <h2>Experience</h2>
       <ul class="cards" id="experience-list">
       <noscript><li class="card">Enable JavaScript to view experience.</li></noscript>
-  </ul>
-</section>
+    </ul>
+  </section>
+
+    <section id="certs" class="container">
+      <h2>Certifications</h2>
+      <ul class="cards" id="certs-list">
+      <noscript><li class="card">Enable JavaScript to view certifications.</li></noscript>
+     </ul>
+  </section>
 
     <section class="hero container">
       <h1>Aspiring Cloud Security Engineer — <span class="accent">detection engineering, IAM, and automation</span>.</h1>
@@ -129,6 +137,47 @@
     }
   }
   renderExperience();
+</script>
+
+  <script>
+  async function renderCerts() {
+    const list = document.getElementById('certs-list');
+    if (!list) return;
+    try {
+      const res = await fetch('assets/data/certifications.json', { cache: 'no-store' });
+      const certs = await res.json();
+
+      list.innerHTML = '';
+      certs.forEach(c => {
+        const li = document.createElement('li');
+        li.className = 'card';
+
+        const h3 = document.createElement('h3');
+        const title = c.link && c.link !== '#'
+          ? `<a href="${c.link}" target="_blank" rel="noopener">${c.name}</a>`
+          : c.name;
+        h3.innerHTML = title;
+
+        const small = document.createElement('p');
+        small.className = 'small';
+        const statusEmoji = c.status === 'issued' ? '✅' : '⏳';
+        const when = c.date ? ` • ${c.date}` : '';
+        small.textContent = `${statusEmoji} ${c.issuer}${when}`;
+
+        const tags = document.createElement('p');
+        tags.className = 'small';
+        tags.textContent = (c.tags || []).join(' • ');
+
+        li.append(h3, small, tags);
+        list.appendChild(li);
+      });
+    } catch (e) {
+      console.error(e);
+      document.getElementById('certs-list').innerHTML =
+        '<li class="card">Couldn’t load certifications.</li>';
+    }
+  }
+  renderCerts();
 </script>
 
 </body>
