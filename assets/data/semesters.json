@@ -29,6 +29,13 @@
         "link": "assets/artifacts/2022-fall/project-8-packet-tracer.pdf",
         "tags": ["networking", "packet-tracer", "coursework"],
         "desc": "Configured end devices, deployed & cabled a small LAN, validated paths with PDUs, and documented physical/logical views."
+      },
+      {
+        "title": "VirtualBox on Fedora — VM Setup Demo",
+        "type": "video",
+        "link": "assets/artifacts/2022-fall/vbox-fedora-vm-demo.mp4",
+        "tags": ["virtualization", "fedora", "virtualbox"],
+        "desc": "Short screen recording showing I'm being introduced to Linux via Fedore in Virtual Box."
       }
     ]
   },
