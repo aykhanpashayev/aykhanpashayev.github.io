@@ -111,5 +111,21 @@
     "results": "All hosts achieved reachability; PDUs confirmed correct forwarding; final topology documented in the PDF.",
     "links": { "repo": "#", "docs": "assets/artifacts/2022-fall/project-8-packet-tracer.pdf" },
     "status": "completed"
+  },
+  {
+    "title": "Java OOP — Library Mini-Project",
+    "one_liner": "Book class with availability + static counter; borrow/return, late fee, and a simple tester.",
+    "tags": ["java", "oop", "fundamentals"],
+    "timeline": "Fall 2024",
+    "context": "Coursework",
+    "problem": "Practice clean OO design and state changes (borrow/return) in a small model.",
+    "approach": "Encapsulation with getters/setters, availability flag, static inventory counter; driver program and UML sketch.",
+    "tech_stack": "Java",
+    "results": "Demonstrated OOP fundamentals; ready to extend with a Library collection.",
+    "links": {
+      "repo": "#",
+      "docs": "assets/artifacts/2024-fall/library-mini-project.zip"
+    },
+    "status": "completed"
   }
 ]
