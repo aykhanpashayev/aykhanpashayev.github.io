@@ -76,6 +76,13 @@
         "link": "assets/artifacts/2023-spring/pt-dhcp-client-ipconfig.mp4",
         "tags": ["networking", "packet-tracer", "dhcp", "windows-cli"],
         "desc": "Switched PC0 to DHCP, received 192.168.100.100/24 with GW 192.168.100.250, and reviewed lease details using ipconfig /all per the lab guide."
+      },
+      {
+        "title": "Packet Tracer — ICMP Packet Capture (Internetwork Layer)",
+        "type": "video",
+        "link": "assets/artifacts/2023-spring/pt-icmp-internetwork-layer.mp4",
+        "tags": ["networking", "packet-tracer", "icmp", "simulation", "tcp/ip"],
+        "desc": "Used Simulation mode and Capture/Forward to ping 192.168.100.2, then inspected the outbound PDU (Ethernet → IP → ICMP) fields per the lab guide."
       }
     ]
   },
