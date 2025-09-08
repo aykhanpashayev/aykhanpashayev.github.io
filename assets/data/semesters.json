@@ -306,7 +306,15 @@
       "COP 4703 — Information Retrieval and Database Systems Management"
     ],
     "highlights": ["Dean’s List 3x in row; drift auto-remediation mini-project."],
-    "artifacts": []
+    "artifacts": [
+      {
+      "title": "Policy Paper — AI as a Double-Edged Sword in Cyber Defense",
+      "type": "pdf",
+      "link": "assets/artifacts/2025-summer/ai-double-edged-cyber-defense.pdf",
+      "tags": ["writing", "policy", "ai", "cybersecurity"],
+      "desc": "Analyzes how AI boosts detection/response yet enables offensive misuse; identifies U.S. policy gaps and recommends governance, oversight, defense investment, and civil-military integration (July 18, 2025)."
+      }
+    ]
   },
   {
     "term": "Fall 2025 — In Progress",
