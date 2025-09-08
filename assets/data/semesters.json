@@ -230,6 +230,13 @@
         "link": "assets/artifacts/2024-fall/library-mini-project.zip",
         "tags": ["java", "oop", "fundamentals"],
         "desc": "Modeled a Book with availability and a static counter; includes borrow/return, late-fee calc, displayInfo, and a small driver + UML sketch."
+      },
+      {
+        "title": "Java OOP — Inheritance (Animal → Bird → Canary)",
+        "type": "link",
+        "link": "assets/artifacts/2024-fall/fall24-inheritance-canary.zip",
+        "tags": ["java", "oop", "inheritance"],
+        "desc": "Multi-level inheritance with method overrides; driver program and UML sketch included."
       }
     ]
   },
