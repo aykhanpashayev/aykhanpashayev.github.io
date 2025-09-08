@@ -265,6 +265,13 @@
         "link": "assets/artifacts/2025-spring/network-design-subnetting-topology.pdf",
         "tags": ["networking", "subnetting", "routing", "firewall"],
         "desc": "Designed a multi-site network from 128.60.80.0/23: VLSM plan, /30 serial links, router interfaces, and a router-firewall segment for servers; includes L3 diagram and site topologies."
+      },
+      {
+        "title": "Recommendation Report — Premium Membership Program (Noble 33)",
+        "type": "pdf",
+        "link": "assets/artifacts/2025-spring/premium-membership-program-noble33.pdf",
+        "tags": ["writing", "research", "business"],
+        "desc": "Full report: research methods, evaluation criteria, findings, and a tiered membership recommendation with pilot plan."
       }
     ]
   },
