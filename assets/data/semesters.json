@@ -272,6 +272,13 @@
         "link": "assets/artifacts/2025-spring/premium-membership-program-noble33.pdf",
         "tags": ["writing", "research", "business"],
         "desc": "Full report: research methods, evaluation criteria, findings, and a tiered membership recommendation with pilot plan."
+      },
+      {
+        "title": "Business Letter — Client Billing Remediation",
+        "type": "pdf",
+        "link": "assets/artifacts/2025-spring/client-billing-remediation-letter.pdf",
+        "tags": ["writing", "business-communication", "customer-success"],
+        "desc": "Apology + remediation letter for a 13% overbilling incident; proposes credits, free documentation optimization, and enhanced project support. Shows clear tone and concrete remedies."
       }
     ]
   },
