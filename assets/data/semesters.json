@@ -157,6 +157,13 @@
         "link": "assets/artifacts/2023-fall/intro-level-java-all-labs.zip",
         "tags": ["java", "coursework", "oop"],
         "desc": "All intro level Java labs in one bundle."
+      },
+      {
+        "title": "Informative Speech — Security Threats",
+        "type": "video",
+        "link": "assets/artifacts/2023-fall/security-threats-speech.mp4",
+        "tags": ["public-speaking", "security", "awareness"],
+        "desc": "Explains hacking and common attack vectors: eavesdropping, social engineering, phishing, shoulder surfing, and dumpster diving."
       }
     ]
   },
