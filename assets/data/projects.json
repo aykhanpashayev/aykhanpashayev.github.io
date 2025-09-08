@@ -159,7 +159,7 @@
       "docs": "assets/artifacts/2024-fall/fall24-polymorphism-vehicle.zip"
     },
     "status": "completed"
-  }
+  },
   {
     "title": "Multi-Site Network Design (VLSM + Routed Links + Firewall)",
      "one_liner": "Subnetted 128.60.80.0/23 across 3 sites with /30 inter-site links and a server DMZ behind a router-firewall.",
