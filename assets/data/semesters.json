@@ -15,6 +15,13 @@
         "link": "assets/artifacts/2022-fall/display-connectors-catalog.pdf?v=2",
         "tags": ["hardware", "video-ports", "group", "foundations"],
         "desc": "Quick reference comparing purpose, ports, and trivia for common display connectors; collaborative class assignment."
+      },
+      {
+        "title": "Devices Inventory — Group Project",
+        "type": "xlsx",
+        "link": "assets/artifacts/2022-fall/devices-inventory.xlsx",
+        "tags": ["hardware", "inventory", "group"],
+        "desc": "Spreadsheet comparing our devices by specs and purpose."
       }
     ]
   },
