@@ -69,6 +69,13 @@
         "link": "assets/artifacts/2023-spring/pt-http-layers-simulation.mp4",
         "tags": ["networking", "packet-tracer", "tcp/ip", "http", "simulation"],
         "desc": "Used Simulation mode to browse to 192.168.100.2, inspected the PDU, and identified Ethernet II → IPv4 → TCP → HTTP fields per the lab guide."
+      },
+      {
+        "title": "Packet Tracer — DHCP Client with ipconfig",
+        "type": "video",
+        "link": "assets/artifacts/2023-spring/pt-dhcp-client-ipconfig.mp4",
+        "tags": ["networking", "packet-tracer", "dhcp", "windows-cli"],
+        "desc": "Switched PC0 to DHCP, received 192.168.100.100/24 with GW 192.168.100.250, and reviewed lease details using ipconfig /all per the lab guide."
       }
     ]
   },
