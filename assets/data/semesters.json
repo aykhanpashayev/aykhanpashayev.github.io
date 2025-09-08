@@ -237,6 +237,13 @@
         "link": "assets/artifacts/2024-fall/fall24-inheritance-canary.zip",
         "tags": ["java", "oop", "inheritance"],
         "desc": "Multi-level inheritance with method overrides; driver program and UML sketch included."
+      },
+      {
+        "title": "Java OOP — Polymorphism & Abstraction (Vehicle/Car/Airplane)",
+        "type": "link",
+        "link": "assets/artifacts/2024-fall/fall24-polymorphism-vehicle.zip",
+        "tags": ["java", "oop", "polymorphism", "abstraction"],
+        "desc": "Abstract Vehicle + Flyable interface; Car & Airplane override behavior; demo exercises dynamic dispatch. Includes UML diagram."
       }
     ]
   },
