@@ -160,7 +160,15 @@
       "COP 2270 — C Programming for Engineers"
     ],
     "highlights": ["Started using Linux more oftenly, publishing on GitHub"],
-    "artifacts": []
+    "artifacts": [
+      {
+        "title": "Essay — AI’s Role in Cybersecurity (ENC 1102)",
+        "type": "pdf",
+        "link": "assets/artifacts/2024-spring/ai-role-in-cybersecurity-essay.pdf",
+        "tags": ["writing", "essay", "ai", "cybersecurity"],
+        "desc": "Explores AI for detections/anomaly spotting, phishing and APT detection, plus emerging offensive-AI risks; includes sources and reflection."
+      }
+    ]
   },
   {
     "term": "Fall 2024",
