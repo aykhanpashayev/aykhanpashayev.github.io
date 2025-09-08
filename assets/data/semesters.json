@@ -12,7 +12,7 @@
       {
         "title": "Display Connector Catalog (VGA, DVI, HDMI, DP, Thunderbolt) — Group Project",
         "type": "pdf",
-        "link": "assets/artifacts/2022-fall/display-connectors-catalog.pdf",
+        "link": "assets/artifacts/2022-fall/display-connectors-catalog.pdf?v=2",
         "tags": ["hardware", "video-ports", "group", "foundations"],
         "desc": "Quick reference comparing purpose, ports, and trivia for common display connectors; collaborative class assignment."
       }
