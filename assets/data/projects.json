@@ -143,5 +143,21 @@
       "docs": "assets/artifacts/2024-fall/fall24-inheritance-canary.zip"
     },
     "status": "completed"
+  },
+  {
+    "title": "Java OOP — Polymorphism & Abstraction (Vehicle/Car/Airplane)",
+    "one_liner": "Abstract base + interface; overridden behaviors exercised via Vehicle references.",
+    "tags": ["java", "oop", "polymorphism", "abstraction"],
+    "timeline": "Fall 2024",
+    "context": "Coursework",
+    "problem": "Model a transport domain using abstract classes and interfaces; demonstrate dynamic dispatch.",
+    "approach": "Abstract Vehicle declares engine/acceleration/fly; Car and Airplane implement; Flyable interface; VehicleDemo drives polymorphic calls.",
+    "tech_stack": "Java",
+    "results": "Shows inheritance, interface contracts, and overridden methods; UML included.",
+    "links": {
+      "repo": "#",
+      "docs": "assets/artifacts/2024-fall/fall24-polymorphism-vehicle.zip"
+    },
+    "status": "completed"
   }
 ]
