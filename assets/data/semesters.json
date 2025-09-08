@@ -83,6 +83,13 @@
         "link": "assets/artifacts/2023-spring/pt-icmp-internetwork-layer.mp4",
         "tags": ["networking", "packet-tracer", "icmp", "simulation", "tcp/ip"],
         "desc": "Used Simulation mode and Capture/Forward to ping 192.168.100.2, then inspected the outbound PDU (Ethernet → IP → ICMP) fields per the lab guide."
+      },
+      {
+        "title": "Packet Tracer — ARP Broadcast & Header Fields",
+        "type": "video",
+        "link": "assets/artifacts/2023-spring/pt-arp-broadcast-analysis.mp4",
+        "tags": ["networking", "packet-tracer", "arp", "simulation", "tcp/ip"],
+        "desc": "Pinged 192.168.101.1 in Simulation mode to trigger ARP, then inspected the outbound PDU (Ethernet II + ARP) and reviewed MAC/IP fields."
       }
     ]
   },
