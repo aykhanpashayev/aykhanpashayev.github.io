@@ -97,6 +97,13 @@
         "link": "assets/artifacts/2023-spring/ai-in-gaming-essay.pdf",
         "tags": ["writing", "essay", "ai", "gaming"],
         "desc": "Short essay on how AI enhances visuals, NPC behavior, and dynamic gameplay (Mar 25, 2023)."
+      },
+      {
+        "title": "Essay — AI in the Criminal Justice System (ENGL 101)",
+        "type": "pdf",
+        "link": "assets/artifacts/2023-spring/ai-criminal-justice-essay.pdf",
+        "tags": ["writing", "essay", "ai", "criminal-justice"],
+        "desc": "First academic essay for ENGL 101 (Feb 21, 2023): surveys benefits (predictive policing, risk assessment) and concerns (bias, transparency, privacy)."
       }
     ]
   },
