@@ -44,7 +44,15 @@
     "issuer": "LinkedIn",
     "status": "issued",
     "date": "Jan 2025",
-    "link": "assets/artifacts/certifications/certificate-of-completion-learning-linux-command-line.pdf",
+    "link": "assets/artifacts/certifications/certificate-of-completion-ux-foundations-interaction-design.pdf",
     "tags": ["ux", "design"]
+  },
+  {
+    "name": " Certificate of Completion PsyberQuest Challenge",
+    "issuer": "PsyberQuest",
+    "status": "issued",
+    "date": "Mar 2025",
+    "link": "assets/artifacts/certifications/psyber-quest.pdf",
+    "tags": ["red team", "ctf"]
   }
 ]
