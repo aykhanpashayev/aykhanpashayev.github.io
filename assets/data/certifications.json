@@ -38,5 +38,13 @@
     "date": "Oct 2024",
     "link": "assets/artifacts/certifications/certificate-of-completion-learning-linux-command-line.pdf",
     "tags": ["linux", "cli"]
+  },
+  {
+    "name": "UX Foundations: Interaction Design",
+    "issuer": "LinkedIn",
+    "status": "issued",
+    "date": "Jan 2025",
+    "link": "assets/artifacts/certifications/certificate-of-completion-learning-linux-command-line.pdf",
+    "tags": ["ux", "design"]
   }
 ]
