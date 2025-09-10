@@ -1,5 +1,21 @@
 [
   {
+    "name": "AWS Certified Security – Specialty",
+    "issuer": "Amazon Web Services",
+    "status": "in-progress",
+    "date": "",
+    "link": "#",
+    "tags": ["aws", "security"]
+  },
+  {
+    "name": "AWS Solutions Architect – Associate",
+    "issuer": "Amazon Web Services",
+    "status": "in-progress",
+    "date": "",
+    "link": "#",
+    "tags": ["aws", "architecture"]
+  },
+  {
     "name": "CompTIA Security+",
     "issuer": "CompTIA",
     "status": "issued",
@@ -15,6 +31,14 @@
     "link": "assets/artifacts/certifications/remote-it-_-security-management-foundations.pdf",
     "tags": ["it-ops", "rmm"]
   },
+  {
+    "name": "Undergraduate Certificate — Cybersecurity Intelligence & Information Policy",
+    "issuer": "Florida International University",
+    "status": "in-progress",
+    "date": "",
+    "link": "#",
+    "tags": ["policy", "intel"]
+  }
   {
     "name": "Certificate of Completion — PsyberQuest Challenge",
     "issuer": "PsyberQuest",
@@ -38,21 +62,5 @@
     "date": "Oct 2024",
     "link": "assets/artifacts/certifications/certificate-of-completion-learning-linux-command-line.pdf",
     "tags": ["linux", "cli"]
-  },
-  {
-    "name": "AWS Certified Security – Specialty",
-    "issuer": "Amazon Web Services",
-    "status": "in-progress",
-    "date": "",
-    "link": "#",
-    "tags": ["aws", "security"]
-  },
-  {
-    "name": "Undergraduate Certificate — Cybersecurity Intelligence & Information Policy",
-    "issuer": "FIU",
-    "status": "in-progress",
-    "date": "",
-    "link": "#",
-    "tags": ["policy", "intel"]
   }
 ]
