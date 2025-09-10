@@ -4,13 +4,14 @@
   <meta charset="utf-8" />
   <title>Aykhan Pashayev — Cybersecurity Portfolio</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Hands-on cybersecurity portfolio: AWS detections, incident response automation, KMS encryption lab, with repos and artifacts. Built for recruiters—proof over claims." />
-  <meta name="robots" content="index,follow" />
+  <meta name="description" content="Evidence-first cybersecurity portfolio: AWS detections, incident-response automation, and KMS encryption—each with repos and artifacts." />
+  <link rel="canonical" href="https://aykhanpashayev.github.io/" />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <!-- Open Graph -->
   <meta property="og:title" content="Aykhan Pashayev — Cybersecurity Portfolio" />
-  <meta property="og:description" content="Hands-on cybersecurity portfolio with evidence-first projects and artifacts." />
+  <meta property="og:description" content="Hands-on security projects with proof: repos, PDFs, and short demos." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://<your-username>.github.io/" />
+  <meta property="og:url" content="https://aykhanpashayev.github.io/" />
   <meta property="og:image" content="assets/og-card.png" />
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -20,46 +21,46 @@
   <link rel="icon" href="assets/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    :root{
-      --bg:#0b0b0f; --fg:#e9eef2; --muted:#a8b3be; --accent:#7dd3fc; --card:#151821; --border:#23283a;
-    }
+    :root{--bg:#0b0b0f;--fg:#e9eef2;--muted:#a8b3be;--accent:#7dd3fc;--card:#151821;--border:#23283a}
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    html,body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
     a{color:var(--accent);text-decoration:none}
-    a:focus{outline:2px solid var(--accent);outline-offset:2px}
+    a:focus,button:focus{outline:2px solid var(--accent);outline-offset:2px}
     .container{max-width:1100px;margin:0 auto;padding:1.25rem}
-    header{position:sticky;top:0;background:rgba(11,11,15,.85);backdrop-filter:saturate(120%) blur(8px);border-bottom:1px solid var(--border);z-index:50}
-    nav{display:flex;align-items:center;gap:.75rem;justify-content:space-between}
-    nav .brand{font-weight:700;letter-spacing:.3px}
-    nav .menu a{padding:.5rem .75rem;border-radius:.6rem}
-    nav .menu a[aria-current="page"]{background:rgba(125,211,252,.12);color:var(--accent)}
     .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
     .skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;background:#000;padding:.5rem .75rem;border-radius:.5rem}
-    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:1.25rem;align-items:center;margin-top:1.25rem}
-    .hero h1{font-size:2rem;margin:.25rem 0 .5rem}
-    .hero p{color:var(--muted);line-height:1.6}
+    header{position:sticky;top:0;background:rgba(11,11,15,.85);backdrop-filter:saturate(120%) blur(8px);border-bottom:1px solid var(--border);z-index:50}
+    nav{display:flex;align-items:center;justify-content:space-between;gap:.75rem}
+    .brand{font-weight:700;letter-spacing:.2px}
+    .menu{display:flex;gap:.25rem;align-items:center}
+    .menu a{padding:.5rem .75rem;border-radius:.6rem}
+    .menu a[aria-current="page"]{background:rgba(125,211,252,.12);color:var(--accent)}
+    .burger{display:none}
+    @media (max-width:800px){
+      .menu{display:none}
+      .menu.open{display:flex;flex-direction:column;align-items:flex-start;padding:.5rem 0}
+      .burger{display:inline-flex}
+    }
+    .btn{background:#0f131b;border:1px solid var(--border);color:var(--fg);padding:.5rem .75rem;border-radius:.6rem;cursor:pointer}
+    .btn:hover{background:#0c1017}
     .card{background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:1rem;box-shadow:0 1px 0 rgba(0,0,0,.25);transition:transform .12s ease, box-shadow .12s ease}
     .card:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.25)}
     .grid{display:grid;gap:1rem}
     .grid.cols-3{grid-template-columns:repeat(3,1fr)}
     .grid.cols-2{grid-template-columns:repeat(2,1fr)}
-    @media (max-width:900px){.hero{grid-template-columns:1fr}.grid.cols-3{grid-template-columns:1fr}.grid.cols-2{grid-template-columns:1fr}}
+    @media (max-width:900px){.grid.cols-3,.grid.cols-2{grid-template-columns:1fr}}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:1.25rem;align-items:start;margin-top:1rem}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}}
+    h1{font-size:2rem;margin:.25rem 0 .5rem}
     h2{font-size:1.1rem;margin:1.5rem 0 .75rem}
+    .meta{color:var(--muted);font-size:.9rem}
     .badge{display:inline-flex;align-items:center;gap:.4ch;font-size:.75rem;padding:.15rem .5rem;border:1px solid var(--border);border-radius:999px;background:#111214;color:var(--muted)}
     .badge.upcoming{background:rgba(125,211,252,.12);color:var(--accent);border-color:rgba(125,211,252,.25)}
-    .meta{color:var(--muted);font-size:.9rem}
-    .list{display:flex;flex-direction:column;gap:.75rem}
-    .row{display:flex;justify-content:space-between;gap:.5rem}
-    .item-title{font-weight:600}
-    .kpi{font-variant-numeric:tabular-nums}
     .tag{display:inline-block;padding:.15rem .5rem;border:1px solid var(--border);border-radius:.5rem;font-size:.72rem;color:var(--muted)}
-    footer{border-top:1px solid var(--border);margin-top:2rem;padding:1rem 0;color:var(--muted);font-size:.9rem}
-    /* Focus rings for cards & controls */
-    .card:focus-within{outline:2px solid var(--accent);outline-offset:2px}
-    button, .btn{background:#0f131b;border:1px solid var(--border);color:var(--fg);padding:.5rem .75rem;border-radius:.6rem;cursor:pointer}
-    .btn:hover{background:#0c1017}
     .inline-links{display:flex;gap:.75rem;flex-wrap:wrap}
+    footer{border-top:1px solid var(--border);margin-top:2rem;padding:1rem 0;color:var(--muted);font-size:.9rem}
   </style>
 </head>
 <body>
@@ -68,11 +69,13 @@
     <div class="container">
       <nav aria-label="Primary">
         <div class="brand">Aykhan Pashayev</div>
-        <div class="menu" role="menubar">
+        <button class="burger btn" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+        <div id="menu" class="menu" role="menubar">
           <a href="index.html" aria-current="page">Home</a>
           <a href="projects.html">Projects</a>
           <a href="timeline.html">Timeline</a>
           <a href="github.html">GitHub</a>
+          <a href="assets/resume.pdf" target="_blank" rel="noopener">Resume</a>
         </div>
       </nav>
     </div>
@@ -83,7 +86,7 @@
     <section class="hero card" aria-labelledby="hero-title">
       <div>
         <h1 id="hero-title">Security-minded engineer — evidence first</h1>
-        <p>
+        <p class="meta">
           I build and document practical security projects across AWS, detections, and incident response.
           Every claim links to proof: repos, PDFs, and short demos. Clean code. Clear outcomes.
         </p>
@@ -94,215 +97,194 @@
         </div>
       </div>
       <div>
-        <div class="card" aria-labelledby="highlights-title">
+        <article class="card" aria-labelledby="highlights-title">
           <h2 id="highlights-title">Top outcomes</h2>
-          <ul class="list" id="top-kpis">
-            <!-- populated from projects.json (results) -->
+          <ul id="top-kpis" style="margin:0;padding-left:1rem">
+            <!-- populated from projects.json -->
           </ul>
-        </div>
+        </article>
       </div>
     </section>
 
-    <!-- Featured (from projects.json) -->
+    <!-- Featured -->
     <section aria-labelledby="featured-title" class="grid cols-3" id="featured">
       <h2 id="featured-title" style="grid-column:1/-1;">Featured</h2>
-      <!-- Cards injected here -->
+      <!-- Cards injected -->
     </section>
 
     <!-- Experience -->
     <section aria-labelledby="exp-title" class="grid cols-2" id="experience">
       <h2 id="exp-title" style="grid-column:1/-1;">Experience</h2>
-      <!-- Experience cards injected -->
+      <!-- Injected from assets/data/experience.json -->
     </section>
 
     <!-- Certifications -->
     <section aria-labelledby="certs-title" class="grid cols-2" id="certs">
       <h2 id="certs-title" style="grid-column:1/-1;">Certifications</h2>
-      <!-- Certification cards injected -->
+      <!-- Injected from assets/data/certifications.json -->
     </section>
 
     <!-- Contact -->
     <section aria-labelledby="contact-title" class="card">
       <h2 id="contact-title">Contact</h2>
-      <p class="meta">Best: GitHub issues on project repos or email (listed on resume). For demos, see artifacts linked on each project.</p>
+      <p class="meta">Best: GitHub issues on project repos or email (on resume). For demos, see artifacts linked on each project.</p>
     </section>
   </main>
 
   <footer>
-    <div class="container row">
+    <div class="container" style="display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap">
       <div>© <span id="year"></span> Aykhan Pashayev</div>
       <div class="meta">Fast, accessible, evidence-first. Hosted on GitHub Pages.</div>
     </div>
   </footer>
 
-  <!-- JSON-LD Person + (selected) CreativeWork.
-       Note: We also add a runtime enhancement that expands CreativeWork from projects.json. -->
+  <!-- JSON-LD Person -->
   <script type="application/ld+json" id="person-jsonld">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Aykhan Pashayev",
     "jobTitle": "Cybersecurity (Cloud, Detection, IAM)",
-    "url": "https://<your-username>.github.io/",
-    "worksFor": {
-      "@type": "CollegeOrUniversity",
-      "name": "Florida International University"
-    }
+    "url": "https://aykhanpashayev.github.io/",
+    "sameAs": ["https://github.com/aykhanpashayev"]
   }
   </script>
 
   <script defer>
-    // Small helpers
-    const $ = (sel, el=document) => el.querySelector(sel);
-    const $$ = (sel, el=document) => Array.from(el.querySelectorAll(sel));
-    const fmt = (s) => (s||'').toString().trim();
+    // Utilities
+    const $ = (s,el=document)=>el.querySelector(s);
+    const slug = s => String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+    const esc = s => String(s||'').replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m]));
+    const link = u => (String(u||'#').trim()||'#');
 
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Mobile nav
+    const burger = document.querySelector('.burger');
+    const menu = document.getElementById('menu');
+    burger.addEventListener('click', ()=>{
+      const open = menu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', String(open));
+    });
 
-    // Render Featured from projects.json
-    async function renderFeatured(){
+    // Footer year
+    $('#year').textContent = new Date().getFullYear();
+
+    // Hero KPIs + Featured
+    (async function(){
       try{
-        const res = await fetch('assets/data/projects.json', {cache:'no-store'});
+        const res = await fetch('assets/data/projects.json',{cache:'no-store'});
         const projects = await res.json();
 
-        // Collect KPIs (results) for hero – show top 3 non-upcoming if available
-        const kpiHost = document.getElementById('top-kpis');
-        projects
-          .filter(p => p.results && p.status !== 'upcoming')
-          .slice(0,3)
-          .forEach(p => {
-            const li = document.createElement('li');
-            li.innerHTML = `<div class="row">
-              <span class="item-title">${p.title}</span>
-              <span class="kpi meta">${p.timeline || ''}</span>
+        // KPIs: show up to 3 non-upcoming with results text
+        const k = $('#top-kpis');
+        projects.filter(p=>p.results && p.status!=='upcoming').slice(0,3).forEach(p=>{
+          const li = document.createElement('li');
+          li.style.marginBottom = '.5rem';
+          li.innerHTML = `<div style="display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap">
+              <strong>${esc(p.title)}</strong>
+              <span class="meta">${esc(p.timeline||'')}</span>
             </div>
-            <div class="meta">${p.results}</div>`;
-            kpiHost.appendChild(li);
+            <div class="meta">${esc(p.results)}</div>`;
+          k.appendChild(li);
+        });
+
+        // Featured = upcoming or featured:true
+        const featured = projects.filter(p=>p.status==='upcoming' || p.featured===true);
+        const grid = document.getElementById('featured');
+        if(!featured.length){
+          const empty = document.createElement('div');
+          empty.className='card'; empty.style.gridColumn='1 / -1';
+          empty.innerHTML = `<p class="meta">No featured items yet. See <a href="projects.html">all projects</a>.</p>`;
+          grid.appendChild(empty);
+        }else{
+          featured.slice(0,6).forEach(p=>{
+            const card = document.createElement('article');
+            card.className='card'; card.setAttribute('aria-labelledby',`f-${slug(p.title)}`);
+            card.innerHTML = `
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap">
+                <h3 id="f-${slug(p.title)}" style="margin:.25rem 0;font-size:1rem">${esc(p.title)}</h3>
+                ${p.status==='upcoming'?`<span class="badge upcoming" title="Coming soon">Coming soon</span>`:''}
+              </div>
+              <p class="meta">${esc(p.one_liner||'')}</p>
+              <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin:.5rem 0">
+                ${(p.tags||[]).slice(0,6).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}
+              </div>
+              <div class="inline-links">
+                ${p?.links?.repo? `<a class="btn" href="${link(p.links.repo)}" target="_blank" rel="noopener">Repo</a>`:''}
+                ${p?.links?.docs? `<a class="btn" href="${link(p.links.docs)}" target="_blank" rel="noopener">Docs</a>`:''}
+                <a class="btn" href="projects.html">All Projects</a>
+                <a class="btn" href="timeline.html">Track on Timeline</a>
+              </div>
+            `;
+            grid.appendChild(card);
           });
 
-        // Featured criteria
-        const featured = projects.filter(p => p.status === 'upcoming' || p.featured === true);
-
-        const grid = document.getElementById('featured');
-        if(featured.length === 0){
-          const empty = document.createElement('div');
-          empty.className = 'card';
-          empty.innerHTML = `<div class="meta">No featured items yet. See <a href="projects.html">all projects</a>.</div>`;
-          empty.style.gridColumn = '1 / -1';
-          grid.appendChild(empty);
-          return;
+          // JSON-LD CreativeWork list for featured (SEO)
+          const works = featured.slice(0,3).map(p=>({
+            "@type":"CreativeWork",
+            "name": p.title,
+            "description": p.one_liner || "",
+            "dateCreated": p.timeline || "",
+            "url": location.origin + "/projects.html#" + slug(p.title)
+          }));
+          if(works.length){
+            const ld = {
+              "@context":"https://schema.org",
+              "@type":"ItemList",
+              "itemListElement": works.map((w,i)=>({ "@type":"ListItem","position":i+1,"item":w }))
+            };
+            const s = document.createElement('script'); s.type='application/ld+json'; s.textContent = JSON.stringify(ld);
+            document.head.appendChild(s);
+          }
         }
+      }catch(e){ console.error(e); }
+    })();
 
-        for(const p of featured){
-          const card = document.createElement('article');
-          card.className = 'card';
-          card.setAttribute('aria-labelledby', `feat-${slug(p.title)}`);
-          card.innerHTML = `
-            <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;justify-content:space-between">
-              <h3 id="feat-${slug(p.title)}" class="item-title" style="margin:.25rem 0">${escapeHtml(p.title)}</h3>
-              ${p.status === 'upcoming' ? `<span class="badge upcoming" title="Coming soon">Coming soon</span>`:''}
-            </div>
-            <p class="meta">${escapeHtml(p.one_liner || '')}</p>
-            <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin:.5rem 0">
-              ${(p.tags||[]).slice(0,6).map(t=>`<span class="tag">${escapeHtml(t)}</span>`).join('')}
-            </div>
-            <div class="inline-links">
-              <a class="btn" href="${safeLink(p?.links?.repo)}" target="_blank" rel="noopener">Repo</a>
-              <a class="btn" href="${safeLink(p?.links?.docs)}" target="_blank" rel="noopener">Docs</a>
-              <a class="btn" href="projects.html">All Projects</a>
-              <a class="btn" href="timeline.html">Track on Timeline</a>
-            </div>
-          `;
-          grid.appendChild(card);
-        }
-
-        // Inject CreativeWork JSON-LD for selected (top 3 featured or up to 3)
-        const works = featured.slice(0,3).map(p => ({
-          "@type":"CreativeWork",
-          "name": p.title,
-          "description": p.one_liner || "",
-          "dateCreated": p.timeline || "",
-          "url": location.origin + "/projects.html#" + slug(p.title)
-        }));
-        if(works.length){
-          const data = {
-            "@context":"https://schema.org",
-            "@type":"ItemList",
-            "itemListElement": works.map((w,i)=>({ "@type":"ListItem", "position": i+1, "item": w }))
-          };
-          const s = document.createElement('script'); s.type='application/ld+json';
-          s.textContent = JSON.stringify(data);
-          document.head.appendChild(s);
-        }
-      }catch(e){
-        console.error('Featured render failed', e);
-      }
-    }
-
-    // Experience & Certifications render
-    async function renderExperience(){
+    // Experience
+    (async function(){
       try{
-        const res = await fetch('assets/data/experience.json', {cache:'no-store'});
-        const items = await res.json();
+        const r = await fetch('assets/data/experience.json',{cache:'no-store'});
+        const items = await r.json();
         const host = document.getElementById('experience');
         items.forEach(exp=>{
-          const card = document.createElement('article');
-          card.className='card';
-          card.innerHTML = `
+          const el = document.createElement('article'); el.className='card';
+          el.innerHTML = `
             <div style="display:flex;align-items:baseline;justify-content:space-between;gap:.5rem;flex-wrap:wrap">
-              <h3 class="item-title" style="margin:.25rem 0">${escapeHtml(exp.role)}</h3>
-              <span class="meta">${escapeHtml(exp.dates)}</span>
+              <h3 style="margin:.25rem 0;font-size:1rem">${esc(exp.role)}</h3>
+              <span class="meta">${esc(exp.dates)}</span>
             </div>
-            <div class="meta" style="margin-bottom:.5rem">
-              ${escapeHtml(exp.org)} • ${escapeHtml(exp.location)}
-            </div>
-            <p>${escapeHtml(exp.summary || '')}</p>
-            <ul class="list">
-              ${(exp.highlights||[]).map(h=>`<li>${escapeHtml(h)}</li>`).join('')}
-            </ul>
-            <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.5rem">
-              ${(exp.skills||[]).map(s=>`<span class="tag" aria-label="Skill: ${escapeHtml(s)}">${escapeHtml(s)}</span>`).join('')}
-            </div>
+            <div class="meta" style="margin-bottom:.5rem">${esc(exp.org)} • ${esc(exp.location)}</div>
+            <p>${esc(exp.summary||'')}</p>
+            <ul style="margin:.5rem 0;padding-left:1.1rem">${(exp.highlights||[]).map(h=>`<li>${esc(h)}</li>`).join('')}</ul>
+            <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.5rem">${(exp.skills||[]).map(s=>`<span class="tag">${esc(s)}</span>`).join('')}</div>
           `;
-          host.appendChild(card);
+          host.appendChild(el);
         });
-      }catch(e){ console.error('Experience render failed', e); }
-    }
+      }catch(e){ console.error(e); }
+    })();
 
-    async function renderCerts(){
+    // Certifications
+    (async function(){
       try{
-        const res = await fetch('assets/data/certifications.json', {cache:'no-store'});
-        const certs = await res.json();
+        const r = await fetch('assets/data/certifications.json',{cache:'no-store'});
+        const certs = await r.json();
         const host = document.getElementById('certs');
         certs.forEach(c=>{
-          const card = document.createElement('article');
-          card.className='card';
-          const statusBadge = `<span class="badge ${c.status==='in-progress'?'upcoming':''}">${escapeHtml(c.status)}</span>`;
-          card.innerHTML = `
+          const el = document.createElement('article'); el.className='card';
+          el.innerHTML = `
             <div style="display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap">
-              <h3 class="item-title" style="margin:.25rem 0">${escapeHtml(c.name)}</h3>
-              ${statusBadge}
+              <h3 style="margin:.25rem 0;font-size:1rem">${esc(c.name)}</h3>
+              <span class="badge ${c.status==='in-progress'?'upcoming':''}">${esc(c.status)}</span>
             </div>
-            <div class="meta">${escapeHtml(c.issuer)} ${c.date? '• '+escapeHtml(c.date):''}</div>
-            <div class="inline-links" style="margin-top:.5rem">
-              <a class="btn" href="${safeLink(c.link)}" target="_blank" rel="noopener">Verify / Details</a>
+            <div class="meta">${esc(c.issuer)} ${c.date?('• '+esc(c.date)) : ''}</div>
+            <div class="inline-links" style="margin-top:.6rem">
+              <a class="btn" href="${link(c.link)}" target="_blank" rel="noopener">Verify / Details</a>
             </div>
-            <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.5rem">
-              ${(c.tags||[]).map(t=>`<span class="tag">${escapeHtml(t)}</span>`).join('')}
-            </div>
+            <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.5rem">${(c.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
           `;
-          host.appendChild(card);
+          host.appendChild(el);
         });
-      }catch(e){ console.error('Certs render failed', e); }
-    }
-
-    function slug(s){return fmt(s).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');}
-    function escapeHtml(s){return fmt(s).replace(/[&<>"']/g, m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
-    function safeLink(u){u=fmt(u||'#'); return u===''?'#':u;}
-
-    renderFeatured();
-    renderExperience();
-    renderCerts();
+      }catch(e){ console.error(e); }
+    })();
   </script>
 </body>
 </html>
