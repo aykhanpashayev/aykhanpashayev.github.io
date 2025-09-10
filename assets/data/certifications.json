@@ -16,6 +16,30 @@
     "tags": ["it-ops", "rmm"]
   },
   {
+    "name": "Certificate of Completion — PsyberQuest Challenge",
+    "issuer": "PsyberQuest",
+    "status": "issued",
+    "date": "Mar 2025",
+    "link": "assets/artifacts/certifications/psyber-quest.pdf",
+    "tags": ["red-team", "ctf"]
+  },
+  {
+    "name": "UX Foundations: Interaction Design",
+    "issuer": "LinkedIn",
+    "status": "issued",
+    "date": "Jan 2025",
+    "link": "assets/artifacts/certifications/certificate-of-completion-ux-foundations-interaction-design.pdf",
+    "tags": ["ux", "design"]
+  },
+  {
+    "name": "Learning Linux Command Line",
+    "issuer": "LinkedIn",
+    "status": "issued",
+    "date": "Oct 2024",
+    "link": "assets/artifacts/certifications/certificate-of-completion-learning-linux-command-line.pdf",
+    "tags": ["linux", "cli"]
+  },
+  {
     "name": "AWS Certified Security – Specialty",
     "issuer": "Amazon Web Services",
     "status": "in-progress",
@@ -30,29 +54,5 @@
     "date": "",
     "link": "#",
     "tags": ["policy", "intel"]
-  },
-  {
-    "name": "Learning Linux Command Line",
-    "issuer": "LinkedIn",
-    "status": "issued",
-    "date": "Oct 2024",
-    "link": "assets/artifacts/certifications/certificate-of-completion-learning-linux-command-line.pdf",
-    "tags": ["linux", "cli"]
-  },
-  {
-    "name": "UX Foundations: Interaction Design",
-    "issuer": "LinkedIn",
-    "status": "issued",
-    "date": "Jan 2025",
-    "link": "assets/artifacts/certifications/certificate-of-completion-ux-foundations-interaction-design.pdf",
-    "tags": ["ux", "design"]
-  },
-  {
-    "name": " Certificate of Completion PsyberQuest Challenge",
-    "issuer": "PsyberQuest",
-    "status": "issued",
-    "date": "Mar 2025",
-    "link": "assets/artifacts/certifications/psyber-quest.pdf",
-    "tags": ["red team", "ctf"]
   }
 ]
