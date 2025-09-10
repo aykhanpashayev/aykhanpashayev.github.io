@@ -9,7 +9,7 @@
   <link rel="canonical" href="./" />
   <meta name="robots" content="index,follow" />
   <meta property="og:title" content="Aykhan Pashayev — Cybersecurity Portfolio" />
-  <meta property="og:description" content="Hands-on AWS security projects with proof links. Compact experience, verified certs, and a resume snapshot." />
+  <meta property="og:description" content="Hands-on AWS security projects with proof links. Compact experience, verified certs, and a clear contact path." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="./" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -17,10 +17,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Correct external CSS path -->
+  <!-- Your external CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
 
-  <!-- Critical CSS fallback (keeps site styled if external CSS fails) -->
+  <!-- Critical CSS fallback so the page isn't white even if external CSS fails -->
   <style id="critical-css">
     :root{--bg:#0b0b0f;--fg:#e9eef2;--muted:#a8b3be;--accent:#7dd3fc;--card:#151821;--border:#23283a}
     *{box-sizing:border-box}html,body{margin:0}body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6}
@@ -41,11 +41,9 @@
     h2{font-size:clamp(1.25rem,1.8vw,1.35rem);margin:1.5rem 0 .75rem}
     h3{font-size:1.05rem;margin:.25rem 0}
     .lead{color:var(--muted);font-size:1.05rem;margin:.25rem 0 1rem}
-    .small,.meta{color:var(--muted);font-size:.92rem}
-    .hero{padding:2rem 0 1rem;display:grid;grid-template-columns:1.2fr .8fr;gap:1.25rem}
-    @media(max-width:900px){.hero{grid-template-columns:1fr}}
+    .small{color:var(--muted);font-size:.92rem}
+    .hero{padding:2rem 0 1rem}
     .btn{display:inline-block;padding:.6rem .9rem;border-radius:.75rem;background:var(--accent);color:#003244;font-weight:700;border:1px solid transparent}
-    .btn.ghost{background:#0f131b;color:var(--fg);border:1px solid var(--border)}
     .btn.secondary{background:transparent;color:var(--fg);border:1px solid var(--border)}
     .pill{display:inline-flex;align-items:center;gap:.4ch;padding:.3rem .6rem;border:1px solid var(--border);border-radius:999px;font-size:.8rem;color:var(--muted);background:#0f131b}
     .tag{display:inline-block;padding:.2rem .5rem;border:1px solid var(--border);border-radius:999px;font-size:.75rem;color:var(--muted)}
@@ -68,45 +66,35 @@
           <li><a href="projects.html">Projects</a></li>
           <li><a href="timeline.html">Timeline</a></li>
           <li><a href="github.html">GitHub</a></li>
-          <li><a href="Aykhan_Pashayev_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+          <li><a href="assets/Aykhan_Pashayev_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main id="main" class="container" tabindex="-1">
-    <!-- HERO -->
-    <section class="hero card" aria-labelledby="hero-title">
-      <div>
+    <!-- HERO (no resume snapshot, clear CTAs) -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="card">
         <h1 id="hero-title">Welcome — I’m Aykhan, focused on AWS security</h1>
         <p class="lead">
           I’m a Cybersecurity student at FIU and a STARS Learning/Course Assistant. I build practical security labs
           across AWS, detection engineering, and IR — and I ship proof for every claim (repos, PDFs, short demos).
-          I’m currently targeting <strong>entry-level Cloud Security / Detection Engineering / IAM</strong> roles and internships.
+          I’m targeting <strong>entry-level Cloud Security / Detection Engineering / IAM</strong> roles and internships.
         </p>
-        <div class="cta" aria-label="Quick links" style="display:flex;gap:.75rem;flex-wrap:wrap">
-          <a class="btn" href="projects.html">Browse Projects</a>
-          <a class="btn ghost" href="timeline.html">Track on Timeline</a>
-          <a class="btn secondary" href="Aykhan_Pashayev_Resume.pdf" rel="noopener" target="_blank">Resume (PDF)</a>
+        <div class="cta" aria-label="Quick links" style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.75rem">
+          <a class="btn" href="assets/Aykhan_Pashayev_Resume.pdf" target="_blank" rel="noopener">See my resume</a>
+          <a class="btn secondary" href="timeline.html">View timeline</a>
+          <a class="btn secondary" href="#exp-title">See experience</a>
+          <a class="btn secondary" href="#certs-title">See certifications</a>
+          <a class="btn secondary" href="#contact-title">Contact</a>
         </div>
       </div>
-      <aside class="card" aria-labelledby="resume-snap">
-        <h2 id="resume-snap">Resume snapshot</h2>
-        <ul class="small" style="margin:0;padding-left:1.1rem">
-          <li>AWS auto-remediation: <strong>&lt;1s detect</strong> (Config) / <strong>~4s remediate</strong> (Lambda), full audit logs.</li>
-          <li>CloudTrail detections: <strong>&lt;1 minute</strong> alerting for sensitive API calls; standardized triage queries.</li>
-          <li>KMS lab: SSE-KMS on S3/EBS; disable/re-enable testing; CloudTrail key-use auditability.</li>
-          <li>Teaching/tutoring: documentation, diagrams, and auditable session logs.</li>
-        </ul>
-        <div class="cta" style="margin-top:.75rem">
-          <a class="pill" href="Aykhan_Pashayev_Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
-        </div>
-      </aside>
     </section>
 
-    <!-- SELECTED AWS PROJECTS -->
-    <section aria-labelledby="aws-title">
-      <h2 id="aws-title">Selected AWS Projects</h2>
+    <!-- TOP PROJECTS -->
+    <section aria-labelledby="projects-title">
+      <h2 id="projects-title">Top Projects</h2>
       <ul id="aws-grid" class="cards" aria-live="polite"></ul>
       <div class="cta" style="margin-top:.5rem">
         <a class="btn" href="projects.html?tags=aws">See more projects</a>
@@ -126,14 +114,13 @@
       <p id="certs-empty" class="small" style="display:none">No certifications to display right now.</p>
     </section>
 
-    <!-- CONTACT -->
+    <!-- CONTACT (GitHub, LinkedIn, E-mail only) -->
     <section class="card" aria-labelledby="contact-title">
       <h2 id="contact-title">Contact</h2>
       <ul class="contact-list">
         <li><a class="pill" href="https://github.com/aykhanpashayev" target="_blank" rel="noopener">GitHub</a></li>
         <li><a class="pill" href="https://linkedin.com/in/aykhanpashayev" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a class="pill" href="mailto:aykhan.pashayev001@gmail.com">aykhan.pashayev001@gmail.com</a></li>
-        <li><a class="pill" href="tel:+18578670482">+1 (857) 867-0482</a></li>
+        <li><a class="pill" href="mailto:aykhan.pashayev001@gmail.com">E-mail</a></li>
       </ul>
       <p class="small" style="margin-top:.5rem">Prefer GitHub issues on project repos for technical questions.</p>
     </section>
@@ -154,18 +141,16 @@
     "sameAs": [
       "https://github.com/aykhanpashayev",
       "https://linkedin.com/in/aykhanpashayev",
-      "mailto:aykhan.pashayev001@gmail.com",
-      "tel:+18578670482"
+      "mailto:aykhan.pashayev001@gmail.com"
     ]
   }
   </script>
 
   <script>
-    // Remove critical CSS if external stylesheet is active
+    // Remove critical CSS if external stylesheet is present
     window.addEventListener('load', () => {
       const critical = document.getElementById('critical-css');
-      // If external CSS loaded, it will set a computed color on body different from default
-      if (critical) critical.remove(); // safe to remove regardless
+      if (critical) critical.remove();
     });
 
     // Helpers
@@ -185,7 +170,7 @@
     // Year
     $('#year').textContent = new Date().getFullYear();
 
-    // Selected AWS Projects (exactly 3; no upcoming)
+    // ----- Top Projects (exactly 3; no upcoming) -----
     fetch('assets/data/projects.json',{cache:'no-store'})
       .then(r => r.json())
       .then(projects => {
@@ -196,7 +181,7 @@
         ]);
         let chosen = projects.filter(p => preferred.has(p.title) && statusNorm(p.status) !== 'upcoming');
         if (chosen.length < 3) {
-          const awsCompleted = projects.filter(p => (p.tags||[]).includes('aws') && statusNorm(p.status) !== 'upcoming');
+          const awsCompleted = projects.filter(p => statusNorm(p.status) !== 'upcoming');
           const names = new Set(chosen.map(p=>p.title));
           for (const p of awsCompleted) { if (chosen.length>=3) break; if (!names.has(p.title)) chosen.push(p); }
         }
@@ -214,7 +199,7 @@
             <div class="tags" style="margin-top:.4rem">
               ${(p.tags||[]).slice(0,6).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}
             </div>
-            <div class="cta" style="margin-top:.6rem">
+            <div class="cta" style="margin-top:.6rem;display:flex;gap:.4rem;flex-wrap:wrap">
               ${p?.links?.repo? `<a class="pill" href="${link(p.links.repo)}" target="_blank" rel="noopener">Repo</a>`:''}
               ${p?.links?.docs && p.links.docs !== '#'? `<a class="pill" href="${link(p.links.docs)}" target="_blank" rel="noopener">Docs</a>`:''}
             </div>
@@ -224,7 +209,7 @@
       })
       .catch(err => console.error('Projects load error', err));
 
-    // Experience (compact)
+    // ----- Experience (compact: 2 bullets + details) -----
     fetch('assets/data/experience.json',{cache:'no-store'})
       .then(r=>r.json())
       .then(rows=>{
@@ -253,7 +238,7 @@
       })
       .catch(err => console.error('Experience load error', err));
 
-    // Certifications (in-progress first; show Verify only for issued)
+    // ----- Certifications (in-progress first; show Verify only for issued) -----
     fetch('assets/data/certifications.json',{cache:'no-store'})
       .then(r=>r.json())
       .then(list=>{
