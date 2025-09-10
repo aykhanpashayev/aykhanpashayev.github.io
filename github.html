@@ -2,104 +2,83 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GitHub Projects — Aykhan Pashayev</title>
-  <meta name="description" content="GitHub repositories by Aykhan Pashayev." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Curated GitHub repos tied to portfolio projects—evidence-first." />
+  <link rel="icon" href="assets/favicon.ico" />
+  <link rel="canonical" href="https://aykhanpashayev.github.io/github.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0b0b0f;--fg:#e9eef2;--muted:#a8b3be;--accent:#7dd3fc;--card:#151821;--border:#23283a}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    a{color:var(--accent);text-decoration:none}
+    a:focus{outline:2px solid var(--accent);outline-offset:2px}
+    header{position:sticky;top:0;background:rgba(11,11,15,.85);backdrop-filter:saturate(120%) blur(8px);border-bottom:1px solid var(--border);z-index:50}
+    nav{max-width:1100px;margin:0 auto;padding:1.25rem;display:flex;align-items:center;justify-content:space-between}
+    nav .menu a{padding:.5rem .75rem;border-radius:.6rem}
+    nav .menu a[aria-current="page"]{background:rgba(125,211,252,.12);color:var(--accent)}
+    main{max-width:1100px;margin:0 auto;padding:1.25rem}
+    h1{font-size:1.5rem;margin:.5rem 0 1rem}
+    .grid{display:grid;gap:1rem;grid-template-columns:repeat(3,1fr)}
+    @media(max-width:900px){.grid{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:1rem;box-shadow:0 1px 0 rgba(0,0,0,.25)}
+    .meta{color:var(--muted);font-size:.9rem}
+    .tag{display:inline-block;padding:.15rem .5rem;border:1px solid var(--border);border-radius:.5rem;font-size:.72rem;color:var(--muted)}
+    .pill{display:inline-flex;align-items:center;gap:.4ch;padding:.3rem .6rem;border:1px solid var(--border);border-radius:999px;font-size:.8rem;background:#0f131b}
+  </style>
 </head>
 <body>
-  <a class="skip-link" href="#content">Skip to content</a>
-
-  <header class="site-header">
-    <nav class="container">
-      <a class="logo" href="/">AP</a>
-      <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
-      <ul id="nav-links" class="nav-links">
-        <li><a href="/projects.html">Projects</a></li>
-        <li><a href="/github.html" aria-current="page">GitHub</a></li>
-        <li><a href="/timeline.html">Timeline</a></li>
-        <li><a href="/#resume">Resume</a></li>
-        <li><a href="/#contact">Contact</a></li>
-      </ul>
+  <header>
+    <nav aria-label="Primary">
+      <div class="brand">Aykhan Pashayev</div>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="timeline.html">Timeline</a>
+        <a href="github.html" aria-current="page">GitHub</a>
+      </div>
     </nav>
   </header>
 
-  <main id="content" class="container">
+  <main>
     <h1>GitHub Projects</h1>
-    <p class="small">This pulls from <code>assets/data/projects.json</code> and shows only items with a real repo URL.</p>
-
-    <ul class="cards" id="project-grid">
-      <noscript><li class="card">Enable JavaScript to view projects.</li></noscript>
-    </ul>
-
-    <p id="empty" class="small" style="display:none;">No repositories yet. Add a <code>links.repo</code> URL in your JSON.</p>
+    <p class="meta">Pulled from <code>assets/data/projects.json</code> — shows only items with a real repo URL.</p>
+    <section id="grid" class="grid" aria-live="polite"></section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container small">
-      <p>© <span id="year"></span> Aykhan Pashayev.</p>
-    </div>
+  <footer style="border-top:1px solid var(--border);padding:1rem 0;margin-top:2rem">
+    <div class="meta" style="max-width:1100px;margin:0 auto;padding:0 1.25rem">© <span id="year"></span> Aykhan Pashayev.</div>
   </footer>
 
-  <script>
-    // Year + mobile menu
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const btn = document.querySelector('.menu-toggle');
-    const links = document.getElementById('nav-links');
-    btn.addEventListener('click', () => {
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!expanded));
-      links.classList.toggle('open');
-    });
+  <script defer>
+    const $ = (s,el=document)=>el.querySelector(s);
+    const esc = s => String(s||'').replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m]));
+    const link = u => (String(u||'#').trim()||'#');
+    $('#year').textContent = new Date().getFullYear();
 
-    // Render GitHub-only projects
-    async function init() {
-      const res = await fetch('assets/data/projects.json', { cache: 'no-store' });
-      const data = await res.json();
-      const onlyRepos = data.filter(p => p?.links?.repo && p.links.repo !== '#');
-
-      const grid = document.getElementById('project-grid');
-      const empty = document.getElementById('empty');
-
-      if (!onlyRepos.length) {
-        empty.style.display = 'block';
-        return;
-      }
-
-      onlyRepos.forEach(p => grid.appendChild(cardFor(p)));
-    }
-
-    function cardFor(p) {
-      const li = document.createElement('li');
-      li.className = 'card';
-
-      const title = document.createElement('h3');
-      const a = document.createElement('a');
-      a.href = p.links.repo;
-      a.target = "_blank";
-      a.rel = "noopener";
-      a.textContent = p.title;
-      title.appendChild(a);
-
-      const small = document.createElement('p');
-      small.className = 'small';
-      small.textContent = (p.tags || []).join(' • ');
-
-      const oneliner = document.createElement('p');
-      oneliner.innerHTML = `<strong>One-liner:</strong> ${p.one_liner}`;
-
-      const meta = document.createElement('p');
-      meta.className = 'small';
-      meta.textContent = [p.timeline, p.context].filter(Boolean).join(' • ');
-
-      li.append(title, small, oneliner, meta);
-      return li;
-    }
-
-    init();
+    fetch('assets/data/projects.json',{cache:'no-store'}).then(r=>r.json()).then(data=>{
+      const items = data.filter(p=>p?.links?.repo && /^https?:\/\//.test(p.links.repo));
+      const grid = document.getElementById('grid');
+      if(!items.length){ grid.innerHTML = `<div class="card" style="grid-column:1/-1"><p class="meta">No public repos yet.</p></div>`; return; }
+      items.forEach(p=>{
+        const el = document.createElement('article'); el.className='card';
+        el.innerHTML = `
+          <h2 style="margin:.25rem 0;font-size:1rem"><a href="${link(p.links.repo)}" target="_blank" rel="noopener">${esc(p.title)}</a></h2>
+          <p class="meta">${esc(p.one_liner||'')}</p>
+          <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin:.5rem 0">
+            ${(p.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}
+          </div>
+          <p class="meta">${esc(p.timeline||'')} • ${esc(p.context||'')}</p>
+          <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem">
+            <a class="pill" href="${link(p.links.repo)}" target="_blank" rel="noopener">Repo</a>
+            ${p?.links?.docs? `<a class="pill" href="${link(p.links.docs)}" target="_blank" rel="noopener">Docs</a>`:''}
+          </div>
+        `;
+        grid.appendChild(el);
+      });
+    }).catch(console.error);
   </script>
 </body>
 </html>
