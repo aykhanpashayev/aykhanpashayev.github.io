@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <title>Aykhan Pashayev — Cybersecurity Portfolio</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
   <meta name="description" content="Cybersecurity student focused on AWS security, detections, and incident response — hands-on projects with proof (repos, PDFs, short demos)." />
   <link rel="canonical" href="https://aykhanpashayev.github.io/" />
   <meta name="robots" content="index,follow" />
@@ -16,7 +17,48 @@
   <link rel="icon" href="assets/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- External CSS (preferred). Make sure /assets/styles.css exists -->
   <link rel="stylesheet" href="assets/styles.css">
+
+  <!-- Critical CSS fallback (keeps site styled even if external CSS fails) -->
+  <style id="critical-css">
+    :root{--bg:#0b0b0f;--fg:#e9eef2;--muted:#a8b3be;--accent:#7dd3fc;--card:#151821;--border:#23283a}
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6}
+    a{color:#9bd8ff;text-decoration:none}
+    a:hover{color:#c5ecff}
+    .container{width:min(100%,1100px);margin:0 auto;padding:0 1.25rem}
+    .site-header{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--border);backdrop-filter:saturate(120%) blur(8px);background:rgba(11,11,15,.75)}
+    nav{display:flex;align-items:center;justify-content:space-between;min-height:64px}
+    .logo{color:var(--fg);font-weight:800;font-size:1.125rem;letter-spacing:.3px}
+    .menu-toggle{display:none;align-items:center;gap:.5rem;background:transparent;border:1px solid var(--border);color:var(--fg);border-radius:.5rem;padding:.45rem .65rem}
+    .nav-links{display:flex;list-style:none;gap:.75rem;margin:0;padding:0}
+    .nav-links a{padding:.5rem .75rem;border-radius:.6rem;opacity:.92}
+    .nav-links a[aria-current="page"]{background:rgba(125,211,252,.12);color:var(--accent)}
+    @media(max-width:720px){.menu-toggle{display:inline-flex}.nav-links{display:none;position:absolute;right:1rem;top:64px;background:var(--card);border:1px solid var(--border);border-radius:.75rem;padding:.75rem;flex-direction:column}.nav-links.open{display:flex}}
+    .skip-link{position:absolute;left:-999px;top:auto}
+    .skip-link:focus{left:1rem;top:1rem;background:#000;color:var(--fg);padding:.5rem .75rem;border-radius:.5rem;outline:2px solid var(--accent)}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:1rem;box-shadow:0 1px 0 rgba(0,0,0,.25)}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;padding:0;list-style:none}
+    h1{font-size:clamp(2rem,3.5vw,2.6rem);line-height:1.15;margin:.25rem 0 .5rem}
+    h2{font-size:clamp(1.25rem,1.8vw,1.35rem);margin:1.5rem 0 .75rem}
+    h3{font-size:1.05rem;margin:.25rem 0}
+    .lead{color:var(--muted);font-size:1.05rem;margin:.25rem 0 1rem}
+    .small,.meta{color:var(--muted);font-size:.92rem}
+    .hero{padding:2rem 0 1rem;display:grid;grid-template-columns:1.2fr .8fr;gap:1.25rem}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}}
+    .btn{display:inline-block;padding:.6rem .9rem;border-radius:.75rem;background:var(--accent);color:#003244;font-weight:700;border:1px solid transparent}
+    .btn.ghost{background:#0f131b;color:var(--fg);border:1px solid var(--border)}
+    .btn.secondary{background:transparent;color:var(--fg);border:1px solid var(--border)}
+    .pill{display:inline-flex;align-items:center;gap:.4ch;padding:.3rem .6rem;border:1px solid var(--border);border-radius:999px;font-size:.8rem;color:var(--muted);background:#0f131b}
+    .tag{display:inline-block;padding:.2rem .5rem;border:1px solid var(--border);border-radius:999px;font-size:.75rem;color:var(--muted)}
+    .badge{display:inline-flex;align-items:center;gap:.4ch;font-size:.75rem;font-weight:700;padding:.2rem .55rem;border-radius:999px;border:1px solid var(--border);background:#111214;color:var(--muted)}
+    .badge.upcoming{background:rgba(125,211,252,.12);color:var(--accent);border-color:rgba(125,211,252,.25)}
+    .contact-list{list-style:none;padding:0;display:flex;gap:1rem;flex-wrap:wrap}
+    .site-footer{border-top:1px solid var(--border);margin-top:3rem;padding:2rem 0}
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -47,7 +89,7 @@
           across AWS, detection engineering, and IR — and I ship proof for every claim (repos, PDFs, short demos).
           I’m currently targeting <strong>entry-level Cloud Security / Detection Engineering / IAM</strong> roles and internships.
         </p>
-        <div class="cta" aria-label="Quick links">
+        <div class="cta" aria-label="Quick links" style="display:flex;gap:.75rem;flex-wrap:wrap">
           <a class="btn" href="projects.html">Browse Projects</a>
           <a class="btn ghost" href="timeline.html">Track on Timeline</a>
           <a class="btn secondary" href="assets/resume.pdf" rel="noopener" target="_blank">Resume (PDF)</a>
@@ -67,7 +109,7 @@
       </aside>
     </section>
 
-    <!-- SELECTED AWS PROJECTS (exactly 3, no upcoming) -->
+    <!-- SELECTED AWS PROJECTS -->
     <section aria-labelledby="aws-title">
       <h2 id="aws-title">Selected AWS Projects</h2>
       <ul id="aws-grid" class="cards" aria-live="polite"></ul>
@@ -82,22 +124,21 @@
       <ul id="exp-grid" class="cards" aria-live="polite"></ul>
     </section>
 
-    <!-- CERTIFICATIONS (robust; hide verify for in-progress) -->
+    <!-- CERTIFICATIONS -->
     <section aria-labelledby="certs-title">
       <h2 id="certs-title">Certifications</h2>
       <ul id="certs-grid" class="cards" aria-live="polite"></ul>
-      <p id="certs-empty" class="small hidden">No certifications to display right now.</p>
+      <p id="certs-empty" class="small" style="display:none">No certifications to display right now.</p>
     </section>
 
     <!-- CONTACT -->
     <section class="card" aria-labelledby="contact-title">
       <h2 id="contact-title">Contact</h2>
       <ul class="contact-list">
-        <!-- TODO: replace with your real links -->
         <li><a class="pill" href="https://github.com/aykhanpashayev" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a class="pill" href="#" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a class="pill" href="mailto:you@example.com">you@example.com</a></li>
-        <li><a class="pill" href="tel:+1XXXXXXXXXX">+1 (###) ###-####</a></li>
+        <li><a class="pill" href="https://linkedin.com/in/aykhanpashayev" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a class="pill" href="mailto:aykhan.pashayev001@gmail.com">aykhan.pashayev001@gmail.com</a></li>
+        <li><a class="pill" href="tel:+18578670482">+1 (857) 867-0482</a></li>
       </ul>
       <p class="small" style="margin-top:.5rem">Prefer GitHub issues on project repos for technical questions.</p>
     </section>
@@ -116,12 +157,22 @@
     "jobTitle": "Cybersecurity (Cloud, Detection, IAM)",
     "url": "https://aykhanpashayev.github.io/",
     "sameAs": [
-      "https://github.com/aykhanpashayev"
+      "https://github.com/aykhanpashayev",
+      "https://linkedin.com/in/aykhanpashayev"
     ]
   }
   </script>
 
-  <script defer>
+  <script>
+    // Remove critical CSS if external stylesheet loaded (optional)
+    window.addEventListener('load', () => {
+      const bg = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim();
+      if (bg && bg.toLowerCase() !== '') {
+        const critical = document.getElementById('critical-css');
+        if (critical) critical.parentNode.removeChild(critical);
+      }
+    });
+
     // Helpers
     const $ = (s, el=document) => el.querySelector(s);
     const esc = s => String(s||'').replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m]));
@@ -139,7 +190,7 @@
     // Year
     $('#year').textContent = new Date().getFullYear();
 
-    // ---------- Selected AWS Projects (exactly 3; no upcoming) ----------
+    // Selected AWS Projects (exactly 3; no upcoming)
     fetch('assets/data/projects.json',{cache:'no-store'})
       .then(r => r.json())
       .then(projects => {
@@ -178,7 +229,7 @@
       })
       .catch(err => console.error('Projects load error', err));
 
-    // ---------- Experience (compact: 2 bullets + details) ----------
+    // Experience (compact)
     fetch('assets/data/experience.json',{cache:'no-store'})
       .then(r=>r.json())
       .then(rows=>{
@@ -207,14 +258,13 @@
       })
       .catch(err => console.error('Experience load error', err));
 
-    // ---------- Certifications (robust; in-progress first; show Verify only for issued) ----------
+    // Certifications (in-progress first; show Verify only for issued)
     fetch('assets/data/certifications.json',{cache:'no-store'})
       .then(r=>r.json())
       .then(list=>{
         const host = $('#certs-grid');
         const empty = $('#certs-empty');
 
-        // Sanitize & sort: in-progress first (as requested), else keep file order.
         const rows = (Array.isArray(list)? list: []).map(c => ({
           ...c,
           _status: statusNorm(c.status),
@@ -240,11 +290,11 @@
           host.appendChild(li);
         });
 
-        if (!host.children.length) empty.classList.remove('hidden');
+        if (!host.children.length) empty.style.display = 'block';
       })
       .catch(err => {
         console.error('Certs load error', err);
-        const empty = $('#certs-empty'); if (empty) empty.classList.remove('hidden');
+        const empty = $('#certs-empty'); if (empty) empty.style.display = 'block';
       });
   </script>
 </body>
