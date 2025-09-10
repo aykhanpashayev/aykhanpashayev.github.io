@@ -4,138 +4,105 @@
   <meta charset="utf-8" />
   <title>Aykhan Pashayev — Cybersecurity Portfolio</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Evidence-first cybersecurity portfolio: AWS detections, incident-response automation, and KMS encryption—each with repos and artifacts." />
+  <meta name="description" content="Cybersecurity student focused on AWS security, detections, and incident response — hands-on projects with proof (repos, PDFs, short demos)." />
   <link rel="canonical" href="https://aykhanpashayev.github.io/" />
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
-  <!-- Open Graph -->
+  <meta name="robots" content="index,follow" />
   <meta property="og:title" content="Aykhan Pashayev — Cybersecurity Portfolio" />
-  <meta property="og:description" content="Hands-on security projects with proof: repos, PDFs, and short demos." />
+  <meta property="og:description" content="Hands-on AWS security projects with proof links. Compact experience, verified certs, and a resume snapshot." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://aykhanpashayev.github.io/" />
   <meta property="og:image" content="assets/og-card.png" />
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Aykhan Pashayev — Cybersecurity Portfolio" />
-  <meta name="twitter:description" content="Evidence-first cybersecurity projects and artifacts." />
-  <meta name="twitter:image" content="assets/og-card.png" />
   <link rel="icon" href="assets/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root{--bg:#0b0b0f;--fg:#e9eef2;--muted:#a8b3be;--accent:#7dd3fc;--card:#151821;--border:#23283a}
-    *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-    a{color:var(--accent);text-decoration:none}
-    a:focus,button:focus{outline:2px solid var(--accent);outline-offset:2px}
-    .container{max-width:1100px;margin:0 auto;padding:1.25rem}
-    .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
-    .skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;background:#000;padding:.5rem .75rem;border-radius:.5rem}
-    header{position:sticky;top:0;background:rgba(11,11,15,.85);backdrop-filter:saturate(120%) blur(8px);border-bottom:1px solid var(--border);z-index:50}
-    nav{display:flex;align-items:center;justify-content:space-between;gap:.75rem}
-    .brand{font-weight:700;letter-spacing:.2px}
-    .menu{display:flex;gap:.25rem;align-items:center}
-    .menu a{padding:.5rem .75rem;border-radius:.6rem}
-    .menu a[aria-current="page"]{background:rgba(125,211,252,.12);color:var(--accent)}
-    .burger{display:none}
-    @media (max-width:800px){
-      .menu{display:none}
-      .menu.open{display:flex;flex-direction:column;align-items:flex-start;padding:.5rem 0}
-      .burger{display:inline-flex}
-    }
-    .btn{background:#0f131b;border:1px solid var(--border);color:var(--fg);padding:.5rem .75rem;border-radius:.6rem;cursor:pointer}
-    .btn:hover{background:#0c1017}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:1rem;box-shadow:0 1px 0 rgba(0,0,0,.25);transition:transform .12s ease, box-shadow .12s ease}
-    .card:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.25)}
-    .grid{display:grid;gap:1rem}
-    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
-    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
-    @media (max-width:900px){.grid.cols-3,.grid.cols-2{grid-template-columns:1fr}}
-    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:1.25rem;align-items:start;margin-top:1rem}
-    @media (max-width:900px){.hero{grid-template-columns:1fr}}
-    h1{font-size:2rem;margin:.25rem 0 .5rem}
-    h2{font-size:1.1rem;margin:1.5rem 0 .75rem}
-    .meta{color:var(--muted);font-size:.9rem}
-    .badge{display:inline-flex;align-items:center;gap:.4ch;font-size:.75rem;padding:.15rem .5rem;border:1px solid var(--border);border-radius:999px;background:#111214;color:var(--muted)}
-    .badge.upcoming{background:rgba(125,211,252,.12);color:var(--accent);border-color:rgba(125,211,252,.25)}
-    .tag{display:inline-block;padding:.15rem .5rem;border:1px solid var(--border);border-radius:.5rem;font-size:.72rem;color:var(--muted)}
-    .inline-links{display:flex;gap:.75rem;flex-wrap:wrap}
-    footer{border-top:1px solid var(--border);margin-top:2rem;padding:1rem 0;color:var(--muted);font-size:.9rem}
-  </style>
+  <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header>
+
+  <header class="site-header">
     <div class="container">
       <nav aria-label="Primary">
-        <div class="brand">Aykhan Pashayev</div>
-        <button class="burger btn" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">☰</button>
-        <div id="menu" class="menu" role="menubar">
-          <a href="index.html" aria-current="page">Home</a>
-          <a href="projects.html">Projects</a>
-          <a href="timeline.html">Timeline</a>
-          <a href="github.html">GitHub</a>
-          <a href="assets/resume.pdf" target="_blank" rel="noopener">Resume</a>
-        </div>
+        <a class="logo" href="index.html">Aykhan Pashayev</a>
+        <button class="menu-toggle" aria-controls="nav" aria-expanded="false">☰ Menu</button>
+        <ul id="nav" class="nav-links" role="menubar">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="timeline.html">Timeline</a></li>
+          <li><a href="github.html">GitHub</a></li>
+          <li><a href="assets/resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+        </ul>
       </nav>
     </div>
   </header>
 
   <main id="main" class="container" tabindex="-1">
-    <!-- Hero -->
+    <!-- HERO: welcome + current focus -->
     <section class="hero card" aria-labelledby="hero-title">
       <div>
-        <h1 id="hero-title">Security-minded engineer — evidence first</h1>
-        <p class="meta">
-          I build and document practical security projects across AWS, detections, and incident response.
-          Every claim links to proof: repos, PDFs, and short demos. Clean code. Clear outcomes.
+        <h1 id="hero-title">Welcome — I’m Aykhan, focused on AWS security</h1>
+        <p class="lead">
+          I’m a Cybersecurity student at FIU and a STARS Learning/Course Assistant. I build practical security labs across AWS, detection engineering, and IR — and I ship proof for every claim (repos, PDFs, short demos).
+          I’m currently targeting <strong>entry-level Cloud Security / Detection Engineering / IAM</strong> roles and internships.
         </p>
-        <div class="inline-links" aria-label="Quick links">
+        <div class="cta" aria-label="Quick links">
           <a class="btn" href="projects.html">Browse Projects</a>
-          <a class="btn" href="timeline.html">Track on Timeline</a>
-          <a class="btn" href="assets/resume.pdf" rel="noopener" target="_blank">Resume (PDF)</a>
+          <a class="btn ghost" href="timeline.html">Track on Timeline</a>
+          <a class="btn secondary" href="assets/resume.pdf" rel="noopener" target="_blank">Resume (PDF)</a>
         </div>
       </div>
-      <div>
-        <article class="card" aria-labelledby="highlights-title">
-          <h2 id="highlights-title">Top outcomes</h2>
-          <ul id="top-kpis" style="margin:0;padding-left:1rem">
-            <!-- populated from projects.json -->
-          </ul>
-        </article>
+      <aside class="card" aria-labelledby="resume-snap">
+        <h2 id="resume-snap">Resume snapshot</h2>
+        <ul class="small" style="margin:0;padding-left:1.1rem">
+          <li>AWS auto-remediation: <strong>&lt;1s detect</strong> (Config) / <strong>~4s remediate</strong> (Lambda), full audit logs.</li>
+          <li>CloudTrail detections: <strong>&lt;1 minute</strong> alerting for sensitive API calls; standardized triage queries.</li>
+          <li>KMS lab: SSE-KMS on S3/EBS; disable/re-enable testing; CloudTrail key-use auditability.</li>
+          <li>Teaching/tutoring: documentation, diagrams, and auditable session logs.</li>
+        </ul>
+        <div class="cta" style="margin-top:.75rem">
+          <a class="pill" href="assets/resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+        </div>
+      </aside>
+    </section>
+
+    <!-- SELECTED AWS PROJECTS (no upcoming) -->
+    <section aria-labelledby="aws-title">
+      <h2 id="aws-title">Selected AWS Projects</h2>
+      <ul id="aws-grid" class="cards" aria-live="polite"></ul>
+      <div class="cta" style="margin-top:.5rem">
+        <a class="btn" href="projects.html?tags=aws">See more projects</a>
       </div>
     </section>
 
-    <!-- Featured -->
-    <section aria-labelledby="featured-title" class="grid cols-3" id="featured">
-      <h2 id="featured-title" style="grid-column:1/-1;">Featured</h2>
-      <!-- Cards injected -->
+    <!-- EXPERIENCE (compact) -->
+    <section aria-labelledby="exp-title">
+      <h2 id="exp-title">Experience</h2>
+      <ul id="exp-grid" class="cards" aria-live="polite"></ul>
     </section>
 
-    <!-- Experience -->
-    <section aria-labelledby="exp-title" class="grid cols-2" id="experience">
-      <h2 id="exp-title" style="grid-column:1/-1;">Experience</h2>
-      <!-- Injected from assets/data/experience.json -->
+    <!-- CERTIFICATIONS (reordered; hide verify for in-progress) -->
+    <section aria-labelledby="certs-title">
+      <h2 id="certs-title">Certifications</h2>
+      <ul id="certs-grid" class="cards" aria-live="polite"></ul>
     </section>
 
-    <!-- Certifications -->
-    <section aria-labelledby="certs-title" class="grid cols-2" id="certs">
-      <h2 id="certs-title" style="grid-column:1/-1;">Certifications</h2>
-      <!-- Injected from assets/data/certifications.json -->
-    </section>
-
-    <!-- Contact -->
-    <section aria-labelledby="contact-title" class="card">
+    <!-- CONTACT -->
+    <section class="card" aria-labelledby="contact-title">
       <h2 id="contact-title">Contact</h2>
-      <p class="meta">Best: GitHub issues on project repos or email (on resume). For demos, see artifacts linked on each project.</p>
+      <ul class="contact-list">
+        <!-- Update these to your actual links -->
+        <li><a class="pill" href="https://github.com/aykhanpashayev" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a class="pill" href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a class="pill" href="mailto:you@example.com">you@example.com</a></li>
+        <li><a class="pill" href="tel:+1XXXXXXXXXX">+1 (###) ###-####</a></li>
+      </ul>
+      <p class="small" style="margin-top:.5rem">Prefer GitHub issues on project repos for technical questions.</p>
     </section>
   </main>
 
-  <footer>
-    <div class="container" style="display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap">
-      <div>© <span id="year"></span> Aykhan Pashayev</div>
-      <div class="meta">Fast, accessible, evidence-first. Hosted on GitHub Pages.</div>
-    </div>
+  <footer class="site-footer">
+    <div class="container small">© <span id="year"></span> Aykhan Pashayev • Fast, accessible, evidence-first.</div>
   </footer>
 
   <!-- JSON-LD Person -->
@@ -151,140 +118,103 @@
   </script>
 
   <script defer>
-    // Utilities
-    const $ = (s,el=document)=>el.querySelector(s);
-    const slug = s => String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+    // helpers
+    const $ = (s, el=document) => el.querySelector(s);
     const esc = s => String(s||'').replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m]));
     const link = u => (String(u||'#').trim()||'#');
+    const slug = s => String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
 
-    // Mobile nav
-    const burger = document.querySelector('.burger');
-    const menu = document.getElementById('menu');
-    burger.addEventListener('click', ()=>{
-      const open = menu.classList.toggle('open');
-      burger.setAttribute('aria-expanded', String(open));
+    // mobile nav
+    const toggler = $('.menu-toggle'), nav = $('#nav');
+    if (toggler) toggler.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggler.setAttribute('aria-expanded', String(open));
     });
 
-    // Footer year
+    // year
     $('#year').textContent = new Date().getFullYear();
 
-    // Hero KPIs + Featured
-    (async function(){
-      try{
-        const res = await fetch('assets/data/projects.json',{cache:'no-store'});
-        const projects = await res.json();
+    // ----- Selected AWS Projects (exactly 3, no upcoming) -----
+    fetch('assets/data/projects.json',{cache:'no-store'}).then(r=>r.json()).then(projects=>{
+      // Prefer these exact titles; fallback to top 3 AWS completed
+      const preferred = new Set([
+        "Auto-Remediating Security-Group Drift (Config + Lambda)",
+        "Monitoring & Alerting with CloudTrail, CloudWatch, SNS & EventBridge",
+        "AWS KMS Encryption Lab"
+      ]);
+      let chosen = projects.filter(p=>preferred.has(p.title) && p.status!=='upcoming');
+      if (chosen.length < 3) {
+        const awsCompleted = projects.filter(p => (p.tags||[]).includes('aws') && p.status!=='upcoming');
+        const names = new Set(chosen.map(p=>p.title));
+        for (const p of awsCompleted) { if (chosen.length>=3) break; if (!names.has(p.title)) chosen.push(p); }
+      }
+      chosen = chosen.slice(0,3);
 
-        // KPIs: show up to 3 non-upcoming with results text
-        const k = $('#top-kpis');
-        projects.filter(p=>p.results && p.status!=='upcoming').slice(0,3).forEach(p=>{
-          const li = document.createElement('li');
-          li.style.marginBottom = '.5rem';
-          li.innerHTML = `<div style="display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap">
-              <strong>${esc(p.title)}</strong>
-              <span class="meta">${esc(p.timeline||'')}</span>
-            </div>
-            <div class="meta">${esc(p.results)}</div>`;
-          k.appendChild(li);
-        });
+      const grid = $('#aws-grid');
+      chosen.forEach(p=>{
+        const li = document.createElement('li'); li.className='card';
+        li.innerHTML = `
+          <div style="display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap">
+            <h3 style="margin:.25rem 0">${esc(p.title)}</h3>
+            <span class="small">${esc(p.timeline||'')}</span>
+          </div>
+          <p class="small">${esc(p.results||p.one_liner||'')}</p>
+          <div class="tags" style="margin-top:.4rem">${(p.tags||[]).slice(0,6).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
+          <div class="cta" style="margin-top:.6rem">
+            ${p?.links?.repo? `<a class="pill" href="${link(p.links.repo)}" target="_blank" rel="noopener">Repo</a>`:''}
+            ${p?.links?.docs? `<a class="pill" href="${link(p.links.docs)}" target="_blank" rel="noopener">Docs</a>`:''}
+          </div>
+        `;
+        grid.appendChild(li);
+      });
+    });
 
-        // Featured = upcoming or featured:true
-        const featured = projects.filter(p=>p.status==='upcoming' || p.featured===true);
-        const grid = document.getElementById('featured');
-        if(!featured.length){
-          const empty = document.createElement('div');
-          empty.className='card'; empty.style.gridColumn='1 / -1';
-          empty.innerHTML = `<p class="meta">No featured items yet. See <a href="projects.html">all projects</a>.</p>`;
-          grid.appendChild(empty);
-        }else{
-          featured.slice(0,6).forEach(p=>{
-            const card = document.createElement('article');
-            card.className='card'; card.setAttribute('aria-labelledby',`f-${slug(p.title)}`);
-            card.innerHTML = `
-              <div style="display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap">
-                <h3 id="f-${slug(p.title)}" style="margin:.25rem 0;font-size:1rem">${esc(p.title)}</h3>
-                ${p.status==='upcoming'?`<span class="badge upcoming" title="Coming soon">Coming soon</span>`:''}
-              </div>
-              <p class="meta">${esc(p.one_liner||'')}</p>
-              <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin:.5rem 0">
-                ${(p.tags||[]).slice(0,6).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}
-              </div>
-              <div class="inline-links">
-                ${p?.links?.repo? `<a class="btn" href="${link(p.links.repo)}" target="_blank" rel="noopener">Repo</a>`:''}
-                ${p?.links?.docs? `<a class="btn" href="${link(p.links.docs)}" target="_blank" rel="noopener">Docs</a>`:''}
-                <a class="btn" href="projects.html">All Projects</a>
-                <a class="btn" href="timeline.html">Track on Timeline</a>
-              </div>
-            `;
-            grid.appendChild(card);
-          });
+    // ----- Experience (compact: 2 bullets + details) -----
+    fetch('assets/data/experience.json',{cache:'no-store'}).then(r=>r.json()).then(rows=>{
+      const host = $('#exp-grid');
+      rows.forEach(exp=>{
+        const bullets = (exp.highlights||[]);
+        const firstTwo = bullets.slice(0,2);
+        const rest = bullets.slice(2);
+        const li = document.createElement('li'); li.className='card';
+        li.innerHTML = `
+          <div style="display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap">
+            <h3 style="margin:.25rem 0">${esc(exp.role)}</h3>
+            <span class="small">${esc(exp.dates)}</span>
+          </div>
+          <div class="small" style="margin-bottom:.25rem">${esc(exp.org)} • ${esc(exp.location)}</div>
+          <p>${esc(exp.summary||'')}</p>
+          <ul style="margin:.4rem 0;padding-left:1.1rem">${firstTwo.map(h=>`<li>${esc(h)}</li>`).join('')}</ul>
+          ${rest.length ? `
+            <details>
+              <summary class="pill" style="margin-top:.25rem">More details</summary>
+              <ul style="margin:.4rem 0;padding-left:1.1rem">${rest.map(h=>`<li>${esc(h)}</li>`).join('')}</ul>
+            </details>` : ``}
+        `;
+        host.appendChild(li);
+      });
+    });
 
-          // JSON-LD CreativeWork list for featured (SEO)
-          const works = featured.slice(0,3).map(p=>({
-            "@type":"CreativeWork",
-            "name": p.title,
-            "description": p.one_liner || "",
-            "dateCreated": p.timeline || "",
-            "url": location.origin + "/projects.html#" + slug(p.title)
-          }));
-          if(works.length){
-            const ld = {
-              "@context":"https://schema.org",
-              "@type":"ItemList",
-              "itemListElement": works.map((w,i)=>({ "@type":"ListItem","position":i+1,"item":w }))
-            };
-            const s = document.createElement('script'); s.type='application/ld+json'; s.textContent = JSON.stringify(ld);
-            document.head.appendChild(s);
-          }
-        }
-      }catch(e){ console.error(e); }
-    })();
-
-    // Experience
-    (async function(){
-      try{
-        const r = await fetch('assets/data/experience.json',{cache:'no-store'});
-        const items = await r.json();
-        const host = document.getElementById('experience');
-        items.forEach(exp=>{
-          const el = document.createElement('article'); el.className='card';
-          el.innerHTML = `
-            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:.5rem;flex-wrap:wrap">
-              <h3 style="margin:.25rem 0;font-size:1rem">${esc(exp.role)}</h3>
-              <span class="meta">${esc(exp.dates)}</span>
-            </div>
-            <div class="meta" style="margin-bottom:.5rem">${esc(exp.org)} • ${esc(exp.location)}</div>
-            <p>${esc(exp.summary||'')}</p>
-            <ul style="margin:.5rem 0;padding-left:1.1rem">${(exp.highlights||[]).map(h=>`<li>${esc(h)}</li>`).join('')}</ul>
-            <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.5rem">${(exp.skills||[]).map(s=>`<span class="tag">${esc(s)}</span>`).join('')}</div>
-          `;
-          host.appendChild(el);
-        });
-      }catch(e){ console.error(e); }
-    })();
-
-    // Certifications
-    (async function(){
-      try{
-        const r = await fetch('assets/data/certifications.json',{cache:'no-store'});
-        const certs = await r.json();
-        const host = document.getElementById('certs');
-        certs.forEach(c=>{
-          const el = document.createElement('article'); el.className='card';
-          el.innerHTML = `
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap">
-              <h3 style="margin:.25rem 0;font-size:1rem">${esc(c.name)}</h3>
-              <span class="badge ${c.status==='in-progress'?'upcoming':''}">${esc(c.status)}</span>
-            </div>
-            <div class="meta">${esc(c.issuer)} ${c.date?('• '+esc(c.date)) : ''}</div>
-            <div class="inline-links" style="margin-top:.6rem">
-              <a class="btn" href="${link(c.link)}" target="_blank" rel="noopener">Verify / Details</a>
-            </div>
-            <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.5rem">${(c.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
-          `;
-          host.appendChild(el);
-        });
-      }catch(e){ console.error(e); }
-    })();
+    // ----- Certifications (show in provided order; hide Verify for in-progress) -----
+    fetch('assets/data/certifications.json',{cache:'no-store'}).then(r=>r.json()).then(certs=>{
+      const host = $('#certs-grid');
+      certs.forEach(c=>{
+        const inProgress = c.status !== 'issued';
+        const li = document.createElement('li'); li.className='card';
+        li.innerHTML = `
+          <div style="display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap">
+            <h3 style="margin:.25rem 0">${esc(c.name)}</h3>
+            <span class="badge ${inProgress?'upcoming':''}">${esc(c.status)}</span>
+          </div>
+          <div class="small">${esc(c.issuer)}${c.date?(' • '+esc(c.date)) : ''}</div>
+          <div class="cta" style="margin-top:.6rem">
+            ${(!inProgress && c.link && c.link!=='#') ? `<a class="pill" href="${link(c.link)}" target="_blank" rel="noopener">Verify / Details</a>` : ``}
+          </div>
+          <div class="tags" style="margin-top:.5rem">${(c.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
+        `;
+        host.appendChild(li);
+      });
+    });
   </script>
 </body>
 </html>
