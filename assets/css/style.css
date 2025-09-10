@@ -208,3 +208,9 @@ img.media-thumb { border-radius: .5rem; border: 1px solid var(--border); }
   a[href^="http"]:after { content: " (" attr(href) ")"; font-size: .8em; color: #555; }
   body { background: #fff; color: #000; }
 }
+/* Fix: remove ghost second column in hero */
+.hero {
+  display: block !important;      /* override any previous grid */
+  padding: 2rem 0 1rem;           /* keep the nice spacing */
+}
+
