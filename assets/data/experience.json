@@ -1,15 +1,47 @@
 [
   {
+    "role": "STARS Tutor (Learning/Course Assistant)",
+    "org": "Knight Foundation School of Computing & Information Sciences, FIU",
+    "location": "Miami, FL • Hybrid",
+    "dates": "Sep 2025 – Present",
+    "summary": "Online, near-peer tutoring across IT fundamentals with a focus on clear explanations, research-backed answers, and strong documentation.",
+    "highlights": [
+      "Help students across networking, systems, databases, and programming; translate technical topics for non-technical learners.",
+      "Research mini-briefs on current topics (AI safety, detection engineering basics, IAM pitfalls, NLP fundamentals) under STARS organization.",
+      "Document concise study guides, lab walkthroughs, and diagrams (Word/PowerPoint/Visio); maintain auditable activity logs for each session.",
+      "Support proctored assessments (ID checks, integrity, escalation) and handle student data confidentially.",
+      "Surface patterns from tutoring notes (common misconfigs, permission errors) to instructors to improve course materials."
+    ],
+    "skills": [
+      "technical communication",
+      "research & synthesis (AI • cyber)",
+      "documentation (Word • PowerPoint • Visio)",
+      "logging & integrity",
+      "AWS basics (IAM • CloudTrail • CloudWatch)",
+      "Linux • Windows",
+      "SQL • Python (basics)"
+    ]
+  },
+  {
     "role": "Hardware Lab Assistant",
     "org": "Florida International University (FIU)",
-    "location": "Miami, FL",
+    "location": "Miami, FL • On-site",
     "dates": "Sep 2024 – Apr 2025",
-    "summary": "Supported programming labs and lab readiness; helped students debug code and OS issues.",
+    "summary": "Kept lab software/hardware reliable and ready; built hands-on environments and supported CTF practice.",
     "highlights": [
-      "Mentored 150+ students in C/Java, Linux and OS fundamentals; improved assignment pass rates by ~60%.",
-      "Configured and verified 30+ Windows/Linux lab workstations before classes.",
-      "Helped troubleshoot scripts during lab hours; reduced recurring script errors by ~50%."
+      "Prepared and maintained 30+ Linux/Windows lab machines: imaging, patching, driver/software installs, and smoke-tests.",
+      "Built a reusable VirtualBox VM (Kali/Ubuntu) preloaded with a CTF toolchain (Nmap, Wireshark, Burp, Metasploit); managed snapshots and NAT/bridged networking.",
+      "Stood up/verified lab services and configs (SSH, web server examples, firewalls, subnet/VLAN basics) for classroom exercises.",
+      "Authored quick-start sheets and troubleshooting checklists that cut recurring script/config errors ~50%.",
+      "Supported CTF prep sessions: environment setup, basic exploitation labs, and safe-practice guidelines."
     ],
-    "skills": ["java", "c", "linux", "windows", "scripting", "troubleshooting"]
+    "skills": [
+      "Linux • Windows administration",
+      "VirtualBox • virtualization",
+      "imaging • patching • deployment",
+      "CTF toolchain (Nmap • Wireshark • Burp • Metasploit)",
+      "networking basics (subnets/VLSM • routing/switching • firewalls)",
+      "shell scripting • documentation"
+    ]
   }
 ]
