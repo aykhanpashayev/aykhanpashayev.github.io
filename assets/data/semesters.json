@@ -2,7 +2,7 @@
   {
     "term": "Fall 2022",
     "dates": "Sep–Dec 2022",
-    "summary": "Starting college at UMass Boston as IT major; foundations and problem solving.",
+    "summary": "Starting college at UMass Boston as an IT major; foundations and problem solving.",
     "courses": [
       "IT 110 — IT Problem Solving",
       "MATH 125 — Intro to Statistics"
@@ -18,10 +18,10 @@
       },
       {
         "title": "Devices Inventory — Group Project",
-        "type": "xlsx",
+        "type": "doc",
         "link": "assets/artifacts/2022-fall/devices-inventory.xlsx",
         "tags": ["hardware", "inventory", "group"],
-        "desc": "Spreadsheet comparing our devices by specs and purpose."
+        "desc": "Spreadsheet comparing devices by specs and purpose."
       },
       {
         "title": "Packet Tracer — Project 8 (Tasks 1–6)",
@@ -35,61 +35,61 @@
         "type": "video",
         "link": "assets/artifacts/2022-fall/vbox-fedora-vm-demo.mp4",
         "tags": ["virtualization", "fedora", "virtualbox"],
-        "desc": "Short screen recording showing I'm being introduced to Linux via Fedore in Virtual Box."
+        "desc": "Short screen recording introducing Linux via Fedora in VirtualBox."
       },
       {
         "title": "My First Website — “Wlacien’s Favorite Hobby”",
         "type": "link",
         "link": "assets/artifacts/2022-fall/Wlacien.html",
         "tags": ["html", "it110", "beginner"],
-        "desc": "My first HTML page for IT 110 (Fall 2022): headings, images, and paragraphs—no frameworks."
+        "desc": "First HTML page for IT 110: headings, images, and paragraphs—no frameworks."
       }
     ]
   },
   {
     "term": "Spring 2023",
     "dates": "Jan–May 2023",
-    "summary": "Second semester at UMass Boston; Intro to databases and networking.",
+    "summary": "Second semester at UMass Boston; intro to databases and networking.",
     "courses": [
       "IT 230L — Relational Databases",
       "IT 246 — Introduction to Networks"
     ],
-    "highlights": ["Hands-on with ER modeling, mySQL and basic subnetting; Cisco Packet Tracer labs."],
+    "highlights": ["Hands-on with ER modeling, MySQL, and basic subnetting; Cisco Packet Tracer labs."],
     "artifacts": [
       {
         "title": "Packet Tracer — Basic IP Config & Ping Validation",
         "type": "video",
         "link": "assets/artifacts/2023-spring/pt-lab-basic-ip-ping.mp4",
         "tags": ["networking", "packet-tracer", "icmp"],
-        "desc": "Configured PC0 (IP 192.168.100.1/24, GW/DNS 192.168.100.250), verified local pings (.250, .100), and confirmed cross-subnet ping to 192.168.101.1 fails as expected (no routing)."
+        "desc": "Configured PC0, verified local pings, and confirmed cross-subnet ping fails as expected (no routing)."
       },
       {
         "title": "Packet Tracer — HTTP Request Simulation & PDU Layer Analysis",
         "type": "video",
         "link": "assets/artifacts/2023-spring/pt-http-layers-simulation.mp4",
         "tags": ["networking", "packet-tracer", "tcp/ip", "http", "simulation"],
-        "desc": "Used Simulation mode to browse to 192.168.100.2, inspected the PDU, and identified Ethernet II → IPv4 → TCP → HTTP fields per the lab guide."
+        "desc": "Simulation mode to browse to a web host; inspected Ethernet II → IPv4 → TCP → HTTP fields."
       },
       {
         "title": "Packet Tracer — DHCP Client with ipconfig",
         "type": "video",
         "link": "assets/artifacts/2023-spring/pt-dhcp-client-ipconfig.mp4",
         "tags": ["networking", "packet-tracer", "dhcp", "windows-cli"],
-        "desc": "Switched PC0 to DHCP, received 192.168.100.100/24 with GW 192.168.100.250, and reviewed lease details using ipconfig /all per the lab guide."
+        "desc": "Switched to DHCP, received a lease, and reviewed details using ipconfig /all."
       },
       {
         "title": "Packet Tracer — ICMP Packet Capture (Internetwork Layer)",
         "type": "video",
         "link": "assets/artifacts/2023-spring/pt-icmp-internetwork-layer.mp4",
         "tags": ["networking", "packet-tracer", "icmp", "simulation", "tcp/ip"],
-        "desc": "Used Simulation mode and Capture/Forward to ping 192.168.100.2, then inspected the outbound PDU (Ethernet → IP → ICMP) fields per the lab guide."
+        "desc": "Capture/Forward to inspect outbound PDU (Ethernet → IP → ICMP) fields."
       },
       {
         "title": "Packet Tracer — ARP Broadcast & Header Fields",
         "type": "video",
         "link": "assets/artifacts/2023-spring/pt-arp-broadcast-analysis.mp4",
         "tags": ["networking", "packet-tracer", "arp", "simulation", "tcp/ip"],
-        "desc": "Pinged 192.168.101.1 in Simulation mode to trigger ARP, then inspected the outbound PDU (Ethernet II + ARP) and reviewed MAC/IP fields."
+        "desc": "Triggered ARP and inspected outbound PDU (Ethernet II + ARP) MAC/IP fields."
       },
       {
         "title": "Essay — AI in Gaming (ENGL 101)",
@@ -103,201 +103,201 @@
         "type": "pdf",
         "link": "assets/artifacts/2023-spring/ai-criminal-justice-essay.pdf",
         "tags": ["writing", "essay", "ai", "criminal-justice"],
-        "desc": "First academic essay for ENGL 101 (Feb 21, 2023): surveys benefits (predictive policing, risk assessment) and concerns (bias, transparency, privacy)."
+        "desc": "Surveys benefits (predictive policing, risk assessment) and concerns (bias, transparency, privacy)."
       },
       {
         "title": "How to Build an Ethernet Patch Cable",
         "type": "pdf",
         "link": "assets/artifacts/2023-spring/building-patch-cable.pdf",
         "tags": ["hardware", "networking", "cabling", "rj-45"],
-        "desc": "One-page guide: cut/strip cable, twist pairs, crimp RJ-45, and verify with a cable tester."
+        "desc": "Cut/strip cable, crimp RJ-45, and verify with a cable tester."
       },
       {
         "title": "SQL Coursework — KIMTAY Sales DB (DDL/DML + Queries)",
-        "type": "sql",
+        "type": "link",
         "link": "assets/artifacts/2023-spring/ch1-8.sql",
         "tags": ["sql", "mysql", "relational", "coursework"],
-        "desc": "Built a sample sales database (tables, FKs, views, indexes) and practiced joins, subqueries, GROUP BY/HAVING, and stored procedures with cursors."
+        "desc": "Sample sales DB and practice queries (joins, subqueries, GROUP BY/HAVING, stored procedures)."
       },
       {
         "title": "Packet Tracer — Home Network: DHCP Renew & Connectivity Check",
         "type": "video",
         "link": "assets/artifacts/2023-spring/pt-home-network-dhcp-renew.mp4",
         "tags": ["networking", "packet-tracer", "dhcp", "home-network"],
-        "desc": "Released/renewed DHCP on the laptop, obtained 192.168.0.101, and verified connectivity to 192.168.0.1 via ping."
+        "desc": "Released/renewed DHCP and verified connectivity to the gateway."
       },
       {
         "title": "Networking a Stand-Alone Windows Machine",
         "type": "pdf",
         "link": "assets/artifacts/2023-spring/networking-standalone-machine.pdf",
         "tags": ["networking", "windows", "file-sharing", "apipa"],
-        "desc": "Checked MAC/IP with ipconfig, enabled folder sharing, direct-cabled to a peer, observed APIPA assignment, and discovered the other host."
+        "desc": "Checked MAC/IP with ipconfig, enabled folder sharing, and validated peer discovery."
       },
       {
         "title": "Wi-Fi Router Security Lab (Project 10)",
         "type": "pdf",
         "link": "assets/artifacts/2023-spring/wifi-router-security-lab.pdf",
         "tags": ["networking", "wifi", "security", "home-network"],
-        "desc": "Reviewed/adjusted SSID broadcast, 2.4 GHz channel & width (20/40 MHz), WPA/WPA2-PSK modes, AES vs TKIP, passphrase strength, guest isolation, and LAN client filtering—plus pros/cons and recommendations."
+        "desc": "Reviewed SSID, channels, WPA/WPA2, AES/TKIP, passphrase strength, guest isolation, and client filtering."
       }
     ]
   },
   {
     "term": "Fall 2023",
     "dates": "Aug–Dec 2023",
-    "summary": "Transferred to Florida International University (FIU): Staring to B.S. in Cybersecurity.",
+    "summary": "Transferred to Florida International University (FIU): starting a B.S. in Cybersecurity.",
     "courses": [
       "COP 2250 — Java Programming"
     ],
     "highlights": ["Strong start at FIU (Term GPA 3.92)."],
     "artifacts": [
       {
-        "title": "Java labs Pack (Fall 2023)",
+        "title": "Java Labs Pack (Fall 2023)",
         "type": "link",
         "link": "assets/artifacts/2023-fall/intro-level-java-all-labs.zip",
         "tags": ["java", "coursework", "oop"],
-        "desc": "All intro level Java labs in one bundle."
+        "desc": "All intro-level Java labs in one bundle."
       },
       {
         "title": "Informative Speech — Security Threats",
         "type": "video",
         "link": "assets/artifacts/2023-fall/security-threats-speech.mp4",
         "tags": ["public-speaking", "security", "awareness"],
-        "desc": "Explains hacking and common attack vectors: eavesdropping, social engineering, phishing, shoulder surfing, and dumpster diving."
+        "desc": "Explains common attack vectors: eavesdropping, social engineering, phishing, shoulder surfing, and dumpster diving."
       },
       {
         "title": "Persuasive Speech — Cybersecurity Awareness (SPC 2608)",
         "type": "video",
         "link": "assets/artifacts/2023-fall/cybersecurity-awareness-persuasive.mp4",
         "tags": ["public-speaking", "security-awareness", "phishing", "human-firewall"],
-        "desc": "Case: 2016 phishing (John Podesta) → argue for a 'human firewall' culture: Train • Analyze • Win, plus device hardening, safe browsing, and handling confidential info."
+        "desc": "Advocates a 'human firewall' culture (Train • Analyze • Win) and device/browser hygiene."
       }
     ]
   },
   {
     "term": "Spring 2024",
     "dates": "Jan–May 2024",
-    "summary": "Second semester at FIU, I'm getting more used to college life",
+    "summary": "Second semester at FIU; getting more used to college life.",
     "courses": [
       "COP 2270 — C Programming for Engineers"
     ],
-    "highlights": ["Started using Linux more oftenly, publishing on GitHub"],
+    "highlights": ["Started using Linux more often; publishing on GitHub."],
     "artifacts": [
       {
         "title": "Essay — AI’s Role in Cybersecurity (ENC 1102)",
         "type": "pdf",
         "link": "assets/artifacts/2024-spring/ai-role-in-cybersecurity-essay.pdf",
         "tags": ["writing", "essay", "ai", "cybersecurity"],
-        "desc": "Explores AI for detections/anomaly spotting, phishing and APT detection, plus emerging offensive-AI risks; includes sources and reflection."
+        "desc": "Explores AI for detections/anomaly spotting and emerging offensive-AI risks."
       },
       {
         "title": "C Program — Functions, Loops, and Basic Arithmetic",
-        "type": "c",
+        "type": "link",
         "link": "assets/artifacts/2024-spring/c-program-functions-loops.c",
         "tags": ["c", "programming", "functions", "loops"],
-        "desc": "Practice program showcasing small arithmetic routines, for/while loop variants, and a simple info function, all orchestrated in main."
+        "desc": "Small arithmetic routines and loop variants orchestrated in main."
       },
       {
         "title": "C Program — Math, Random, and String Parsing",
-        "type": "c",
+        "type": "link",
         "link": "assets/artifacts/2024-spring/c-program-math-strings-arrays.c",
         "tags": ["c", "math", "strings", "arrays"],
-        "desc": "Demonstrates math.h routines (round/ceil/floor/min/max/trig/exp/log/sqrt), rand() usage, and string parsing (vowel/consonant, case transforms, ASCII) with a simple pyramid formatter."
+        "desc": "Uses math.h routines, rand(), and string parsing with a simple pyramid formatter."
       },
       {
         "title": "C Program — 2D Arrays, Swapping/Sorting, ASCII & Loops",
-        "type": "c",
+        "type": "link",
         "link": "assets/artifacts/2024-spring/c-program-2d-arrays-sorting-ascii.c",
         "tags": ["c", "arrays", "loops", "io"],
-        "desc": "Builds a 10×10 table and computes row/column totals; sorts three numbers ascending; prints ASCII letters down from 'Z'; safe division loop with sentinel; modulo filter and parallel string arrays."
+        "desc": "Builds a 10×10 table, computes totals, sorts numbers, and prints ASCII sequences."
       }
     ]
   },
   {
     "term": "Fall 2024",
     "dates": "Aug–Dec 2024",
-    "summary": "Diving deeper into cybersecurity: Learning about OS, advanced Java and discrete math.",
+    "summary": "Diving deeper into cybersecurity: operating systems, intermediate Java, and discrete math.",
     "courses": [
       "CGS 3767 — Computer OS",
       "COP 3804 — Intermediate Java",
       "COT 3100 — Discrete Structures"
     ],
-    "highlights": ["Dean’s List; deeper systems knowledge and problem solving. Using Kali Linux everyday in VirtualBox"],
+    "highlights": ["Dean’s List; deeper systems knowledge and problem solving. Using Kali Linux daily in VirtualBox."],
     "artifacts": [
       {
         "title": "Java OOP — Library Mini-Project (Book + Tester)",
         "type": "link",
         "link": "assets/artifacts/2024-fall/library-mini-project.zip",
         "tags": ["java", "oop", "fundamentals"],
-        "desc": "Modeled a Book with availability and a static counter; includes borrow/return, late-fee calc, displayInfo, and a small driver + UML sketch."
+        "desc": "Book model with availability and a static counter; borrow/return + late fee; driver + UML."
       },
       {
         "title": "Java OOP — Inheritance (Animal → Bird → Canary)",
         "type": "link",
         "link": "assets/artifacts/2024-fall/fall24-inheritance-canary.zip",
         "tags": ["java", "oop", "inheritance"],
-        "desc": "Multi-level inheritance with method overrides; driver program and UML sketch included."
+        "desc": "Multi-level inheritance with method overrides; driver + UML."
       },
       {
         "title": "Java OOP — Polymorphism & Abstraction (Vehicle/Car/Airplane)",
         "type": "link",
         "link": "assets/artifacts/2024-fall/fall24-polymorphism-vehicle.zip",
         "tags": ["java", "oop", "polymorphism", "abstraction"],
-        "desc": "Abstract Vehicle + Flyable interface; Car & Airplane override behavior; demo exercises dynamic dispatch. Includes UML diagram."
+        "desc": "Abstract Vehicle + Flyable interface; overridden behaviors via polymorphic calls; UML."
       }
     ]
   },
   {
     "term": "Spring 2025 — My hardest semester at college",
     "dates": "Jan–May 2025",
-    "summary": "Applied networking, professional tech writing and HCI.",
+    "summary": "Applied networking, professional technical writing, and HCI.",
     "courses": [
       "CEN 3721 — Intro to Human-Computer Interaction",
       "CGS 1920 — Intro to the Field of Computing",
       "CGS 4285 — Applied Networking",
       "ENC 3249 — Professional Technical Writing (Computing)"
     ],
-    "highlights": ["Dean’s List; began publishing more often in GitHub and attending CTFs."],
+    "highlights": ["Dean’s List; began publishing more on GitHub and attending CTFs."],
     "artifacts": [
       {
         "title": "Network Design — Subnetting, Routing & Firewall Segmentation",
         "type": "pdf",
         "link": "assets/artifacts/2025-spring/network-design-subnetting-topology.pdf",
         "tags": ["networking", "subnetting", "routing", "firewall"],
-        "desc": "Designed a multi-site network from 128.60.80.0/23: VLSM plan, /30 serial links, router interfaces, and a router-firewall segment for servers; includes L3 diagram and site topologies."
+        "desc": "Multi-site network from 128.60.80.0/23: VLSM plan, /30 links, router interfaces, and server DMZ behind a firewall."
       },
       {
         "title": "Recommendation Report — Premium Membership Program (Noble 33)",
         "type": "pdf",
         "link": "assets/artifacts/2025-spring/premium-membership-program-noble33.pdf",
         "tags": ["writing", "research", "business"],
-        "desc": "Full report: research methods, evaluation criteria, findings, and a tiered membership recommendation with pilot plan."
+        "desc": "Full report: methods, evaluation criteria, findings, and a tiered membership recommendation with pilot plan."
       },
       {
         "title": "Business Letter — Client Billing Remediation",
         "type": "pdf",
         "link": "assets/artifacts/2025-spring/client-billing-remediation-letter.pdf",
         "tags": ["writing", "business-communication", "customer-success"],
-        "desc": "Apology + remediation letter for a 13% overbilling incident; proposes credits, free documentation optimization, and enhanced project support. Shows clear tone and concrete remedies."
+        "desc": "Apology + remediation letter for a 13% overbilling incident; proposes service-based remediation."
       },
       {
         "title": "Internal Memo — Billing Error & Next Steps",
         "type": "pdf",
         "link": "assets/artifacts/2025-spring/memo-billing-error.pdf",
         "tags": ["writing", "business-communication", "operations"],
-        "desc": "Explains a 13% over-billing issue, outlines client engagement/operational support/feedback duties, and proposes service-based remediation instead of refunds."
+        "desc": "Explains over-billing, outlines client engagement/ops support/feedback, and proposes next steps."
       },
       {
         "title": "Proposal — Fixing Leadership Engagement in PantherSec",
         "type": "pdf",
         "link": "assets/artifacts/2025-spring/panthersec-leadership-engagement-proposal.pdf",
         "tags": ["writing", "proposal", "leadership", "club"],
-        "desc": "Plan to investigate low leadership participation via interviews, best-practice research, and a scheduled recommendation report (Mar–Apr 2025)."
+        "desc": "Plan to investigate low leadership participation via interviews and best-practice research."
       }
     ]
   },
   {
-    "term": "Summer 2025 - Preparations started for AWS Security Specialty",
+    "term": "Summer 2025 — Preparations started for AWS Security Specialty",
     "dates": "May–Aug 2025",
     "summary": "Automation, information retrieval, and global policy; started certificate in Cyber Intel & Info Policy.",
     "courses": [
@@ -305,28 +305,28 @@
       "ISS 3613 — Issues in Global Cybersecurity Policy",
       "COP 4703 — Information Retrieval and Database Systems Management"
     ],
-    "highlights": ["Dean’s List 3x in row; drift auto-remediation mini-project."],
+    "highlights": ["Dean’s List 3× in a row; drift auto-remediation mini-project."],
     "artifacts": [
       {
-      "title": "Policy Paper — AI as a Double-Edged Sword in Cyber Defense",
-      "type": "pdf",
-      "link": "assets/artifacts/2025-summer/ai-double-edged-cyber-defense.pdf",
-      "tags": ["writing", "policy", "ai", "cybersecurity"],
-      "desc": "Analyzes how AI boosts detection/response yet enables offensive misuse; identifies U.S. policy gaps and recommends governance, oversight, defense investment, and civil-military integration (July 18, 2025)."
+        "title": "Policy Paper — AI as a Double-Edged Sword in Cyber Defense",
+        "type": "pdf",
+        "link": "assets/artifacts/2025-summer/ai-double-edged-cyber-defense.pdf",
+        "tags": ["writing", "policy", "ai", "cybersecurity"],
+        "desc": "Analyzes how AI boosts detection/response yet enables offensive misuse; identifies U.S. policy gaps and recommends governance and oversight."
       }
     ]
   },
   {
     "term": "Fall 2025 — In Progress",
     "dates": "Aug–Dec 2025",
-    "summary": "Capstone, data comms and cyber policy.",
+    "summary": "Capstone, data comms, and cyber policy.",
     "courses": [
       "CGS 3095 — Technology in the Global Arena",
       "CIS 3950 — Capstone I",
       "CNT 4513 — Data Communications",
       "ISS 4651 — Topics in Cyber Policy"
     ],
-    "highlights": ["Capstone I underway; continuing Cyber Intel & Info Policy certificate. Learning about more advanced Networking"],
+    "highlights": ["Capstone I underway; continuing Cyber Intel & Info Policy certificate."],
     "artifacts": []
   }
 ]
