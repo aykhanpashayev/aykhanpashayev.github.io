@@ -188,5 +188,31 @@
       "docs": "assets/artifacts/2025-spring/premium-membership-program-noble33.pdf"
     },
     "status": "completed"
-  }
+  },
+  {
+    "title": "AnomAI — Capstone (in progress)",
+    "one_liner": "Anomaly detection for cloud/security telemetry (AWS signals → features → baselines → alerts).",
+    "tags": ["aws", "ai", "soc", "detection"],
+    "timeline": "Expected Apr 2026",
+    "context": "Capstone",
+    "problem": "Detect unusual account/resource behavior from noisy cloud activity.",
+    "approach": "Ingest CloudTrail/CloudWatch-derived signals → feature engineering → baseline & drift checks → alert routes; privacy-first and explainability in scope.",
+    "tech_stack": "AWS (CloudTrail, CloudWatch), Python, detection logic",
+    "results": "Prototype & report in progress.",
+    "links": { "repo": "#", "docs": "#" },
+    "status": "upcoming"
+},
+{
+  "title": "Research Paper — Cyber RECon 2026 (submission)",
+  "one_liner": "Conference paper (research-in-progress). Abstract & preprint planned for Oct 2025.",
+  "tags": ["research", "writing", "security"],
+  "timeline": "Expected Oct 2025",
+  "context": "Conference submission",
+  "problem": "TBD (final title/abstract to be posted with preprint).",
+  "approach": "Literature + applied study; methods and dataset details in the preprint.",
+  "tech_stack": "Research methods, analysis",
+  "results": "Preprint coming soon.",
+  "links": { "repo": "#", "docs": "#" },
+  "status": "upcoming"
+}
 ]
