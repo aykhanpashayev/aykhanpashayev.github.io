@@ -4,16 +4,17 @@
   <meta charset="utf-8" />
   <title>Projects — Aykhan Pashayev</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="CySec projects with proofs: repos, PDFs, and demos. Search and filter by tag." />
+  <meta name="description" content="Security projects with proof: repos, PDFs, demos. Filter by tag, search titles/one-liners, and sort by timeline." />
   <link rel="icon" href="assets/favicon.ico" />
+  <link rel="canonical" href="https://aykhanpashayev.github.io/projects.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#0b0b0f; --fg:#e9eef2; --muted:#a8b3be; --accent:#7dd3fc; --card:#151821; --border:#23283a;}
+    :root{--bg:#0b0b0f;--fg:#e9eef2;--muted:#a8b3be;--accent:#7dd3fc;--card:#151821;--border:#23283a}
     *{box-sizing:border-box}
     body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
     a{color:var(--accent);text-decoration:none}
-    a:focus{outline:2px solid var(--accent);outline-offset:2px}
+    a:focus,button:focus,select:focus,input:focus{outline:2px solid var(--accent);outline-offset:2px}
     header{position:sticky;top:0;background:rgba(11,11,15,.85);backdrop-filter:saturate(120%) blur(8px);border-bottom:1px solid var(--border);z-index:50}
     nav{max-width:1100px;margin:0 auto;padding:1.25rem;display:flex;align-items:center;justify-content:space-between}
     nav .menu a{padding:.5rem .75rem;border-radius:.6rem}
@@ -22,7 +23,7 @@
     h1{font-size:1.5rem;margin:.5rem 0 1rem}
     .controls{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;margin-bottom:1rem}
     .input{background:#0f131b;border:1px solid var(--border);color:var(--fg);padding:.55rem .7rem;border-radius:.6rem;width:min(420px,100%)}
-    .pill{display:inline-flex;align-items:center;gap:.4ch;padding:.3rem .6rem;border:1px solid var(--border);border-radius:999px;font-size:.8rem;color:var(--muted);cursor:pointer}
+    .pill{display:inline-flex;align-items:center;gap:.4ch;padding:.3rem .6rem;border:1px solid var(--border);border-radius:999px;font-size:.8rem;color:var(--muted);cursor:pointer;background:#0f131b}
     .pill.active{background:rgba(125,211,252,.12);color:var(--accent);border-color:rgba(125,211,252,.25)}
     .grid{display:grid;gap:1rem;grid-template-columns:repeat(3,1fr)}
     @media(max-width:900px){.grid{grid-template-columns:1fr}}
@@ -32,8 +33,8 @@
     .badge.upcoming{background:rgba(125,211,252,.12);color:var(--accent);border-color:rgba(125,211,252,.25)}
     .tag{display:inline-block;padding:.15rem .5rem;border:1px solid var(--border);border-radius:.5rem;font-size:.72rem;color:var(--muted)}
     .meta{color:var(--muted);font-size:.9rem}
-    .toolbar{display:flex;gap:.5rem;align-items:center}
     select{background:#0f131b;border:1px solid var(--border);color:var(--fg);padding:.55rem;border-radius:.6rem}
+    .count{color:var(--muted);font-size:.9rem}
   </style>
 </head>
 <body>
@@ -53,134 +54,143 @@
     <h1>Projects</h1>
     <div class="controls" role="region" aria-label="Project filters">
       <input id="q" class="input" type="search" placeholder="Search title, tags, one-liner…" aria-label="Search projects" />
-      <div class="toolbar">
-        <label for="sort" class="meta" style="margin-right:.25rem">Sort</label>
-        <select id="sort" aria-label="Sort projects">
-          <option value="timeline-desc" selected>Timeline (desc)</option>
-          <option value="title-asc">Title (A→Z)</option>
-        </select>
-      </div>
-      <div id="tagbar" style="display:flex;gap:.5rem;flex-wrap:wrap"></div>
+      <label for="sort" class="meta" style="margin-left:.25rem">Sort</label>
+      <select id="sort" aria-label="Sort projects">
+        <option value="timeline-desc" selected>Timeline (desc)</option>
+        <option value="title-asc">Title (A→Z)</option>
+      </select>
+      <span id="count" class="count" aria-live="polite"></span>
+      <div id="tagbar" style="display:flex;gap:.5rem;flex-wrap:wrap;width:100%"></div>
     </div>
 
-    <section class="grid" id="grid" aria-live="polite">
-      <!-- cards injected -->
-    </section>
+    <section class="grid" id="grid" aria-live="polite"></section>
   </main>
 
   <script defer>
     const $ = (s,el=document)=>el.querySelector(s);
     const $$ = (s,el=document)=>Array.from(el.querySelectorAll(s));
-    const q = $('#q'); const sortSel = $('#sort'); const tagbar = $('#tagbar'); const grid = $('#grid');
-    let projects = []; let activeTags = new Set(); let qTimer;
+    const esc = s => String(s||'').replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m]));
+    const slug = s => String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+    const link = u => (String(u||'#').trim()||'#');
 
-    fetch('assets/data/projects.json', {cache:'no-store'}).then(r=>r.json()).then(data=>{
+    let projects=[], activeTags=new Set(), debounceId;
+    const q=$('#q'), sortSel=$('#sort'), tagbar=$('#tagbar'), grid=$('#grid'), count=$('#count');
+
+    // URL state (q=, tags=csv, sort=)
+    const url = new URL(location.href);
+    const initQ = url.searchParams.get('q')||'';
+    const initTags = (url.searchParams.get('tags')||'').split(',').filter(Boolean);
+    const initSort = url.searchParams.get('sort')||'timeline-desc';
+
+    q.value = initQ;
+    sortSel.value = initSort;
+
+    fetch('assets/data/projects.json',{cache:'no-store'}).then(r=>r.json()).then(data=>{
       projects = data.slice();
-      buildTagbar(projects);
+      buildTagbar(projects, initTags);
       render();
-    }).catch(err=>console.error(err));
+    });
 
-    function buildTagbar(items){
+    function buildTagbar(items, preselect=[]){
       const all = new Set();
       items.forEach(p => (p.tags||[]).forEach(t => all.add(String(t).toLowerCase())));
       const sorted = Array.from(all).sort((a,b)=>a.localeCompare(b));
-      if(sorted.length===0){ tagbar.innerHTML = '<span class="meta">No tags yet.</span>'; return; }
-      tagbar.innerHTML = '';
+      tagbar.innerHTML='';
+      if(!sorted.length){ tagbar.innerHTML='<span class="meta">No tags yet.</span>'; return; }
+
       sorted.forEach(t=>{
-        const pill = document.createElement('button');
-        pill.className = 'pill'; pill.type='button'; pill.setAttribute('aria-pressed','false');
-        pill.textContent = t; pill.addEventListener('click',()=>{
-          if(activeTags.has(t)){ activeTags.delete(t); pill.classList.remove('active'); pill.setAttribute('aria-pressed','false');}
-          else { activeTags.add(t); pill.classList.add('active'); pill.setAttribute('aria-pressed','true');}
+        const btn=document.createElement('button');
+        btn.type='button'; btn.className='pill'; btn.textContent=t; btn.setAttribute('aria-pressed','false');
+        if(preselect.includes(t)){ activeTags.add(t); btn.classList.add('active'); btn.setAttribute('aria-pressed','true'); }
+        btn.addEventListener('click', ()=>{
+          const on = activeTags.has(t);
+          if(on){ activeTags.delete(t); btn.classList.remove('active'); btn.setAttribute('aria-pressed','false'); }
+          else { activeTags.add(t); btn.classList.add('active'); btn.setAttribute('aria-pressed','true'); }
           render();
         });
-        tagbar.appendChild(pill);
+        tagbar.appendChild(btn);
       });
-      // Convenience "clear" if tags exist
-      const clr = document.createElement('button');
+      const clr=document.createElement('button');
       clr.type='button'; clr.className='pill'; clr.textContent='clear';
-      clr.addEventListener('click',()=>{ activeTags.clear(); $$('.pill', tagbar).forEach(p=>p.classList.remove('active')); render(); });
+      clr.addEventListener('click',()=>{ activeTags.clear(); $$('.pill',tagbar).forEach(p=>p.classList.remove('active')); render(); });
       tagbar.appendChild(clr);
     }
 
+    function extractYear(s){ const m = String(s||'').match(/(20\\d{2})/); return m?parseInt(m[1],10):0; }
+
     function render(){
+      // Filter
       const term = (q.value||'').trim().toLowerCase();
       let view = projects.slice();
-
-      // Filter by search
       if(term){
         view = view.filter(p=>{
           const hay = [p.title, p.one_liner, ...(p.tags||[])].join(' ').toLowerCase();
           return hay.includes(term);
         });
       }
-      // Filter by tags
       if(activeTags.size){
         view = view.filter(p=>{
-          const pts = new Set((p.tags||[]).map(t=>String(t).toLowerCase()));
-          return Array.from(activeTags).every(t=>pts.has(t));
+          const set = new Set((p.tags||[]).map(t=>String(t).toLowerCase()));
+          return Array.from(activeTags).every(t=>set.has(t));
         });
       }
+
       // Sort
-      const sortVal = sortSel.value;
-      if(sortVal==='timeline-desc'){
-        view.sort((a,b)=>extractYear(b.timeline)-extractYear(a.timeline) || a.title.localeCompare(b.title));
-      }else if(sortVal==='title-asc'){
-        view.sort((a,b)=>a.title.localeCompare(b.title));
-      }
+      const s = sortSel.value;
+      if(s==='timeline-desc'){ view.sort((a,b)=>extractYear(b.timeline)-extractYear(a.timeline) || a.title.localeCompare(b.title)); }
+      else if(s==='title-asc'){ view.sort((a,b)=>a.title.localeCompare(b.title)); }
+
+      // URL sync
+      const url = new URL(location.href);
+      url.searchParams.set('sort', s);
+      if(term) url.searchParams.set('q', term); else url.searchParams.delete('q');
+      const tagCsv = Array.from(activeTags).join(',');
+      if(tagCsv) url.searchParams.set('tags', tagCsv); else url.searchParams.delete('tags');
+      history.replaceState(null,'',url.toString());
+
+      // Count
+      count.textContent = `${view.length} project${view.length===1?'':'s'}`;
 
       // Render
       grid.innerHTML='';
-      if(view.length===0){
-        grid.innerHTML = `<div class="card" style="grid-column:1/-1"><div class="meta">No matches. Try clearing filters.</div></div>`;
+      if(!view.length){
+        grid.innerHTML = `<div class="card" style="grid-column:1/-1"><p class="meta">No matches. Try clearing filters.</p></div>`;
         return;
       }
+
       view.forEach(p=>{
         const up = p.status==='upcoming';
-        const card = document.createElement('article');
-        card.className='card';
-        card.id = p.title ? slug(p.title) : '';
-        card.innerHTML = `
+        const el = document.createElement('article');
+        el.className='card'; el.id = p.title?slug(p.title):'';
+        el.innerHTML = `
           <div style="display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap">
-            <h2 style="margin:.25rem 0;font-size:1rem">${escapeHtml(p.title)}</h2>
+            <h2 style="margin:.25rem 0;font-size:1rem">${esc(p.title)}</h2>
             ${up?`<span class="badge upcoming" title="Coming soon">Coming soon</span>`:''}
           </div>
-          <p class="meta">${escapeHtml(p.one_liner||'')}</p>
+          <p class="meta">${esc(p.one_liner||'')}</p>
           <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin:.5rem 0">
-            ${(p.tags||[]).map(t=>`<span class="tag">${escapeHtml(t)}</span>`).join('')}
+            ${(p.tags||[]).map(t=>`<a class="tag" href="?tags=${encodeURIComponent(String(t).toLowerCase())}">${esc(t)}</a>`).join('')}
           </div>
-          <p><strong>Context:</strong> ${escapeHtml(p.context||'')} • <strong>Timeline:</strong> ${escapeHtml(p.timeline||'')}</p>
+          <p><strong>Context:</strong> ${esc(p.context||'')} • <strong>Timeline:</strong> ${esc(p.timeline||'')}</p>
           <details>
             <summary>Problem → Approach → Results</summary>
-            <p><strong>Problem:</strong> ${escapeHtml(p.problem||'')}</p>
-            <p><strong>Approach:</strong> ${escapeHtml(p.approach||'')}</p>
-            <p><strong>Tech:</strong> ${escapeHtml(p.tech_stack||'')}</p>
-            <p><strong>Results:</strong> ${escapeHtml(p.results||'')}</p>
+            <p><strong>Problem:</strong> ${esc(p.problem||'')}</p>
+            <p><strong>Approach:</strong> ${esc(p.approach||'')}</p>
+            <p><strong>Tech:</strong> ${esc(p.tech_stack||'')}</p>
+            <p><strong>Results:</strong> ${esc(p.results||'')}</p>
           </details>
           <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem">
-            ${p?.links?.repo? `<a class="pill" href="${safeLink(p.links.repo)}" target="_blank" rel="noopener">Repo</a>`:''}
-            ${p?.links?.docs? `<a class="pill" href="${safeLink(p.links.docs)}" target="_blank" rel="noopener">Docs</a>`:''}
+            ${p?.links?.repo? `<a class="pill" href="${link(p.links.repo)}" target="_blank" rel="noopener">Repo</a>`:''}
+            ${p?.links?.docs? `<a class="pill" href="${link(p.links.docs)}" target="_blank" rel="noopener">Docs</a>`:''}
           </div>
         `;
-        grid.appendChild(card);
+        grid.appendChild(el);
       });
     }
 
-    function extractYear(s){
-      if(!s) return 0;
-      const m = String(s).match(/(20\d{2})/);
-      return m ? parseInt(m[1],10) : 0;
-    }
-    function slug(s){return String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');}
-    function escapeHtml(s){return String(s||'').replace(/[&<>"']/g, m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
-    function safeLink(u){u=String(u||'#').trim(); return u===''?'#':u;}
-
-    // Debounce search for perf
-    $('#q').addEventListener('input', (e)=>{
-      clearTimeout(qTimer);
-      qTimer = setTimeout(render, 140);
-    });
-    $('#sort').addEventListener('change', render);
+    // Events
+    q.addEventListener('input', ()=>{ clearTimeout(debounceId); debounceId = setTimeout(render, 150); });
+    sortSel.addEventListener('change', render);
   </script>
 </body>
 </html>
