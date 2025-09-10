@@ -1,45 +1,38 @@
 [
   {
-    "slug": "aws-config-lambda-remediation-lab",
     "title": "Auto-Remediating Security-Group Drift (Config + Lambda)",
     "one_liner": "Detects SG rule drift and self-heals to the approved baseline (80/443).",
     "tags": ["aws", "security", "lambda", "event-driven", "automation"],
     "timeline": "2025",
-    "context": "Mini-project",
-    "type": "Personal",
-    "semester": "Summer 2025",
+    "context": "Personal",
     "problem": "Unauthorized SG rule changes create exposure risk and audit gaps.",
     "approach": "AWS Config custom rule triggers Lambda; compares actual ingress to baseline; revokes non-compliant rules; logs to CloudWatch.",
     "tech_stack": "AWS Config, Lambda (Python), EventBridge, CloudWatch Logs, IAM (least-privilege)",
     "results": "Lab: <1s detection via Config delivery; ~4s remediation via Lambda; zero manual intervention; full audit logs.",
     "links": { "repo": "https://github.com/aykhanpashayev/aws-config-lambda-remediation-lab", "docs": "#" },
-    "status": "completed"
+    "status": "completed",
+    "featured": true
   },
   {
-    "slug": "cloudtrail-cloudwatch-monitoring-lab",
     "title": "Monitoring & Alerting with CloudTrail, CloudWatch, SNS & EventBridge",
     "one_liner": "Real-time alerts on sensitive AWS API calls + triage queries with Logs Insights.",
     "tags": ["aws", "cloudtrail", "eventbridge", "sns", "cloudwatch", "detections"],
     "timeline": "2025",
-    "context": "Guided lab",
-    "type": "Lab",
-    "semester": "Summer 2025",
+    "context": "Coursework",
     "problem": "Slow detection of risky actions (e.g., SG changes, failed console logins).",
     "approach": "Org Trail → CloudWatch Logs; EventBridge rules for sensitive API events; SNS notifications; metric filters/alarms; Logs Insights for investigations.",
     "tech_stack": "CloudTrail, EventBridge, SNS, CloudWatch Logs/Alarms, Logs Insights",
     "results": "Lab: alert latency under a minute for critical events; standardized triage via saved queries.",
     "links": { "repo": "https://github.com/aykhanpashayev/cloudtrail-cloudwatch-monitoring-lab", "docs": "#" },
-    "status": "completed"
+    "status": "completed",
+    "featured": true
   },
   {
-    "slug": "aws-kms-encryption-lab",
     "title": "AWS KMS Encryption Lab",
     "one_liner": "Hands-on KMS with S3, EC2/EBS, and CloudTrail for data-at-rest security.",
     "tags": ["aws", "kms", "s3", "ec2", "cloudtrail", "lab"],
     "timeline": "2025",
-    "context": "AWS Academy Lab 5.1",
-    "type": "Lab",
-    "semester": "Summer 2025",
+    "context": "Coursework",
     "problem": "Prove end-to-end data-at-rest protection and auditability in AWS.",
     "approach": "Created CMK; applied SSE-KMS on S3; encrypted EC2 root via snapshot; monitored key usage with CloudTrail; tested key disable/enable impact.",
     "tech_stack": "AWS KMS, S3, EC2/EBS, CloudTrail",
@@ -47,16 +40,12 @@
     "links": { "repo": "https://github.com/aykhanpashayev/aws-kms-encryption-lab", "docs": "#" },
     "status": "completed"
   },
-  
   {
-    "slug": "linux-admin-security-scripts",
     "title": "Linux Administration & Security Scripts",
     "one_liner": "Bash tools for sudo hardening, service health checks, and change monitoring.",
     "tags": ["bash", "linux", "security", "automation"],
     "timeline": "2025",
-    "context": "Personal toolkit",
-    "type": "Personal",
-    "semester": "Spring 2025",
+    "context": "Personal",
     "problem": "Manually checking sudoers, service uptime, and network state wastes ops time.",
     "approach": "Scripts for sudoers monitoring (inotify), sudo group auditing, log-based sudo monitoring, service restart checks, and netstat verification.",
     "tech_stack": "Bash, inotify-tools, systemd, net-tools",
@@ -65,14 +54,11 @@
     "status": "completed"
   },
   {
-    "slug": "simple-python-port-scanner",
     "title": "Simple Python Port Scanner",
     "one_liner": "Threaded TCP port scanner to learn sockets and basic recon safely.",
     "tags": ["python", "networking", "cli", "education"],
     "timeline": "2024",
-    "context": "Personal project",
-    "type": "Personal",
-    "semester": "Fall 2024",
+    "context": "Personal",
     "problem": "Needed a simple, fast, and safe demo scanner for learning and labs.",
     "approach": "Python sockets + threading; configurable port ranges; timeouts; readable stdout table; basic error handling.",
     "tech_stack": "Python (sockets, threading)",
@@ -81,14 +67,11 @@
     "status": "completed"
   },
   {
-    "slug": "python-keylogger-edu",
     "title": "Python Keylogger (Educational)",
     "one_liner": "Ethical-use demo using pynput to capture keystrokes in a controlled lab.",
     "tags": ["python", "pynput", "education", "ethics"],
     "timeline": "2024",
-    "context": "Learning exercise (lab-only, ethical use)",
-    "type": "Personal",
-    "semester": "Fall 2024",
+    "context": "Personal",
     "problem": "Understand how endpoint telemetry tools detect keystroke capture.",
     "approach": "Minimal key-capture loop with start/stop timestamps; logged to file; ran in consented lab only.",
     "tech_stack": "Python, pynput",
@@ -97,14 +80,11 @@
     "status": "completed"
   },
   {
-    "slug": "packet-tracer-project-8",
     "title": "Packet Tracer: Deploy & Validate a Small Network",
     "one_liner": "Built and verified a small routed LAN in Packet Tracer—cabling, addressing, and PDU-based path validation.",
     "tags": ["networking", "packet-tracer", "cisco", "lab"],
     "timeline": "2022",
-    "context": "Course: IT 246 — Introduction to Networks",
-    "type": "Coursework",
-    "semester": "Fall 2022",
+    "context": "Coursework",
     "problem": "Design and validate a basic LAN with correct cabling and addressing, and confirm end-to-end reachability.",
     "approach": "Configured end devices; deployed and cabled routers/switches; assigned addresses/VLANs; sent PDUs to trace paths; captured physical/logical views.",
     "tech_stack": "Cisco Packet Tracer",
@@ -122,10 +102,7 @@
     "approach": "Encapsulation with getters/setters, availability flag, static inventory counter; driver program and UML sketch.",
     "tech_stack": "Java",
     "results": "Demonstrated OOP fundamentals; ready to extend with a Library collection.",
-    "links": {
-      "repo": "#",
-      "docs": "assets/artifacts/2024-fall/library-mini-project.zip"
-    },
+    "links": { "repo": "#", "docs": "assets/artifacts/2024-fall/library-mini-project.zip" },
     "status": "completed"
   },
   {
@@ -138,10 +115,7 @@
     "approach": "Encapsulation in Animal; Bird extends Animal adding canFly; Canary extends Bird adding color; simple driver to exercise behavior.",
     "tech_stack": "Java",
     "results": "Demonstrated inheritance and overrides; ready to add toString() and unit tests.",
-    "links": {
-      "repo": "#",
-      "docs": "assets/artifacts/2024-fall/fall24-inheritance-canary.zip"
-    },
+    "links": { "repo": "#", "docs": "assets/artifacts/2024-fall/fall24-inheritance-canary.zip" },
     "status": "completed"
   },
   {
@@ -154,15 +128,12 @@
     "approach": "Abstract Vehicle declares engine/acceleration/fly; Car and Airplane implement; Flyable interface; VehicleDemo drives polymorphic calls.",
     "tech_stack": "Java",
     "results": "Shows inheritance, interface contracts, and overridden methods; UML included.",
-    "links": {
-      "repo": "#",
-      "docs": "assets/artifacts/2024-fall/fall24-polymorphism-vehicle.zip"
-    },
+    "links": { "repo": "#", "docs": "assets/artifacts/2024-fall/fall24-polymorphism-vehicle.zip" },
     "status": "completed"
   },
   {
     "title": "Multi-Site Network Design (VLSM + Routed Links + Firewall)",
-     "one_liner": "Subnetted 128.60.80.0/23 across 3 sites with /30 inter-site links and a server DMZ behind a router-firewall.",
+    "one_liner": "Subnetted 128.60.80.0/23 across 3 sites with /30 inter-site links and a server DMZ behind a router-firewall.",
     "tags": ["networking", "subnetting", "routing", "firewall"],
     "timeline": "Spring 2025",
     "context": "Design project",
@@ -175,18 +146,15 @@
   },
   {
     "title": "Recommendation Report — Premium Membership Program (Noble 33)",
-    "one_liner": "Business/UX research + strategy: design a tiered membership that boosts retention, revenue, and brand prestige.",
+    "one_liner": "Business/UX research + strategy: a tiered membership that boosts retention, revenue, and brand prestige.",
     "tags": ["writing", "research", "business", "ux", "loyalty"],
     "timeline": "Spring 2025",
-    "context": "Team project",
+    "context": "Design project",
     "problem": "Create a loyalty/membership strategy for a premium restaurant group that fits the brand and improves margins.",
     "approach": "Industry + academic research, stakeholder interview, evaluation criteria (retention, revenue, brand fit, feasibility), and a tiered program design with launch plan.",
     "tech_stack": "Research methods, data synthesis, stakeholder analysis",
     "results": "Recommended a tiered model with experiential perks; outlined pricing, rollout (pilot → scale), and targeted marketing to maximize WOM and repeat visits.",
-    "links": {
-      "repo": "#",
-      "docs": "assets/artifacts/2025-spring/premium-membership-program-noble33.pdf"
-    },
+    "links": { "repo": "#", "docs": "assets/artifacts/2025-spring/premium-membership-program-noble33.pdf" },
     "status": "completed"
   },
   {
@@ -196,23 +164,23 @@
     "timeline": "Expected Apr 2026",
     "context": "Capstone",
     "problem": "Detect unusual account/resource behavior from noisy cloud activity.",
-    "approach": "Ingest CloudTrail/CloudWatch-derived signals → feature engineering → baseline & drift checks → alert routes; privacy-first and explainability in scope.",
-    "tech_stack": "AWS (CloudTrail, CloudWatch), Python, detection logic",
+    "approach": "Ingest CloudTrail/CloudWatch signals → feature engineering → baselines/drift → alerts; privacy-first & explainability.",
+    "tech_stack": "AWS (CloudTrail, CloudWatch), Python",
     "results": "Prototype & report in progress.",
     "links": { "repo": "#", "docs": "#" },
     "status": "upcoming"
-},
-{
-  "title": "Research Paper — Cyber RECon 2026 (submission)",
-  "one_liner": "Conference paper (research-in-progress). Abstract & preprint planned for Oct 2025.",
-  "tags": ["research", "writing", "security"],
-  "timeline": "Expected Oct 2025",
-  "context": "Conference submission",
-  "problem": "TBD (final title/abstract to be posted with preprint).",
-  "approach": "Literature + applied study; methods and dataset details in the preprint.",
-  "tech_stack": "Research methods, analysis",
-  "results": "Preprint coming soon.",
-  "links": { "repo": "#", "docs": "#" },
-  "status": "upcoming"
-}
+  },
+  {
+    "title": "Research Paper — Cyber RECon 2026 (submission)",
+    "one_liner": "Conference paper (research-in-progress). Abstract & preprint planned for Oct 2025.",
+    "tags": ["research", "writing", "security"],
+    "timeline": "Expected Oct 2025",
+    "context": "Conference submission",
+    "problem": "TBD (final title/abstract to be posted with preprint).",
+    "approach": "Literature + applied study; methods and dataset details in the preprint.",
+    "tech_stack": "Research methods, analysis",
+    "results": "Preprint coming soon.",
+    "links": { "repo": "#", "docs": "#" },
+    "status": "upcoming"
+  }
 ]
