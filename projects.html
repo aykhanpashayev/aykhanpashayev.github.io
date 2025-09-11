@@ -4,193 +4,237 @@
   <meta charset="utf-8" />
   <title>Projects — Aykhan Pashayev</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Security projects with proof: repos, PDFs, demos. Filter by tag, search titles/one-liners, and sort by timeline." />
+  <meta name="color-scheme" content="dark" />
+  <meta name="description" content="Security projects with clear outcomes and proof: repos, PDFs, and demos." />
   <link rel="icon" href="assets/favicon.ico" />
-  <link rel="canonical" href="https://aykhanpashayev.github.io/projects.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- tiny fallback so the page isn't white if external CSS fails -->
   <style>
     :root{--bg:#0b0b0f;--fg:#e9eef2;--muted:#a8b3be;--accent:#7dd3fc;--card:#151821;--border:#23283a}
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-    a{color:var(--accent);text-decoration:none}
-    a:focus,button:focus,select:focus,input:focus{outline:2px solid var(--accent);outline-offset:2px}
-    header{position:sticky;top:0;background:rgba(11,11,15,.85);backdrop-filter:saturate(120%) blur(8px);border-bottom:1px solid var(--border);z-index:50}
-    nav{max-width:1100px;margin:0 auto;padding:1.25rem;display:flex;align-items:center;justify-content:space-between}
-    nav .menu a{padding:.5rem .75rem;border-radius:.6rem}
-    nav .menu a[aria-current="page"]{background:rgba(125,211,252,.12);color:var(--accent)}
-    main{max-width:1100px;margin:0 auto;padding:1.25rem}
-    h1{font-size:1.5rem;margin:.5rem 0 1rem}
-    .controls{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;margin-bottom:1rem}
-    .input{background:#0f131b;border:1px solid var(--border);color:var(--fg);padding:.55rem .7rem;border-radius:.6rem;width:min(420px,100%)}
-    .pill{display:inline-flex;align-items:center;gap:.4ch;padding:.3rem .6rem;border:1px solid var(--border);border-radius:999px;font-size:.8rem;color:var(--muted);cursor:pointer;background:#0f131b}
-    .pill.active{background:rgba(125,211,252,.12);color:var(--accent);border-color:rgba(125,211,252,.25)}
-    .grid{display:grid;gap:1rem;grid-template-columns:repeat(3,1fr)}
-    @media(max-width:900px){.grid{grid-template-columns:1fr}}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:1rem;box-shadow:0 1px 0 rgba(0,0,0,.25);transition:transform .12s ease}
-    .card:hover{transform:translateY(-2px)}
-    .badge{display:inline-flex;align-items:center;gap:.4ch;font-size:.75rem;padding:.15rem .5rem;border:1px solid var(--border);border-radius:999px;background:#111214;color:var(--muted)}
-    .badge.upcoming{background:rgba(125,211,252,.12);color:var(--accent);border-color:rgba(125,211,252,.25)}
-    .tag{display:inline-block;padding:.15rem .5rem;border:1px solid var(--border);border-radius:.5rem;font-size:.72rem;color:var(--muted)}
-    .meta{color:var(--muted);font-size:.9rem}
-    select{background:#0f131b;border:1px solid var(--border);color:var(--fg);padding:.55rem;border-radius:.6rem}
-    .count{color:var(--muted);font-size:.9rem}
+    body{background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;margin:0}
+    .container{width:min(100%,1100px);margin:0 auto;padding:0 1.25rem}
+    .site-header{position:sticky;top:0;border-bottom:1px solid var(--border);backdrop-filter:saturate(120%) blur(8px);background:rgba(11,11,15,.75)}
+    nav{display:flex;align-items:center;justify-content:space-between;min-height:64px}
+    .logo{color:var(--fg);font-weight:800}
+    .nav-links{display:flex;gap:.75rem;list-style:none;padding:0}
+    .nav-links a{color:var(--fg);text-decoration:none;padding:.5rem .75rem;border-radius:.6rem}
+    .nav-links a[aria-current="page"]{background:rgba(125,211,252,.12);color:var(--accent)}
+    h1{font-size:clamp(1.75rem,3vw,2.25rem)}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;list-style:none;padding:0}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:1rem}
+    .small{color:var(--muted);font-size:.92rem}
+    .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:.25rem 0 .5rem}
+    .tag{font-size:.75rem;padding:.2rem .5rem;border:1px solid var(--border);border-radius:999px;color:var(--muted)}
+    .badge{display:inline-block;font-size:.75rem;font-weight:700;padding:.2rem .55rem;border-radius:999px;border:1px solid var(--border);margin-bottom:.5rem}
+    .badge.upcoming{background:rgba(125,211,252,.12);color:var(--accent)}
+    .filters{margin:1rem 0 1.25rem;display:grid;gap:.75rem}
+    input[type="search"], select{width:100%;padding:.65rem .8rem;border-radius:.75rem;border:1px solid var(--border);background:var(--card);color:var(--fg)}
+    .pill{display:inline-flex;align-items:center;gap:.4ch;padding:.3rem .6rem;border:1px solid var(--border);border-radius:999px;font-size:.8rem;color:var(--muted);background:#0f131b;text-decoration:none}
   </style>
 </head>
 <body>
-  <header>
-    <nav aria-label="Primary">
-      <div class="brand">Aykhan Pashayev</div>
-      <div class="menu">
-        <a href="index.html">Home</a>
-        <a href="projects.html" aria-current="page">Projects</a>
-        <a href="timeline.html">Timeline</a>
-        <a href="github.html">GitHub</a>
-      </div>
-    </nav>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <nav aria-label="Primary">
+        <a class="logo" href="index.html">Aykhan Pashayev</a>
+        <button class="menu-toggle" aria-controls="nav" aria-expanded="false" style="display:none">☰</button>
+        <ul id="nav" class="nav-links" role="menubar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html" aria-current="page">Projects</a></li>
+          <li><a href="timeline.html">Timeline</a></li>
+          <li><a href="github.html">GitHub</a></li>
+          <li><a href="assets/Aykhan_Pashayev_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
+  <main id="main" class="container" tabindex="-1">
     <h1>Projects</h1>
-    <div class="controls" role="region" aria-label="Project filters">
-      <input id="q" class="input" type="search" placeholder="Search title, tags, one-liner…" aria-label="Search projects" />
-      <label for="sort" class="meta" style="margin-left:.25rem">Sort</label>
-      <select id="sort" aria-label="Sort projects">
-        <option value="timeline-desc" selected>Timeline (desc)</option>
-        <option value="title-asc">Title (A→Z)</option>
-      </select>
-      <span id="count" class="count" aria-live="polite"></span>
-      <div id="tagbar" style="display:flex;gap:.5rem;flex-wrap:wrap;width:100%"></div>
+    <p class="small">Search, filter by tag, and sort. Every card links to proof (repo/docs).</p>
+
+    <!-- Filters -->
+    <div class="filters" role="region" aria-label="Project filters">
+      <input id="q" type="search" inputmode="search" placeholder="Search title, tags, summary…" aria-label="Search projects" />
+      <div id="taglist" class="tags" aria-label="Tags"></div>
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center">
+        <label for="sort" class="small" style="min-width:9ch">Sort</label>
+        <select id="sort" aria-label="Sort projects">
+          <option value="timeline_desc">Timeline (newest)</option>
+          <option value="az">A–Z</option>
+        </select>
+        <a id="clear" class="pill" href="#" style="display:none">Clear filters</a>
+        <span id="count" class="small" aria-live="polite" style="margin-left:auto"></span>
+      </div>
     </div>
 
-    <section class="grid" id="grid" aria-live="polite"></section>
+    <!-- Grid -->
+    <ul id="grid" class="cards" aria-live="polite"></ul>
   </main>
 
-  <script defer>
-    const $ = (s,el=document)=>el.querySelector(s);
-    const $$ = (s,el=document)=>Array.from(el.querySelectorAll(s));
+  <footer class="site-footer">
+    <div class="container small">© <span id="year"></span> Aykhan Pashayev • Evidence-first projects.</div>
+  </footer>
+
+  <script>
+    // ---- helpers ----
+    const $ = (s, el=document) => el.querySelector(s);
     const esc = s => String(s||'').replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m]));
-    const slug = s => String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
     const link = u => (String(u||'#').trim()||'#');
+    const norm = s => String(s||'').toLowerCase().trim();
 
-    let projects=[], activeTags=new Set(), debounceId;
-    const q=$('#q'), sortSel=$('#sort'), tagbar=$('#tagbar'), grid=$('#grid'), count=$('#count');
+    // Parse timeline strings to a sortable key (Date epoch). Robust to "2025", "Fall 2024", "Expected Apr 2026", etc.
+    function timelineKey(tl){
+      if(!tl) return 0;
+      const s = tl.toString();
+      // year
+      const yMatch = s.match(/(19|20)\d{2}/);
+      const year = yMatch ? parseInt(yMatch[0],10) : 0;
 
-    // URL state (q=, tags=csv, sort=)
-    const url = new URL(location.href);
-    const initQ = url.searchParams.get('q')||'';
-    const initTags = (url.searchParams.get('tags')||'').split(',').filter(Boolean);
-    const initSort = url.searchParams.get('sort')||'timeline-desc';
+      // months and seasons
+      const months = {jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12};
+      const seasons = {winter:1, spring:3, summer:6, fall:9, autumn:9};
 
-    q.value = initQ;
-    sortSel.value = initSort;
+      let month = 6; // default mid-year if only year
+      const mMatch = s.match(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\b/i);
+      if (mMatch) month = months[mMatch[1].slice(0,3).toLowerCase()];
+      const seasonMatch = s.match(/\b(winter|spring|summer|fall|autumn)\b/i);
+      if (seasonMatch) month = seasons[seasonMatch[1].toLowerCase()];
 
-    fetch('assets/data/projects.json',{cache:'no-store'}).then(r=>r.json()).then(data=>{
-      projects = data.slice();
-      buildTagbar(projects, initTags);
-      render();
-    });
+      // favor "Expected" as slightly newer within same month/year
+      const expectedBoost = /\bexpected|in\s*progress/i.test(s) ? 0.5 : 0;
 
-    function buildTagbar(items, preselect=[]){
-      const all = new Set();
-      items.forEach(p => (p.tags||[]).forEach(t => all.add(String(t).toLowerCase())));
-      const sorted = Array.from(all).sort((a,b)=>a.localeCompare(b));
-      tagbar.innerHTML='';
-      if(!sorted.length){ tagbar.innerHTML='<span class="meta">No tags yet.</span>'; return; }
-
-      sorted.forEach(t=>{
-        const btn=document.createElement('button');
-        btn.type='button'; btn.className='pill'; btn.textContent=t; btn.setAttribute('aria-pressed','false');
-        if(preselect.includes(t)){ activeTags.add(t); btn.classList.add('active'); btn.setAttribute('aria-pressed','true'); }
-        btn.addEventListener('click', ()=>{
-          const on = activeTags.has(t);
-          if(on){ activeTags.delete(t); btn.classList.remove('active'); btn.setAttribute('aria-pressed','false'); }
-          else { activeTags.add(t); btn.classList.add('active'); btn.setAttribute('aria-pressed','true'); }
-          render();
-        });
-        tagbar.appendChild(btn);
-      });
-      const clr=document.createElement('button');
-      clr.type='button'; clr.className='pill'; clr.textContent='clear';
-      clr.addEventListener('click',()=>{ activeTags.clear(); $$('.pill',tagbar).forEach(p=>p.classList.remove('active')); render(); });
-      tagbar.appendChild(clr);
+      if(!year) return 0;
+      // Use year-month + boost to order
+      return (new Date(year, month-1, 1).getTime()/1000) + expectedBoost;
     }
 
-    function extractYear(s){ const m = String(s||'').match(/(20\\d{2})/); return m?parseInt(m[1],10):0; }
+    // Title compare (A–Z)
+    const titleKey = t => norm(t || '').replace(/[^a-z0-9]+/g,' ').trim();
 
+    // ---- state ----
+    let all = [];
+    let selectedTags = new Set();
+    let q = '';
+    let sortBy = 'timeline_desc';
+
+    // ---- init ----
+    $('#year').textContent = new Date().getFullYear();
+
+    // if URL has ?tags=aws,security pre-select
+    const params = new URLSearchParams(location.search);
+    const urlTags = (params.get('tags') || '').split(',').map(s=>norm(s)).filter(Boolean);
+    urlTags.forEach(t=>selectedTags.add(t));
+
+    // fetch projects
+    fetch('assets/data/projects.json',{cache:'no-store'})
+      .then(r=>r.json())
+      .then(items=>{
+        all = Array.isArray(items) ? items : [];
+
+        // build tags from data
+        const allTags = new Set();
+        all.forEach(p => (p.tags||[]).forEach(t => allTags.add(norm(t))));
+        const taglist = $('#taglist');
+        [...allTags].sort().forEach(t=>{
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'tag';
+          b.textContent = t;
+          b.setAttribute('aria-pressed', selectedTags.has(t) ? 'true' : 'false');
+          b.addEventListener('click', ()=>{
+            if (selectedTags.has(t)) selectedTags.delete(t); else selectedTags.add(t);
+            b.setAttribute('aria-pressed', selectedTags.has(t) ? 'true' : 'false');
+            render();
+          });
+          taglist.appendChild(b);
+        });
+
+        // listeners
+        $('#q').addEventListener('input', debounce(e=>{ q = e.target.value; render(); }, 150));
+        $('#sort').addEventListener('change', e=>{ sortBy = e.target.value; render(); });
+        $('#clear').addEventListener('click', (e)=>{ e.preventDefault(); q=''; selectedTags.clear(); $('#q').value=''; document.querySelectorAll('#taglist .tag').forEach(el=>el.setAttribute('aria-pressed','false')); render(); });
+
+        // default sort & render
+        $('#sort').value = 'timeline_desc';
+        render();
+      })
+      .catch(err=>{ console.error('projects.json load error', err); $('#grid').innerHTML = '<li class="card">Unable to load projects.</li>'; });
+
+    // ---- render ----
     function render(){
-      // Filter
-      const term = (q.value||'').trim().toLowerCase();
-      let view = projects.slice();
-      if(term){
-        view = view.filter(p=>{
-          const hay = [p.title, p.one_liner, ...(p.tags||[])].join(' ').toLowerCase();
-          return hay.includes(term);
+      // filter
+      const query = norm(q);
+      let rows = all.filter(p=>{
+        const hay = [
+          p.title, p.one_liner, p.results, p.context, p.problem, p.approach,
+          (p.tags||[]).join(' ')
+        ].join(' ').toLowerCase();
+
+        const qOk = !query || hay.includes(query);
+        const tagOk = !selectedTags.size || (p.tags||[]).map(norm).some(t => selectedTags.has(t));
+        return qOk && tagOk;
+      });
+
+      // sort
+      if (sortBy === 'az') {
+        rows.sort((a,b)=>{
+          const aa = titleKey(a.title), bb = titleKey(b.title);
+          if (aa < bb) return -1;
+          if (aa > bb) return 1;
+          // tie-breaker: newest first
+          return timelineKey(b.timeline) - timelineKey(a.timeline);
         });
-      }
-      if(activeTags.size){
-        view = view.filter(p=>{
-          const set = new Set((p.tags||[]).map(t=>String(t).toLowerCase()));
-          return Array.from(activeTags).every(t=>set.has(t));
-        });
+      } else {
+        // timeline_desc (newest first)
+        rows.sort((a,b)=> timelineKey(b.timeline) - timelineKey(a.timeline) || titleKey(a.title).localeCompare(titleKey(b.title)));
       }
 
-      // Sort
-      const s = sortSel.value;
-      if(s==='timeline-desc'){ view.sort((a,b)=>extractYear(b.timeline)-extractYear(a.timeline) || a.title.localeCompare(b.title)); }
-      else if(s==='title-asc'){ view.sort((a,b)=>a.title.localeCompare(b.title)); }
+      // count + clear visibility
+      $('#count').textContent = `${rows.length} project${rows.length===1?'':'s'}`;
+      $('#clear').style.display = (selectedTags.size || (q||'').length) ? 'inline-flex' : 'none';
 
-      // URL sync
-      const url = new URL(location.href);
-      url.searchParams.set('sort', s);
-      if(term) url.searchParams.set('q', term); else url.searchParams.delete('q');
-      const tagCsv = Array.from(activeTags).join(',');
-      if(tagCsv) url.searchParams.set('tags', tagCsv); else url.searchParams.delete('tags');
-      history.replaceState(null,'',url.toString());
+      // grid
+      const grid = $('#grid');
+      grid.innerHTML = '';
+      rows.forEach(p=>{
+        const status = norm(p.status);
+        const isUpcoming = status === 'upcoming' || status === 'in-progress';
 
-      // Count
-      count.textContent = `${view.length} project${view.length===1?'':'s'}`;
-
-      // Render
-      grid.innerHTML='';
-      if(!view.length){
-        grid.innerHTML = `<div class="card" style="grid-column:1/-1"><p class="meta">No matches. Try clearing filters.</p></div>`;
-        return;
-      }
-
-      view.forEach(p=>{
-        const up = p.status==='upcoming';
-        const el = document.createElement('article');
-        el.className='card'; el.id = p.title?slug(p.title):'';
-        el.innerHTML = `
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap">
-            <h2 style="margin:.25rem 0;font-size:1rem">${esc(p.title)}</h2>
-            ${up?`<span class="badge upcoming" title="Coming soon">Coming soon</span>`:''}
+        const li = document.createElement('li'); li.className='card';
+        li.innerHTML = `
+          ${isUpcoming ? `<span class="badge upcoming">${esc(p.status)}</span>`:''}
+          <div style="display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap">
+            <h3 style="margin:.25rem 0">${esc(p.title)}</h3>
+            <span class="small">${esc(p.timeline || '')}</span>
           </div>
-          <p class="meta">${esc(p.one_liner||'')}</p>
-          <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin:.5rem 0">
-            ${(p.tags||[]).map(t=>`<a class="tag" href="?tags=${encodeURIComponent(String(t).toLowerCase())}">${esc(t)}</a>`).join('')}
+          <p class="small">${esc(p.results || p.one_liner || '')}</p>
+          <div class="tags" style="margin-top:.4rem">${(p.tags||[]).slice(0,8).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
+          <div class="cta" style="margin-top:.6rem;display:flex;gap:.4rem;flex-wrap:wrap">
+            ${p?.links?.repo && p.links.repo !== '#' ? `<a class="pill" href="${link(p.links.repo)}" target="_blank" rel="noopener">Repo</a>`:''}
+            ${p?.links?.docs && p.links.docs !== '#' ? `<a class="pill" href="${link(p.links.docs)}" target="_blank" rel="noopener">Docs</a>`:''}
           </div>
-          <p><strong>Context:</strong> ${esc(p.context||'')} • <strong>Timeline:</strong> ${esc(p.timeline||'')}</p>
-          <details>
-            <summary>Problem → Approach → Results</summary>
-            <p><strong>Problem:</strong> ${esc(p.problem||'')}</p>
-            <p><strong>Approach:</strong> ${esc(p.approach||'')}</p>
-            <p><strong>Tech:</strong> ${esc(p.tech_stack||'')}</p>
-            <p><strong>Results:</strong> ${esc(p.results||'')}</p>
-          </details>
-          <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem">
-            ${p?.links?.repo? `<a class="pill" href="${link(p.links.repo)}" target="_blank" rel="noopener">Repo</a>`:''}
-            ${p?.links?.docs? `<a class="pill" href="${link(p.links.docs)}" target="_blank" rel="noopener">Docs</a>`:''}
-          </div>
+          ${p.problem || p.approach ? `
+          <details style="margin-top:.6rem">
+            <summary class="pill">Details</summary>
+            ${p.problem ? `<p><strong>Problem:</strong> ${esc(p.problem)}</p>`:''}
+            ${p.approach ? `<p><strong>Approach:</strong> ${esc(p.approach)}</p>`:''}
+            ${p.tech_stack ? `<p class="small"><strong>Stack:</strong> ${esc(p.tech_stack)}</p>`:''}
+          </details>` : ``}
         `;
-        grid.appendChild(el);
+        grid.appendChild(li);
       });
     }
 
-    // Events
-    q.addEventListener('input', ()=>{ clearTimeout(debounceId); debounceId = setTimeout(render, 150); });
-    sortSel.addEventListener('change', render);
+    // simple debounce
+    function debounce(fn, ms=200){
+      let t; return (...args)=>{ clearTimeout(t); t=setTimeout(()=>fn.apply(this,args), ms); };
+    }
   </script>
 </body>
 </html>
