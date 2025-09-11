@@ -4,122 +4,172 @@
   <meta charset="utf-8" />
   <title>Timeline — Aykhan Pashayev</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Semester-by-semester progress with linked artifacts and short demos." />
+  <meta name="color-scheme" content="dark" />
+  <meta name="description" content="Semester-by-semester record with artifacts: PDFs, videos, code, and links." />
   <link rel="icon" href="assets/favicon.ico" />
-  <link rel="canonical" href="https://aykhanpashayev.github.io/timeline.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- tiny fallback so it never appears blank -->
   <style>
     :root{--bg:#0b0b0f;--fg:#e9eef2;--muted:#a8b3be;--accent:#7dd3fc;--card:#151821;--border:#23283a}
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-    a{color:var(--accent);text-decoration:none}
-    a:focus,button:focus{outline:2px solid var(--accent);outline-offset:2px}
-    header{position:sticky;top:0;background:rgba(11,11,15,.85);backdrop-filter:saturate(120%) blur(8px);border-bottom:1px solid var(--border);z-index:50}
-    nav{max-width:1100px;margin:0 auto;padding:1.25rem;display:flex;align-items:center;justify-content:space-between}
-    nav .menu a{padding:.5rem .75rem;border-radius:.6rem}
-    nav .menu a[aria-current="page"]{background:rgba(125,211,252,.12);color:var(--accent)}
-    main{max-width:1100px;margin:0 auto;padding:1.25rem}
-    h1{font-size:1.5rem;margin:.5rem 0 1rem}
-    .term{background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:1rem;margin-bottom:1rem}
-    h2{font-size:1.1rem;margin:.25rem 0 .5rem}
-    .meta{color:var(--muted);font-size:.9rem}
-    .artifacts{display:grid;gap:.75rem;grid-template-columns:repeat(2,1fr);margin-top:.75rem}
-    @media(max-width:900px){.artifacts{grid-template-columns:1fr}}
-    .artifact{border:1px solid var(--border);border-radius:.75rem;padding:.75rem;background:#0f1219}
-    video{width:100%;height:auto;border-radius:.5rem;border:1px solid var(--border)}
-    img{max-width:100%;height:auto;border-radius:.5rem;border:1px solid var(--border)}
-    .badge{display:inline-flex;align-items:center;gap:.4ch;font-size:.75rem;padding:.15rem .5rem;border:1px solid var(--border);border-radius:999px;background:#111214;color:var(--muted)}
-    .tag{display:inline-block;padding:.15rem .5rem;border:1px solid var(--border);border-radius:.5rem;font-size:.72rem;color:var(--muted)}
+    body{background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;margin:0}
+    .container{width:min(100%,1100px);margin:0 auto;padding:0 1.25rem}
+    .site-header{position:sticky;top:0;border-bottom:1px solid var(--border);backdrop-filter:saturate(120%) blur(8px);background:rgba(11,11,15,.75)}
+    nav{display:flex;align-items:center;justify-content:space-between;min-height:64px}
+    .logo{color:var(--fg);font-weight:800}
+    .nav-links{display:flex;gap:.75rem;list-style:none;margin:0;padding:0}
+    .nav-links a{color:var(--fg);text-decoration:none;padding:.5rem .75rem;border-radius:.6rem}
+    .nav-links a[aria-current="page"]{background:rgba(125,211,252,.12);color:var(--accent)}
+    h1{font-size:clamp(1.75rem,3vw,2.25rem)}
+    .term{background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:1rem;margin:1rem 0}
+    .term-head{display:flex;justify-content:space-between;gap:.75rem;flex-wrap:wrap}
+    .small{color:var(--muted);font-size:.92rem}
+    .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:.25rem 0 .5rem}
+    .tag{font-size:.75rem;padding:.2rem .5rem;border:1px solid var(--border);border-radius:999px;color:var(--muted)}
+    .artifacts{list-style:none;padding:0;margin:0;display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));grid-auto-rows:1fr}
+    .artifact{display:flex;flex-direction:column;gap:.4rem;background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:1rem}
+    .artifact > .grow{flex:1 1 auto}
+    .badge{display:inline-block;font-size:.75rem;font-weight:700;padding:.2rem .55rem;border-radius:999px;border:1px solid var(--border);margin-bottom:.35rem}
+    .pill{display:inline-flex;align-items:center;gap:.4ch;padding:.35rem .7rem;border:1px solid var(--border);border-radius:999px;background:#0f131b;color:var(--fg);text-decoration:none}
+    .artifact h3{margin:.15rem 0;font-size:1.02rem}
+    .artifact p{margin:.15rem 0}
+    .artifact video{width:100%;border-radius:.75rem;outline:none}
+    .cta-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.4rem}
   </style>
 </head>
 <body>
-  <header>
-    <nav aria-label="Primary">
-      <div class="brand">Aykhan Pashayev</div>
-      <div class="menu">
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="timeline.html" aria-current="page">Timeline</a>
-        <a href="github.html">GitHub</a>
-      </div>
-    </nav>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <nav aria-label="Primary">
+        <a class="logo" href="index.html">Aykhan Pashayev</a>
+        <button class="menu-toggle" aria-controls="nav" aria-expanded="false" style="display:none">☰</button>
+        <ul id="nav" class="nav-links" role="menubar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="timeline.html" aria-current="page">Timeline</a></li>
+          <li><a href="github.html">GitHub</a></li>
+          <li><a href="assets/Aykhan_Pashayev_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
+  <main id="main" class="container" tabindex="-1">
     <h1>Timeline</h1>
-    <section id="list" aria-live="polite"></section>
+    <div id="timeline"></div>
   </main>
 
-  <script defer>
-    const $ = (s,el=document)=>el.querySelector(s);
-    const esc = s => String(s||'').replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m]));
-    const attr = s => String(s||'').replace(/"/g,'&quot;');
-    const list = $('#list');
+  <footer class="site-footer">
+    <div class="container small">© <span id="year"></span> Aykhan Pashayev • Evidence-first timeline.</div>
+  </footer>
+
+  <script>
+    const $ = (s, el=document) => el.querySelector(s);
+    $('#year').textContent = new Date().getFullYear();
+
+    // Map artifact type -> label
+    const TYPE_LABEL = {
+      pdf:'PDF', video:'Video', image:'Image', doc:'Doc', link:'Link', github:'GitHub',
+      zip:'ZIP', xlsx:'XLSX', sql:'SQL', c:'C'
+    };
+    const isVideoLink = (l='') => /\.mp4(\?.*)?$/i.test(String(l));
+
+    function esc(s){ return String(s||'').replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m])); }
+    function link(u){ return String(u||'#').trim() || '#'; }
 
     fetch('assets/data/semesters.json',{cache:'no-store'})
       .then(r=>r.json())
-      .then(data=>{
-        // File is newest last; display newest first (matches your current content flow)
-        const items = data.slice().reverse();
-        items.forEach(term=>{
-          const el = document.createElement('article');
-          el.className='term';
-          el.innerHTML = `
-            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:.5rem;flex-wrap:wrap">
-              <h2>${esc(term.term)}</h2>
-              <span class="meta">${esc(term.dates||'')}</span>
-            </div>
-            <p>${esc(term.summary||'')}</p>
-            ${renderCourses(term.courses||[])}
-            ${renderHighlights(term.highlights||[])}
-            <div class="artifacts">
-              ${(term.artifacts||[]).map(a=>renderArtifact(a)).join('')}
-            </div>
+      .then(rows=>{
+        // newest last in file; reverse for display
+        rows = Array.isArray(rows) ? rows.slice().reverse() : [];
+        const host = $('#timeline');
+        rows.forEach(term=>{
+          const wrap = document.createElement('section');
+          wrap.className = 'term';
+          wrap.innerHTML = `
+            <header class="term-head">
+              <h2 style="margin:.25rem 0">${esc(term.term)}</h2>
+              <div class="small">${esc(term.dates || '')}</div>
+            </header>
+            ${term.summary ? `<p class="small" style="margin:.25rem 0 1rem">${esc(term.summary)}</p>` : ``}
+            ${(term.courses && term.courses.length) ? `
+              <div class="tags" aria-label="Courses">
+                ${term.courses.map(c=>`<span class="tag">${esc(c)}</span>`).join('')}
+              </div>` : ``}
+            ${(term.highlights && term.highlights.length) ? `
+              <ul style="margin:.6rem 0 1rem;padding-left:1.1rem">${term.highlights.map(h=>`<li>${esc(h)}</li>`).join('')}</ul>` : ``}
+            <ul class="artifacts"></ul>
           `;
-          list.appendChild(el);
-        });
-      }).catch(console.error);
+          const list = wrap.querySelector('.artifacts');
 
-    function renderCourses(cs){
-      if(!cs.length) return '';
-      return `<p><span class="badge" title="Courses">Courses</span> ${cs.map(c=>`<span class="tag">${esc(c)}</span>`).join(' ')}</p>`;
-    }
-    function renderHighlights(hls){
-      if(!hls.length) return '';
-      return `<ul style="margin:.5rem 0;padding-left:1.1rem">${hls.map(h=>`<li class="meta">${esc(h)}</li>`).join('')}</ul>`;
-    }
-    function isLocalMp4(link){ const u=String(link||''); return u.endsWith('.mp4') && (u.startsWith('assets/')||u.startsWith('./assets/')); }
-    function icon(type){
-      const base = `<span class="badge" aria-hidden="true">`;
-      return base + (type==='pdf'?'PDF':type==='github'?'Repo':type==='image'?'Image':type==='doc'?'Doc':type==='video'?'Video':'Link') + '</span>';
-    }
-    function renderArtifact(a){
-      const tags = (a.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join(' ');
-      const desc = a.desc? `<p class="meta">${esc(a.desc)}</p>` : '';
-      if(a.type==='video' && isLocalMp4(a.link)){
-        return `
-          <figure class="artifact">
-            <figcaption><strong>${esc(a.title)}</strong></figcaption>
-            <video controls preload="metadata">
-              <source src="${attr(a.link)}" type="video/mp4">
-            </video>
-            ${desc}
-            <div style="margin-top:.4rem">${tags}</div>
-          </figure>
-        `;
-      }
-      return `
-        <div class="artifact">
-          <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap">
-            ${icon(a.type)}
-            <a href="${attr(a.link)}" target="_blank" rel="noopener">${esc(a.title)}</a>
-          </div>
-          ${desc}
-          <div style="margin-top:.4rem">${tags}</div>
-        </div>
-      `;
-    }
+          (term.artifacts||[]).forEach((a, idx)=>{
+            const type = String(a.type||'').toLowerCase().trim();
+            const label = TYPE_LABEL[type] || (isVideoLink(a.link) ? 'Video' : 'Link');
+            const href = link(a.link);
+            const tags = (a.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('');
+            const id = `video-${Math.random().toString(36).slice(2)}-${idx}`;
+
+            const li = document.createElement('li'); li.className='artifact';
+            // Build the common top portion (badge + title)
+            let inner = `
+              <span class="badge">${esc(label)}</span>
+              <div class="grow">
+                <h3>${type === 'video' || isVideoLink(href) ? esc(a.title) : `<a href="${href}" target="_blank" rel="noopener">${esc(a.title)}</a>`}</h3>
+                ${a.desc ? `<p class="small">${esc(a.desc)}</p>` : ``}
+              </div>
+              <div class="tags">${tags}</div>
+            `;
+
+            // For videos: render a Play button (no preview). On click -> inject <video> and autoplay.
+            if (type === 'video' || isVideoLink(href)) {
+              inner += `
+                <div class="cta-row">
+                  <button class="pill" id="${id}-btn" aria-controls="${id}" aria-label="Play video: ${esc(a.title)}">Play video</button>
+                </div>
+                <div id="${id}" class="video-slot"></div>
+              `;
+            } else if (href && href !== '#') {
+              // Non-video: show an Open button (even though title is linked) for consistent affordance
+              inner += `
+                <div class="cta-row">
+                  <a class="pill" href="${href}" target="_blank" rel="noopener">Open</a>
+                </div>
+              `;
+            }
+
+            li.innerHTML = inner;
+            list.appendChild(li);
+
+            // Wire the play button
+            if (type === 'video' || isVideoLink(href)) {
+              const btn = li.querySelector(`#${id}-btn`);
+              const slot = li.querySelector(`#${id}`);
+              btn?.addEventListener('click', ()=>{
+                // replace button with an actual video element; no poster/preview
+                btn.style.display = 'none';
+                const vid = document.createElement('video');
+                vid.setAttribute('controls', '');
+                vid.setAttribute('playsinline','');
+                vid.setAttribute('preload','metadata');
+                vid.autoplay = true;
+                vid.innerHTML = `<source src="${href}" type="video/mp4">`;
+                slot.appendChild(vid);
+                vid.focus();
+              });
+            }
+          });
+
+          host.appendChild(wrap);
+        });
+      })
+      .catch(err=>{
+        console.error('semesters.json load error', err);
+        $('#timeline').innerHTML = `<div class="term"><p>Couldn’t load timeline.</p></div>`;
+      });
   </script>
 </body>
 </html>
