@@ -19,7 +19,7 @@
     .site-header{position:sticky;top:0;border-bottom:1px solid var(--border);backdrop-filter:saturate(120%) blur(8px);background:rgba(11,11,15,.75)}
     nav{display:flex;align-items:center;justify-content:space-between;min-height:64px}
     .logo{color:var(--fg);font-weight:800}
-    .nav-links{display:flex;gap:.75rem;list-style:none;padding:0}
+    .nav-links{display:flex;gap:.75rem;list-style:none;padding:0;margin:0}
     .nav-links a{color:var(--fg);text-decoration:none;padding:.5rem .75rem;border-radius:.6rem}
     .nav-links a[aria-current="page"]{background:rgba(125,211,252,.12);color:var(--accent)}
     h1{font-size:clamp(1.75rem,3vw,2.25rem)}
@@ -56,7 +56,7 @@
 
   <main id="main" class="container" tabindex="-1">
     <h1>Projects</h1>
-    <p class="small">Search, filter by tag, and sort. Every card links to proof (repo/docs).</p>
+    <p class="small">Search, filter by tag, and sort. Buttons adjust per project (Repo / Docs / none if coming soon).</p>
 
     <!-- Filters -->
     <div class="filters" role="region" aria-label="Project filters">
@@ -92,29 +92,22 @@
     function timelineKey(tl){
       if(!tl) return 0;
       const s = tl.toString();
-      // year
       const yMatch = s.match(/(19|20)\d{2}/);
       const year = yMatch ? parseInt(yMatch[0],10) : 0;
 
-      // months and seasons
       const months = {jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12};
       const seasons = {winter:1, spring:3, summer:6, fall:9, autumn:9};
 
-      let month = 6; // default mid-year if only year
+      let month = 6;
       const mMatch = s.match(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\b/i);
       if (mMatch) month = months[mMatch[1].slice(0,3).toLowerCase()];
       const seasonMatch = s.match(/\b(winter|spring|summer|fall|autumn)\b/i);
       if (seasonMatch) month = seasons[seasonMatch[1].toLowerCase()];
 
-      // favor "Expected" as slightly newer within same month/year
       const expectedBoost = /\bexpected|in\s*progress/i.test(s) ? 0.5 : 0;
-
       if(!year) return 0;
-      // Use year-month + boost to order
       return (new Date(year, month-1, 1).getTime()/1000) + expectedBoost;
     }
-
-    // Title compare (A–Z)
     const titleKey = t => norm(t || '').replace(/[^a-z0-9]+/g,' ').trim();
 
     // ---- state ----
@@ -126,7 +119,7 @@
     // ---- init ----
     $('#year').textContent = new Date().getFullYear();
 
-    // if URL has ?tags=aws,security pre-select
+    // if URL has ?tags=..., preselect
     const params = new URLSearchParams(location.search);
     const urlTags = (params.get('tags') || '').split(',').map(s=>norm(s)).filter(Boolean);
     urlTags.forEach(t=>selectedTags.add(t));
@@ -137,7 +130,7 @@
       .then(items=>{
         all = Array.isArray(items) ? items : [];
 
-        // build tags from data
+        // build tag list
         const allTags = new Set();
         all.forEach(p => (p.tags||[]).forEach(t => allTags.add(norm(t))));
         const taglist = $('#taglist');
@@ -160,7 +153,6 @@
         $('#sort').addEventListener('change', e=>{ sortBy = e.target.value; render(); });
         $('#clear').addEventListener('click', (e)=>{ e.preventDefault(); q=''; selectedTags.clear(); $('#q').value=''; document.querySelectorAll('#taglist .tag').forEach(el=>el.setAttribute('aria-pressed','false')); render(); });
 
-        // default sort & render
         $('#sort').value = 'timeline_desc';
         render();
       })
@@ -168,7 +160,6 @@
 
     // ---- render ----
     function render(){
-      // filter
       const query = norm(q);
       let rows = all.filter(p=>{
         const hay = [
@@ -187,11 +178,9 @@
           const aa = titleKey(a.title), bb = titleKey(b.title);
           if (aa < bb) return -1;
           if (aa > bb) return 1;
-          // tie-breaker: newest first
           return timelineKey(b.timeline) - timelineKey(a.timeline);
         });
       } else {
-        // timeline_desc (newest first)
         rows.sort((a,b)=> timelineKey(b.timeline) - timelineKey(a.timeline) || titleKey(a.title).localeCompare(titleKey(b.title)));
       }
 
@@ -206,6 +195,15 @@
         const status = norm(p.status);
         const isUpcoming = status === 'upcoming' || status === 'in-progress';
 
+        const hasRepo = !!(p?.links?.repo) && p.links.repo !== '#';
+        const hasDocs = !!(p?.links?.docs) && p.links.docs !== '#';
+
+        // Build CTA only when needed
+        let ctas = [];
+        if (hasRepo) ctas.push(`<a class="pill" href="${link(p.links.repo)}" target="_blank" rel="noopener">Repo</a>`);
+        if (hasDocs) ctas.push(`<a class="pill" href="${link(p.links.docs)}" target="_blank" rel="noopener">Docs</a>`);
+        const ctaHTML = ctas.length ? `<div class="cta" style="margin-top:.6rem;display:flex;gap:.4rem;flex-wrap:wrap">${ctas.join('')}</div>` : '';
+
         const li = document.createElement('li'); li.className='card';
         li.innerHTML = `
           ${isUpcoming ? `<span class="badge upcoming">${esc(p.status)}</span>`:''}
@@ -215,11 +213,8 @@
           </div>
           <p class="small">${esc(p.results || p.one_liner || '')}</p>
           <div class="tags" style="margin-top:.4rem">${(p.tags||[]).slice(0,8).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
-          <div class="cta" style="margin-top:.6rem;display:flex;gap:.4rem;flex-wrap:wrap">
-            ${p?.links?.repo && p.links.repo !== '#' ? `<a class="pill" href="${link(p.links.repo)}" target="_blank" rel="noopener">Repo</a>`:''}
-            ${p?.links?.docs && p.links.docs !== '#' ? `<a class="pill" href="${link(p.links.docs)}" target="_blank" rel="noopener">Docs</a>`:''}
-          </div>
-          ${p.problem || p.approach ? `
+          ${ctaHTML}
+          ${(p.problem || p.approach || p.tech_stack) ? `
           <details style="margin-top:.6rem">
             <summary class="pill">Details</summary>
             ${p.problem ? `<p><strong>Problem:</strong> ${esc(p.problem)}</p>`:''}
