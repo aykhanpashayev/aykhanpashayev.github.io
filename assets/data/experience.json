@@ -1,25 +1,45 @@
 [
   {
-    "role": "STARS Tutor (Learning/Course Assistant)",
-    "org": "Knight Foundation School of Computing & Information Sciences, FIU",
+    "role": "Learning / Course Assistant",
+    "org": "FLorida International University",
     "location": "Miami, FL • Hybrid",
     "dates": "Sep 2025 – Present",
-    "summary": "Online, near-peer tutoring across IT fundamentals with research-backed answers and strong documentation.",
+    "summary": "I help students understand IT concepts and get unstuck during labs and assignments.",
     "highlights": [
-      "Help students across networking, systems, databases, and programming; translate technical topics for non-technical learners.",
-      "Research mini-briefs on current topics (AI safety, detection engineering basics, IAM pitfalls, NLP fundamentals) under STARS organization.",
-      "Document concise study guides, lab walkthroughs, and diagrams (Word/PowerPoint/Visio); maintain auditable activity logs for each session.",
-      "Support proctored assessments (ID checks, integrity, escalation) and handle student data confidentially.",
-      "Surface patterns from tutoring notes (common misconfigs, permission errors) to instructors to improve course materials."
+      "Help students with networking, operating systems, databases, and basic programming in one-on-one and small group sessions.",
+      "Break down technical topics into simple explanations for students with little or no background.",
+      "Write short study notes, lab walkthroughs, and diagrams to help students review on their own.",
+      "Support proctored exams and follow strict academic integrity and privacy rules.",
+      "Notice common mistakes students make and share feedback with instructors to improve course materials."
     ],
     "skills": [
       "technical communication",
-      "research & synthesis (AI • cyber)",
-      "documentation (Word • PowerPoint • Visio)",
-      "logging & integrity",
-      "AWS basics (IAM • CloudTrail • CloudWatch)",
+      "tutoring & mentoring",
       "Linux • Windows",
-      "SQL • Python (basics)"
+      "Networking",
+      "Java • C",
+      "documentation"
+    ]
+  },
+  {
+    "role": "AI Fellow",
+    "org": "Handshake",
+    "location": "Remote, US",
+    "dates": "Oct 2025 – Present",
+    "summary": "I review and improve AI-generated answers for technical questions.",
+    "highlights": [
+      "Review AI answers to programming and systems questions and check if the reasoning actually makes sense.",
+      "Flag incorrect logic, missing steps, or misleading explanations.",
+      "Rewrite or adjust prompts to get clearer and more accurate responses.",
+      "Compare multiple answers to decide which one explains the problem best.",
+      "Follow clear quality guidelines while reviewing a large number of tasks."
+    ],
+    "skills": [
+      "AI evaluation",
+      "prompt writing",
+      "logical reasoning",
+      "systems thinking",
+      "Python (reading & review)"
     ]
   },
   {
@@ -27,21 +47,21 @@
     "org": "Knight Foundation School of Computing & Information Sciences, FIU",
     "location": "Miami, FL • On-site",
     "dates": "Sep 2024 – Apr 2025",
-    "summary": "Kept lab software/hardware reliable and ready; built hands-on environments and supported CTF practice.",
+    "summary": "I helped keep the computing labs running and supported hands-on security practice.",
     "highlights": [
-      "Prepared and maintained 30+ Linux/Windows lab machines: imaging, patching, driver/software installs, and smoke-tests.",
-      "Built a reusable VirtualBox VM (Kali/Ubuntu) preloaded with a CTF toolchain (Nmap, Wireshark, Burp, Metasploit); managed snapshots and NAT/bridged networking.",
-      "Stood up/verified lab services and configs (SSH, web server examples, firewalls, subnet/VLAN basics) for classroom exercises.",
-      "Authored quick-start sheets and troubleshooting checklists that cut recurring script/config errors ~50%.",
-      "Supported CTF prep sessions: environment setup, basic exploitation labs, and safe-practice guidelines."
+      "Set up and maintained Linux and Windows lab computers used for classes.",
+      "Installed software, applied updates, and fixed lab machines when something broke.",
+      "Built and maintained VirtualBox virtual machines for security and CTF practice.",
+      "Helped students set up tools like Nmap, Wireshark, Burp Suite, and Metasploit.",
+      "Wrote simple setup guides and troubleshooting notes to reduce repeated issues."
     ],
     "skills": [
       "Linux • Windows administration",
-      "VirtualBox • virtualization",
-      "imaging • patching • deployment",
-      "CTF toolchain (Nmap • Wireshark • Burp • Metasploit)",
-      "networking basics (subnets/VLSM • routing/switching • firewalls)",
-      "shell scripting • documentation"
+      "VirtualBox",
+      "basic networking",
+      "CTF tools",
+      "lab setup & troubleshooting",
+      "documentation"
     ]
   }
 ]
