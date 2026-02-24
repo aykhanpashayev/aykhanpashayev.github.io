@@ -30,30 +30,47 @@
   }
 
   // ---------------------------
-  // 3) Placeholder renderers
-  //    (Later we’ll replace these with real card templates)
+  // 3) Renderers
   // ---------------------------
+
   function renderJourney(container, data) {
     if (!container || !data) return;
 
-    // Expecting: { "levels": [ ... ] } or just [ ... ]
     const levels = Array.isArray(data) ? data : (data.levels || []);
     if (!levels.length) return;
 
-    // Clear placeholder HTML
     container.innerHTML = "";
 
     levels.forEach((item) => {
       const card = document.createElement("article");
       card.className = "journey-card";
 
-      // Minimal fields (we’ll evolve this later)
-      const title = item.title || item.level || "Untitled";
-      const blurb = item.blurb || item.summary || "";
+      const levelLabel = item.level ? escapeHTML(item.level) : "";
+      const title = item.title ? escapeHTML(item.title) : "Untitled";
+      const dateRange = item.dateRange ? escapeHTML(item.dateRange) : "";
+      const blurb = item.blurb ? escapeHTML(item.blurb) : "";
+
+      const highlights = Array.isArray(item.highlights) ? item.highlights : [];
+      const highlightsHTML = highlights.length
+        ? `
+          <ul class="journey-highlights">
+            ${highlights.map(h => `<li>${escapeHTML(h)}</li>`).join("")}
+          </ul>
+        `
+        : "";
 
       card.innerHTML = `
-        <h3>${escapeHTML(title)}</h3>
-        ${blurb ? `<p>${escapeHTML(blurb)}</p>` : ""}
+        <header class="journey-card-header">
+          <h3>
+            ${levelLabel ? `<span class="journey-level">${levelLabel}</span> — ` : ""}
+            <span class="journey-title">${title}</span>
+          </h3>
+          ${dateRange ? `<p class="journey-dates">${dateRange}</p>` : ""}
+        </header>
+
+        ${blurb ? `<p class="journey-blurb">${blurb}</p>` : ""}
+
+        ${highlightsHTML}
       `;
 
       container.appendChild(card);
@@ -72,12 +89,22 @@
       const card = document.createElement("article");
       card.className = "highlight-card";
 
-      const title = item.title || "Highlight";
-      const desc = item.description || item.blurb || "";
+      const title = item.title ? escapeHTML(item.title) : "Highlight";
+      const desc = item.description ? escapeHTML(item.description) : "";
+
+      const tags = Array.isArray(item.tags) ? item.tags : [];
+      const tagsHTML = tags.length
+        ? `
+          <div class="highlight-tags" aria-label="Tags">
+            ${tags.map(t => `<span class="badge">${escapeHTML(t)}</span>`).join("")}
+          </div>
+        `
+        : "";
 
       card.innerHTML = `
-        <h3>${escapeHTML(title)}</h3>
-        ${desc ? `<p>${escapeHTML(desc)}</p>` : ""}
+        <h3>${title}</h3>
+        ${desc ? `<p>${desc}</p>` : ""}
+        ${tagsHTML}
       `;
 
       container.appendChild(card);
