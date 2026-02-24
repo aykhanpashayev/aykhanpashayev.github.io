@@ -1,0 +1,292 @@
+/* =========================
+   1. RESET
+   ========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+a {
+  font: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* =========================
+   2. ROOT VARIABLES (structure only for now)
+   ========================= */
+
+:root {
+  --max-width: 1200px;
+  --section-padding: 6rem;
+}
+
+
+/* =========================
+   3. GLOBAL BODY
+   ========================= */
+
+body {
+  min-height: 100vh;
+  line-height: 1.6;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+}
+
+
+/* =========================
+   4. SKIP LINK (ACCESSIBILITY)
+   ========================= */
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+
+/* =========================
+   5. HEADER + NAV
+   ========================= */
+
+.site-header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 50;
+}
+
+.site-nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+}
+
+.nav-link {
+  font-size: 0.9rem;
+}
+
+
+/* =========================
+   6. HERO SECTION STRUCTURE
+   ========================= */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-stack {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+
+/* Shared layer base */
+.hero-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* Base scene image layer */
+.hero-layer--scene {
+  z-index: 1;
+}
+
+.hero-scene {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* Glow overlay */
+.hero-layer--glow {
+  z-index: 2;
+  pointer-events: none;
+}
+
+
+/* Particles overlay */
+.hero-layer--particles {
+  z-index: 3;
+  pointer-events: none;
+}
+
+.particles-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* Content layer */
+.hero-layer--content {
+  z-index: 4;
+  display: flex;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+/* Left text area */
+.hero-text {
+  max-width: 500px;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  margin: 0 0 1rem 0;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-lines {
+  margin-bottom: 2rem;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-links {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+
+/* Right side reserved */
+.hero-right {
+  flex: 1;
+}
+
+
+/* =========================
+   7. GENERIC SECTION STRUCTURE
+   ========================= */
+
+.section {
+  padding: var(--section-padding) 2rem;
+}
+
+.section-header {
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  text-align: center;
+}
+
+.section-header h2 {
+  margin-bottom: 1rem;
+}
+
+.section-header p {
+  margin: 0;
+}
+
+
+/* =========================
+   8. JOURNEY GRID (PLACEHOLDER)
+   ========================= */
+
+.journey-list {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem;
+}
+
+.journey-card {
+  padding: 2rem;
+}
+
+
+/* =========================
+   9. HIGHLIGHTS GRID
+   ========================= */
+
+.highlights-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem;
+}
+
+
+/* =========================
+   10. SKILLS SECTION
+   ========================= */
+
+.skills-panel {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+/* =========================
+   11. CONTACT
+   ========================= */
+
+.contact-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+
+/* =========================
+   12. FOOTER
+   ========================= */
+
+.site-footer {
+  text-align: center;
+  padding: 2rem;
+}
