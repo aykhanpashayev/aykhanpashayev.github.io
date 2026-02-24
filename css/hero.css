@@ -1,0 +1,15 @@
+/* css/hero.css (minimal placeholder for lamp glow) */
+.lamp-glow {
+  position: absolute;
+  right: 18%;
+  top: 18%;
+  width: 520px;
+  height: 520px;
+
+  /* Placeholder glow look — we will tune colors later */
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  filter: blur(12px);
+
+  transform-origin: center;
+}

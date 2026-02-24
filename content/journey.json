@@ -1,0 +1,175 @@
+{
+  "levels": [
+    {
+      "id": "level-0",
+      "level": "Level 0",
+      "title": "Curiosity",
+      "dateRange": "Age 15",
+      "blurb": "At 15, I learned Python to build games. I didn’t know it yet, but that curiosity became the foundation for everything I do now.",
+      "highlights": [
+        "First self-taught programming fundamentals",
+        "Early interest in building and experimenting",
+        "Learned by making small projects"
+      ],
+      "image": {
+        "src": "./assets/img/levels/level-0-curiosity.png",
+        "alt": "Pixel scene: teen coding at night"
+      },
+      "links": []
+    },
+    {
+      "id": "level-1",
+      "level": "Level 1",
+      "title": "Foundations",
+      "dateRange": "UMass Boston",
+      "blurb": "Coming to the U.S., I started from the basics—hardware, systems, and how computers work in the real world. That’s where I learned to troubleshoot and think step-by-step.",
+      "highlights": [
+        "Hands-on hardware + system fundamentals",
+        "Practical troubleshooting mindset",
+        "Built confidence through real labs"
+      ],
+      "image": {
+        "src": "./assets/img/levels/level-1-foundations.png",
+        "alt": "Pixel scene: PC parts and cables on desk"
+      },
+      "links": []
+    },
+    {
+      "id": "level-2",
+      "level": "Level 2",
+      "title": "Networking Era",
+      "dateRange": "Early college",
+      "blurb": "Networking taught me structure. I built and tested networks in Packet Tracer, learned routing concepts, and got comfortable diagnosing problems like an engineer.",
+      "highlights": [
+        "Cisco Packet Tracer projects",
+        "Network fundamentals and troubleshooting",
+        "Learned to document and explain systems"
+      ],
+      "image": {
+        "src": "./assets/img/levels/level-2-networking.png",
+        "alt": "Pixel scene: network diagram on screen"
+      },
+      "links": []
+    },
+    {
+      "id": "level-3",
+      "level": "Level 3",
+      "title": "Cyber Discovery",
+      "dateRange": "Transfer to FIU",
+      "blurb": "I transferred to FIU and switched to cybersecurity. I explored both blue and red team paths and started building my own learning environment to train consistently.",
+      "highlights": [
+        "Major switch into cybersecurity",
+        "Home lab mindset (VMs + Kali)",
+        "Started exploring security pathways"
+      ],
+      "image": {
+        "src": "./assets/img/levels/level-3-cyber.png",
+        "alt": "Pixel scene: Kali terminal on laptop"
+      },
+      "links": []
+    },
+    {
+      "id": "level-4",
+      "level": "Level 4",
+      "title": "Security & CCDC",
+      "dateRange": "Junior year",
+      "blurb": "This is where things accelerated. I earned Security+, trained hands-on, wrote scripts, documented my work, and experienced real blue-team pressure in CCDC.",
+      "highlights": [
+        "CompTIA Security+ (Dec 2024)",
+        "Hands-on training in Kali + vulnerable labs",
+        "First CCDC experience (blue team member)"
+      ],
+      "image": {
+        "src": "./assets/img/levels/level-4-security.png",
+        "alt": "Pixel scene: alerts and logs on screen"
+      },
+      "links": []
+    },
+    {
+      "id": "level-5",
+      "level": "Level 5",
+      "title": "Teaching & Leadership",
+      "dateRange": "FIU Lab Assistant",
+      "blurb": "Teaching changed my confidence. Helping students under pressure taught me clarity, patience, and how to explain complex topics simply—while keeping systems running.",
+      "highlights": [
+        "Tutored students in programming and labs",
+        "Supported lab environments (Linux/Windows)",
+        "Built communication and leadership skills"
+      ],
+      "image": {
+        "src": "./assets/img/levels/level-5-teaching.png",
+        "alt": "Pixel scene: helping students at a lab desk"
+      },
+      "links": []
+    },
+    {
+      "id": "level-6",
+      "level": "Level 6",
+      "title": "AWS & Cloud",
+      "dateRange": "2025 → Jan 2026",
+      "blurb": "I fell in love with cloud because it connects architecture and security. To understand security deeply, I committed to learning AWS from the inside out.",
+      "highlights": [
+        "AWS deep dive (architecture + services)",
+        "Passed AWS Solutions Architect Associate (Jan 2026)",
+        "Shift toward cloud security engineering"
+      ],
+      "image": {
+        "src": "./assets/img/levels/level-6-aws.png",
+        "alt": "Pixel scene: cloud architecture blocks on screen"
+      },
+      "links": []
+    },
+    {
+      "id": "level-7",
+      "level": "Level 7",
+      "title": "AI Research",
+      "dateRange": "Fall 2025 → Feb 2026",
+      "blurb": "I worked on AI model evaluation and then joined a research effort using AI to identify security gaps early—before code exists. It taught me how to think about security at design-time.",
+      "highlights": [
+        "AI fellowship / LLM evaluation work",
+        "Defense-focused research using AI for gap discovery",
+        "Research submission + conference travel (April)"
+      ],
+      "image": {
+        "src": "./assets/img/levels/level-7-ai.png",
+        "alt": "Pixel scene: AI nodes and documents on screen"
+      },
+      "links": []
+    },
+    {
+      "id": "level-8",
+      "level": "Level 8",
+      "title": "CCDC Captain",
+      "dateRange": "Feb 2026",
+      "blurb": "We had five members and one week. We competed anyway. I led the team, kept everyone focused, and we placed 16th out of 45—fighting until the last minute.",
+      "highlights": [
+        "Team captain under time pressure",
+        "Undersized team (5 vs expected 8)",
+        "Placed 16th out of 45 teams"
+      ],
+      "image": {
+        "src": "./assets/img/levels/level-8-ccdc.png",
+        "alt": "Pixel scene: scoreboard and mission notes"
+      },
+      "links": []
+    },
+    {
+     "id": "level-9",
+     "level": "Level 9",
+     "title": "Integration",
+     "dateRange": "Present",
+     "blurb": "Today, I work at the intersection of cloud architecture, security engineering, and applied AI. I focus on building systems that are secure by design—not patched later.",
+     "highlights": [
+        "Cloud architecture with security-first thinking",
+        "Applied AI in security research and evaluation",
+        "Combining blue-team mindset with architectural design",
+        "Preparing for industry-level security engineering roles"
+     ],
+     "image": {
+        "src": "./assets/img/levels/level-9-integration.png",
+        "alt": "Pixel scene: unified cloud, shield, and AI nodes on one desk"
+     },
+     "links": []
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+/* =========================
+   PIXEL UI — STRUCTURE ONLY
+   (No colors yet; palette comes later)
+   ========================= */
+
+/* Shared: Make UI feel crisp */
+.btn,
+.pixel-panel {
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* =========================
+   1) BUTTONS (Retro pixel UI)
+   ========================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.9rem 1.2rem;
+  gap: 0.6rem;
+
+  /* Pixel feel */
+  border: 3px solid currentColor; /* placeholder */
+  border-radius: 0;               /* keep sharp */
+  box-shadow: 4px 4px 0 currentColor; /* placeholder */
+
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+
+  /* For later: we will override colors in hero.css */
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:focus-visible {
+  /* placeholder focus ring using currentColor */
+  box-shadow:
+    0 0 0 3px currentColor,
+    4px 4px 0 currentColor;
+}
+
+/* Hover = slightly “lifted” feel */
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Pressed = pixel “click down” */
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 currentColor; /* placeholder */
+}
+
+/* Variants (structure only) */
+.btn--primary {
+  /* will get palette later */
+}
+
+.btn--secondary {
+  /* will get palette later */
+}
+
+
+/* =========================
+   2) NAV LINKS (minimal, can be pixel later)
+   ========================= */
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0;
+}
+
+.nav-link:focus {
+  outline: none;
+}
+
+.nav-link:focus-visible {
+  text-decoration: underline;
+}
+
+
+/* =========================
+   3) PANELS / CARDS (Pixel framed)
+   ========================= */
+
+.pixel-panel {
+  padding: 1.5rem;
+  border: 3px solid currentColor; /* placeholder */
+  border-radius: 0;
+  box-shadow: 6px 6px 0 currentColor; /* placeholder */
+}
+
+/* Apply panel style to placeholders you already have */
+.journey-card,
+.highlight-card,
+.skills-panel {
+  /* Keep this structural: upgrade to pixel panel later */
+  border: 2px solid currentColor; /* placeholder */
+  border-radius: 0;
+  box-shadow: 4px 4px 0 currentColor; /* placeholder */
+}
+
+
+/* =========================
+   4) DIVIDERS / BADGES (optional)
+   ========================= */
+
+.pixel-divider {
+  height: 3px;
+  width: 100%;
+  background: currentColor; /* placeholder */
+  opacity: 0.2;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.6rem;
+  border: 2px solid currentColor; /* placeholder */
+  border-radius: 0;
+  font-size: 0.85rem;
+}
+
+
+/* =========================
+   5) LINKS (consistent interaction)
+   ========================= */
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:focus {
+  outline: none;
+}
+
+a:focus-visible {
+  text-decoration: underline;
+}

@@ -1,0 +1,32 @@
+{
+  "highlights": [
+    {
+      "id": "highlight-ccdc-captain",
+      "title": "CCDC Team Captain (Underdog Run)",
+      "description": "Led a 5-person team with one week of prep and placed 16th out of 45, staying operational under constant pressure.",
+      "tags": ["Leadership", "Blue Team", "Incident Response"],
+      "links": []
+    },
+    {
+      "id": "highlight-aws-saa",
+      "title": "AWS Solutions Architect Associate (Jan 2026)",
+      "description": "Committed to learning cloud architecture deeply to build security from the design level—earned AWS SAA after focused preparation.",
+      "tags": ["AWS", "Architecture", "Cloud Security"],
+      "links": []
+    },
+    {
+      "id": "highlight-ai-research",
+      "title": "AI Security Research (Defense-focused)",
+      "description": "Worked on applied research using AI to identify security gaps early in architecture and documentation—submitted results to competition and presenting in April.",
+      "tags": ["AI", "Security Design", "Research"],
+      "links": []
+    },
+    {
+      "id": "highlight-security-plus",
+      "title": "CompTIA Security+ (Dec 2024)",
+      "description": "Built a strong baseline across core security domains and reinforced it with hands-on labs and documentation.",
+      "tags": ["Security Fundamentals", "Hands-on Labs", "Discipline"],
+      "links": []
+    }
+  ]
+}
