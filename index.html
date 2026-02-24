@@ -1,0 +1,201 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Aykhan Pashayev — Cloud • Security • AI. Built from curiosity. Focused on architecture. Driven by discipline." />
+
+  <title>Aykhan Pashayev | Cloud • Security • AI</title>
+
+  <!-- Minimal CSS imports (order matters) -->
+  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/pixel-ui.css" />
+  <link rel="stylesheet" href="./css/hero.css" />
+</head>
+
+<body>
+  <!-- Skip link for accessibility -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Site Header (optional, keeps hero clean) -->
+  <header class="site-header" role="banner">
+    <nav class="site-nav" aria-label="Primary">
+      <!-- Keep nav minimal. You can add anchors later -->
+      <a href="#journey" class="nav-link">Journey</a>
+      <a href="#highlights" class="nav-link">Highlights</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <a href="./assets/resume.pdf" class="nav-link" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </header>
+
+  <main id="main" role="main">
+
+    <!-- =========================
+         HERO SECTION (HYBRID)
+         ========================= -->
+    <section class="hero" aria-label="Intro">
+
+      <!-- HERO STACK:
+           1) Base pixel scene image (background layer)
+           2) Lamp glow / flicker overlay
+           3) Particles overlay (canvas or div particles)
+           4) Foreground content (text + pixel buttons)
+      -->
+
+      <div class="hero-stack" role="presentation">
+
+        <!-- 1) Base image layer -->
+        <div class="hero-layer hero-layer--scene" aria-hidden="true">
+          <!-- Use <img> so it's easy to swap/optimize; can be moved to CSS background later -->
+          <img
+            class="hero-scene"
+            src="./assets/img/hero/hero-desk.png"
+            alt=""
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+
+        <!-- 2) Lamp glow / flicker layer -->
+        <div class="hero-layer hero-layer--glow" aria-hidden="true">
+          <!-- This is intentionally empty; glow is handled by CSS + flicker.js later -->
+          <div class="lamp-glow"></div>
+        </div>
+
+        <!-- 3) Particles layer -->
+        <div class="hero-layer hero-layer--particles" aria-hidden="true">
+          <!-- Canvas is best for lightweight particles -->
+          <canvas
+            id="particlesCanvas"
+            class="particles-canvas"
+          ></canvas>
+        </div>
+
+        <!-- 4) Foreground content layer -->
+        <div class="hero-layer hero-layer--content">
+          <div class="hero-content">
+
+            <!-- Left text block -->
+            <div class="hero-text">
+              <h1 class="hero-title">Aykhan Pashayev</h1>
+
+              <p class="hero-subtitle">Cloud • Security • AI</p>
+
+              <p class="hero-lines">
+                <span>Built from curiosity.</span><br />
+                <span>Focused on architecture.</span><br />
+                <span>Driven by discipline.</span>
+              </p>
+
+              <div class="hero-cta" role="group" aria-label="Primary actions">
+                <a class="btn btn--primary" href="#journey" aria-label="View my journey">
+                  ▶ View Journey
+                </a>
+
+                <a class="btn btn--secondary" href="./assets/resume.pdf" target="_blank" rel="noopener" aria-label="Open resume PDF">
+                  📄 Resume
+                </a>
+              </div>
+
+              <div class="hero-links" aria-label="External links">
+                <a href="https://github.com/aykhanpashayev" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://linkedin.com/in/aykhanpashayev" target="_blank" rel="noopener">LinkedIn</a>
+              </div>
+            </div>
+
+            <!-- Right side reserved area (optional)
+                 You can leave empty because the scene is already on the right.
+                 Keeping this div helps layout later. -->
+            <div class="hero-right" aria-hidden="true"></div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================
+         JOURNEY (placeholder)
+         ========================= -->
+    <section id="journey" class="section section--journey" aria-label="Journey">
+      <header class="section-header">
+        <h2>Journey</h2>
+        <p>Short chapters. Real milestones. Built over time.</p>
+      </header>
+
+      <!-- This will be populated later from content/journey.json -->
+      <div class="journey-list" data-source="./content/journey.json">
+        <!-- Placeholder cards -->
+        <article class="journey-card">
+          <h3>Level 0 — Curiosity</h3>
+          <p>Placeholder. This will load from journey.json later.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         HIGHLIGHTS (placeholder)
+         ========================= -->
+    <section id="highlights" class="section section--highlights" aria-label="Highlights">
+      <header class="section-header">
+        <h2>Highlights</h2>
+        <p>Selected moments that define my direction.</p>
+      </header>
+
+      <div class="highlights-grid" data-source="./content/highlights.json">
+        <article class="highlight-card">
+          <h3>CCDC Team Captain</h3>
+          <p>Placeholder. This will load from highlights.json later.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         SKILLS (placeholder)
+         ========================= -->
+    <section id="skills" class="section section--skills" aria-label="Skills">
+      <header class="section-header">
+        <h2>Skills</h2>
+        <p>Calm, focused snapshot — with depth if you want it.</p>
+      </header>
+
+      <div class="skills-panel">
+        <!-- Pixel icons / skill-tree later -->
+        <ul class="skills-list">
+          <li>Security (Blue/Red basics, incident response, logging)</li>
+          <li>Cloud (AWS core services, architecture)</li>
+          <li>AI (LLM evaluation, applied research)</li>
+          <li>Systems (Linux/Windows, troubleshooting)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- =========================
+         CONTACT / FOOTER CTA
+         ========================= -->
+    <section id="contact" class="section section--contact" aria-label="Contact">
+      <header class="section-header">
+        <h2>Contact</h2>
+        <p>If something here resonates, let’s connect.</p>
+      </header>
+
+      <div class="contact-actions">
+        <a class="btn btn--secondary" href="mailto:aykhan.pashayev001@gmail.com">Email</a>
+        <a class="btn btn--secondary" href="https://linkedin.com/in/aykhanpashayev" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>© <span id="year"></span> Aykhan Pashayev</p>
+  </footer>
+
+  <!-- Minimal JS imports (defer keeps page fast) -->
+  <script src="./js/main.js" defer></script>
+  <script src="./js/particles.js" defer></script>
+  <script src="./js/flicker.js" defer></script>
+</body>
+</html>
