@@ -160,14 +160,48 @@
   box-shadow: 6px 6px 0 currentColor; /* placeholder */
 }
 
-/* Apply panel style to placeholders you already have */
+/* =========================
+   Pixel Panels for cards
+   ========================= */
+
 .journey-card,
 .highlight-card,
 .skills-panel {
-  /* Keep this structural: upgrade to pixel panel later */
-  border: 2px solid currentColor; /* placeholder */
+  padding: 1.75rem;
+
+  border: 3px solid rgba(183, 194, 214, 0.18);
+  background: rgba(8, 16, 28, 0.55);
+
   border-radius: 0;
-  box-shadow: 4px 4px 0 currentColor; /* placeholder */
+  box-shadow: 6px 6px 0 rgba(5, 8, 18, 0.85);
+
+  transition: transform 140ms linear, border-color 140ms linear, background 140ms linear;
+}
+
+/* subtle hover — calm, not jumpy */
+.journey-card:hover,
+.highlight-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 179, 92, 0.28);
+  background: rgba(8, 16, 28, 0.62);
+}
+
+/* level label styling (optional but nice) */
+.journey-level {
+  color: rgba(255, 179, 92, 0.95);
+}
+
+/* Make bullet text calm */
+.journey-highlights li {
+  color: var(--muted);
+}
+
+/* highlight tag layout */
+.highlight-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.9rem;
 }
 
 

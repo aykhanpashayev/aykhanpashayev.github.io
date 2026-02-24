@@ -279,6 +279,55 @@ body {
 }
 
 /* =========================
+   Journey / Highlights — readable layout
+   ========================= */
+
+.journey-card,
+.highlight-card {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.journey-card h3,
+.highlight-card h3 {
+  margin: 0 0 0.75rem 0;
+  line-height: 1.25;
+}
+
+.journey-dates {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.journey-blurb {
+  margin: 0.75rem 0 1rem 0;
+  color: var(--text);
+}
+
+.journey-highlights {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+}
+
+.section-header p {
+  max-width: 60ch;
+  margin: 0 auto;
+}
+
+.journey-list,
+.highlights-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* =========================
    9. HIGHLIGHTS GRID
    ========================= */
 
