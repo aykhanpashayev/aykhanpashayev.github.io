@@ -1,9 +1,12 @@
 /* =========================
-   PIXEL UI — STRUCTURE ONLY
-   (No colors yet; palette comes later)
+   PIXEL UI — VISUAL LAYER
+   Crisp pixel panels, buttons, badges, cards
    ========================= */
 
-/* Shared: Make UI feel crisp */
+/* =========================
+   1) BUTTONS
+   ========================= */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -20,7 +23,7 @@
   user-select: none;
   white-space: nowrap;
 
-  transition: transform 120ms linear;
+  transition: transform 120ms linear, background 120ms linear, border-color 120ms linear, box-shadow 120ms linear;
 }
 
 .btn:focus {
@@ -65,72 +68,14 @@
   border-color: rgba(183, 194, 214, 0.40);
 }
 
-/* Badges for highlight tags */
-.badge {
-  border: 2px solid rgba(183, 194, 214, 0.28);
-  color: var(--muted);
-  background: rgba(8, 16, 28, 0.35);
+/* Smaller button for inline proof links */
+.btn--small {
+  padding: 0.55rem 0.8rem;
+  font-size: 0.9rem;
 }
-
 
 /* =========================
-   1) BUTTONS (Retro pixel UI)
-   ========================= */
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 0.9rem 1.2rem;
-  gap: 0.6rem;
-
-  /* Pixel feel */
-  border: 3px solid currentColor; /* placeholder */
-  border-radius: 0;               /* keep sharp */
-  box-shadow: 4px 4px 0 currentColor; /* placeholder */
-
-  cursor: pointer;
-  user-select: none;
-  white-space: nowrap;
-
-  /* For later: we will override colors in hero.css */
-}
-
-.btn:focus {
-  outline: none;
-}
-
-.btn:focus-visible {
-  /* placeholder focus ring using currentColor */
-  box-shadow:
-    0 0 0 3px currentColor,
-    4px 4px 0 currentColor;
-}
-
-/* Hover = slightly “lifted” feel */
-.btn:hover {
-  transform: translateY(-1px);
-}
-
-/* Pressed = pixel “click down” */
-.btn:active {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0 currentColor; /* placeholder */
-}
-
-/* Variants (structure only) */
-.btn--primary {
-  /* will get palette later */
-}
-
-.btn--secondary {
-  /* will get palette later */
-}
-
-
-/* =========================
-   2) NAV LINKS (minimal, can be pixel later)
+   2) NAV LINKS (minimal)
    ========================= */
 
 .nav-link {
@@ -140,33 +85,13 @@
   padding: 0.25rem 0;
 }
 
-.nav-link:focus {
-  outline: none;
-}
-
-.nav-link:focus-visible {
-  text-decoration: underline;
-}
-
-
 /* =========================
-   3) PANELS / CARDS (Pixel framed)
-   ========================= */
-
-.pixel-panel {
-  padding: 1.5rem;
-  border: 3px solid currentColor; /* placeholder */
-  border-radius: 0;
-  box-shadow: 6px 6px 0 currentColor; /* placeholder */
-}
-
-/* =========================
-   Pixel Panels for cards
+   3) CARDS / PANELS
    ========================= */
 
 .journey-card,
 .highlight-card,
-.skills-panel {
+.skill-card {
   padding: 1.75rem;
 
   border: 3px solid rgba(183, 194, 214, 0.18);
@@ -180,42 +105,21 @@
 
 /* subtle hover — calm, not jumpy */
 .journey-card:hover,
-.highlight-card:hover {
+.highlight-card:hover,
+.skill-card:hover {
   transform: translateY(-2px);
   border-color: rgba(255, 179, 92, 0.28);
   background: rgba(8, 16, 28, 0.62);
 }
 
-/* Thumbnail reacts when card is hovered */
-.journey-card:hover .journey-thumb {
-  border-color: rgba(255, 179, 92, 0.45);
-  box-shadow: 4px 4px 0 rgba(255, 179, 92, 0.15);
+/* =========================
+   4) JOURNEY THUMBNAILS
+   ========================= */
+
+.journey-card-inner {
+  /* layout is in base.css; keep visual here if needed later */
 }
 
-/* Optional: subtle warm overlay hint */
-.journey-card:hover .journey-thumb-img {
-  filter: brightness(1.05);
-}
-
-/* level label styling (optional but nice) */
-.journey-level {
-  color: rgba(255, 179, 92, 0.95);
-}
-
-/* Make bullet text calm */
-.journey-highlights li {
-  color: var(--muted);
-}
-
-/* highlight tag layout */
-.highlight-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.9rem;
-}
-
-/* Thumbnail panel */
 .journey-thumb {
   width: 160px;
   height: 120px;
@@ -227,17 +131,6 @@
   overflow: hidden;
 }
 
-/* Placeholder if no image yet */
-.journey-thumb--placeholder {
-  background:
-    linear-gradient(135deg,
-      rgba(255, 179, 92, 0.12),
-      rgba(8, 16, 28, 0.65)
-    );
-  opacity: 0.7;
-}
-
-/* Pixel crisp image */
 .journey-thumb-img {
   width: 100%;
   height: 100%;
@@ -245,8 +138,71 @@
   image-rendering: pixelated;
 }
 
+/* Placeholder if no image yet */
+.journey-thumb--placeholder {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 179, 92, 0.12),
+      rgba(8, 16, 28, 0.65)
+    );
+  opacity: 0.7;
+}
+
+/* Thumbnail reacts when card is hovered */
+.journey-card:hover .journey-thumb {
+  border-color: rgba(255, 179, 92, 0.45);
+  box-shadow: 4px 4px 0 rgba(255, 179, 92, 0.15);
+}
+
+.journey-card:hover .journey-thumb-img {
+  filter: brightness(1.05);
+}
+
+/* level label styling */
+.journey-level {
+  color: rgba(255, 179, 92, 0.95);
+}
+
+.journey-highlights li {
+  color: var(--muted);
+}
+
 /* =========================
-   4) DIVIDERS / BADGES (optional)
+   5) HIGHLIGHT TAGS + PROOF LINKS
+   ========================= */
+
+.highlight-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.9rem;
+}
+
+.highlight-links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+/* Badge styling */
+.badge {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 0.25rem 0.6rem;
+  border: 2px solid rgba(183, 194, 214, 0.28);
+
+  background: rgba(8, 16, 28, 0.35);
+  color: var(--muted);
+
+  border-radius: 0;
+  font-size: 0.85rem;
+}
+
+/* =========================
+   6) PIXEL DIVIDER
    ========================= */
 
 .pixel-divider {
@@ -264,52 +220,9 @@
   opacity: 0.8;
 }
 
-.badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.25rem 0.6rem;
-  border: 2px solid currentColor; /* placeholder */
-  border-radius: 0;
-  font-size: 0.85rem;
-}
-
-
 /* =========================
-   5) LINKS (consistent interaction)
+   7) SKILLS ICON HEADER
    ========================= */
-
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-a:focus {
-  outline: none;
-}
-
-a:focus-visible {
-  text-decoration: underline;
-}
-
-/* Skill cards styled like pixel panels */
-.skill-card {
-  padding: 1.75rem;
-
-  border: 3px solid rgba(183, 194, 214, 0.18);
-  background: rgba(8, 16, 28, 0.55);
-  box-shadow: 6px 6px 0 rgba(5, 8, 18, 0.85);
-
-  transition: transform 140ms linear, border-color 140ms linear, background 140ms linear;
-}
-
-.skill-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(255, 179, 92, 0.28);
-  background: rgba(8, 16, 28, 0.62);
-}
 
 .skill-card-header {
   display: flex;
@@ -337,16 +250,22 @@ a:focus-visible {
   margin: 0;
 }
 
-/* Smaller button for inline proof links */
-.btn--small {
-  padding: 0.55rem 0.8rem;
-  font-size: 0.9rem;
+/* =========================
+   8) LINK INTERACTION
+   ========================= */
+
+a {
+  text-decoration: none;
 }
 
-/* Highlight proof links row */
-.highlight-links {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  margin-top: 1rem;
+a:hover {
+  text-decoration: underline;
+}
+
+a:focus {
+  outline: none;
+}
+
+a:focus-visible {
+  text-decoration: underline;
 }
