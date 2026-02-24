@@ -388,3 +388,18 @@ body {
   text-align: center;
   padding: 2rem;
 }
+
+/* =========================
+   Scroll Reveal (calm)
+   ========================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
