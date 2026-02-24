@@ -14,9 +14,16 @@
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(1200px 600px at 65% 40%, rgba(255, 179, 92, 0.06), transparent 60%),
-    radial-gradient(900px 500px at 30% 30%, rgba(90, 167, 255, 0.04), transparent 60%),
-    radial-gradient(1200px 900px at 50% 60%, rgba(0, 0, 0, 0.25), transparent 55%);
+  linear-gradient(
+    to right,
+    rgba(8,16,28,0.85) 0%,
+    rgba(8,16,28,0.65) 25%,
+    rgba(8,16,28,0.2) 45%,
+    rgba(8,16,28,0) 60%
+  ),
+  radial-gradient(1200px 600px at 65% 40%, rgba(255, 179, 92, 0.06), transparent 60%),
+  radial-gradient(900px 500px at 30% 30%, rgba(90, 167, 255, 0.04), transparent 60%),
+  radial-gradient(1200px 900px at 50% 60%, rgba(0, 0, 0, 0.25), transparent 55%);
 }
 
 /* Make sure layers sit above the vignette */
@@ -27,6 +34,13 @@
 
 /* Scene image: crisp */
 .hero-scene {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  /* This is important */
+  object-position: right center;
+
   image-rendering: pixelated;
 }
 
@@ -56,6 +70,21 @@
   text-decoration: underline;
 }
 
+.hero-title {
+  font-size: 2.8rem;
+  font-weight: 600;
+}
+
+.hero-subtitle {
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+}
+
+.hero-lines {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
 /* Particles canvas should never block clicks */
 .particles-canvas {
   display: block;
@@ -64,8 +93,8 @@
 /* Lamp glow: warm, subtle, not neon */
 .lamp-glow {
   position: absolute;
-  right: 18%;
-  top: 16%;
+  right: 20%;
+  top: 14%;
   width: 560px;
   height: 560px;
 
