@@ -154,22 +154,22 @@
       "links": []
     },
     {
-     "id": "level-9",
-     "level": "Level 9",
-     "title": "Integration",
-     "dateRange": "Present",
-     "blurb": "Today, I work at the intersection of cloud architecture, security engineering, and applied AI. I focus on building systems that are secure by design—not patched later.",
-     "highlights": [
+      "id": "level-9",
+      "level": "Level 9",
+      "title": "Integration",
+      "dateRange": "Present",
+      "blurb": "Today, I work at the intersection of cloud architecture, security engineering, and applied AI. I focus on building systems that are secure by design—not patched later.",
+      "highlights": [
         "Cloud architecture with security-first thinking",
         "Applied AI in security research and evaluation",
         "Combining blue-team mindset with architectural design",
         "Preparing for industry-level security engineering roles"
-     ],
-     "image": {
+      ],
+      "image": {
         "src": "./assets/img/levels/level-9-integration.png",
         "alt": "Pixel scene: unified cloud, shield, and AI nodes on one desk"
-     },
-     "links": []
+      },
+      "links": []
     }
   ]
 }
