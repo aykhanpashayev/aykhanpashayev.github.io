@@ -1,6 +1,6 @@
 /* js/particles.js
    Purpose: Hero floating dust particles (very subtle)
-   Structure only — light implementation
+   Lightweight + safe canvas sizing (HiDPI aware)
 */
 
 (function () {
@@ -15,27 +15,50 @@
   let particles = [];
   const PARTICLE_COUNT = 8; // keep very low for subtle effect
 
+  // Keep track of DPR for crisp rendering on HiDPI displays
+  function getDPR() {
+    return Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+  }
+
   // ---------------------------
-  // Resize handling
+  // Resize handling (HiDPI safe)
   // ---------------------------
   function resizeCanvas() {
     const rect = canvas.getBoundingClientRect();
-    canvas.width = rect.width;
-    canvas.height = rect.height;
+
+    // Guard: if layout hasn't settled yet, try again next frame
+    if (!rect.width || !rect.height) {
+      requestAnimationFrame(resizeCanvas);
+      return;
+    }
+
+    const dpr = getDPR();
+
+    // Set actual pixel buffer size
+    canvas.width = Math.floor(rect.width * dpr);
+    canvas.height = Math.floor(rect.height * dpr);
+
+    // Draw in CSS pixels
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
-  window.addEventListener("resize", resizeCanvas);
+  window.addEventListener("resize", resizeCanvas, { passive: true });
   resizeCanvas();
 
   // ---------------------------
   // Particle factory
   // ---------------------------
   function createParticle() {
+    // Use CSS-pixel space, not raw canvas buffer
+    const rect = canvas.getBoundingClientRect();
+    const w = rect.width || 1;
+    const h = rect.height || 1;
+
     return {
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      size: Math.random() * 2 + 1, // 1–3px max
-      speedY: Math.random() * 0.2 + 0.05, // very slow upward drift
+      x: Math.random() * w,
+      y: Math.random() * h,
+      size: Math.random() * 2 + 1,          // 1–3px
+      speedY: Math.random() * 0.2 + 0.05,   // very slow upward drift
       opacity: Math.random() * 0.4 + 0.2
     };
   }
@@ -51,14 +74,16 @@
   // Draw
   // ---------------------------
   function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const rect = canvas.getBoundingClientRect();
+    const w = rect.width || 1;
+    const h = rect.height || 1;
+
+    // Clear in CSS pixels (transform handles scaling)
+    ctx.clearRect(0, 0, w, h);
 
     particles.forEach((p) => {
       ctx.globalAlpha = p.opacity;
-
-      // Color tuned
       ctx.fillStyle = "rgba(255, 204, 133, 0.9)";
-
       ctx.fillRect(p.x, p.y, p.size, p.size);
     });
 
@@ -69,19 +94,23 @@
   // Update
   // ---------------------------
   function update() {
+    const rect = canvas.getBoundingClientRect();
+    const w = rect.width || 1;
+    const h = rect.height || 1;
+
     particles.forEach((p) => {
       p.y -= p.speedY;
 
       // Reset when leaving screen
       if (p.y < -5) {
-        p.y = canvas.height + 5;
-        p.x = Math.random() * canvas.width;
+        p.y = h + 5;
+        p.x = Math.random() * w;
       }
     });
   }
 
   // ---------------------------
-  // Animation loop (very light)
+  // Animation loop
   // ---------------------------
   function animate() {
     update();

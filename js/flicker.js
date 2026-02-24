@@ -1,6 +1,6 @@
 /* js/flicker.js
    Purpose: Lamp glow "breathing" (subtle, cinematic)
-   Structure: minimal + safe
+   Minimal + safe
 */
 
 (function () {
@@ -9,10 +9,10 @@
   const glow = document.querySelector(".lamp-glow");
   if (!glow) return;
 
-  // We'll animate opacity + a tiny scale to simulate glow breathing.
-  // Keep values subtle to avoid distraction.
+  // Subtle values to avoid distraction
   const BASE_OPACITY = 0.55;
   const AMP_OPACITY = 0.08; // +/- 0.08
+
   const BASE_SCALE = 1.0;
   const AMP_SCALE = 0.01; // +/- 1%
 
@@ -49,8 +49,7 @@
     requestAnimationFrame(tick);
   }
 
-  // Boot
-  // Ensure a clean baseline so it doesn't flash at load.
+  // Boot baseline (prevents flash)
   glow.style.opacity = String(BASE_OPACITY);
   glow.style.transform = `scale(${BASE_SCALE})`;
 
