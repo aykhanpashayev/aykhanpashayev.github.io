@@ -100,38 +100,52 @@
   }
 
   function renderHighlights(container, data) {
-    if (!container || !data) return;
+  if (!container || !data) return;
 
-    const highlights = Array.isArray(data) ? data : (data.highlights || []);
-    if (!highlights.length) return;
+  const highlights = Array.isArray(data) ? data : (data.highlights || []);
+  if (!highlights.length) return;
 
-    container.innerHTML = "";
+  container.innerHTML = "";
 
-    highlights.forEach((item) => {
-      const card = document.createElement("article");
-      card.className = "highlight-card";
+  highlights.forEach((item) => {
+    const card = document.createElement("article");
+    card.className = "highlight-card";
 
-      const title = item.title ? escapeHTML(item.title) : "Highlight";
-      const desc = item.description ? escapeHTML(item.description) : "";
+    const title = item.title ? escapeHTML(item.title) : "Highlight";
+    const desc = item.description ? escapeHTML(item.description) : "";
 
-      const tags = Array.isArray(item.tags) ? item.tags : [];
-      const tagsHTML = tags.length
-        ? `
-          <div class="highlight-tags" aria-label="Tags">
-            ${tags.map(t => `<span class="badge">${escapeHTML(t)}</span>`).join("")}
-          </div>
-        `
-        : "";
+    const tags = Array.isArray(item.tags) ? item.tags : [];
+    const tagsHTML = tags.length
+      ? `
+        <div class="highlight-tags" aria-label="Tags">
+          ${tags.map(t => `<span class="badge">${escapeHTML(t)}</span>`).join("")}
+        </div>
+      `
+      : "";
 
-      card.innerHTML = `
-        <h3>${title}</h3>
-        ${desc ? `<p>${desc}</p>` : ""}
-        ${tagsHTML}
-      `;
+    const links = Array.isArray(item.links) ? item.links : [];
+    const linksHTML = links.length
+      ? `
+        <div class="highlight-links" aria-label="Proof links">
+          ${links.map(l => {
+            const label = l.label ? escapeHTML(l.label) : "Link";
+            const url = l.url ? escapeHTML(l.url) : "#";
+            return `<a class="btn btn--secondary btn--small" href="${url}" target="_blank" rel="noopener">↗ ${label}</a>`;
+          }).join("")}
+        </div>
+      `
+      : "";
 
-      container.appendChild(card);
-    });
-  }
+    card.innerHTML = `
+      <h3>${title}</h3>
+      ${desc ? `<p>${desc}</p>` : ""}
+      ${tagsHTML}
+      ${linksHTML}
+    `;
+
+    container.appendChild(card);
+  });
+}
 
   // ---------------------------
   // 4) Minimal HTML escaping (safety)

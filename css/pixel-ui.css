@@ -336,3 +336,17 @@ a:focus-visible {
 .skill-title {
   margin: 0;
 }
+
+/* Smaller button for inline proof links */
+.btn--small {
+  padding: 0.55rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+/* Highlight proof links row */
+.highlight-links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
