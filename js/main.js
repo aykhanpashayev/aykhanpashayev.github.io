@@ -69,7 +69,7 @@
         </header>
 
         ${blurb ? `<p class="journey-blurb">${blurb}</p>` : ""}
-
+        ${blurb && highlights.length ? `<div class="pixel-divider"></div>` : ""}
         ${highlightsHTML}
       `;
 
