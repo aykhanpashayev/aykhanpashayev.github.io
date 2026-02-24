@@ -34,44 +34,66 @@
   // ---------------------------
 
   function renderJourney(container, data) {
-    if (!container || !data) return;
+  if (!container || !data) return;
 
-    const levels = Array.isArray(data) ? data : (data.levels || []);
-    if (!levels.length) return;
+  const levels = Array.isArray(data) ? data : (data.levels || []);
+  if (!levels.length) return;
 
-    container.innerHTML = "";
+  container.innerHTML = "";
 
-    levels.forEach((item) => {
-      const card = document.createElement("article");
-      card.className = "journey-card";
+  levels.forEach((item) => {
+    const card = document.createElement("article");
+    card.className = "journey-card";
 
-      const levelLabel = item.level ? escapeHTML(item.level) : "";
-      const title = item.title ? escapeHTML(item.title) : "Untitled";
-      const dateRange = item.dateRange ? escapeHTML(item.dateRange) : "";
-      const blurb = item.blurb ? escapeHTML(item.blurb) : "";
+    const levelLabel = item.level ? escapeHTML(item.level) : "";
+    const title = item.title ? escapeHTML(item.title) : "Untitled";
+    const dateRange = item.dateRange ? escapeHTML(item.dateRange) : "";
+    const blurb = item.blurb ? escapeHTML(item.blurb) : "";
 
-      const highlights = Array.isArray(item.highlights) ? item.highlights : [];
-      const highlightsHTML = highlights.length
-        ? `
-          <ul class="journey-highlights">
-            ${highlights.map(h => `<li>${escapeHTML(h)}</li>`).join("")}
-          </ul>
-        `
-        : "";
+    const highlights = Array.isArray(item.highlights) ? item.highlights : [];
+    const highlightsHTML = highlights.length
+      ? `
+        <ul class="journey-highlights">
+          ${highlights.map(h => `<li>${escapeHTML(h)}</li>`).join("")}
+        </ul>
+      `
+      : "";
 
-      card.innerHTML = `
-        <header class="journey-card-header">
-          <h3>
-            ${levelLabel ? `<span class="journey-level">${levelLabel}</span> — ` : ""}
-            <span class="journey-title">${title}</span>
-          </h3>
-          ${dateRange ? `<p class="journey-dates">${dateRange}</p>` : ""}
-        </header>
+    // Optional thumbnail from JSON: item.image.src + item.image.alt
+    const imgSrc = item.image?.src ? escapeHTML(item.image.src) : "";
+    const imgAlt = item.image?.alt ? escapeHTML(item.image.alt) : "";
 
-        ${blurb ? `<p class="journey-blurb">${blurb}</p>` : ""}
-        ${blurb && highlights.length ? `<div class="pixel-divider"></div>` : ""}
-        ${highlightsHTML}
+    const thumbnailHTML = imgSrc
+      ? `
+        <div class="journey-thumb" aria-hidden="false">
+          <img class="journey-thumb-img" src="${imgSrc}" alt="${imgAlt}" loading="lazy" decoding="async" />
+        </div>
+      `
+      : `
+        <div class="journey-thumb journey-thumb--placeholder" aria-hidden="true"></div>
       `;
+
+    card.innerHTML = `
+      <div class="journey-card-inner">
+
+        ${thumbnailHTML}
+
+        <div class="journey-body">
+          <header class="journey-card-header">
+            <h3>
+              ${levelLabel ? `<span class="journey-level">${levelLabel}</span> — ` : ""}
+              <span class="journey-title">${title}</span>
+            </h3>
+            ${dateRange ? `<p class="journey-dates">${dateRange}</p>` : ""}
+          </header>
+
+          ${blurb ? `<p class="journey-blurb">${blurb}</p>` : ""}
+          ${blurb && highlights.length ? `<div class="pixel-divider"></div>` : ""}
+          ${highlightsHTML}
+        </div>
+
+      </div>
+     `;
 
       container.appendChild(card);
     });

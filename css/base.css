@@ -278,6 +278,20 @@ body {
   gap: 0.5rem;
 }
 
+/* Journey card layout: thumbnail left, content right */
+.journey-card-inner {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+@media (max-width: 720px) {
+  .journey-card-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* =========================
    Journey / Highlights — readable layout
    ========================= */
