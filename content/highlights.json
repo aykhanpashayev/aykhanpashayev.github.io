@@ -13,7 +13,10 @@
       "description": "Committed to learning cloud architecture deeply to build security from the design level—earned AWS SAA after focused preparation.",
       "tags": ["AWS", "Architecture", "Cloud Security"],
       "links": [
-        { "label": "AWS Certification", "url": "https://www.credly.com/badges/4e6ff5d3-f40f-4a2f-a990-5b788cdfa85d/public_url" }
+        {
+          "label": "Credly",
+          "url": "https://www.credly.com/badges/4e6ff5d3-f40f-4a2f-a990-5b788cdfa85d/public_url"
+        }
       ]
     },
     {
@@ -29,7 +32,10 @@
       "description": "Built a strong baseline across core security domains and reinforced it with hands-on labs and documentation.",
       "tags": ["Security Fundamentals", "Hands-on Labs", "Discipline"],
       "links": [
-        { "label": "Credly", "url": "https://www.credly.com/badges/a7f4ccaf-85b2-48f1-979f-a69070afebb2/public_url" }
+        {
+          "label": "Credly",
+          "url": "https://www.credly.com/badges/a7f4ccaf-85b2-48f1-979f-a69070afebb2/public_url"
+        }
       ]
     }
   ]
