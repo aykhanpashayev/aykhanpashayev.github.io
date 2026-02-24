@@ -1,15 +1,86 @@
-/* css/hero.css (minimal placeholder for lamp glow) */
+/* css/hero.css
+   Hero look & atmosphere (pixel-friendly, cozy, calm)
+*/
+
+.hero {
+  background: var(--bg);
+}
+
+/* Slight vignette to center attention (no heavy blur) */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(1200px 600px at 65% 40%, rgba(255, 179, 92, 0.06), transparent 60%),
+    radial-gradient(900px 500px at 30% 30%, rgba(90, 167, 255, 0.04), transparent 60%),
+    radial-gradient(1200px 900px at 50% 60%, rgba(0, 0, 0, 0.25), transparent 55%);
+}
+
+/* Make sure layers sit above the vignette */
+.hero-stack {
+  position: relative;
+  z-index: 1;
+}
+
+/* Scene image: crisp */
+.hero-scene {
+  image-rendering: pixelated;
+}
+
+/* Content styling */
+.hero-title {
+  font-size: 2.6rem;
+  line-height: 1.1;
+  letter-spacing: 0.2px;
+}
+
+.hero-subtitle {
+  margin-top: 0.25rem;
+  color: var(--muted);
+}
+
+.hero-lines {
+  color: var(--text);
+}
+
+/* Links below buttons */
+.hero-links a {
+  color: var(--muted);
+  text-decoration: none;
+}
+.hero-links a:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+/* Particles canvas should never block clicks */
+.particles-canvas {
+  display: block;
+}
+
+/* Lamp glow: warm, subtle, not neon */
 .lamp-glow {
   position: absolute;
   right: 18%;
-  top: 18%;
-  width: 520px;
-  height: 520px;
+  top: 16%;
+  width: 560px;
+  height: 560px;
 
-  /* Placeholder glow look — we will tune colors later */
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 999px;
-  filter: blur(12px);
+  /* Pixel-friendly: keep it soft but not crazy */
+  background:
+    radial-gradient(circle at 45% 45%,
+      rgba(255, 179, 92, 0.22),
+      rgba(255, 179, 92, 0.10) 35%,
+      rgba(255, 179, 92, 0.00) 70%);
 
+  pointer-events: none;
   transform-origin: center;
+}
+
+/* Small text polish */
+.section-header p {
+  color: var(--muted);
 }

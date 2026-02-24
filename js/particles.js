@@ -56,8 +56,8 @@
     particles.forEach((p) => {
       ctx.globalAlpha = p.opacity;
 
-      // Placeholder color (we’ll tune later)
-      ctx.fillStyle = "#ffffff";
+      // Color tuned
+      ctx.fillStyle = "rgba(255, 204, 133, 0.9)";
 
       ctx.fillRect(p.x, p.y, p.size, p.size);
     });

@@ -31,8 +31,21 @@ a {
    ========================= */
 
 :root {
+  /* Layout */
   --max-width: 1200px;
   --section-padding: 6rem;
+
+  /* Pixel portfolio palette */
+  --bg: #0b1220;          /* deep navy */
+  --bg-2: #08101c;        /* darker navy */
+  --text: #e9eef7;        /* soft off-white */
+  --muted: #b7c2d6;       /* calm gray-blue */
+  --outline: #2a3550;     /* muted outline */
+  --shadow: #050812;      /* deep shadow */
+
+  --amber: #ffb35c;       /* warm desk light */
+  --amber-2: #ffcc85;     /* highlight amber */
+  --blue-glow: #5aa7ff;   /* subtle cool accent (sparingly) */
 }
 
 
@@ -45,6 +58,8 @@ body {
   line-height: 1.6;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   overflow-x: hidden;
+  background: var(--bg);
+  color: var(--text);
 }
 
 
