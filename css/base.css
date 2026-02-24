@@ -407,3 +407,36 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* Skills grid layout */
+.skills-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 720px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skill-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.skills-cta {
+  max-width: 1000px;
+  margin: 2rem auto 0 auto;
+
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
