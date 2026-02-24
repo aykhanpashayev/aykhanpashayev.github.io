@@ -15,14 +15,12 @@
 </head>
 
 <body>
-
   <!-- Skip link for accessibility -->
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Site Header (optional, keeps hero clean) -->
+  <!-- Site Header -->
   <header class="site-header" role="banner">
     <nav class="site-nav" aria-label="Primary">
-      <!-- Keep nav minimal. You can add anchors later -->
       <a href="#journey" class="nav-link">Journey</a>
       <a href="#highlights" class="nav-link">Highlights</a>
       <a href="#skills" class="nav-link">Skills</a>
@@ -32,24 +30,13 @@
   </header>
 
   <main id="main" role="main">
-
     <!-- =========================
          HERO SECTION (HYBRID)
          ========================= -->
     <section class="hero" aria-label="Intro">
-
-      <!-- HERO STACK:
-           1) Base pixel scene image (background layer)
-           2) Lamp glow / flicker overlay
-           3) Particles overlay (canvas or div particles)
-           4) Foreground content (text + pixel buttons)
-      -->
-
       <div class="hero-stack" role="presentation">
-
         <!-- 1) Base image layer -->
         <div class="hero-layer hero-layer--scene" aria-hidden="true">
-          <!-- Use <img> so it's easy to swap/optimize; can be moved to CSS background later -->
           <img
             class="hero-scene"
             src="./assets/img/hero/hero-desk.png"
@@ -61,27 +48,20 @@
 
         <!-- 2) Lamp glow / flicker layer -->
         <div class="hero-layer hero-layer--glow" aria-hidden="true">
-          <!-- This is intentionally empty; glow is handled by CSS + flicker.js later -->
           <div class="lamp-glow"></div>
         </div>
 
         <!-- 3) Particles layer -->
         <div class="hero-layer hero-layer--particles" aria-hidden="true">
-          <!-- Canvas is best for lightweight particles -->
-          <canvas
-            id="particlesCanvas"
-            class="particles-canvas"
-          ></canvas>
+          <canvas id="particlesCanvas" class="particles-canvas"></canvas>
         </div>
 
         <!-- 4) Foreground content layer -->
         <div class="hero-layer hero-layer--content">
           <div class="hero-content">
-
             <!-- Left text block -->
             <div class="hero-text">
               <h1 class="hero-title">Aykhan Pashayev</h1>
-
               <p class="hero-subtitle">Cloud • Security • AI</p>
 
               <p class="hero-lines">
@@ -91,34 +71,31 @@
               </p>
 
               <div class="hero-cta" role="group" aria-label="Primary actions">
-                <a class="btn btn--primary" href="#journey" aria-label="View my journey">
-                  ▶ View Journey
-                </a>
-
-                <a class="btn btn--secondary" href="./assets/resume.pdf" target="_blank" rel="noopener" aria-label="Open resume PDF">
-                  📄 Resume
-                </a>
+                <a class="btn btn--primary" href="#journey" aria-label="View my journey">▶ View Journey</a>
+                <a
+                  class="btn btn--secondary"
+                  href="./assets/resume.pdf"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Open resume PDF"
+                >📄 Resume</a>
               </div>
 
-              <div class="hero-links" aria-label="External links">
+              <nav class="hero-links" aria-label="External links">
                 <a href="https://github.com/aykhanpashayev" target="_blank" rel="noopener">GitHub</a>
                 <a href="https://linkedin.com/in/aykhanpashayev" target="_blank" rel="noopener">LinkedIn</a>
-              </div>
+              </nav>
             </div>
 
-            <!-- Right side reserved area (optional)
-                 You can leave empty because the scene is already on the right.
-                 Keeping this div helps layout later. -->
+            <!-- Right side reserved area (optional) -->
             <div class="hero-right" aria-hidden="true"></div>
-
           </div>
         </div>
-
       </div>
     </section>
 
     <!-- =========================
-         JOURNEY (placeholder)
+         JOURNEY
          ========================= -->
     <section id="journey" class="section section--journey" aria-label="Journey">
       <header class="section-header">
@@ -126,9 +103,7 @@
         <p>Short chapters. Real milestones. Built over time.</p>
       </header>
 
-      <!-- This will be populated later from content/journey.json -->
       <div class="journey-list" data-source="./content/journey.json">
-        <!-- Placeholder cards -->
         <article class="journey-card">
           <h3>Level 0 — Curiosity</h3>
           <p>Placeholder. This will load from journey.json later.</p>
@@ -137,7 +112,7 @@
     </section>
 
     <!-- =========================
-         HIGHLIGHTS (placeholder)
+         HIGHLIGHTS
          ========================= -->
     <section id="highlights" class="section section--highlights" aria-label="Highlights">
       <header class="section-header">
@@ -154,70 +129,73 @@
     </section>
 
     <!-- =========================
-         SKILLS (placeholder)
+         SKILLS
          ========================= -->
     <section id="skills" class="section section--skills" aria-label="Skills">
+      <header class="section-header">
+        <h2>Skills</h2>
+        <p>A calm snapshot of what I build with — and how I think.</p>
+      </header>
+
       <div class="skills-grid" role="list">
+        <article class="skill-card" role="listitem">
+          <header class="skill-card-header">
+            <div class="skill-icon" aria-hidden="true">☁</div>
+            <h3 class="skill-title">Cloud Architecture</h3>
+          </header>
+          <ul class="skill-list">
+            <li>AWS: EC2, S3, VPC, IAM, Lambda, CloudWatch, CloudTrail</li>
+            <li>Security-first design (least privilege, segmentation, logging)</li>
+            <li>Thinking in systems: reliability + visibility + controls</li>
+          </ul>
+        </article>
 
-  <article class="skill-card" role="listitem">
-    <header class="skill-card-header">
-      <div class="skill-icon" aria-hidden="true">☁</div>
-      <h3 class="skill-title">Cloud Architecture</h3>
-    </header>
-    <ul class="skill-list">
-      <li>AWS: EC2, S3, VPC, IAM, Lambda, CloudWatch, CloudTrail</li>
-      <li>Security-first design (least privilege, segmentation, logging)</li>
-      <li>Thinking in systems: reliability + visibility + controls</li>
-    </ul>
-  </article>
+        <article class="skill-card" role="listitem">
+          <header class="skill-card-header">
+            <div class="skill-icon" aria-hidden="true">🛡</div>
+            <h3 class="skill-title">Security Engineering</h3>
+          </header>
+          <ul class="skill-list">
+            <li>Blue team fundamentals: monitoring, alerting, triage mindset</li>
+            <li>Hands-on labs: Kali VM, vulnerable machines, safe testing</li>
+            <li>Documentation that’s readable under pressure</li>
+          </ul>
+        </article>
 
-  <article class="skill-card" role="listitem">
-    <header class="skill-card-header">
-      <div class="skill-icon" aria-hidden="true">🛡</div>
-      <h3 class="skill-title">Security Engineering</h3>
-    </header>
-    <ul class="skill-list">
-      <li>Blue team fundamentals: monitoring, alerting, triage mindset</li>
-      <li>Hands-on labs: Kali VM, vulnerable machines, safe testing</li>
-      <li>Documentation that’s readable under pressure</li>
-    </ul>
-  </article>
+        <article class="skill-card" role="listitem">
+          <header class="skill-card-header">
+            <div class="skill-icon" aria-hidden="true">🤖</div>
+            <h3 class="skill-title">Applied AI</h3>
+          </header>
+          <ul class="skill-list">
+            <li>LLM evaluation work + improving outputs via feedback loops</li>
+            <li>Using AI to analyze security gaps from docs and architecture</li>
+            <li>Risk-aware mindset: explainability + guardrails</li>
+          </ul>
+        </article>
 
-  <article class="skill-card" role="listitem">
-    <header class="skill-card-header">
-      <div class="skill-icon" aria-hidden="true">🤖</div>
-      <h3 class="skill-title">Applied AI</h3>
-    </header>
-    <ul class="skill-list">
-      <li>LLM evaluation work + improving outputs via feedback loops</li>
-      <li>Using AI to analyze security gaps from docs and architecture</li>
-      <li>Risk-aware mindset: explainability + guardrails</li>
-    </ul>
-  </article>
+        <article class="skill-card" role="listitem">
+          <header class="skill-card-header">
+            <div class="skill-icon" aria-hidden="true">🧰</div>
+            <h3 class="skill-title">Automation &amp; Systems</h3>
+          </header>
+          <ul class="skill-list">
+            <li>Python + scripting to automate repetitive security tasks</li>
+            <li>Linux/Windows comfort: troubleshooting, configs, workflows</li>
+            <li>GitHub projects with clear structure and documentation</li>
+          </ul>
+        </article>
+      </div>
 
-  <article class="skill-card" role="listitem">
-    <header class="skill-card-header">
-      <div class="skill-icon" aria-hidden="true">🧰</div>
-      <h3 class="skill-title">Automation & Systems</h3>
-    </header>
-    <ul class="skill-list">
-      <li>Python + scripting to automate repetitive security tasks</li>
-      <li>Linux/Windows comfort: troubleshooting, configs, workflows</li>
-      <li>GitHub projects with clear structure and documentation</li>
-    </ul>
-  </article>
-
-</div>
-
-<div class="skills-cta">
-  <a class="btn btn--secondary" href="./assets/resume.pdf" target="_blank" rel="noopener">📄 Full Resume</a>
-  <a class="btn btn--secondary" href="https://github.com/aykhanpashayev" target="_blank" rel="noopener">↗ GitHub</a>
-  <a class="btn btn--secondary" href="https://linkedin.com/in/aykhanpashayev" target="_blank" rel="noopener">↗ LinkedIn</a>
-</div>
+      <div class="skills-cta">
+        <a class="btn btn--secondary" href="./assets/resume.pdf" target="_blank" rel="noopener">📄 Full Resume</a>
+        <a class="btn btn--secondary" href="https://github.com/aykhanpashayev" target="_blank" rel="noopener">↗ GitHub</a>
+        <a class="btn btn--secondary" href="https://linkedin.com/in/aykhanpashayev" target="_blank" rel="noopener">↗ LinkedIn</a>
+      </div>
     </section>
 
     <!-- =========================
-         CONTACT / FOOTER CTA
+         CONTACT
          ========================= -->
     <section id="contact" class="section section--contact" aria-label="Contact">
       <header class="section-header">
@@ -230,14 +208,13 @@
         <a class="btn btn--secondary" href="https://linkedin.com/in/aykhanpashayev" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </section>
-
   </main>
 
   <footer class="site-footer" role="contentinfo">
     <p>© <span id="year"></span> Aykhan Pashayev</p>
   </footer>
 
-  <!-- Minimal JS imports (defer keeps page fast) -->
+  <!-- Minimal JS imports -->
   <script src="./js/main.js" defer></script>
   <script src="./js/particles.js" defer></script>
   <script src="./js/flicker.js" defer></script>
