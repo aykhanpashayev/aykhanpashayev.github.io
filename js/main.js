@@ -320,6 +320,68 @@
     }
   }
 
+  function setupJourneyProgress() {
+    const section = document.getElementById("journey");
+    const fill = document.getElementById("journeyProgressFill");
+    const progressEl = section ? section.querySelector(".journey-progress") : null;
+
+    if (!section || !fill || !progressEl) return;
+
+    let ticking = false;
+
+    function clamp01(n) {
+      return Math.max(0, Math.min(1, n));
+    }
+
+    function update() {
+      ticking = false;
+
+      const rect = section.getBoundingClientRect();
+      const vh = window.innerHeight || 1;
+
+      // Visible range logic:
+      // start when top enters ~70% of viewport
+      // end when bottom leaves ~30% of viewport
+      const start = vh * 0.70;
+      const end = vh * 0.30;
+
+      // If Journey is not on screen at all => hide bar
+      const isOffscreen = rect.bottom <= 0 || rect.top >= vh;
+      if (isOffscreen) {
+        progressEl.classList.remove("is-active");
+        fill.style.height = "0%";
+        return;
+      }
+
+      // Show bar only while Journey is actually in view
+      progressEl.classList.add("is-active");
+
+      // Progress based on where the section top moves between start..end
+      const total = (rect.height - (end - start));
+      const traveled = (start - rect.top);
+      const p = total > 0 ? clamp01(traveled / total) : 0;
+
+      fill.style.height = `${(p * 100).toFixed(2)}%`;
+    }
+
+    function onScrollOrResize() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+
+    window.addEventListener("scroll", onScrollOrResize, { passive: true });
+    window.addEventListener("resize", onScrollOrResize);
+
+    // Run once on load + after hash navigation (Journey nav click)
+    update();
+
+    window.addEventListener("hashchange", () => {
+      // Let the browser finish scrolling first
+      requestAnimationFrame(() => requestAnimationFrame(update));
+    });
+  }
+
   // ---------------------------
   // 7) Boot
   // ---------------------------
@@ -327,5 +389,6 @@
     setFooterYear();
     setupRevealObserver();
     loadContent();
+    setupJourneyProgress();
   });
 })();

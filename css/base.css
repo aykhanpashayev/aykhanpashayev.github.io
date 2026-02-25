@@ -299,6 +299,65 @@ body {
 }
 
 /* =========================
+   Journey Progress (section-only)
+   ========================= */
+
+.section--journey {
+  position: relative; /* anchors internal sticky + layout */
+}
+
+/* Two-column layout ONLY on Journey section:
+   left = progress bar, right = cards */
+.section--journey .journey-wrap {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+@media (max-width: 720px) {
+  .section--journey .journey-wrap {
+    grid-template-columns: 1fr; /* progress hides on small screens */
+  }
+}
+
+.journey-progress {
+  position: sticky;
+  top: 110px; /* below header/nav */
+  height: calc(100vh - 140px);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 220ms ease, transform 220ms ease;
+  pointer-events: none; /* never blocks clicks */
+}
+
+.journey-progress.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 720px) {
+  .journey-progress {
+    display: none;
+  }
+}
+
+.journey-progress-track {
+  width: 10px;
+  height: 100%;
+  border-radius: 0;
+  position: relative;
+}
+
+.journey-progress-fill {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0%;
+}
+
+/* =========================
    9. SKILLS LAYOUT
    ========================= */
 
