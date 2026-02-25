@@ -104,7 +104,7 @@
         <p>Short chapters. Real milestones. Built over time.</p>
       </header>
 
-      <!-- Journey progress (only exists inside this section) -->
+      <!-- Journey progress (single instance only) -->
       <div class="journey-progress" aria-hidden="true">
         <div class="journey-progress-track">
           <div class="journey-progress-fill" id="journeyProgressFill"></div>
@@ -112,17 +112,12 @@
       </div>
 
       <div class="journey-wrap">
-      <div class="journey-progress" aria-hidden="true">
-        <div class="journey-progress-track">
-          <div class="journey-progress-fill" id="journeyProgressFill"></div>
+        <div class="journey-list" data-source="./content/journey.json">
+          <article class="journey-card">
+            <h3>Level 0 — Curiosity</h3>
+            <p>Placeholder. This will load from journey.json later.</p>
+          </article>
         </div>
-      </div>
-
-      <div class="journey-list" data-source="./content/journey.json">
-        <article class="journey-card">
-          <h3>Level 0 — Curiosity</h3>
-          <p>Placeholder. This will load from journey.json later.</p>
-        </article>
       </div>
     </section>
 
@@ -144,8 +139,8 @@
     </section>
 
     <!-- =========================
-     PROJECTS
-     ========================= -->
+         PROJECTS
+         ========================= -->
     <section id="projects" class="section section--projects" aria-label="Selected Projects">
       <header class="section-header">
         <h2>Selected Projects</h2>
