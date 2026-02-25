@@ -45,79 +45,65 @@
   // ---------------------------
   // 4) Renderers
   // ---------------------------
-  function renderProjects(container, data) {
+
+  function renderJourney(container, data) {
     if (!container || !data) return;
 
-    const projects = Array.isArray(data) ? data : (data.projects || []);
-    if (!projects.length) return;
+    const levels = Array.isArray(data) ? data : (data.levels || []);
+    if (!levels.length) return;
 
     container.innerHTML = "";
 
-    projects.forEach((item) => {
+    levels.forEach((item) => {
       const card = document.createElement("article");
-      card.className = "project-card";
+      card.className = "journey-card";
 
-      const title = item.title ? escapeHTML(item.title) : "Project";
+      const levelLabel = item.level ? escapeHTML(item.level) : "";
+      const title = item.title ? escapeHTML(item.title) : "Untitled";
       const dateRange = item.dateRange ? escapeHTML(item.dateRange) : "";
-      const desc = item.description ? escapeHTML(item.description) : "";
-
-      const why = item.why ? escapeHTML(item.why) : "";
-      const readMoreUrl = item.readMoreUrl ? escapeHTML(item.readMoreUrl) : "";
+      const blurb = item.blurb ? escapeHTML(item.blurb) : "";
 
       const highlights = Array.isArray(item.highlights) ? item.highlights : [];
       const highlightsHTML = highlights.length
         ? `
-          <ul class="project-highlights">
+          <ul class="journey-highlights">
             ${highlights.map((h) => `<li>${escapeHTML(h)}</li>`).join("")}
           </ul>
         `
         : "";
 
-      const tags = Array.isArray(item.tags) ? item.tags : [];
-      const tagsHTML = tags.length
+      // Optional thumbnail from JSON: item.image.src + item.image.alt
+      const imgSrc = item.image?.src ? escapeHTML(item.image.src) : "";
+      const imgAlt = item.image?.alt ? escapeHTML(item.image.alt) : "";
+
+      const thumbnailHTML = imgSrc
         ? `
-          <div class="project-tags" aria-label="Project tags">
-            ${tags.map((t) => `<span class="badge">${escapeHTML(t)}</span>`).join("")}
+          <div class="journey-thumb">
+            <img class="journey-thumb-img" src="${imgSrc}" alt="${imgAlt}" loading="lazy" decoding="async" />
           </div>
         `
-        : "";
-
-      const links = Array.isArray(item.links) ? item.links : [];
-      const linksButtons = links
-        .map((l) => {
-          const label = l.label ? escapeHTML(l.label) : "Link";
-          const url = l.url ? escapeHTML(l.url) : "#";
-          return `<a class="btn btn--secondary btn--small" href="${url}" target="_blank" rel="noopener">↗ ${label}</a>`;
-        })
-        .join("");
-
-      const readMoreButton = readMoreUrl
-        ? `<a class="btn btn--primary btn--small" href="${readMoreUrl}" target="_blank" rel="noopener">✦ Read more</a>`
-        : "";
-
-      const linksHTML = (linksButtons || readMoreButton)
-        ? `
-          <div class="project-links" aria-label="Project links">
-            ${readMoreButton}
-            ${linksButtons}
-          </div>
-        `
-        : "";
+        : `
+          <div class="journey-thumb journey-thumb--placeholder" aria-hidden="true"></div>
+        `;
 
       card.innerHTML = `
-        <header class="project-header">
-          <h3>${title}</h3>
-          ${dateRange ? `<p class="project-dates">${dateRange}</p>` : ""}
-        </header>
+        <div class="journey-card-inner">
+          ${thumbnailHTML}
 
-        ${desc ? `<p class="project-desc">${desc}</p>` : ""}
-        ${why ? `<p class="project-why">“${why}”</p>` : ""}
+          <div class="journey-body">
+            <header class="journey-card-header">
+              <h3>
+                ${levelLabel ? `<span class="journey-level">${levelLabel}</span> — ` : ""}
+                <span class="journey-title">${title}</span>
+              </h3>
+              ${dateRange ? `<p class="journey-dates">${dateRange}</p>` : ""}
+            </header>
 
-        ${(desc || why) && highlights.length ? `<div class="pixel-divider"></div>` : ""}
-        ${highlightsHTML}
-
-        ${tagsHTML}
-        ${linksHTML}
+            ${blurb ? `<p class="journey-blurb">${blurb}</p>` : ""}
+            ${blurb && highlights.length ? `<div class="pixel-divider"></div>` : ""}
+            ${highlightsHTML}
+          </div>
+        </div>
       `;
 
       container.appendChild(card);
@@ -189,6 +175,7 @@
       const title = item.title ? escapeHTML(item.title) : "Project";
       const dateRange = item.dateRange ? escapeHTML(item.dateRange) : "";
       const desc = item.description ? escapeHTML(item.description) : "";
+      const why = item.why ? escapeHTML(item.why) : "";
 
       const highlights = Array.isArray(item.highlights) ? item.highlights : [];
       const highlightsHTML = highlights.length
@@ -230,7 +217,9 @@
         </header>
 
         ${desc ? `<p class="project-desc">${desc}</p>` : ""}
-        ${desc && highlights.length ? `<div class="pixel-divider"></div>` : ""}
+        ${why ? `<p class="project-why">“${why}”</p>` : ""}
+
+        ${(desc || why) && highlights.length ? `<div class="pixel-divider"></div>` : ""}
         ${highlightsHTML}
 
         ${tagsHTML}
