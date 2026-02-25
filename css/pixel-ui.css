@@ -91,7 +91,8 @@
 
 .journey-card,
 .highlight-card,
-.skill-card {
+.skill-card,
+.project-card {
   padding: 1.75rem;
 
   border: 3px solid rgba(183, 194, 214, 0.18);
@@ -100,7 +101,9 @@
   border-radius: 0;
   box-shadow: 6px 6px 0 rgba(5, 8, 18, 0.85);
 
-  transition: transform 140ms linear, border-color 140ms linear, background 140ms linear;
+  transition: transform 140ms linear,
+              border-color 140ms linear,
+              background 140ms linear;
 }
 
 /* subtle hover — calm, not jumpy */
