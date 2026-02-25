@@ -434,3 +434,17 @@ body {
 .project-highlights li {
   color: var(--muted);
 }
+
+/* Project card layout: thumbnail left, content right */
+.project-card-inner {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+@media (max-width: 720px) {
+  .project-card-inner {
+    grid-template-columns: 1fr;
+  }
+}

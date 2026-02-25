@@ -11,6 +11,10 @@
         "Incident Q&A chatbot that translates findings for non-experts"
       ],
       "why": "I want IAM incidents to feel explainable—so even non-experts can ask the right questions fast.",
+      "image": {
+        "src": "./assets/img/projects/anomai.png",
+        "alt": "Pixel scene: IAM anomaly dashboard and incident notes"
+      },
       "tags": ["AWS", "IAM", "Detection", "CloudTrail", "AI"],
       "links": [
         { "label": "GitHub", "url": "https://github.com/aykhanpashayev/AnomAI" }
@@ -26,7 +30,11 @@
         "Auto-remediates to approved configuration using Lambda",
         "Reduces exposure time for insecure network changes"
       ],
-      "why": "I built this to shrink the ‘danger window’ from minutes/hours down to near-immediate recovery, without relying on external tools.",
+      "why": "I built this to shrink the 'danger window' from minutes/hours down to near-immediate recovery, without relying on external tools.",
+      "image": {
+        "src": "./assets/img/projects/sg-remediation.png",
+        "alt": "Pixel scene: security group rules and auto-remediation"
+      },
       "tags": ["AWS", "Config", "Lambda", "Security Groups", "Automation"],
       "links": [
         { "label": "GitHub", "url": "https://github.com/aykhanpashayev/aws-config-lambda-remediation-lab" }
@@ -43,6 +51,10 @@
         "Improves awareness and response speed without extra tooling"
       ],
       "why": "I wanted to show that you can achieve effective monitoring and alerting using AWS’s native capabilities, without needing to invest in complex SIEM solutions.",
+      "image": {
+        "src": "./assets/img/projects/cloudtrail-monitoring.png",
+        "alt": "Pixel scene: CloudTrail events flowing into alerts"
+      },
       "tags": ["AWS", "CloudTrail", "CloudWatch", "EventBridge", "SNS"],
       "links": [
         { "label": "GitHub", "url": "https://github.com/aykhanpashayev/cloudtrail-cloudwatch-monitoring-lab" }

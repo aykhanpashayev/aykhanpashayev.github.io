@@ -210,20 +210,40 @@
         `
         : "";
 
+      // Optional thumbnail from JSON: item.image.src + item.image.alt
+      const imgSrc = item.image?.src ? escapeHTML(item.image.src) : "";
+      const imgAlt = item.image?.alt ? escapeHTML(item.image.alt) : "";
+
+      const thumbnailHTML = imgSrc
+        ? `
+          <div class="project-thumb">
+            <img class="project-thumb-img" src="${imgSrc}" alt="${imgAlt}" loading="lazy" decoding="async" />
+          </div>
+        `
+        : `
+          <div class="project-thumb project-thumb--placeholder" aria-hidden="true"></div>
+        `;
+
       card.innerHTML = `
-        <header class="project-header">
-          <h3>${title}</h3>
-          ${dateRange ? `<p class="project-dates">${dateRange}</p>` : ""}
-        </header>
+        <div class="project-card-inner">
+          ${thumbnailHTML}
 
-        ${desc ? `<p class="project-desc">${desc}</p>` : ""}
-        ${why ? `<p class="project-why">“${why}”</p>` : ""}
+          <div class="project-body">
+            <header class="project-header">
+              <h3>${title}</h3>
+              ${dateRange ? `<p class="project-dates">${dateRange}</p>` : ""}
+            </header>
 
-        ${(desc || why) && highlights.length ? `<div class="pixel-divider"></div>` : ""}
-        ${highlightsHTML}
+            ${desc ? `<p class="project-desc">${desc}</p>` : ""}
+            ${why ? `<p class="project-why">“${why}”</p>` : ""}
 
-        ${tagsHTML}
-        ${linksHTML}
+            ${(desc || why) && highlights.length ? `<div class="pixel-divider"></div>` : ""}
+            ${highlightsHTML}
+
+            ${tagsHTML}
+            ${linksHTML}
+          </div>
+        </div>
       `;
 
       container.appendChild(card);
