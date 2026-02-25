@@ -12,8 +12,6 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-
-  /* Keep this behind hero content/layers */
   z-index: 0;
 
   background:
@@ -29,9 +27,10 @@
     radial-gradient(1200px 900px at 50% 60%, rgba(0, 0, 0, 0.25), transparent 55%);
 }
 
-/* Ensure hero layers are above the vignette */
-.hero-stack,
-.hero-layer {
+/* Keep hero stack above the vignette.
+   IMPORTANT: do NOT change .hero-layer positioning here
+   (it must stay absolute from base.css). */
+.hero-stack {
   position: relative;
   z-index: 1;
 }
