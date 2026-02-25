@@ -5,7 +5,6 @@
 (function () {
   "use strict";
 
-  // Keep a single observer instance
   let revealObserver = null;
 
   // ---------------------------
@@ -159,9 +158,75 @@
     });
   }
 
+  function renderProjects(container, data) {
+    if (!container || !data) return;
+
+    const projects = Array.isArray(data) ? data : (data.projects || []);
+    if (!projects.length) return;
+
+    container.innerHTML = "";
+
+    projects.forEach((item) => {
+      const card = document.createElement("article");
+      card.className = "project-card";
+
+      const title = item.title ? escapeHTML(item.title) : "Project";
+      const dateRange = item.dateRange ? escapeHTML(item.dateRange) : "";
+      const desc = item.description ? escapeHTML(item.description) : "";
+
+      const highlights = Array.isArray(item.highlights) ? item.highlights : [];
+      const highlightsHTML = highlights.length
+        ? `
+          <ul class="project-highlights">
+            ${highlights.map((h) => `<li>${escapeHTML(h)}</li>`).join("")}
+          </ul>
+        `
+        : "";
+
+      const tags = Array.isArray(item.tags) ? item.tags : [];
+      const tagsHTML = tags.length
+        ? `
+          <div class="project-tags" aria-label="Project tags">
+            ${tags.map((t) => `<span class="badge">${escapeHTML(t)}</span>`).join("")}
+          </div>
+        `
+        : "";
+
+      const links = Array.isArray(item.links) ? item.links : [];
+      const linksHTML = links.length
+        ? `
+          <div class="project-links" aria-label="Project links">
+            ${links
+              .map((l) => {
+                const label = l.label ? escapeHTML(l.label) : "Link";
+                const url = l.url ? escapeHTML(l.url) : "#";
+                return `<a class="btn btn--secondary btn--small" href="${url}" target="_blank" rel="noopener">↗ ${label}</a>`;
+              })
+              .join("")}
+          </div>
+        `
+        : "";
+
+      card.innerHTML = `
+        <header class="project-header">
+          <h3>${title}</h3>
+          ${dateRange ? `<p class="project-dates">${dateRange}</p>` : ""}
+        </header>
+
+        ${desc ? `<p class="project-desc">${desc}</p>` : ""}
+        ${desc && highlights.length ? `<div class="pixel-divider"></div>` : ""}
+        ${highlightsHTML}
+
+        ${tagsHTML}
+        ${linksHTML}
+      `;
+
+      container.appendChild(card);
+    });
+  }
+
   // ---------------------------
   // 5) Reveal system
-  //    Important: observe newly-rendered cards after JSON loads
   // ---------------------------
   function setupRevealObserver() {
     if (!("IntersectionObserver" in window)) return;
@@ -178,7 +243,6 @@
       { threshold: 0.15 }
     );
 
-    // Observe headers immediately (these exist at load)
     observeRevealTargets(document.querySelectorAll(".section-header"));
   }
 
@@ -186,7 +250,6 @@
     if (!revealObserver) return;
 
     nodeList.forEach((el) => {
-      // Prevent double-binding
       if (el.dataset.revealBound === "1") return;
 
       el.classList.add("reveal");
@@ -201,14 +264,13 @@
   async function loadContent() {
     const journeyContainer = document.querySelector(".journey-list[data-source]");
     const highlightsContainer = document.querySelector(".highlights-grid[data-source]");
+    const projectsContainer = document.querySelector(".projects-grid[data-source]");
 
     if (journeyContainer) {
       const src = journeyContainer.getAttribute("data-source");
       if (src) {
         const journeyData = await fetchJSON(src);
         renderJourney(journeyContainer, journeyData);
-
-        // Observe new journey cards after rendering
         observeRevealTargets(journeyContainer.querySelectorAll(".journey-card"));
       }
     }
@@ -218,9 +280,16 @@
       if (src) {
         const highlightsData = await fetchJSON(src);
         renderHighlights(highlightsContainer, highlightsData);
-
-        // Observe new highlight cards after rendering
         observeRevealTargets(highlightsContainer.querySelectorAll(".highlight-card"));
+      }
+    }
+
+    if (projectsContainer) {
+      const src = projectsContainer.getAttribute("data-source");
+      if (src) {
+        const projectsData = await fetchJSON(src);
+        renderProjects(projectsContainer, projectsData);
+        observeRevealTargets(projectsContainer.querySelectorAll(".project-card"));
       }
     }
   }
@@ -231,6 +300,6 @@
   document.addEventListener("DOMContentLoaded", () => {
     setFooterYear();
     setupRevealObserver();
-    loadContent(); // harmless if JSON files don’t exist yet
+    loadContent();
   });
 })();
