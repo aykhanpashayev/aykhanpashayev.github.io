@@ -137,6 +137,7 @@
   height: 100%;
   object-fit: cover;
   image-rendering: pixelated;
+  transition: transform 200ms ease;
 }
 
 /* Placeholder if no image yet */
@@ -167,6 +168,17 @@
 
 .journey-highlights li {
   color: var(--muted);
+}
+
+/* Journey thumbnail reacts on hover */
+.journey-card:hover .journey-thumb {
+  border-color: rgba(255, 179, 92, 0.45);
+  box-shadow: 4px 4px 0 rgba(255, 179, 92, 0.18);
+}
+
+.journey-card:hover .journey-thumb-img {
+  transform: scale(1.03);
+  transition: transform 200ms ease;
 }
 
 /* =========================

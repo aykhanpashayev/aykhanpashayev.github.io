@@ -274,10 +274,11 @@
   function observeRevealTargets(nodeList) {
     if (!revealObserver) return;
 
-    nodeList.forEach((el) => {
+    nodeList.forEach((el, index) => {
       if (el.dataset.revealBound === "1") return;
 
       el.classList.add("reveal");
+      el.style.transitionDelay = `${index * 80}ms`; // stagger
       el.dataset.revealBound = "1";
       revealObserver.observe(el);
     });
