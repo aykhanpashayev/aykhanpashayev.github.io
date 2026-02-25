@@ -12,7 +12,7 @@
       ],
       "tags": ["AWS", "IAM", "Detection", "CloudTrail", "AI"],
       "links": [
-        { "label": "GitHub", "url": "#" }
+        { "label": "GitHub", "url": "https://github.com/aykhanpashayev/AnomAI" }
       ]
     },
     {
@@ -27,7 +27,7 @@
       ],
       "tags": ["AWS", "Config", "Lambda", "Security Groups", "Automation"],
       "links": [
-        { "label": "GitHub", "url": "#" }
+        { "label": "GitHub", "url": "https://github.com/aykhanpashayev/aws-config-lambda-remediation-lab" }
       ]
     },
     {
@@ -42,7 +42,7 @@
       ],
       "tags": ["AWS", "CloudTrail", "CloudWatch", "EventBridge", "SNS"],
       "links": [
-        { "label": "GitHub", "url": "#" }
+        { "label": "GitHub", "url": "https://github.com/aykhanpashayev/cloudtrail-cloudwatch-monitoring-lab" }
       ]
     }
   ]
