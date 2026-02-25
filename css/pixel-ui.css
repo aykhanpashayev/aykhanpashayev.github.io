@@ -101,15 +101,13 @@
   border-radius: 0;
   box-shadow: 6px 6px 0 rgba(5, 8, 18, 0.85);
 
-  transition: transform 140ms linear,
-              border-color 140ms linear,
-              background 140ms linear;
+  transition: transform 140ms linear, border-color 140ms linear, background 140ms linear;
 }
 
-/* subtle hover — calm, not jumpy */
 .journey-card:hover,
 .highlight-card:hover,
-.skill-card:hover {
+.skill-card:hover,
+.project-card:hover {
   transform: translateY(-2px);
   border-color: rgba(255, 179, 92, 0.28);
   background: rgba(8, 16, 28, 0.62);

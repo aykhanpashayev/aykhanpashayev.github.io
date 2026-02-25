@@ -420,3 +420,17 @@ body {
   font-style: italic;
   max-width: 70ch;
 }
+
+/* Projects inner spacing + readability */
+.project-header h3 {
+  margin: 0 0 0.5rem 0;
+  line-height: 1.25;
+}
+
+.project-desc {
+  margin: 0.75rem 0 0.75rem 0;
+}
+
+.project-highlights li {
+  color: var(--muted);
+}
