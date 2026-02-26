@@ -285,9 +285,80 @@
   }
 
   // ---------------------------
-  // 6) Content loader
+  // 6) Journey progress (section-only)
   // ---------------------------
-  async function loadContent() {
+  function setupJourneyProgress() {
+    const section = document.getElementById("journey");
+    const fill = document.getElementById("journeyProgressFill");
+    const progressEl = section ? section.querySelector(".journey-progress") : null;
+
+    if (!section || !fill || !progressEl) return;
+
+    let ticking = false;
+
+    function clamp01(n) {
+      return Math.max(0, Math.min(1, n));
+    }
+
+    function update() {
+      ticking = false;
+
+      const rect = section.getBoundingClientRect();
+      const vh = window.innerHeight || 1;
+
+      const start = vh * 0.70;
+      const end = vh * 0.30;
+
+      const isOffscreen = rect.bottom <= 0 || rect.top >= vh;
+      if (isOffscreen) {
+        progressEl.classList.remove("is-active");
+        fill.style.height = "0%";
+        return;
+      }
+
+      progressEl.classList.add("is-active");
+
+      const total = (rect.height - (end - start));
+      const traveled = (start - rect.top);
+      const p = total > 0 ? clamp01(traveled / total) : 0;
+
+      fill.style.height = `${(p * 100).toFixed(2)}%`;
+    }
+
+    function onScrollOrResize() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+
+    window.addEventListener("scroll", onScrollOrResize, { passive: true });
+    window.addEventListener("resize", onScrollOrResize);
+
+    // Anchor-click support (covers cases where hash doesn't change)
+    document.addEventListener("click", (e) => {
+      const a = e.target && e.target.closest ? e.target.closest('a[href="#journey"]') : null;
+      if (!a) return;
+
+      // Let the browser scroll first
+      requestAnimationFrame(() => requestAnimationFrame(update));
+    });
+
+    // Hash navigation support
+    window.addEventListener("hashchange", () => {
+      requestAnimationFrame(() => requestAnimationFrame(update));
+    });
+
+    // Initial
+    update();
+
+    // Expose a tiny hook for “content loaded changed height”
+    return { update };
+  }
+
+  // ---------------------------
+  // 7) Content loader
+  // ---------------------------
+  async function loadContent(progressApi) {
     const journeyContainer = document.querySelector(".journey-list[data-source]");
     const highlightsContainer = document.querySelector(".highlights-grid[data-source]");
     const projectsContainer = document.querySelector(".projects-grid[data-source]");
@@ -298,6 +369,11 @@
         const journeyData = await fetchJSON(src);
         renderJourney(journeyContainer, journeyData);
         observeRevealTargets(journeyContainer.querySelectorAll(".journey-card"));
+
+        // After journey renders, re-measure section height for progress math
+        if (progressApi && typeof progressApi.update === "function") {
+          requestAnimationFrame(() => requestAnimationFrame(progressApi.update));
+        }
       }
     }
 
@@ -320,75 +396,14 @@
     }
   }
 
-  function setupJourneyProgress() {
-    const section = document.getElementById("journey");
-    const fill = document.getElementById("journeyProgressFill");
-    const progressEl = section ? section.querySelector(".journey-progress") : null;
-
-    if (!section || !fill || !progressEl) return;
-
-    let ticking = false;
-
-    function clamp01(n) {
-      return Math.max(0, Math.min(1, n));
-    }
-
-    function update() {
-      ticking = false;
-
-      const rect = section.getBoundingClientRect();
-      const vh = window.innerHeight || 1;
-
-      // Visible range logic:
-      // start when top enters ~70% of viewport
-      // end when bottom leaves ~30% of viewport
-      const start = vh * 0.70;
-      const end = vh * 0.30;
-
-      // If Journey is not on screen at all => hide bar
-      const isOffscreen = rect.bottom <= 0 || rect.top >= vh;
-      if (isOffscreen) {
-        progressEl.classList.remove("is-active");
-        fill.style.height = "0%";
-        return;
-      }
-
-      // Show bar only while Journey is actually in view
-      progressEl.classList.add("is-active");
-
-      // Progress based on where the section top moves between start..end
-      const total = (rect.height - (end - start));
-      const traveled = (start - rect.top);
-      const p = total > 0 ? clamp01(traveled / total) : 0;
-
-      fill.style.height = `${(p * 100).toFixed(2)}%`;
-    }
-
-    function onScrollOrResize() {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(update);
-    }
-
-    window.addEventListener("scroll", onScrollOrResize, { passive: true });
-    window.addEventListener("resize", onScrollOrResize);
-
-    // Run once on load + after hash navigation (Journey nav click)
-    update();
-
-    window.addEventListener("hashchange", () => {
-      // Let the browser finish scrolling first
-      requestAnimationFrame(() => requestAnimationFrame(update));
-    });
-  }
-
   // ---------------------------
-  // 7) Boot
+  // 8) Boot
   // ---------------------------
   document.addEventListener("DOMContentLoaded", () => {
     setFooterYear();
     setupRevealObserver();
-    loadContent();
-    setupJourneyProgress();
+
+    const progressApi = setupJourneyProgress();
+    loadContent(progressApi);
   });
 })();
