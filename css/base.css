@@ -303,18 +303,12 @@ body {
    ========================= */
 
 .section--journey {
-  position: relative; /* anchors internal sticky + layout */
-}
-
-/* If you keep progress bar ABOVE the wrap (your current HTML),
-   make sure it doesn't create any weird spacing */
-.section--journey > .journey-progress {
-  margin: 0 auto 1.25rem auto;
-  max-width: 1000px;
+  position: relative;
 }
 
 /* Main Journey layout:
-   left column reserved for progress, right for cards */
+   left column = progress bar
+   right column = cards */
 .section--journey .journey-wrap {
   max-width: 1000px;
   margin: 0 auto;
@@ -325,29 +319,23 @@ body {
   align-items: start;
 }
 
-/* If you later move .journey-progress inside .journey-wrap as the first child,
-   this will keep it aligned without changing any HTML again. */
-.section--journey .journey-wrap .journey-progress {
-  margin: 0;
-}
-
 @media (max-width: 720px) {
   .section--journey .journey-wrap {
-    grid-template-columns: 1fr; /* progress hides on small screens */
+    grid-template-columns: 1fr;
   }
 }
 
-/* Sticky progress bar itself (never affects layout height beyond its column) */
+/* Sticky progress bar (lives in its own grid column, never creates vertical gap) */
 .journey-progress {
   position: sticky;
-  top: 110px; /* below header/nav */
+  top: 110px;
   height: calc(100vh - 140px);
 
   opacity: 0;
   transform: translateY(6px);
   transition: opacity 220ms ease, transform 220ms ease;
 
-  pointer-events: none; /* never blocks clicks */
+  pointer-events: none;
 }
 
 .journey-progress.is-active {
