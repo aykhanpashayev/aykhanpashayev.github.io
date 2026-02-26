@@ -169,15 +169,16 @@
 
 /* =========================
    4.5) JOURNEY PROGRESS (VISUALS, SCOPED)
-   - Guard: ONLY style/show it inside Journey section
+   - Guard: ONLY show it inside Journey section
+   - Layout/positioning stays in base.css
    ========================= */
 
-/* If something accidentally renders .journey-progress elsewhere, hide it */
+/* Guard: if .journey-progress appears anywhere else, keep it hidden */
 .journey-progress {
   display: none;
 }
 
-/* Only enable inside the Journey section */
+/* Enable only inside the Journey section */
 .section--journey .journey-progress {
   display: block;
 }
@@ -314,7 +315,8 @@ a:focus-visible {
 
 .project-thumb--placeholder {
   background:
-    linear-gradient(135deg,
+    linear-gradient(
+      135deg,
       rgba(255, 179, 92, 0.12),
       rgba(8, 16, 28, 0.65)
     );
