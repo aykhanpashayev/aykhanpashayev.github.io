@@ -9,7 +9,7 @@
       "highlights": [
         "First self-taught programming fundamentals",
         "Early interest in building and experimenting",
-        "Learned by making small projects"
+        "Huge interest in technology and how things work under the hood"
       ],
       "image": {
         "src": "./assets/img/levels/level-0-curiosity.png",
@@ -55,12 +55,12 @@
       "id": "level-3",
       "level": "Level 3",
       "title": "Cyber Discovery",
-      "dateRange": "Transfer to FIU",
+      "dateRange": "Transfer to Florida International University (FIU)",
       "blurb": "I transferred to FIU and switched to cybersecurity. I explored both blue and red team paths and started building my own learning environment to train consistently.",
       "highlights": [
         "Major switch into cybersecurity",
-        "Home lab mindset (VMs + Kali)",
-        "Started exploring security pathways"
+        "Home lab built using virtualization (VirtualBox, vulnerable VMs and Kali Linux)",
+        "Started exploring security pathways (red vs blue) and finding my focus"
       ],
       "image": {
         "src": "./assets/img/levels/level-3-cyber.png",
@@ -71,13 +71,13 @@
     {
       "id": "level-4",
       "level": "Level 4",
-      "title": "Security & CCDC",
+      "title": "Acceleration",
       "dateRange": "Junior year",
-      "blurb": "This is where things accelerated. I earned Security+, trained hands-on, wrote scripts, documented my work, and experienced real blue-team pressure in CCDC.",
+      "blurb": "This is where things accelerated. I earned Security+ certification, had my first blue team competition experience under red team pressure, more skillful and more stronger in Cybersecurity.",
       "highlights": [
-        "CompTIA Security+ (Dec 2024)",
-        "Hands-on training in Kali + vulnerable labs",
-        "First CCDC experience (blue team member)"
+        "CompTIA Security+ certification",
+        "Built deeper blue team skills (SIEM, incident response, forensics)",
+        "First blue team competition experience (CCDC) as participant."
       ],
       "image": {
         "src": "./assets/img/levels/level-4-security.png",
@@ -88,13 +88,13 @@
     {
       "id": "level-5",
       "level": "Level 5",
-      "title": "Teaching & Leadership",
-      "dateRange": "FIU Lab Assistant",
-      "blurb": "Teaching changed my confidence. Helping students under pressure taught me clarity, patience, and how to explain complex topics simply—while keeping systems running.",
+      "title": "Being a hardware lab and course learning assistant",
+      "dateRange": "Junir year → Present",
+      "blurb": "Teaching changed my confidence and mindset. Now, I understand why tech should be easier to understand by people who are far from it.",
       "highlights": [
-        "Tutored students in programming and labs",
+        "Tutored students in multiple courses (programming, hardware, networking, cybersecurity)",
         "Supported lab environments (Linux/Windows)",
-        "Built communication and leadership skills"
+        "Built skill of explaining complex concepts in simple terms"
       ],
       "image": {
         "src": "./assets/img/levels/level-5-teaching.png",
@@ -106,11 +106,11 @@
       "id": "level-6",
       "level": "Level 6",
       "title": "AWS & Cloud",
-      "dateRange": "2025 → Jan 2026",
+      "dateRange": "Summer 2025 → Present",
       "blurb": "I fell in love with cloud because it connects architecture and security. To understand security deeply, I committed to learning AWS from the inside out.",
       "highlights": [
         "AWS deep dive (architecture + services)",
-        "Passed AWS Solutions Architect Associate (Jan 2026)",
+        "Passed AWS Solutions Architect Associate certification",
         "Shift toward cloud security engineering"
       ],
       "image": {
@@ -122,13 +122,13 @@
     {
       "id": "level-7",
       "level": "Level 7",
-      "title": "AI Research",
-      "dateRange": "Fall 2025 → Feb 2026",
-      "blurb": "I worked on AI model evaluation and then joined a research effort using AI to identify security gaps early—before code exists. It taught me how to think about security at design-time.",
+      "title": "AI & Research",
+      "dateRange": "October 2025 → Feb 2026",
+      "blurb": "I worked on AI model evaluation and then joined a research effort using AI to identify security gaps early—before code exists.",
       "highlights": [
-        "AI fellowship / LLM evaluation work",
-        "Defense-focused research using AI for gap discovery",
-        "Research submission + conference travel (April)"
+        "AI fellowship with Handshake AI, understaning model evaluation and limitations",
+        "Research: AI-Assisted assurance case for security requirement completeness in defense critical infrastructure",
+        "Exploring how AI can help identify security gaps early in the development lifecycle"
       ],
       "image": {
         "src": "./assets/img/levels/level-7-ai.png",
@@ -143,8 +143,8 @@
       "dateRange": "Feb 2026",
       "blurb": "We had five members and one week. We competed anyway. I led the team, kept everyone focused, and we placed 16th out of 45—fighting until the last minute.",
       "highlights": [
-        "Team captain under time pressure",
-        "Undersized team (5 vs expected 8)",
+        "Second time competing in CCDC, this time as team captain",
+        "Undersized team (5 vs expected 12) and only one week to prepare",
         "Placed 16th out of 45 teams"
       ],
       "image": {
@@ -158,12 +158,12 @@
       "level": "Level 9",
       "title": "Integration",
       "dateRange": "Present",
-      "blurb": "Today, I work at the intersection of cloud architecture, security engineering, and applied AI. I focus on building systems that are secure by design—not patched later.",
+      "blurb": "Today, I work at the intersection of cloud, security engineering, and applied AI. I focus on building systems that are secure, cost-effective and using latest AI capabilities.",
       "highlights": [
         "Cloud architecture with security-first thinking",
-        "Applied AI in security research and evaluation",
-        "Combining blue-team mindset with architectural design",
-        "Preparing for industry-level security engineering roles"
+        "AI for faster and smarter solutions",
+        "Confident and ready to be part of a team make a bigger impact in the world of technology",
+        "Passion for learning more and more, staying up-to-date with the latest technologies and trends in the field"
       ],
       "image": {
         "src": "./assets/img/levels/level-9-integration.png",
