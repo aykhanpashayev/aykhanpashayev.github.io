@@ -104,14 +104,15 @@
         <p>Short chapters. Real milestones. Built over time.</p>
       </header>
 
-      <!-- Journey progress (single instance only) -->
-      <div class="journey-progress" aria-hidden="true">
-        <div class="journey-progress-track">
-          <div class="journey-progress-fill" id="journeyProgressFill"></div>
-        </div>
-      </div>
-
+      <!-- Wrap ensures progress bar only affects Journey layout -->
       <div class="journey-wrap">
+        <!-- Journey progress (ONLY inside Journey section) -->
+        <div class="journey-progress" aria-hidden="true">
+          <div class="journey-progress-track">
+            <div class="journey-progress-fill" id="journeyProgressFill"></div>
+          </div>
+        </div>
+
         <div class="journey-list" data-source="./content/journey.json">
           <article class="journey-card">
             <h3>Level 0 — Curiosity</h3>
