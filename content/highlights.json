@@ -10,7 +10,7 @@
     {
       "id": "highlight-aws-saa",
       "title": "AWS Solutions Architect Associate (Jan 2026)",
-      "description": "Committed to learning cloud architecture deeply to build security from the design level—earned AWS SAA after focused preparation.",
+      "description": "Did not just passed an exam, but deeply understood AWS architecture and services with actual hands-on experience. Built a strong understanding of how to design secure, scalable, and cost-effective cloud solutions.",
       "tags": ["AWS", "Architecture", "Cloud Security"],
       "links": [
         {
@@ -21,8 +21,8 @@
     },
     {
       "id": "highlight-ai-research",
-      "title": "AI Security Research (Defense-focused)",
-      "description": "Worked on applied research using AI to identify security gaps early in architecture and documentation—submitted results to competition and presenting in April.",
+      "title": "AI-Assisted Assurance Case for Security Requirement Completeness in Defense Critical Infrastructure",
+      "description": "Worked on applied research using AI to identify security gaps early in architecture and documentation—submitted results to competition and presenting in April 2026.",
       "tags": ["AI", "Security Design", "Research"],
       "links": []
     },
