@@ -1,0 +1,56 @@
+{
+  "proof": [
+    {
+      "id": "cert-aws-saa",
+      "type": "certification",
+      "title": "AWS Solutions Architect Associate",
+      "date": "Jan 2026",
+      "issuer": "Amazon Web Services",
+      "description": "Deep understanding of AWS architecture: designing secure, scalable, cost-effective systems across EC2, S3, VPC, IAM, Lambda, and CloudWatch.",
+      "badge": {
+        "src": "https://images.credly.com/size/340x340/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png",
+        "alt": "AWS SAA Certification Badge"
+      },
+      "credential": {
+        "label": "Verify on Credly",
+        "url": "https://www.credly.com/badges/4e6ff5d3-f40f-4a2f-a990-5b788cdfa85d/public_url"
+      }
+    },
+    {
+      "id": "cert-security-plus",
+      "type": "certification",
+      "title": "CompTIA Security+",
+      "date": "Dec 2024",
+      "issuer": "CompTIA",
+      "description": "Core security fundamentals: cryptography, identity management, risk assessment, network defense, and incident response.",
+      "badge": null,
+      "credential": {
+        "label": "Verify on Credly",
+        "url": "https://www.credly.com/badges/a7f4ccaf-85b2-48f1-979f-a69070afebb2/public_url"
+      }
+    },
+    {
+      "id": "ccdc-captain",
+      "type": "achievement",
+      "title": "CCDC Regional Qualifier — Team Captain",
+      "date": "Feb 2026",
+      "issuer": "Collegiate Cyber Defense Competition",
+      "description": "Led undersized 5-person team to 16th place out of 49 teams. One week of preparation. Held operations under constant red team pressure.",
+      "stats": {
+        "placement": "16th / 49",
+        "team": "5 members",
+        "prep": "1 week"
+      },
+      "badge": null
+    },
+    {
+      "id": "research-ai-assurance",
+      "type": "research",
+      "title": "AI-Assisted Security Assurance Case",
+      "date": "Oct 2025 – Feb 2026",
+      "issuer": "First-authored paper (submitted)",
+      "description": "Research using AI to evaluate security requirement completeness against ISO/IEC 15408 for defense critical infrastructure. Identifies gaps before code exists.",
+      "badge": null
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" shape-rendering="crispEdges">
+  <!-- Background -->
+  <rect width="640" height="360" fill="#08101c"/>
+
+  <!-- Grid lines (subtle) -->
+  <g stroke="#1a2744" stroke-width="1" opacity="0.3">
+    <line x1="0" y1="60" x2="640" y2="60"/>
+    <line x1="0" y1="120" x2="640" y2="120"/>
+    <line x1="0" y1="180" x2="640" y2="180"/>
+    <line x1="0" y1="240" x2="640" y2="240"/>
+    <line x1="0" y1="300" x2="640" y2="300"/>
+    <line x1="80" y1="0" x2="80" y2="360"/>
+    <line x1="160" y1="0" x2="160" y2="360"/>
+    <line x1="240" y1="0" x2="240" y2="360"/>
+    <line x1="320" y1="0" x2="320" y2="360"/>
+    <line x1="400" y1="0" x2="400" y2="360"/>
+    <line x1="480" y1="0" x2="480" y2="360"/>
+    <line x1="560" y1="0" x2="560" y2="360"/>
+  </g>
+
+  <!-- Title -->
+  <text x="320" y="28" text-anchor="middle" fill="#ffb35c" font-family="monospace" font-size="14" font-weight="bold">CloudTrail Event-Driven Monitoring &amp; Alerting</text>
+
+  <!-- CloudTrail -->
+  <rect x="40" y="75" width="100" height="40" fill="#1a2744" stroke="#ffb35c" stroke-width="2"/>
+  <text x="90" y="95" text-anchor="middle" fill="#e9eef7" font-family="monospace" font-size="10">CloudTrail</text>
+  <text x="90" y="108" text-anchor="middle" fill="#a3b0c9" font-family="monospace" font-size="9">Event Logs</text>
+
+  <!-- EventBridge -->
+  <rect x="180" y="75" width="110" height="40" fill="#1a2744" stroke="#5aa7ff" stroke-width="2"/>
+  <text x="235" y="95" text-anchor="middle" fill="#e9eef7" font-family="monospace" font-size="10">EventBridge</text>
+  <text x="235" y="108" text-anchor="middle" fill="#a3b0c9" font-family="monospace" font-size="9">40+ Rules</text>
+
+  <!-- CloudWatch Alarms -->
+  <rect x="330" y="75" width="110" height="40" fill="#1a2744" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="385" y="95" text-anchor="middle" fill="#e9eef7" font-family="monospace" font-size="10">CloudWatch</text>
+  <text x="385" y="108" text-anchor="middle" fill="#a3b0c9" font-family="monospace" font-size="9">Alarms</text>
+
+  <!-- SNS -->
+  <rect x="480" y="75" width="90" height="40" fill="#1a2744" stroke="#dda0dd" stroke-width="2"/>
+  <text x="525" y="95" text-anchor="middle" fill="#e9eef7" font-family="monospace" font-size="10">SNS Topic</text>
+  <text x="525" y="108" text-anchor="middle" fill="#a3b0c9" font-family="monospace" font-size="9">Notifications</text>
+
+  <!-- Email/SMS -->
+  <rect x="480" y="150" width="90" height="40" fill="#1a2744" stroke="#95e1d3" stroke-width="2"/>
+  <text x="525" y="170" text-anchor="middle" fill="#e9eef7" font-family="monospace" font-size="10">Email / SMS</text>
+  <text x="525" y="183" text-anchor="middle" fill="#a3b0c9" font-family="monospace" font-size="9">Alerts</text>
+
+  <!-- Detected Events List -->
+  <rect x="40" y="150" width="250" height="120" fill="#0f1724" stroke="#2a3550" stroke-width="2"/>
+  <text x="165" y="172" text-anchor="middle" fill="#a3b0c9" font-family="monospace" font-size="10">DETECTED EVENTS:</text>
+
+  <!-- Event items -->
+  <g fill="#e9eef7" font-family="monospace" font-size="9">
+    <text x="60" y="192">• Failed console logins</text>
+    <text x="60" y="208">• MFA configuration changes</text>
+    <text x="60" y="224">• IAM policy modifications</text>
+    <text x="60" y="240">• Security group changes</text>
+    <text x="60" y="256">• KMS key operations</text>
+  </g>
+
+  <!-- CloudWatch Dashboard -->
+  <rect x="330" y="150" width="110" height="50" fill="#1a2744" stroke="#4ecdc4" stroke-width="2"/>
+  <text x="385" y="172" text-anchor="middle" fill="#e9eef7" font-family="monospace" font-size="10">CloudWatch</text>
+  <text x="385" y="187" text-anchor="middle" fill="#a3b0c9" font-family="monospace" font-size="9">Dashboard</text>
+
+  <!-- Arrows -->
+  <g stroke="#4a5568" stroke-width="2" fill="none">
+    <!-- CloudTrail → EventBridge -->
+    <line x1="140" y1="95" x2="175" y2="95"/>
+    <polygon points="175,90 185,95 175,100" fill="#4a5568"/>
+
+    <!-- EventBridge → CloudWatch Alarms -->
+    <line x1="290" y1="95" x2="325" y2="95"/>
+    <polygon points="325,90 335,95 325,100" fill="#4a5568"/>
+
+    <!-- CloudWatch Alarms → SNS -->
+    <line x1="440" y1="95" x2="475" y2="95"/>
+    <polygon points="475,90 485,95 475,100" fill="#4a5568"/>
+
+    <!-- SNS → Email/SMS -->
+    <line x1="525" y1="115" x2="525" y2="145"/>
+    <polygon points="520,145 525,155 530,145" fill="#4a5568"/>
+
+    <!-- CloudWatch Alarms → Dashboard -->
+    <line x1="385" y1="115" x2="385" y2="145"/>
+    <polygon points="380,145 385,155 390,145" fill="#4a5568"/>
+  </g>
+
+  <!-- Metrics box -->
+  <rect x="40" y="280" width="560" height="60" fill="#0f1724" stroke="#2a3550" stroke-width="2"/>
+  <text x="320" y="302" text-anchor="middle" fill="#a3b0c9" font-family="monospace" font-size="10">NATIVE AWS MONITORING — NO EXTERNAL SIEM REQUIRED</text>
+  <text x="180" y="322" text-anchor="middle" fill="#ffb35c" font-family="monospace" font-size="11">Latency: &lt;1 min</text>
+  <text x="320" y="322" text-anchor="middle" fill="#ffb35c" font-family="monospace" font-size="11">40+ Event Types</text>
+  <text x="460" y="322" text-anchor="middle" fill="#ffb35c" font-family="monospace" font-size="11">Cost: AWS Native Only</text>
+</svg>

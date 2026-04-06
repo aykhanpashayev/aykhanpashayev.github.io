@@ -1,6 +1,7 @@
 /* js/particles.js
    Purpose: Hero floating dust particles (very subtle)
    Lightweight + safe canvas sizing (HiDPI aware)
+   Reduced count for minimal, calm effect
 */
 
 (function () {
@@ -13,7 +14,7 @@
   if (!ctx) return;
 
   let particles = [];
-  const PARTICLE_COUNT = 8; // keep very low for subtle effect
+  const PARTICLE_COUNT = 4; // Reduced for subtle, minimal effect
 
   // Keep track of DPR for crisp rendering on HiDPI displays
   function getDPR() {
@@ -57,9 +58,9 @@
     return {
       x: Math.random() * w,
       y: Math.random() * h,
-      size: Math.random() * 2 + 1,          // 1–3px
-      speedY: Math.random() * 0.2 + 0.05,   // very slow upward drift
-      opacity: Math.random() * 0.4 + 0.2
+      size: Math.random() * 1.5 + 1,    // 1–2.5px (reduced)
+      speedY: Math.random() * 0.15 + 0.05, // very slow upward drift
+      opacity: Math.random() * 0.3 + 0.15  // subtle opacity
     };
   }
 
@@ -83,7 +84,7 @@
 
     particles.forEach((p) => {
       ctx.globalAlpha = p.opacity;
-      ctx.fillStyle = "rgba(255, 204, 133, 0.9)";
+      ctx.fillStyle = "rgba(255, 204, 133, 0.8)"; // Slightly more transparent
       ctx.fillRect(p.x, p.y, p.size, p.size);
     });
 

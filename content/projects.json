@@ -1,61 +1,133 @@
 {
   "projects": [
     {
+      "id": "project-radius",
+      "image": {
+        "src": "./assets/img/projects/radius-thumb.png",
+        "alt": "Pixel-art scene: radar sweep with IAM shield at center, threat nodes and blast radius pulse"
+      },
+      "title": "Radius — AWS IAM Threat Detection & Automated Response",
+      "dateRange": "2025 – Present",
+      "description": "AWS Organizations-scale IAM threat detection platform with automated containment. Detects compromised credentials, calculates blast radius, and disables attackers in seconds.",
+      "highlights": [
+        "8 Lambda functions orchestrating detection, scoring, and response",
+        "7 detection rules covering privilege escalation, credential stuffing, and anomalous access patterns",
+        "Blast Radius Score algorithm quantifies potential damage before containment",
+        "Automated IAM user disabling and session revocation",
+        "192-test suite with 89% code coverage"
+      ],
+      "why": "I built Radius because detection without response is just monitoring. I wanted systems that fight back.",
+      "metrics": {
+        "mttd": "< 5 seconds",
+        "mttr": "~30 seconds",
+        "coverage": "89%",
+        "tests": "192"
+      },
+      "role": "Solo builder — architecture, implementation, testing",
+      "challenge": "Designing a scoring system that balances false positive risk against containment speed. The Blast Radius algorithm had to be fast enough for real-time response but accurate enough to trust in production.",
+      "architecture": {
+        "src": "./assets/img/projects/radius-architecture.svg",
+        "alt": "AWS architecture diagram: CloudTrail → EventBridge → Lambda detectors → DynamoDB scoring → Lambda response"
+      },
+      "tags": ["AWS", "IAM", "Lambda", "Threat Detection", "Security Automation", "DynamoDB"],
+      "links": [
+        { "label": "GitHub", "url": "https://github.com/aykhanpashayev/radius" }
+      ]
+    },
+    {
       "id": "project-anomai",
+      "image": {
+        "src": "./assets/img/projects/anomai-thumb.png",
+        "alt": "Pixel-art scene: terminal running anomaly detectors with AI brain and LLM explanation bubble"
+      },
       "title": "AnomAI — AWS IAM Anomaly Detection & Incident Explanation",
       "dateRange": "Jan 2026 – Present",
-      "description": "Leading a capstone team building an AWS pipeline that detects IAM-focused anomalies and presents them in a SIEM-style dashboard with an incident Q&A chatbot for non-experts.",
+      "description": "AI-powered IAM anomaly detection pipeline. Ingests CloudTrail events, runs 6 anomaly detectors, and surfaces incidents via Flask dashboard with LLM-powered incident explanation.",
       "highlights": [
-        "IAM anomaly detection pipeline from raw events → structured signals",
-        "SIEM-style dashboard for clear visibility and triage",
-        "Incident Q&A chatbot that translates findings for non-experts"
+        "S3-triggered Lambda pipeline processing raw CloudTrail → structured signals",
+        "6 anomaly detectors: unusual hours, new principal, permission creep, API velocity, geo anomaly, service abuse",
+        "SIEM-style dashboard with incident timeline and affected resources",
+        "LLM-powered Q&A translates technical findings for non-experts",
+        "16 IAM incidents surfaced across 120-day evaluation period"
       ],
       "why": "I want IAM incidents to feel explainable—so even non-experts can ask the right questions fast.",
-      "image": {
-        "src": "./assets/img/projects/anomai.png",
-        "alt": "Pixel scene: IAM anomaly dashboard and incident notes"
+      "metrics": {
+        "detectors": "6",
+        "incidents": "16 in 120 days",
+        "pipeline": "S3 → Lambda → DynamoDB → Flask"
       },
-      "tags": ["AWS", "IAM", "Detection", "CloudTrail", "AI"],
+      "role": "Capstone team lead — detection logic, AI integration, dashboard",
+      "challenge": "Balancing detection sensitivity with explainability. Each anomaly needed a clear 'why this is suspicious' narrative that an LLM could translate for analysts.",
+      "architecture": {
+        "src": "./assets/img/projects/anomai-architecture.svg",
+        "alt": "Data flow: CloudTrail → S3 bucket → Lambda analyzer → DynamoDB → Flask API → Dashboard"
+      },
+      "tags": ["AWS", "IAM", "Detection", "CloudTrail", "AI/ML", "Terraform", "Flask"],
       "links": [
         { "label": "GitHub", "url": "https://github.com/aykhanpashayev/AnomAI" }
       ]
     },
     {
       "id": "project-sg-remediation",
-      "title": "Incident Response Automation with AWS Config and Lambda",
+      "image": {
+        "src": "./assets/img/projects/sg-remediation-thumb.png",
+        "alt": "Pixel-art scene: cracked firewall wall auto-healing via Lambda with SNS alert bell"
+      },
+      "title": "Security Group Auto-Remediation with AWS Config & Lambda",
       "dateRange": "Jul 2025",
-      "description": "Built an automated remediation workflow that detects unauthorized Security Group changes using AWS Config and immediately restores approved rules with Lambda.",
+      "description": "Self-healing security pipeline that detects unauthorized Security Group changes and restores approved rules automatically. MTTD under 1 second, MTTR approximately 4 seconds.",
       "highlights": [
-        "Detects drift in Security Group rules via AWS Config",
-        "Auto-remediates to approved configuration using Lambda",
-        "Reduces exposure time for insecure network changes"
+        "AWS Config Rules detecting Security Group drift in near-real-time",
+        "Lambda function restoring approved inbound/outbound rules",
+        "SNS notifications with before/after rule comparison",
+        "CloudWatch dashboard tracking remediation metrics",
+        "Zero manual intervention required after deployment"
       ],
       "why": "I built this to shrink the 'danger window' from minutes/hours down to near-immediate recovery, without relying on external tools.",
-      "image": {
-        "src": "./assets/img/projects/sg-remediation.png",
-        "alt": "Pixel scene: security group rules and auto-remediation"
+      "metrics": {
+        "mttd": "< 1 second",
+        "mttr": "~4 seconds",
+        "automation": "100%"
       },
-      "tags": ["AWS", "Config", "Lambda", "Security Groups", "Automation"],
+      "role": "Solo builder — AWS Config rules, Lambda remediation, monitoring",
+      "challenge": "AWS Config evaluation latency varies. I had to design the Lambda function to handle concurrent invocations and avoid race conditions when multiple rules fired simultaneously.",
+      "architecture": {
+        "src": "./assets/img/projects/sg-remediation-architecture.svg",
+        "alt": "AWS Config Rule → Lambda → EC2 Security Group → SNS notification flow"
+      },
+      "tags": ["AWS", "Config", "Lambda", "Security Groups", "Automation", "CloudWatch"],
       "links": [
         { "label": "GitHub", "url": "https://github.com/aykhanpashayev/aws-config-lambda-remediation-lab" }
       ]
     },
     {
       "id": "project-cloudtrail-monitoring",
-      "title": "Monitoring & Alerting with AWS CloudTrail",
-      "dateRange": "Jun 2025",
-      "description": "Created an event-driven monitoring pipeline that analyzes CloudTrail logs to detect failed authentication and sensitive configuration changes without external SIEM tools.",
-      "highlights": [
-        "Event-driven alerts for failed auth and sensitive changes",
-        "Built-in visibility using native AWS monitoring patterns",
-        "Improves awareness and response speed without extra tooling"
-      ],
-      "why": "I wanted to show that you can achieve effective monitoring and alerting using AWS’s native capabilities, without needing to invest in complex SIEM solutions.",
       "image": {
-        "src": "./assets/img/projects/cloudtrail-monitoring.png",
-        "alt": "Pixel scene: CloudTrail events flowing into alerts"
+        "src": "./assets/img/projects/cloudtrail-thumb.png",
+        "alt": "Pixel-art scene: CloudTrail log stream flowing through EventBridge filter into CloudWatch alarms and SNS alerts"
       },
-      "tags": ["AWS", "CloudTrail", "CloudWatch", "EventBridge", "SNS"],
+      "title": "CloudTrail Event-Driven Monitoring & Alerting",
+      "dateRange": "Jun 2025",
+      "description": "Native AWS monitoring pipeline analyzing CloudTrail logs to detect failed authentication attempts and sensitive configuration changes without external SIEM tools.",
+      "highlights": [
+        "EventBridge rules filtering 40+ security-relevant API calls",
+        "CloudWatch Alarms triggering SNS notifications",
+        "Detection for failed console logins, MFA changes, IAM policy modifications",
+        "Cost-effective alternative to third-party SIEM for small teams"
+      ],
+      "why": "I wanted to show that effective monitoring is achievable using AWS native capabilities—no expensive SIEM required.",
+      "metrics": {
+        "events": "40+ monitored APIs",
+        "latency": "< 1 minute",
+        "cost": "Native AWS only"
+      },
+      "role": "Solo builder — EventBridge rules, CloudWatch integration",
+      "challenge": "Filtering signal from noise. CloudTrail logs everything; the hard part was identifying which events actually indicate security incidents versus routine operations.",
+      "architecture": {
+        "src": "./assets/img/projects/cloudtrail-monitoring-architecture.svg",
+        "alt": "CloudTrail → EventBridge → CloudWatch Alarms → SNS notification pipeline"
+      },
+      "tags": ["AWS", "CloudTrail", "CloudWatch", "EventBridge", "SNS", "Monitoring"],
       "links": [
         { "label": "GitHub", "url": "https://github.com/aykhanpashayev/cloudtrail-cloudwatch-monitoring-lab" }
       ]
