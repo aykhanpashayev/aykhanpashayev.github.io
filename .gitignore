@@ -1,0 +1,25 @@
+# Next.js
+.next/
+out/
+node_modules/
+
+# Build outputs
+*.tsbuildinfo
+next-env.d.ts
+
+# Claude Code local config + memory
+.claude/
+
+# Editor
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env / secrets
+.env
+.env.local
+.env*.local

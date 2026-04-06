@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges">
+  <!-- Background -->
+  <rect width="64" height="64" fill="#0b1220"/>
+
+  <!-- Pixel border -->
+  <rect x="4" y="4" width="56" height="56" fill="none" stroke="#2a3550" stroke-width="2"/>
+
+  <!-- Cloud (blue) -->
+  <rect x="14" y="22" width="20" height="14" fill="#1a2744" stroke="#5aa7ff" stroke-width="2"/>
+  <rect x="18" y="18" width="12" height="8" fill="#1a2744" stroke="#5aa7ff" stroke-width="2"/>
+  <rect x="24" y="20" width="10" height="10" fill="#1a2744" stroke="#5aa7ff" stroke-width="2"/>
+
+  <!-- Shield (amber) -->
+  <rect x="38" y="20" width="12" height="18" fill="#1a2744" stroke="#ffb35c" stroke-width="2"/>
+  <rect x="40" y="22" width="8" height="14" fill="#ffb35c" opacity="0.3"/>
+
+  <!-- Circuit node (teal) -->
+  <rect x="28" y="40" width="8" height="8" fill="#1a2744" stroke="#4ecdc4" stroke-width="2"/>
+  <rect x="28" y="36" width="2" height="4" fill="#4ecdc4"/>
+  <rect x="34" y="36" width="2" height="4" fill="#4ecdc4"/>
+  <rect x="26" y="42" width="2" height="2" fill="#4ecdc4"/>
+  <rect x="36" y="42" width="2" height="2" fill="#4ecdc4"/>
+</svg>

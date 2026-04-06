@@ -12,7 +12,7 @@
         "Huge interest in technology and how things work under the hood"
       ],
       "image": {
-        "src": "./assets/img/levels/level-0-curiosity.png",
+        "src": "/assets/img/levels/level-0-curiosity.png",
         "alt": "Pixel scene: teen coding at night"
       },
       "links": []
@@ -29,7 +29,7 @@
         "Built confidence through real labs"
       ],
       "image": {
-        "src": "./assets/img/levels/level-1-foundations.png",
+        "src": "/assets/img/levels/level-1-foundations.png",
         "alt": "Pixel scene: PC parts and cables on desk"
       },
       "links": []
@@ -46,7 +46,7 @@
         "Learned to document and explain systems"
       ],
       "image": {
-        "src": "./assets/img/levels/level-2-networking.png",
+        "src": "/assets/img/levels/level-2-networking.png",
         "alt": "Pixel scene: network diagram on screen"
       },
       "links": []
@@ -63,7 +63,7 @@
         "Started exploring security pathways (red vs blue) and finding my focus"
       ],
       "image": {
-        "src": "./assets/img/levels/level-3-cyber.png",
+        "src": "/assets/img/levels/level-3-cyber.png",
         "alt": "Pixel scene: Kali terminal on laptop"
       },
       "links": []
@@ -80,7 +80,7 @@
         "First blue team competition experience (CCDC) as participant."
       ],
       "image": {
-        "src": "./assets/img/levels/level-4-security.png",
+        "src": "/assets/img/levels/level-4-security.png",
         "alt": "Pixel scene: alerts and logs on screen"
       },
       "links": []
@@ -97,7 +97,7 @@
         "Built skill of explaining complex concepts in simple terms"
       ],
       "image": {
-        "src": "./assets/img/levels/level-5-teaching.png",
+        "src": "/assets/img/levels/level-5-teaching.png",
         "alt": "Pixel scene: helping students at a lab desk"
       },
       "links": []
@@ -114,7 +114,7 @@
         "Shift toward cloud security engineering"
       ],
       "image": {
-        "src": "./assets/img/levels/level-6-aws.png",
+        "src": "/assets/img/levels/level-6-aws.png",
         "alt": "Pixel scene: cloud architecture blocks on screen"
       },
       "links": []
@@ -131,7 +131,7 @@
         "Exploring how AI can help identify security gaps early in the development lifecycle"
       ],
       "image": {
-        "src": "./assets/img/levels/level-7-ai.png",
+        "src": "/assets/img/levels/level-7-ai.png",
         "alt": "Pixel scene: AI nodes and documents on screen"
       },
       "links": []
@@ -141,14 +141,14 @@
       "level": "Level 8",
       "title": "CCDC Captain",
       "dateRange": "Feb 2026",
-      "blurb": "We had five members and one week. We competed anyway. I led the team, kept everyone focused, and we placed 16th out of 45—fighting until the last minute.",
+      "blurb": "We had five members and one week. We competed anyway. I led the team, kept everyone focused, and we placed 16th out of 48—fighting until the last minute.",
       "highlights": [
         "Second time competing in CCDC, this time as team captain",
         "Undersized team (5 vs expected 12) and only one week to prepare",
-        "Placed 16th out of 45 teams"
+        "Placed 16th out of 48 teams"
       ],
       "image": {
-        "src": "./assets/img/levels/level-8-ccdc.png",
+        "src": "/assets/img/levels/level-8-ccdc.png",
         "alt": "Pixel scene: scoreboard and mission notes"
       },
       "links": []
@@ -166,7 +166,7 @@
         "Passion for learning more and more, staying up-to-date with the latest technologies and trends in the field"
       ],
       "image": {
-        "src": "./assets/img/levels/level-9-integration.png",
+        "src": "/assets/img/levels/level-9-integration.png",
         "alt": "Pixel scene: unified cloud, shield, and AI nodes on one desk"
       },
       "links": []

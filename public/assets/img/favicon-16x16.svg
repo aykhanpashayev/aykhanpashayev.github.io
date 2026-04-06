@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges">
+  <!-- Background -->
+  <rect width="16" height="16" fill="#0b1220"/>
+
+  <!-- Simplified cloud (blue) -->
+  <rect x="3" y="6" width="5" height="4" fill="#1a2744" stroke="#5aa7ff" stroke-width="1"/>
+  <rect x="4" y="5" width="3" height="2" fill="#1a2744" stroke="#5aa7ff" stroke-width="1"/>
+
+  <!-- Shield (amber) -->
+  <rect x="9" y="5" width="3" height="5" fill="#1a2744" stroke="#ffb35c" stroke-width="1"/>
+  <rect x="10" y="6" width="1" height="3" fill="#ffb35c"/>
+
+  <!-- Circuit (teal) -->
+  <rect x="6" y="11" width="2" height="2" fill="#1a2744" stroke="#4ecdc4" stroke-width="1"/>
+</svg>

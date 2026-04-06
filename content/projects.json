@@ -3,7 +3,7 @@
     {
       "id": "project-radius",
       "image": {
-        "src": "./assets/img/projects/radius-thumb.png",
+        "src": "/assets/img/projects/radius-thumb.png",
         "alt": "Pixel-art scene: radar sweep with IAM shield at center, threat nodes and blast radius pulse"
       },
       "title": "Radius — AWS IAM Threat Detection & Automated Response",
@@ -26,7 +26,7 @@
       "role": "Solo builder — architecture, implementation, testing",
       "challenge": "Designing a scoring system that balances false positive risk against containment speed. The Blast Radius algorithm had to be fast enough for real-time response but accurate enough to trust in production.",
       "architecture": {
-        "src": "./assets/img/projects/radius-architecture.svg",
+        "src": "/assets/img/projects/radius-architecture.svg",
         "alt": "AWS architecture diagram: CloudTrail → EventBridge → Lambda detectors → DynamoDB scoring → Lambda response"
       },
       "tags": ["AWS", "IAM", "Lambda", "Threat Detection", "Security Automation", "DynamoDB"],
@@ -37,7 +37,7 @@
     {
       "id": "project-anomai",
       "image": {
-        "src": "./assets/img/projects/anomai-thumb.png",
+        "src": "/assets/img/projects/anomai-thumb.png",
         "alt": "Pixel-art scene: terminal running anomaly detectors with AI brain and LLM explanation bubble"
       },
       "title": "AnomAI — AWS IAM Anomaly Detection & Incident Explanation",
@@ -59,7 +59,7 @@
       "role": "Capstone team lead — detection logic, AI integration, dashboard",
       "challenge": "Balancing detection sensitivity with explainability. Each anomaly needed a clear 'why this is suspicious' narrative that an LLM could translate for analysts.",
       "architecture": {
-        "src": "./assets/img/projects/anomai-architecture.svg",
+        "src": "/assets/img/projects/anomai-architecture.svg",
         "alt": "Data flow: CloudTrail → S3 bucket → Lambda analyzer → DynamoDB → Flask API → Dashboard"
       },
       "tags": ["AWS", "IAM", "Detection", "CloudTrail", "AI/ML", "Terraform", "Flask"],
@@ -70,7 +70,7 @@
     {
       "id": "project-sg-remediation",
       "image": {
-        "src": "./assets/img/projects/sg-remediation-thumb.png",
+        "src": "/assets/img/projects/sg-remediation-thumb.png",
         "alt": "Pixel-art scene: cracked firewall wall auto-healing via Lambda with SNS alert bell"
       },
       "title": "Security Group Auto-Remediation with AWS Config & Lambda",
@@ -92,7 +92,7 @@
       "role": "Solo builder — AWS Config rules, Lambda remediation, monitoring",
       "challenge": "AWS Config evaluation latency varies. I had to design the Lambda function to handle concurrent invocations and avoid race conditions when multiple rules fired simultaneously.",
       "architecture": {
-        "src": "./assets/img/projects/sg-remediation-architecture.svg",
+        "src": "/assets/img/projects/sg-remediation-architecture.svg",
         "alt": "AWS Config Rule → Lambda → EC2 Security Group → SNS notification flow"
       },
       "tags": ["AWS", "Config", "Lambda", "Security Groups", "Automation", "CloudWatch"],
@@ -103,7 +103,7 @@
     {
       "id": "project-cloudtrail-monitoring",
       "image": {
-        "src": "./assets/img/projects/cloudtrail-thumb.png",
+        "src": "/assets/img/projects/cloudtrail-thumb.png",
         "alt": "Pixel-art scene: CloudTrail log stream flowing through EventBridge filter into CloudWatch alarms and SNS alerts"
       },
       "title": "CloudTrail Event-Driven Monitoring & Alerting",
@@ -124,7 +124,7 @@
       "role": "Solo builder — EventBridge rules, CloudWatch integration",
       "challenge": "Filtering signal from noise. CloudTrail logs everything; the hard part was identifying which events actually indicate security incidents versus routine operations.",
       "architecture": {
-        "src": "./assets/img/projects/cloudtrail-monitoring-architecture.svg",
+        "src": "/assets/img/projects/cloudtrail-monitoring-architecture.svg",
         "alt": "CloudTrail → EventBridge → CloudWatch Alarms → SNS notification pipeline"
       },
       "tags": ["AWS", "CloudTrail", "CloudWatch", "EventBridge", "SNS", "Monitoring"],
