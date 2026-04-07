@@ -7,7 +7,7 @@
         "alt": "Pixel-art scene: radar sweep with IAM shield at center, threat nodes and blast radius pulse"
       },
       "title": "Radius — AWS IAM Threat Detection & Automated Response",
-      "dateRange": "2025 – Present",
+      "dateRange": "Mar 2026 – Apr 2026",
       "description": "AWS Organizations-scale IAM threat detection platform with automated containment. Detects compromised credentials, calculates blast radius, and disables attackers in seconds.",
       "highlights": [
         "8 Lambda functions orchestrating detection, scoring, and response",
@@ -41,7 +41,7 @@
         "alt": "Pixel-art scene: terminal running anomaly detectors with AI brain and LLM explanation bubble"
       },
       "title": "AnomAI — AWS IAM Anomaly Detection & Incident Explanation",
-      "dateRange": "Jan 2026 – Present",
+      "dateRange": "Jan 2026 – Apr 2026",
       "description": "AI-powered IAM anomaly detection pipeline. Ingests CloudTrail events, runs 6 anomaly detectors, and surfaces incidents via Flask dashboard with LLM-powered incident explanation.",
       "highlights": [
         "S3-triggered Lambda pipeline processing raw CloudTrail → structured signals",

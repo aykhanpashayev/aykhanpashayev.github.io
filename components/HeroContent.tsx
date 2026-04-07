@@ -62,17 +62,12 @@ export default function HeroContent() {
         initial="hidden"
         animate="show"
       >
-        <motion.div className="hero-badge" aria-label="Role" variants={child}>
-          <span className="hero-badge-icon">☁</span>
-          <span>cloud security</span>
-        </motion.div>
-
         <motion.h1 className="hero-title" variants={child}>
           hey, i&apos;m aykhan.
         </motion.h1>
 
         <motion.p className="hero-value-prop" variants={child}>
-          building AWS systems that detect threats and fight back — automatically.
+          curiosity and late-night building sessions.
         </motion.p>
 
         <motion.div className="hero-status" variants={child}>
@@ -86,18 +81,22 @@ export default function HeroContent() {
           aria-label="Primary actions"
           variants={child}
         >
-          <a className="btn btn--primary" href="#projects">see my work</a>
+          <a className="btn btn--primary" href="#journey">start journey</a>
           <a
             className="btn btn--secondary"
-            href="https://github.com/aykhanpashayev"
+            href="/assets/Aykhan Pashayev Resume.pdf"
             target="_blank"
             rel="noopener"
           >
-            GitHub
+            Resume
           </a>
         </motion.div>
 
         <motion.nav className="hero-links" aria-label="External links" variants={child}>
+          <a href="https://github.com/aykhanpashayev" target="_blank" rel="noopener">
+            GitHub
+          </a>
+          <span className="hero-links-divider">/</span>
           <a href="https://linkedin.com/in/aykhanpashayev" target="_blank" rel="noopener">
             LinkedIn
           </a>

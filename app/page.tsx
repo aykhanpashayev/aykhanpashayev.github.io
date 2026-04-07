@@ -19,11 +19,51 @@ const METRIC_LABELS: Record<string, string> = {
   automation: 'Automation',
 }
 
-const PROJECT_ICONS: Record<string, string> = {
-  'project-radius': '⚡',
-  'project-anomai': '◎',
-  'project-sg-remediation': '◈',
-  'project-cloudtrail-monitoring': '◉',
+/* Executable name for each project's mini-terminal */
+const PROJECT_EXE: Record<string, string> = {
+  'project-radius': 'radius',
+  'project-anomai': 'anomai',
+  'project-sg-remediation': 'sg-remediator',
+  'project-cloudtrail-monitoring': 'ct-monitor',
+}
+
+function ProjectTerminal({
+  id,
+  metrics,
+}: {
+  id: string
+  metrics: Record<string, string> | undefined
+}) {
+  const exe = PROJECT_EXE[id] ?? id.replace('project-', '')
+  const entries = metrics ? Object.entries(metrics).filter(([, v]) => v) : []
+
+  return (
+    <div className="proj-terminal" aria-hidden="true">
+      <div className="proj-terminal-bar">
+        <span className="proj-terminal-dot" />
+        <span className="proj-terminal-dot proj-terminal-dot--dim" />
+        <span className="proj-terminal-dot proj-terminal-dot--dim" />
+        <span className="proj-terminal-name">{exe}.exe</span>
+        <span className="proj-terminal-badge">RUNNING</span>
+      </div>
+      <div className="proj-terminal-body">
+        {entries.map(([key, value]) => (
+          <div key={key} className="proj-stat-row">
+            <span className="proj-stat-prompt">&gt;</span>
+            <span className="proj-stat-key">{(METRIC_LABELS[key] ?? key).toLowerCase()}</span>
+            <span className="proj-stat-sep">:</span>
+            <span className="proj-stat-val">{value}</span>
+          </div>
+        ))}
+        <div className="proj-stat-row">
+          <span className="proj-stat-prompt">&gt;</span>
+          <span className="proj-stat-key">status</span>
+          <span className="proj-stat-sep">:</span>
+          <span className="proj-stat-val proj-stat-val--ok">operational</span>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default function Home() {
@@ -39,11 +79,9 @@ export default function Home() {
           <div className="hero-layer hero-layer--glow" aria-hidden="true">
             <div className="lamp-glow" />
           </div>
-
           <div className="hero-layer hero-layer--particles" aria-hidden="true">
             <ParticlesCanvas />
           </div>
-
           <div className="hero-layer hero-layer--content">
             <div className="hero-content">
               <HeroContent />
@@ -84,7 +122,7 @@ export default function Home() {
                           className={`journey-status${isActive ? ' journey-status--active' : ''}`}
                           aria-label={isActive ? 'Currently active' : 'Completed'}
                         >
-                          {isActive ? 'ACTIVE' : 'CLEARED'}
+                          {isActive ? '▶ ACTIVE' : '✓ CLEARED'}
                         </span>
                       </div>
 
@@ -102,7 +140,7 @@ export default function Home() {
                       >
                         <div className="journey-xp-bar">
                           <div
-                            className="journey-xp-fill"
+                            className={`journey-xp-fill${isActive ? ' journey-xp-fill--active' : ''}`}
                             style={{ width: isActive ? '75%' : '100%' }}
                           />
                         </div>
@@ -136,9 +174,7 @@ export default function Home() {
                 id={`project-${item.id.replace('project-', '')}`}
                 className="project-card"
               >
-                <div className="project-icon" aria-hidden="true">
-                  {PROJECT_ICONS[item.id] ?? '◆'}
-                </div>
+                <ProjectTerminal id={item.id} metrics={metrics} />
 
                 <div className="project-head">
                   <h3>{item.title}</h3>
@@ -149,21 +185,6 @@ export default function Home() {
 
                 {item.description && (
                   <p className="project-desc">{item.description}</p>
-                )}
-
-                {metrics && Object.keys(metrics).length > 0 && (
-                  <div className="project-metrics" aria-label="Project metrics">
-                    {Object.entries(metrics).map(([key, value]) =>
-                      value ? (
-                        <div key={key} className="metric-item">
-                          <span className="metric-value">{value}</span>
-                          <span className="metric-label">
-                            {METRIC_LABELS[key] ?? key.toUpperCase()}
-                          </span>
-                        </div>
-                      ) : null
-                    )}
-                  </div>
                 )}
 
                 {item.tags?.length ? (
@@ -202,6 +223,12 @@ export default function Home() {
           <p>things unlocked along the way.</p>
         </header>
 
+        <div className="achievements-sys-log" aria-hidden="true">
+          <span className="sys-log-prefix">[sys]</span>
+          <span className="sys-log-text"> loading achievement records</span>
+          <span className="pt-cursor">█</span>
+        </div>
+
         <div className="achievements-grid">
           {proofs.map((item) => {
             const stats = item.stats as
@@ -213,38 +240,43 @@ export default function Home() {
 
             return (
               <article key={item.id} className="achievement-card">
-                <div className="achievement-icon" aria-hidden="true">★</div>
-                <div className="achievement-body">
-                  <h3 className="achievement-title">{item.title}</h3>
-                  <p className="achievement-meta">
-                    {item.date}
-                    {item.issuer ? ` · ${item.issuer}` : ''}
-                  </p>
+                <div className="achievement-card-inner">
+                  <div className="achievement-icon-wrap" aria-hidden="true">
+                    <span className="achievement-icon">★</span>
+                    <span className="achievement-unlocked-label">UNLOCKED</span>
+                  </div>
+                  <div className="achievement-body">
+                    <h3 className="achievement-title">{item.title}</h3>
+                    <p className="achievement-meta">
+                      {item.date}
+                      {item.issuer ? ` · ${item.issuer}` : ''}
+                    </p>
 
-                  {stats && (
-                    <div className="achievement-stats">
-                      {stats.placement && (
-                        <span className="achievement-stat">{stats.placement} placement</span>
-                      )}
-                      {stats.team && (
-                        <span className="achievement-stat">{stats.team} team</span>
-                      )}
-                      {stats.prep && (
-                        <span className="achievement-stat">{stats.prep} prep</span>
-                      )}
-                    </div>
-                  )}
+                    {stats && (
+                      <div className="achievement-stats">
+                        {stats.placement && (
+                          <span className="achievement-stat">{stats.placement} placement</span>
+                        )}
+                        {stats.team && (
+                          <span className="achievement-stat">{stats.team} team</span>
+                        )}
+                        {stats.prep && (
+                          <span className="achievement-stat">{stats.prep} prep</span>
+                        )}
+                      </div>
+                    )}
 
-                  {credential && (
-                    <a
-                      className="achievement-link"
-                      href={credential.url}
-                      target="_blank"
-                      rel="noopener"
-                    >
-                      verify ↗
-                    </a>
-                  )}
+                    {credential && (
+                      <a
+                        className="achievement-link"
+                        href={credential.url}
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        verify ↗
+                      </a>
+                    )}
+                  </div>
                 </div>
               </article>
             )
@@ -252,26 +284,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── ABOUT ── */}
-      <section id="about" className="section section--about" aria-label="About">
-        <p className="about-text">
-          i&apos;m a cloud security engineer who got into tech at 15 building Python games —
-          and ended up building AWS threat detection systems. my long-term goal is to become a
-          cloud architect who designs infrastructure that&apos;s secure and elegant by default,
-          not as an afterthought. open to teams that think the same way.
-        </p>
-      </section>
-
       {/* ── CONTACT ── */}
       <section id="contact" className="section section--contact" aria-label="Contact">
         <header className="section-header">
           <h2>// let&apos;s talk</h2>
-          <p>open to projects, roles, and conversations about cloud.</p>
+          <p>open to connect.</p>
         </header>
+
+        <div className="contact-terminal" aria-hidden="true">
+          <span className="pt-prompt">$</span>
+          <span className="contact-terminal-text"> ping aykhan --open-to new-quests</span>
+          <br />
+          <span className="pt-ok">✓</span>
+          <span className="contact-terminal-text"> connection available</span>
+          <br />
+          <span className="pt-prompt">$</span>
+          <span className="pt-cursor">█</span>
+        </div>
 
         <div className="contact-actions">
           <a className="btn btn--primary" href="mailto:aykhan.pashayev001@gmail.com">
-            email me
+            Email
           </a>
           <a
             className="btn btn--secondary"
