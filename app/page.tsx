@@ -1,41 +1,53 @@
+import { Fragment } from 'react'
 import ParticlesCanvas from '@/components/ParticlesCanvas'
-import JourneyProgressBar from '@/components/JourneyProgressBar'
 import HeroContent from '@/components/HeroContent'
 import projectsData from '@/content/projects.json'
 import journeyData from '@/content/journey.json'
 import proofData from '@/content/proof.json'
 
-const METRIC_LABELS: Record<string, string> = {
-  mttd: 'MTTD',
-  mttr: 'MTTR',
-  coverage: 'Coverage',
-  tests: 'Tests',
-  detectors: 'Detectors',
-  incidents: 'Incidents',
-  pipeline: 'Pipeline',
-  events: 'Events',
-  latency: 'Latency',
-  cost: 'Cost',
-  automation: 'Automation',
+/* ── Project terminal config (identical layout per project) ── */
+type TerminalData = {
+  exe: string
+  type: string
+  platform: string
+  stack: string
+  updated: string
 }
 
-/* Executable name for each project's mini-terminal */
-const PROJECT_EXE: Record<string, string> = {
-  'project-radius': 'radius',
-  'project-anomai': 'anomai',
-  'project-sg-remediation': 'sg-remediator',
-  'project-cloudtrail-monitoring': 'ct-monitor',
+const PROJECT_TERMINALS: Record<string, TerminalData> = {
+  'project-radius': {
+    exe: 'radius',
+    type: 'threat detection',
+    platform: 'AWS Organizations',
+    stack: 'Lambda · IAM · DynamoDB',
+    updated: 'Apr 2026',
+  },
+  'project-anomai': {
+    exe: 'anomai',
+    type: 'anomaly detection + AI',
+    platform: 'AWS CloudTrail',
+    stack: 'Lambda · S3 · Flask · LLM',
+    updated: 'Apr 2026',
+  },
+  'project-sg-remediation': {
+    exe: 'sg-remediator',
+    type: 'auto-remediation',
+    platform: 'AWS Config',
+    stack: 'Config · Lambda · SNS',
+    updated: 'Jul 2025',
+  },
+  'project-cloudtrail-monitoring': {
+    exe: 'ct-monitor',
+    type: 'event monitoring',
+    platform: 'AWS CloudTrail',
+    stack: 'EventBridge · CloudWatch · SNS',
+    updated: 'Jun 2025',
+  },
 }
 
-function ProjectTerminal({
-  id,
-  metrics,
-}: {
-  id: string
-  metrics: Record<string, string> | undefined
-}) {
-  const exe = PROJECT_EXE[id] ?? id.replace('project-', '')
-  const entries = metrics ? Object.entries(metrics).filter(([, v]) => v) : []
+function ProjectTerminal({ id }: { id: string }) {
+  const data = PROJECT_TERMINALS[id]
+  if (!data) return null
 
   return (
     <div className="proj-terminal" aria-hidden="true">
@@ -43,18 +55,34 @@ function ProjectTerminal({
         <span className="proj-terminal-dot" />
         <span className="proj-terminal-dot proj-terminal-dot--dim" />
         <span className="proj-terminal-dot proj-terminal-dot--dim" />
-        <span className="proj-terminal-name">{exe}.exe</span>
+        <span className="proj-terminal-name">{data.exe}.exe</span>
         <span className="proj-terminal-badge">RUNNING</span>
       </div>
       <div className="proj-terminal-body">
-        {entries.map(([key, value]) => (
-          <div key={key} className="proj-stat-row">
-            <span className="proj-stat-prompt">&gt;</span>
-            <span className="proj-stat-key">{(METRIC_LABELS[key] ?? key).toLowerCase()}</span>
-            <span className="proj-stat-sep">:</span>
-            <span className="proj-stat-val">{value}</span>
-          </div>
-        ))}
+        <div className="proj-stat-row">
+          <span className="proj-stat-prompt">&gt;</span>
+          <span className="proj-stat-key">type</span>
+          <span className="proj-stat-sep">:</span>
+          <span className="proj-stat-val">{data.type}</span>
+        </div>
+        <div className="proj-stat-row">
+          <span className="proj-stat-prompt">&gt;</span>
+          <span className="proj-stat-key">platform</span>
+          <span className="proj-stat-sep">:</span>
+          <span className="proj-stat-val">{data.platform}</span>
+        </div>
+        <div className="proj-stat-row">
+          <span className="proj-stat-prompt">&gt;</span>
+          <span className="proj-stat-key">stack</span>
+          <span className="proj-stat-sep">:</span>
+          <span className="proj-stat-val">{data.stack}</span>
+        </div>
+        <div className="proj-stat-row">
+          <span className="proj-stat-prompt">&gt;</span>
+          <span className="proj-stat-key">updated</span>
+          <span className="proj-stat-sep">:</span>
+          <span className="proj-stat-val">{data.updated}</span>
+        </div>
         <div className="proj-stat-row">
           <span className="proj-stat-prompt">&gt;</span>
           <span className="proj-stat-key">status</span>
@@ -90,70 +118,88 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── JOURNEY ── */}
+      {/* ── JOURNEY — alternating skill-tree timeline ── */}
       <section id="journey" className="section section--journey" aria-label="Journey">
         <header className="section-header">
           <h2>// journey</h2>
           <p>from python games at 15 to cloud security. level by level.</p>
         </header>
 
-        <div className="journey-wrap">
-          <JourneyProgressBar />
+        {/*
+          3-column grid: [left cards] [center line + nodes] [right cards]
+          Even-index levels go left, odd go right.
+          On mobile collapses to 2-col: [node col] [all cards].
+        */}
+        <div className="journey-timeline">
+          {levels.map((item, index) => {
+            const isLeft  = index % 2 === 0
+            const isActive = index === levels.length - 1
+            const isLast   = index === levels.length - 1
 
-          <div className="journey-list">
-            {levels.map((item, index) => {
-              const isActive = index === levels.length - 1
-
-              return (
-                <article
-                  key={item.id}
-                  className={`journey-card${isActive ? ' journey-card--active' : ''}`}
-                >
-                  <div className="journey-card-inner">
-                    <div className="journey-card-level" aria-hidden="true">
-                      <span className="journey-lv-label">LVL</span>
-                      <span className="journey-lv-num">{String(index).padStart(2, '0')}</span>
-                    </div>
-
-                    <div className="journey-body">
-                      <div className="journey-card-head">
-                        <h3 className="journey-title">{item.title}</h3>
-                        <span
-                          className={`journey-status${isActive ? ' journey-status--active' : ''}`}
-                          aria-label={isActive ? 'Currently active' : 'Completed'}
-                        >
-                          {isActive ? '▶ ACTIVE' : '✓ CLEARED'}
-                        </span>
-                      </div>
-
-                      {item.dateRange && (
-                        <p className="journey-dates">{item.dateRange}</p>
-                      )}
-
-                      {item.blurb && (
-                        <p className="journey-blurb">{item.blurb}</p>
-                      )}
-
-                      <div
-                        className="journey-xp"
-                        aria-label={`XP: ${isActive ? '750 of 1000' : '1000 of 1000'}`}
-                      >
-                        <div className="journey-xp-bar">
-                          <div
-                            className={`journey-xp-fill${isActive ? ' journey-xp-fill--active' : ''}`}
-                            style={{ width: isActive ? '75%' : '100%' }}
-                          />
-                        </div>
-                        <span className="journey-xp-label">
-                          {isActive ? '750 / 1000 XP' : '1000 / 1000 XP'}
-                        </span>
-                      </div>
-                    </div>
+            const card = (
+              <article className={`journey-card${isActive ? ' journey-card--active' : ''}`}>
+                <div className="journey-card-header">
+                  <div className="journey-card-level" aria-hidden="true">
+                    <span className="journey-lv-label">LVL</span>
+                    <span className="journey-lv-num">{String(index).padStart(2, '0')}</span>
                   </div>
-                </article>
-              )
-            })}
-          </div>
+                  <div className="journey-card-info">
+                    <div className="journey-card-title-row">
+                      <h3 className="journey-title">{item.title}</h3>
+                      <span
+                        className={`journey-status${isActive ? ' journey-status--active' : ''}`}
+                        aria-label={isActive ? 'Currently active' : 'Completed'}
+                      >
+                        {isActive ? '▶ ACTIVE' : '✓ CLEARED'}
+                      </span>
+                    </div>
+                    {item.dateRange && (
+                      <p className="journey-dates">{item.dateRange}</p>
+                    )}
+                  </div>
+                </div>
+
+                {item.blurb && (
+                  <p className="journey-blurb">{item.blurb}</p>
+                )}
+
+                <div
+                  className="journey-xp"
+                  aria-label={`XP: ${isActive ? '750 of 1000' : '1000 of 1000'}`}
+                >
+                  <div className="journey-xp-bar">
+                    <div
+                      className={`journey-xp-fill${isActive ? ' journey-xp-fill--active' : ''}`}
+                      style={{ width: isActive ? '75%' : '100%' }}
+                    />
+                  </div>
+                  <span className="journey-xp-label">
+                    {isActive ? '750 / 1000 XP' : '1000 / 1000 XP'}
+                  </span>
+                </div>
+              </article>
+            )
+
+            return (
+              <Fragment key={item.id}>
+                {/* Col 1 — left card or spacer */}
+                <div className={`journey-col${isLeft ? ' journey-col--left' : ' journey-col--spacer'}`}>
+                  {isLeft && card}
+                </div>
+
+                {/* Col 2 — diamond node + vertical line */}
+                <div className="journey-center">
+                  <div className={`journey-node${isActive ? ' journey-node--active' : ''}`} />
+                  {!isLast && <div className="journey-node-line" />}
+                </div>
+
+                {/* Col 3 — right card or spacer */}
+                <div className={`journey-col${!isLeft ? ' journey-col--right' : ' journey-col--spacer'}`}>
+                  {!isLeft && card}
+                </div>
+              </Fragment>
+            )
+          })}
         </div>
       </section>
 
@@ -165,54 +211,50 @@ export default function Home() {
         </header>
 
         <div className="projects-grid">
-          {projects.map((item) => {
-            const metrics = item.metrics as unknown as Record<string, string> | undefined
+          {projects.map((item) => (
+            <article
+              key={item.id}
+              id={`project-${item.id.replace('project-', '')}`}
+              className="project-card"
+            >
+              <ProjectTerminal id={item.id} />
 
-            return (
-              <article
-                key={item.id}
-                id={`project-${item.id.replace('project-', '')}`}
-                className="project-card"
-              >
-                <ProjectTerminal id={item.id} metrics={metrics} />
-
-                <div className="project-head">
-                  <h3>{item.title}</h3>
-                  {item.dateRange && (
-                    <span className="project-date">{item.dateRange}</span>
-                  )}
-                </div>
-
-                {item.description && (
-                  <p className="project-desc">{item.description}</p>
+              <div className="project-head">
+                <h3>{item.title}</h3>
+                {item.dateRange && (
+                  <span className="project-date">{item.dateRange}</span>
                 )}
+              </div>
 
-                {item.tags?.length ? (
-                  <div className="project-tags" aria-label="Project tags">
-                    {item.tags.map((t) => (
-                      <span key={t} className="badge">{t}</span>
-                    ))}
-                  </div>
-                ) : null}
+              {item.description && (
+                <p className="project-desc">{item.description}</p>
+              )}
 
-                {item.links?.length ? (
-                  <div className="project-links" aria-label="Project links">
-                    {item.links.map((l) => (
-                      <a
-                        key={l.url}
-                        className="btn btn--secondary btn--small"
-                        href={l.url}
-                        target="_blank"
-                        rel="noopener"
-                      >
-                        ↗ {l.label}
-                      </a>
-                    ))}
-                  </div>
-                ) : null}
-              </article>
-            )
-          })}
+              {item.tags?.length ? (
+                <div className="project-tags" aria-label="Project tags">
+                  {item.tags.map((t) => (
+                    <span key={t} className="badge">{t}</span>
+                  ))}
+                </div>
+              ) : null}
+
+              {item.links?.length ? (
+                <div className="project-links" aria-label="Project links">
+                  {item.links.map((l) => (
+                    <a
+                      key={l.url}
+                      className="btn btn--secondary btn--small"
+                      href={l.url}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      ↗ {l.label}
+                    </a>
+                  ))}
+                </div>
+              ) : null}
+            </article>
+          ))}
         </div>
       </section>
 
