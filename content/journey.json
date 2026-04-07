@@ -3,137 +3,73 @@
     {
       "id": "level-0",
       "level": "Level 0",
-      "title": "Curiosity",
+      "title": "How Do Games Work?",
       "dateRange": "Age 15",
-      "blurb": "At 15, I learned Python to build games. I didn’t know it yet, but that curiosity became the foundation for everything I do now.",
-      "highlights": [
-        "First self-taught programming fundamentals",
-        "Early interest in building and experimenting",
-        "Huge interest in technology and how things work under the hood"
-      ],
-      "image": {
-        "src": "/assets/img/levels/level-0-curiosity.png",
-        "alt": "Pixel scene: teen coding at night"
-      },
+      "blurb": "it started with one question — how do people actually make video games? found Python, stayed up too late writing bad code, loved every second of it. that curiosity never really left.",
+      "highlights": [],
       "links": []
     },
     {
       "id": "level-1",
       "level": "Level 1",
-      "title": "Foundations",
+      "title": "Hardware & Fundamentals",
       "dateRange": "UMass Boston",
-      "blurb": "Coming to the U.S., I started from the basics—hardware, systems, and how computers work in the real world. That’s where I learned to troubleshoot and think step-by-step.",
-      "highlights": [
-        "Hands-on hardware + system fundamentals",
-        "Practical troubleshooting mindset",
-        "Built confidence through real labs"
-      ],
-      "image": {
-        "src": "/assets/img/levels/level-1-foundations.png",
-        "alt": "Pixel scene: PC parts and cables on desk"
-      },
+      "blurb": "started a bachelor's in IT. first real labs: taking apart computers, understanding networking, sysadmin fundamentals. learned to think from the ground up — what's physically happening, not just what the screen says.",
+      "highlights": [],
       "links": []
     },
     {
       "id": "level-2",
       "level": "Level 2",
-      "title": "Networking Era",
+      "title": "Networks & Systems",
       "dateRange": "Early college",
-      "blurb": "Networking taught me structure. I built and tested networks in Packet Tracer, learned routing concepts, and got comfortable diagnosing problems like an engineer.",
-      "highlights": [
-        "Cisco Packet Tracer projects",
-        "Network fundamentals and troubleshooting",
-        "Learned to document and explain systems"
-      ],
-      "image": {
-        "src": "/assets/img/levels/level-2-networking.png",
-        "alt": "Pixel scene: network diagram on screen"
-      },
+      "blurb": "deep in Packet Tracer, routing protocols, subnetting. building and breaking network topologies in labs. somewhere in here it clicked — i was more interested in what could go wrong than how to set things up.",
+      "highlights": [],
       "links": []
     },
     {
       "id": "level-3",
       "level": "Level 3",
-      "title": "Cyber Discovery",
-      "dateRange": "Transfer to Florida International University (FIU)",
-      "blurb": "I transferred to FIU and switched to cybersecurity. I explored both blue and red team paths and started building my own learning environment to train consistently.",
-      "highlights": [
-        "Major switch into cybersecurity",
-        "Home lab built using virtualization (VirtualBox, vulnerable VMs and Kali Linux)",
-        "Started exploring security pathways (red vs blue) and finding my focus"
-      ],
-      "image": {
-        "src": "/assets/img/levels/level-3-cyber.png",
-        "alt": "Pixel scene: Kali terminal on laptop"
-      },
+      "title": "The FIU Transfer",
+      "dateRange": "Florida International University",
+      "blurb": "transferring to FIU was the biggest call i made for my career. went all-in on cybersecurity: got Security+, built a home lab with Kali Linux, started pen testing, blue teaming, and made HackTheBox a regular habit.",
+      "highlights": [],
       "links": []
     },
     {
       "id": "level-4",
       "level": "Level 4",
-      "title": "Acceleration",
+      "title": "First CCDC",
       "dateRange": "Junior year",
-      "blurb": "This is where things accelerated. I earned Security+ certification, had my first blue team competition experience under red team pressure, more skillful and more stronger in Cybersecurity.",
-      "highlights": [
-        "CompTIA Security+ certification",
-        "Built deeper blue team skills (SIEM, incident response, forensics)",
-        "First blue team competition experience (CCDC) as participant."
-      ],
-      "image": {
-        "src": "/assets/img/levels/level-4-security.png",
-        "alt": "Pixel scene: alerts and logs on screen"
-      },
+      "blurb": "first CCDC as a participant. red team was relentless. i learned more in those 8 hours than in months of coursework. confirmed this is what i wanted to do.",
+      "highlights": [],
       "links": []
     },
     {
       "id": "level-5",
       "level": "Level 5",
-      "title": "Being a hardware lab and course learning assistant",
-      "dateRange": "Junior year → Present",
-      "blurb": "Teaching changed my confidence and mindset. Now, I understand why tech should be easier to understand by people who are far from it.",
-      "highlights": [
-        "Tutored students in multiple courses (programming, hardware, networking, cybersecurity)",
-        "Supported lab environments (Linux/Windows)",
-        "Built skill of explaining complex concepts in simple terms"
-      ],
-      "image": {
-        "src": "/assets/img/levels/level-5-teaching.png",
-        "alt": "Pixel scene: helping students at a lab desk"
-      },
+      "title": "Lab Life",
+      "dateRange": "Junior year → Summer 2025",
+      "blurb": "got my first tech job — Hardware Lab Assistant at FIU. fell in love with it. managed the lab environment, tutored students in C and Java, ran hardware workshops. great team. the kind of job that makes you better at explaining anything.",
+      "highlights": [],
       "links": []
     },
     {
       "id": "level-6",
       "level": "Level 6",
-      "title": "AWS & Cloud",
-      "dateRange": "Summer 2025 → Present",
-      "blurb": "I fell in love with cloud because it connects architecture and security. To understand security deeply, I committed to learning AWS from the inside out.",
-      "highlights": [
-        "AWS deep dive (architecture + services)",
-        "Passed AWS Solutions Architect Associate certification",
-        "Shift toward cloud security engineering"
-      ],
-      "image": {
-        "src": "/assets/img/levels/level-6-aws.png",
-        "alt": "Pixel scene: cloud architecture blocks on screen"
-      },
+      "title": "Cloud Discovery",
+      "dateRange": "Summer 2025",
+      "blurb": "FIU offered a free AWS course — took it on a whim. went deep fast. cloud security clicked immediately. built projects, certified as AWS Solutions Architect. the hardware lab closed around the same time, so i moved on to a new chapter.",
+      "highlights": [],
       "links": []
     },
     {
       "id": "level-7",
       "level": "Level 7",
-      "title": "AI & Research",
-      "dateRange": "October 2025 → Feb 2026",
-      "blurb": "I worked on AI model evaluation and then joined a research effort using AI to identify security gaps early—before code exists.",
-      "highlights": [
-        "AI fellowship with Handshake AI, understaning model evaluation and limitations",
-        "Research: AI-Assisted assurance case for security requirement completeness in defense critical infrastructure",
-        "Exploring how AI can help identify security gaps early in the development lifecycle"
-      ],
-      "image": {
-        "src": "/assets/img/levels/level-7-ai.png",
-        "alt": "Pixel scene: AI nodes and documents on screen"
-      },
+      "title": "First Authorship",
+      "dateRange": "Oct 2025 – Feb 2026",
+      "blurb": "new role: Course Learning Assistant. mostly tutoring, until a professor offered to bring me into research — using AI to evaluate security requirement completeness. i said yes. ended up as first author on a submitted paper. didn't see that coming.",
+      "highlights": [],
       "links": []
     },
     {
@@ -141,34 +77,17 @@
       "level": "Level 8",
       "title": "CCDC Captain",
       "dateRange": "Feb 2026",
-      "blurb": "We had five members and one week. We competed anyway. I led the team, kept everyone focused, and we placed 16th out of 48—fighting until the last minute.",
-      "highlights": [
-        "Second time competing in CCDC, this time as team captain",
-        "Undersized team (5 vs expected 12) and only one week to prepare",
-        "Placed 16th out of 48 teams"
-      ],
-      "image": {
-        "src": "/assets/img/levels/level-8-ccdc.png",
-        "alt": "Pixel scene: scoreboard and mission notes"
-      },
+      "blurb": "second CCDC, this time as captain. five people, one week of prep, 48 teams. placed 16th. held operations under constant red team pressure until the last minute.",
+      "highlights": [],
       "links": []
     },
     {
       "id": "level-9",
       "level": "Level 9",
-      "title": "Integration",
+      "title": "Everything Connects",
       "dateRange": "Present",
-      "blurb": "Today, I work at the intersection of cloud, security engineering, and applied AI. I focus on building systems that are secure, cost-effective and using latest AI capabilities.",
-      "highlights": [
-        "Cloud architecture with security-first thinking",
-        "AI for faster and smarter solutions",
-        "Confident and ready to be part of a team make a bigger impact in the world of technology",
-        "Passion for learning more and more, staying up-to-date with the latest technologies and trends in the field"
-      ],
-      "image": {
-        "src": "/assets/img/levels/level-9-integration.png",
-        "alt": "Pixel scene: unified cloud, shield, and AI nodes on one desk"
-      },
+      "blurb": "now i work where everything meets — cloud, security engineering, and AI. building systems that actually defend themselves. aiming to become a cloud architect. still just a really curious person who never stopped building.",
+      "highlights": [],
       "links": []
     }
   ]

@@ -97,6 +97,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* main content above fixed background canvas (z-index: 0) */
+#main {
+  position: relative;
+  z-index: 1;
+}
+
 /* ── CRT scanlines (fixed overlay, top of everything) ── */
 body::after {
   content: "";
@@ -613,6 +619,36 @@ body::after {
   overflow: visible;
 }
 
+/* journey cards clip to hidden so shine sweep doesn't bleed out */
+.journey-card { overflow: hidden; }
+
+/* ── Journey card shine effect (triggered by IntersectionObserver) ── */
+@keyframes card-shine {
+  0%   { transform: translateX(-100%) skewX(-12deg); opacity: 0; }
+  20%  { opacity: 1; }
+  100% { transform: translateX(250%) skewX(-12deg); opacity: 0; }
+}
+
+.journey-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 179, 92, 0.18) 50%,
+    rgba(255, 204, 133, 0.1) 55%,
+    transparent 70%
+  );
+  transform: translateX(-100%) skewX(-12deg);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.journey-card.is-shining::before {
+  animation: card-shine 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
 /* pixel corner brackets */
 .project-card::before,
 .achievement-card::before {
@@ -980,6 +1016,118 @@ body::after {
 .proj-stat-val    { font-size: 1.1rem; color: var(--amber); }
 .proj-stat-val--ok { color: var(--green); }
 
+/* ── Visual terminal elements (scan bars, diff, event log) ── */
+.ptv-label {
+  font-size: 0.85rem;
+  color: rgba(163, 176, 201, 0.5);
+  margin: 0 0 0.4rem 0;
+  letter-spacing: 0.3px;
+}
+
+/* Scan bar rows (Radius + AnomAI) */
+.ptv-scan-row {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.25rem;
+}
+
+.ptv-scan-key {
+  font-size: 0.82rem;
+  color: rgba(163, 176, 201, 0.65);
+  min-width: 88px;
+  flex-shrink: 0;
+}
+
+.ptv-scan-bar {
+  flex: 1;
+  height: 6px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.ptv-scan-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  height: 100%;
+  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ptv-scan-fill--high { background: rgba(239, 68, 68, 0.85); box-shadow: 0 0 6px rgba(239,68,68,0.4); }
+.ptv-scan-fill--med  { background: rgba(255, 179, 92, 0.85); box-shadow: 0 0 6px rgba(255,179,92,0.3); }
+.ptv-scan-fill--low  { background: rgba(74, 222, 128, 0.85); box-shadow: 0 0 6px rgba(74,222,128,0.3); }
+
+.ptv-scan-pct {
+  font-size: 0.72rem;
+  font-family: var(--font-pixel), monospace;
+  min-width: 32px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.ptv-scan-pct--high { color: rgba(239, 68, 68, 0.9); }
+.ptv-scan-pct--med  { color: var(--amber); }
+.ptv-scan-pct--low  { color: var(--green); }
+
+.ptv-warn-badge {
+  font-family: var(--font-pixel), monospace;
+  font-size: 0.48rem;
+  color: rgba(239, 68, 68, 0.9);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  background: rgba(239, 68, 68, 0.08);
+  padding: 0.2rem 0.45rem;
+  letter-spacing: 0.5px;
+  margin: 0.3rem 0;
+  display: inline-block;
+  animation: warn-pulse 2s ease-in-out infinite;
+}
+
+@keyframes warn-pulse {
+  0%, 100% { opacity: 1; border-color: rgba(239, 68, 68, 0.35); }
+  50%       { opacity: 0.6; border-color: rgba(239, 68, 68, 0.1); }
+}
+
+.ptv-ok {
+  margin: 0.3rem 0 0 0;
+  font-size: 0.95rem;
+  color: var(--green);
+}
+
+/* Diff rows (SG Remediation) */
+.ptv-diff-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  padding: 0.08rem 0;
+}
+
+.ptv-diff-row--bad  { color: rgba(239, 68, 68, 0.85); }
+.ptv-diff-row--good { color: var(--green); }
+
+.ptv-diff-sign {
+  font-weight: 700;
+  font-size: 1rem;
+  width: 12px;
+  flex-shrink: 0;
+}
+
+/* Event log rows (CloudTrail) */
+.ptv-event-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  padding: 0.06rem 0;
+}
+
+.ptv-event-time { color: rgba(163, 176, 201, 0.4); font-size: 0.8rem; flex-shrink: 0; }
+.ptv-event-ok   { color: var(--green); flex-shrink: 0; }
+.ptv-event-warn { color: var(--amber); flex-shrink: 0; }
+.ptv-event-crit { flex-shrink: 0; font-size: 0.8rem; }
+
 /* Project card body */
 .project-card { padding: 1.25rem; }
 
@@ -1189,6 +1337,8 @@ body::after {
    ========================= */
 
 .site-footer {
+  position: relative;
+  z-index: 1;
   text-align: center;
   padding: 2rem;
   color: var(--muted);

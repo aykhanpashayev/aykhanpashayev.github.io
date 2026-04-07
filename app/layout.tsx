@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Press_Start_2P, VT323 } from 'next/font/google'
+import BackgroundCanvas from '@/components/BackgroundCanvas'
 import './globals.css'
 
 const pressStart2P = Press_Start_2P({
@@ -39,6 +40,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png" />
       </head>
       <body>
+        <BackgroundCanvas />
+
         <a className="skip-link" href="#main">
           Skip to content
         </a>

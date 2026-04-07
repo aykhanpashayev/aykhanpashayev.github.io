@@ -1,97 +1,161 @@
 import { Fragment } from 'react'
 import ParticlesCanvas from '@/components/ParticlesCanvas'
 import HeroContent from '@/components/HeroContent'
+import JourneyCard from '@/components/JourneyCard'
 import projectsData from '@/content/projects.json'
 import journeyData from '@/content/journey.json'
 import proofData from '@/content/proof.json'
 
-/* ── Project terminal config (identical layout per project) ── */
-type TerminalData = {
-  exe: string
-  type: string
-  platform: string
-  stack: string
-  updated: string
-}
-
-const PROJECT_TERMINALS: Record<string, TerminalData> = {
-  'project-radius': {
-    exe: 'radius',
-    type: 'threat detection',
-    platform: 'AWS Organizations',
-    stack: 'Lambda · IAM · DynamoDB',
-    updated: 'Apr 2026',
-  },
-  'project-anomai': {
-    exe: 'anomai',
-    type: 'anomaly detection + AI',
-    platform: 'AWS CloudTrail',
-    stack: 'Lambda · S3 · Flask · LLM',
-    updated: 'Apr 2026',
-  },
-  'project-sg-remediation': {
-    exe: 'sg-remediator',
-    type: 'auto-remediation',
-    platform: 'AWS Config',
-    stack: 'Config · Lambda · SNS',
-    updated: 'Jul 2025',
-  },
-  'project-cloudtrail-monitoring': {
-    exe: 'ct-monitor',
-    type: 'event monitoring',
-    platform: 'AWS CloudTrail',
-    stack: 'EventBridge · CloudWatch · SNS',
-    updated: 'Jun 2025',
-  },
-}
-
-function ProjectTerminal({ id }: { id: string }) {
-  const data = PROJECT_TERMINALS[id]
-  if (!data) return null
-
+/* ── Visual project terminals ── */
+function RadiusTerminal() {
   return (
     <div className="proj-terminal" aria-hidden="true">
       <div className="proj-terminal-bar">
         <span className="proj-terminal-dot" />
         <span className="proj-terminal-dot proj-terminal-dot--dim" />
         <span className="proj-terminal-dot proj-terminal-dot--dim" />
-        <span className="proj-terminal-name">{data.exe}.exe</span>
+        <span className="proj-terminal-name">radius.exe</span>
         <span className="proj-terminal-badge">RUNNING</span>
       </div>
       <div className="proj-terminal-body">
-        <div className="proj-stat-row">
-          <span className="proj-stat-prompt">&gt;</span>
-          <span className="proj-stat-key">type</span>
-          <span className="proj-stat-sep">:</span>
-          <span className="proj-stat-val">{data.type}</span>
+        <p className="ptv-label">$ threat scan — aws organizations</p>
+        <div className="ptv-scan-row">
+          <span className="ptv-scan-key">cred stuffing</span>
+          <span className="ptv-scan-bar"><span className="ptv-scan-fill ptv-scan-fill--high" style={{ width: '88%' }} /></span>
+          <span className="ptv-scan-pct ptv-scan-pct--high">CRIT</span>
         </div>
-        <div className="proj-stat-row">
-          <span className="proj-stat-prompt">&gt;</span>
-          <span className="proj-stat-key">platform</span>
-          <span className="proj-stat-sep">:</span>
-          <span className="proj-stat-val">{data.platform}</span>
+        <div className="ptv-scan-row">
+          <span className="ptv-scan-key">priv escalation</span>
+          <span className="ptv-scan-bar"><span className="ptv-scan-fill ptv-scan-fill--high" style={{ width: '72%' }} /></span>
+          <span className="ptv-scan-pct ptv-scan-pct--high">HIGH</span>
         </div>
-        <div className="proj-stat-row">
-          <span className="proj-stat-prompt">&gt;</span>
-          <span className="proj-stat-key">stack</span>
-          <span className="proj-stat-sep">:</span>
-          <span className="proj-stat-val">{data.stack}</span>
+        <div className="ptv-scan-row">
+          <span className="ptv-scan-key">api anomaly</span>
+          <span className="ptv-scan-bar"><span className="ptv-scan-fill ptv-scan-fill--med" style={{ width: '44%' }} /></span>
+          <span className="ptv-scan-pct ptv-scan-pct--med">MED</span>
         </div>
-        <div className="proj-stat-row">
-          <span className="proj-stat-prompt">&gt;</span>
-          <span className="proj-stat-key">updated</span>
-          <span className="proj-stat-sep">:</span>
-          <span className="proj-stat-val">{data.updated}</span>
-        </div>
-        <div className="proj-stat-row">
-          <span className="proj-stat-prompt">&gt;</span>
-          <span className="proj-stat-key">status</span>
-          <span className="proj-stat-sep">:</span>
-          <span className="proj-stat-val proj-stat-val--ok">operational</span>
-        </div>
+        <div className="ptv-warn-badge">⚡ blast radius: CRITICAL</div>
+        <p className="ptv-ok">✓ attacker disabled in 28s</p>
       </div>
     </div>
   )
+}
+
+function AnomAITerminal() {
+  return (
+    <div className="proj-terminal" aria-hidden="true">
+      <div className="proj-terminal-bar">
+        <span className="proj-terminal-dot" />
+        <span className="proj-terminal-dot proj-terminal-dot--dim" />
+        <span className="proj-terminal-dot proj-terminal-dot--dim" />
+        <span className="proj-terminal-name">anomai.exe</span>
+        <span className="proj-terminal-badge">RUNNING</span>
+      </div>
+      <div className="proj-terminal-body">
+        <p className="ptv-label">$ detector sweep — cloudtrail</p>
+        <div className="ptv-scan-row">
+          <span className="ptv-scan-key">geo anomaly</span>
+          <span className="ptv-scan-bar"><span className="ptv-scan-fill ptv-scan-fill--high" style={{ width: '91%' }} /></span>
+          <span className="ptv-scan-pct ptv-scan-pct--high">91%</span>
+        </div>
+        <div className="ptv-scan-row">
+          <span className="ptv-scan-key">unusual hour</span>
+          <span className="ptv-scan-bar"><span className="ptv-scan-fill ptv-scan-fill--med" style={{ width: '67%' }} /></span>
+          <span className="ptv-scan-pct ptv-scan-pct--med">67%</span>
+        </div>
+        <div className="ptv-scan-row">
+          <span className="ptv-scan-key">perm creep</span>
+          <span className="ptv-scan-bar"><span className="ptv-scan-fill ptv-scan-fill--med" style={{ width: '53%' }} /></span>
+          <span className="ptv-scan-pct ptv-scan-pct--med">53%</span>
+        </div>
+        <div className="ptv-scan-row">
+          <span className="ptv-scan-key">api velocity</span>
+          <span className="ptv-scan-bar"><span className="ptv-scan-fill ptv-scan-fill--low" style={{ width: '28%' }} /></span>
+          <span className="ptv-scan-pct ptv-scan-pct--low">28%</span>
+        </div>
+        <p className="ptv-ok">✓ 16 incidents · AI ready</p>
+      </div>
+    </div>
+  )
+}
+
+function SGRemediationTerminal() {
+  return (
+    <div className="proj-terminal" aria-hidden="true">
+      <div className="proj-terminal-bar">
+        <span className="proj-terminal-dot" />
+        <span className="proj-terminal-dot proj-terminal-dot--dim" />
+        <span className="proj-terminal-dot proj-terminal-dot--dim" />
+        <span className="proj-terminal-name">sg-remediator.exe</span>
+        <span className="proj-terminal-badge">RUNNING</span>
+      </div>
+      <div className="proj-terminal-body">
+        <p className="ptv-label">$ drift detected — sg-0x4f2a</p>
+        <div className="ptv-diff-row ptv-diff-row--bad">
+          <span className="ptv-diff-sign">−</span>
+          <span>0.0.0.0/0 :22 OPEN</span>
+        </div>
+        <div className="ptv-diff-row ptv-diff-row--bad">
+          <span className="ptv-diff-sign">−</span>
+          <span>0.0.0.0/0 :3389 OPEN</span>
+        </div>
+        <div className="ptv-diff-row ptv-diff-row--good">
+          <span className="ptv-diff-sign">+</span>
+          <span>10.0.0.0/8 :22 restored</span>
+        </div>
+        <div className="ptv-diff-row ptv-diff-row--good">
+          <span className="ptv-diff-sign">+</span>
+          <span>deny all :3389 restored</span>
+        </div>
+        <p className="ptv-ok">✓ healed in 3.8s</p>
+      </div>
+    </div>
+  )
+}
+
+function CloudTrailTerminal() {
+  return (
+    <div className="proj-terminal" aria-hidden="true">
+      <div className="proj-terminal-bar">
+        <span className="proj-terminal-dot" />
+        <span className="proj-terminal-dot proj-terminal-dot--dim" />
+        <span className="proj-terminal-dot proj-terminal-dot--dim" />
+        <span className="proj-terminal-name">ct-monitor.exe</span>
+        <span className="proj-terminal-badge">RUNNING</span>
+      </div>
+      <div className="proj-terminal-body">
+        <p className="ptv-label">$ live event stream</p>
+        <div className="ptv-event-row">
+          <span className="ptv-event-time">14:02:11</span>
+          <span className="ptv-event-ok">✓</span>
+          <span>ConsoleLogin</span>
+        </div>
+        <div className="ptv-event-row">
+          <span className="ptv-event-time">14:03:47</span>
+          <span className="ptv-event-warn">⚠</span>
+          <span>CreatePolicy</span>
+        </div>
+        <div className="ptv-event-row">
+          <span className="ptv-event-time">14:04:01</span>
+          <span className="ptv-event-warn">⚠</span>
+          <span>PutBucketPolicy</span>
+        </div>
+        <div className="ptv-event-row">
+          <span className="ptv-event-time">14:04:58</span>
+          <span className="ptv-event-crit">🚨</span>
+          <span>DeleteTrail</span>
+        </div>
+        <p className="ptv-ok">✓ 40+ APIs monitored</p>
+      </div>
+    </div>
+  )
+}
+
+const PROJECT_VISUALS: Record<string, React.ComponentType> = {
+  'project-radius': RadiusTerminal,
+  'project-anomai': AnomAITerminal,
+  'project-sg-remediation': SGRemediationTerminal,
+  'project-cloudtrail-monitoring': CloudTrailTerminal,
 }
 
 export default function Home() {
@@ -125,11 +189,6 @@ export default function Home() {
           <p>from python games at 15 to cloud security. level by level.</p>
         </header>
 
-        {/*
-          3-column grid: [left cards] [center line + nodes] [right cards]
-          Even-index levels go left, odd go right.
-          On mobile collapses to 2-col: [node col] [all cards].
-        */}
         <div className="journey-timeline">
           {levels.map((item, index) => {
             const isLeft  = index % 2 === 0
@@ -137,7 +196,7 @@ export default function Home() {
             const isLast   = index === levels.length - 1
 
             const card = (
-              <article className={`journey-card${isActive ? ' journey-card--active' : ''}`}>
+              <JourneyCard isActive={isActive} delay={index * 60}>
                 <div className="journey-card-header">
                   <div className="journey-card-level" aria-hidden="true">
                     <span className="journey-lv-label">LVL</span>
@@ -177,7 +236,7 @@ export default function Home() {
                     {isActive ? '750 / 1000 XP' : '1000 / 1000 XP'}
                   </span>
                 </div>
-              </article>
+              </JourneyCard>
             )
 
             return (
@@ -211,50 +270,53 @@ export default function Home() {
         </header>
 
         <div className="projects-grid">
-          {projects.map((item) => (
-            <article
-              key={item.id}
-              id={`project-${item.id.replace('project-', '')}`}
-              className="project-card"
-            >
-              <ProjectTerminal id={item.id} />
+          {projects.map((item) => {
+            const Terminal = PROJECT_VISUALS[item.id] ?? null
+            return (
+              <article
+                key={item.id}
+                id={`project-${item.id.replace('project-', '')}`}
+                className="project-card"
+              >
+                {Terminal && <Terminal />}
 
-              <div className="project-head">
-                <h3>{item.title}</h3>
-                {item.dateRange && (
-                  <span className="project-date">{item.dateRange}</span>
+                <div className="project-head">
+                  <h3>{item.title}</h3>
+                  {item.dateRange && (
+                    <span className="project-date">{item.dateRange}</span>
+                  )}
+                </div>
+
+                {item.description && (
+                  <p className="project-desc">{item.description}</p>
                 )}
-              </div>
 
-              {item.description && (
-                <p className="project-desc">{item.description}</p>
-              )}
+                {item.tags?.length ? (
+                  <div className="project-tags" aria-label="Project tags">
+                    {item.tags.map((t) => (
+                      <span key={t} className="badge">{t}</span>
+                    ))}
+                  </div>
+                ) : null}
 
-              {item.tags?.length ? (
-                <div className="project-tags" aria-label="Project tags">
-                  {item.tags.map((t) => (
-                    <span key={t} className="badge">{t}</span>
-                  ))}
-                </div>
-              ) : null}
-
-              {item.links?.length ? (
-                <div className="project-links" aria-label="Project links">
-                  {item.links.map((l) => (
-                    <a
-                      key={l.url}
-                      className="btn btn--secondary btn--small"
-                      href={l.url}
-                      target="_blank"
-                      rel="noopener"
-                    >
-                      ↗ {l.label}
-                    </a>
-                  ))}
-                </div>
-              ) : null}
-            </article>
-          ))}
+                {item.links?.length ? (
+                  <div className="project-links" aria-label="Project links">
+                    {item.links.map((l) => (
+                      <a
+                        key={l.url}
+                        className="btn btn--secondary btn--small"
+                        href={l.url}
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        ↗ {l.label}
+                      </a>
+                    ))}
+                  </div>
+                ) : null}
+              </article>
+            )
+          })}
         </div>
       </section>
 

@@ -46,9 +46,9 @@
     {
       "id": "research-ai-assurance",
       "type": "research",
-      "title": "AI-Assisted Security Assurance Case",
+      "title": "First-Authored Research Paper",
       "date": "Oct 2025 – Feb 2026",
-      "issuer": "First-authored paper (submitted)",
+      "issuer": "AI Security Assurance · Submitted",
       "description": "Research using AI to evaluate security requirement completeness against ISO/IEC 15408 for defense critical infrastructure. Identifies gaps before code exists.",
       "badge": null
     }
