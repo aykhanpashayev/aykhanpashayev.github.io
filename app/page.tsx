@@ -2,6 +2,7 @@ import { Fragment } from 'react'
 import ParticlesCanvas from '@/components/ParticlesCanvas'
 import HeroContent from '@/components/HeroContent'
 import JourneyCard from '@/components/JourneyCard'
+import JourneyNodeShine from '@/components/JourneyNodeShine'
 import projectsData from '@/content/projects.json'
 import journeyData from '@/content/journey.json'
 import proofData from '@/content/proof.json'
@@ -245,6 +246,7 @@ export default function Home() {
           <p>from python games at 15 to cloud security. level by level.</p>
         </header>
 
+        <JourneyNodeShine />
         <div className="journey-timeline">
           {levels.map((item, index) => {
             const isLeft  = index % 2 === 0

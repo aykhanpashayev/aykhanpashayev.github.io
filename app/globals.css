@@ -762,6 +762,27 @@ body::after {
   50%       { box-shadow: 0 0 4px rgba(255, 179, 92, 0.15); }
 }
 
+/* Node in-view: continuous glow while diamond is visible in viewport */
+@keyframes node-glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 4px rgba(255, 179, 92, 0.35), 0 0 0 0 rgba(255, 179, 92, 0);
+    border-color: rgba(255, 200, 100, 0.7);
+    background: rgba(255, 179, 92, 0.08);
+  }
+  50% {
+    box-shadow:
+      0 0 10px rgba(255, 200, 80, 0.9),
+      0 0 0 7px rgba(255, 179, 92, 0.13),
+      0 0 28px rgba(255, 200, 80, 0.45);
+    border-color: #ffe066;
+    background: rgba(255, 220, 120, 0.22);
+  }
+}
+
+.node-in-view {
+  animation: node-glow-pulse 2.6s ease-in-out infinite !important;
+}
+
 /* Vertical line segment between nodes */
 .journey-node-line {
   width: 2px;
@@ -1219,6 +1240,7 @@ body::after {
 .achievement-card-inner {
   display: flex;
   align-items: stretch;
+  height: 100%;
 }
 
 /* Left icon column — stretches full card height */

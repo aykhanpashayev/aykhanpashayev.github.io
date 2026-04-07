@@ -12,18 +12,9 @@
     {
       "id": "level-1",
       "level": "Level 1",
-      "title": "Hardware & Fundamentals",
-      "dateRange": "UMass Boston",
-      "blurb": "started a bachelor's in IT. first real labs: taking apart computers, understanding networking, sysadmin fundamentals. learned to think from the ground up — what's physically happening, not just what the screen says.",
-      "highlights": [],
-      "links": []
-    },
-    {
-      "id": "level-2",
-      "level": "Level 2",
-      "title": "Networks & Systems",
-      "dateRange": "Early college",
-      "blurb": "deep in Packet Tracer, routing protocols, subnetting. building and breaking network topologies in labs. somewhere in here it clicked — i was more interested in what could go wrong than how to set things up.",
+      "title": "Hardware & Networks",
+      "dateRange": "2022",
+      "blurb": "started a bachelor's in IT. first real labs: taking apart computers, sysadmin fundamentals, learning to think from the ground up. then deep into Packet Tracer — routing protocols, subnetting, building and breaking network topologies. somewhere in there it clicked: i was more interested in what could go wrong than how to set things up.",
       "highlights": [],
       "links": []
     },
@@ -31,17 +22,8 @@
       "id": "level-3",
       "level": "Level 3",
       "title": "The FIU Transfer",
-      "dateRange": "Florida International University",
+      "dateRange": "2023",
       "blurb": "transferring to FIU was the biggest call i made for my career. went all-in on cybersecurity: got Security+, built a home lab with Kali Linux, started pen testing, blue teaming, and made HackTheBox a regular habit.",
-      "highlights": [],
-      "links": []
-    },
-    {
-      "id": "level-4",
-      "level": "Level 4",
-      "title": "First CCDC",
-      "dateRange": "Junior year",
-      "blurb": "first CCDC as a participant. red team was relentless. i learned more in those 8 hours than in months of coursework. confirmed this is what i wanted to do.",
       "highlights": [],
       "links": []
     },
@@ -49,7 +31,7 @@
       "id": "level-5",
       "level": "Level 5",
       "title": "Lab Life",
-      "dateRange": "Junior year → Summer 2025",
+      "dateRange": "2024 – 2025",
       "blurb": "got my first tech job — Hardware Lab Assistant at FIU. fell in love with it. managed the lab environment, tutored students in C and Java, ran hardware workshops. great team. the kind of job that makes you better at explaining anything.",
       "highlights": [],
       "links": []
@@ -58,8 +40,8 @@
       "id": "level-6",
       "level": "Level 6",
       "title": "Cloud Discovery",
-      "dateRange": "Summer 2025",
-      "blurb": "FIU offered a free AWS course — took it on a whim. went deep fast. cloud security clicked immediately. built projects, certified as AWS Solutions Architect. the hardware lab closed around the same time, so i moved on to a new chapter.",
+      "dateRange": "2025",
+      "blurb": "FIU offered a free AWS course — took it on a whim. went deep fast. cloud security clicked immediately. built projects, certified as AWS Solutions Architect.",
       "highlights": [],
       "links": []
     },
