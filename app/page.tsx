@@ -168,22 +168,78 @@ export default function Home() {
       {/* ── HERO ── */}
       <section className="hero" aria-label="Intro">
         <div className="hero-stack" role="presentation">
-          <div className="hero-layer hero-layer--glow" aria-hidden="true">
-            <div className="lamp-glow" />
+
+          {/* Layer 1 — pixel workspace scene (full background) */}
+          <div className="hero-layer hero-layer--workspace" aria-hidden="true">
+            <div className="pw-scene">
+              {/* Pendant lamp glow — large warm circle */}
+              <div className="pw-lamp-glow" />
+
+              {/* Pendant lamp — cord from ceiling + cone shade */}
+              <div className="pw-cord" />
+              <div className="pw-pendant">
+                <div className="pw-pendant-cone" />
+                <div className="pw-pendant-socket" />
+                <div className="pw-pendant-bulb" />
+              </div>
+
+              {/* Desk surface */}
+              <div className="pw-desk">
+                <div className="pw-desk-pool" />
+              </div>
+
+              {/* Book — Marcus Aurelius Meditations, front cover facing viewer */}
+              <div className="pw-book-wrap">
+                <div className="pw-book">
+                  <div className="pw-book-cover">
+                    <span className="pw-book-title">MEDITATIONS</span>
+                    <span className="pw-book-author">M. AURELIUS</span>
+                  </div>
+                </div>
+                <div className="pw-book-shadow" />
+              </div>
+
+              {/* Laptop */}
+              <div className="pw-laptop-wrap">
+                <div className="pw-laptop-screen">
+                  <p className="pw-ln"><span className="pt-prompt">$</span> ./radius --watch</p>
+                  <p className="pw-ln pt-muted">monitoring 847 events</p>
+                  <p className="pw-ln pt-warn">! anomaly detected</p>
+                  <p className="pw-ln pt-ok">✓ contained (28s)</p>
+                  <p className="pw-ln"><span className="pt-prompt">$</span><span className="pt-cursor">█</span></p>
+                </div>
+                <div className="pw-laptop-hinge" />
+                <div className="pw-laptop-base">
+                  <div className="pw-laptop-keys" />
+                </div>
+              </div>
+
+              {/* Tea mug */}
+              <div className="pw-mug-wrap">
+                <div className="pw-steam" />
+                <div className="pw-steam pw-steam--2" />
+                <div className="pw-mug" />
+              </div>
+            </div>
           </div>
+
+          {/* Layer 2 — particles */}
           <div className="hero-layer hero-layer--particles" aria-hidden="true">
             <ParticlesCanvas />
           </div>
+
+          {/* Layer 3 — text content */}
           <div className="hero-layer hero-layer--content">
             <div className="hero-content">
               <HeroContent />
             </div>
           </div>
+
         </div>
       </section>
 
       {/* ── JOURNEY — alternating skill-tree timeline ── */}
-      <section id="journey" className="section section--journey" aria-label="Journey">
+      <section id="journey" className="section section--journey" aria-label="Journey" data-reveal="">
         <header className="section-header">
           <h2>// journey</h2>
           <p>from python games at 15 to cloud security. level by level.</p>
@@ -263,7 +319,7 @@ export default function Home() {
       </section>
 
       {/* ── PROJECTS ── */}
-      <section id="projects" className="section section--projects" aria-label="Projects">
+      <section id="projects" className="section section--projects" aria-label="Projects" data-reveal="">
         <header className="section-header">
           <h2>// projects</h2>
           <p>things i built. mostly AWS security.</p>
@@ -321,7 +377,7 @@ export default function Home() {
       </section>
 
       {/* ── ACHIEVEMENTS ── */}
-      <section id="achievements" className="section section--achievements" aria-label="Achievements">
+      <section id="achievements" className="section section--achievements" aria-label="Achievements" data-reveal="">
         <header className="section-header">
           <h2>// achievements</h2>
           <p>things unlocked along the way.</p>
@@ -389,7 +445,7 @@ export default function Home() {
       </section>
 
       {/* ── CONTACT ── */}
-      <section id="contact" className="section section--contact" aria-label="Contact">
+      <section id="contact" className="section section--contact" aria-label="Contact" data-reveal="">
         <header className="section-header">
           <h2>// let&apos;s talk</h2>
           <p>open to connect.</p>

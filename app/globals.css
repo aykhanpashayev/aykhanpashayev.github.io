@@ -243,7 +243,7 @@ body::after {
 .hero-layer--content {
   z-index: 4;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .hero-content {
@@ -251,26 +251,24 @@ body::after {
   width: 100%;
   margin: 0 auto;
   padding: 0 2rem;
+  padding-top: 14vh;
 }
 
-/* inner: text left + terminal right */
+/* Text only — workspace is a background layer */
 .hero-inner {
   display: flex;
   align-items: center;
-  gap: 4rem;
-  justify-content: space-between;
 }
 
 .hero-text {
-  max-width: 540px;
-  flex: 1;
+  max-width: 560px;
+  position: relative;
+  z-index: 1;
 }
 
-.hero-visual { flex-shrink: 0; }
-
-@media (max-width: 960px) {
-  .hero-visual  { display: none; }
-  .hero-inner   { justify-content: flex-start; }
+/* workspace layer */
+.hero-layer--workspace {
+  z-index: 1;
 }
 
 /* =========================
@@ -285,16 +283,21 @@ body::after {
   z-index: 0;
 
   background:
+    /* solid dark on left for text legibility, fades out toward workspace */
     linear-gradient(
       to right,
-      rgba(8, 16, 28, 0.92) 0%,
-      rgba(8, 16, 28, 0.72) 30%,
-      rgba(8, 16, 28, 0.2) 55%,
-      rgba(8, 16, 28, 0) 70%
+      rgba(8, 16, 28, 0.97) 0%,
+      rgba(8, 16, 28, 0.90) 28%,
+      rgba(8, 16, 28, 0.55) 48%,
+      rgba(8, 16, 28, 0.1)  62%,
+      rgba(8, 16, 28, 0)    72%
     ),
-    radial-gradient(1200px 600px at 65% 40%, rgba(255, 179, 92, 0.05), transparent 60%),
-    radial-gradient(900px 500px at 30% 30%, rgba(90, 167, 255, 0.04), transparent 60%),
-    radial-gradient(1200px 900px at 50% 60%, rgba(0, 0, 0, 0.3), transparent 55%);
+    /* bottom darkening so desk area doesn't float */
+    linear-gradient(
+      to top,
+      rgba(8, 16, 28, 0.6) 0%,
+      transparent 35%
+    );
 }
 
 /* =========================
@@ -1417,4 +1420,371 @@ a:focus-visible { text-decoration: underline; }
   .hero-value-prop { font-size: 1.2rem; }
   .hero-cta { flex-direction: column; gap: 0.75rem; }
   .btn { width: 100%; }
+}
+
+/* =========================
+   24. SECTION SCROLL-REVEAL
+   ========================= */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-reveal="done"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+}
+
+/* =========================
+   25. PIXEL WORKSPACE — full hero background
+   ========================= */
+
+.pw-scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* ── Pendant lamp glow ─────────────────────── */
+.pw-lamp-glow {
+  position: absolute;
+  /* centered on lamp cord at right: 26% */
+  right: calc(26% - 500px);
+  top: -80px;
+  width: 1000px;
+  height: 1000px;
+  background: radial-gradient(
+    ellipse at 50% 28%,
+    rgba(255, 210, 100, 0.38) 0%,
+    rgba(255, 179, 92, 0.22) 25%,
+    rgba(255, 140, 40, 0.10) 50%,
+    rgba(255, 120, 20, 0.04) 68%,
+    transparent 80%
+  );
+  pointer-events: none;
+  animation: pw-breathe 6s ease-in-out infinite;
+}
+
+@keyframes pw-breathe {
+  0%, 100% { opacity: 0.78; }
+  50%       { opacity: 1; }
+}
+
+/* ── Pendant lamp cord ─────────────────────── */
+.pw-cord {
+  position: absolute;
+  right: 26%;
+  top: 0;
+  width: 3px;
+  height: 22%;
+  background: linear-gradient(
+    to bottom,
+    rgba(200, 210, 230, 0.8),
+    rgba(163, 176, 201, 0.5)
+  );
+  transform: translateX(1px);
+  box-shadow: 0 0 4px rgba(200, 210, 230, 0.3);
+}
+
+/* ── Pendant lamp body ─────────────────────── */
+.pw-pendant {
+  position: absolute;
+  right: 26%;
+  top: 22%;
+  transform: translateX(50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Cone shade — wider at bottom, opens downward */
+.pw-pendant-cone {
+  width: 144px;
+  height: 72px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 230, 140, 1) 0%,
+    rgba(255, 175, 55, 0.98) 60%,
+    rgba(240, 140, 30, 0.95) 100%
+  );
+  clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+  filter:
+    drop-shadow(0 0 18px rgba(255, 200, 80, 0.9))
+    drop-shadow(0 8px 32px rgba(255, 160, 40, 0.7));
+  border-top: 3px solid rgba(255, 245, 180, 0.9);
+}
+
+/* Metal socket where cord meets shade */
+.pw-pendant-socket {
+  width: 26px;
+  height: 10px;
+  background: linear-gradient(to bottom, rgba(220, 230, 245, 0.9), rgba(140, 155, 180, 0.8));
+  border: 1px solid rgba(200, 215, 235, 0.6);
+  margin-top: -72px; /* sits at top of cone */
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Glowing bulb visible below cone opening */
+.pw-pendant-bulb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(255, 250, 200, 1);
+  box-shadow:
+    0 0 8px rgba(255, 250, 200, 1),
+    0 0 20px rgba(255, 230, 120, 1),
+    0 0 50px rgba(255, 180, 60, 0.9),
+    0 0 90px rgba(255, 140, 30, 0.6);
+  margin-top: 4px;
+}
+
+/* ── Desk surface ──────────────────────────── */
+.pw-desk {
+  position: absolute;
+  bottom: 28%;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: rgba(163, 176, 201, 0.14);
+  border-top: 2px solid rgba(163, 176, 201, 0.3);
+}
+
+/* Warm light pool under pendant */
+.pw-desk-pool {
+  position: absolute;
+  right: calc(26% - 180px);
+  top: -1px;
+  width: 360px;
+  height: 8px;
+  background: rgba(255, 179, 92, 0.22);
+  filter: blur(5px);
+}
+
+/* ── Book — Marcus Aurelius ────────────────── */
+.pw-book-wrap {
+  position: absolute;
+  right: calc(26% + 230px);
+  bottom: 28%;
+}
+
+/* Front cover — book standing upright facing viewer */
+.pw-book {
+  width: 88px;
+  height: 120px;
+  background: linear-gradient(
+    160deg,
+    rgba(120, 45, 18, 0.97) 0%,
+    rgba(90, 30, 12, 0.95) 100%
+  );
+  border: 2px solid rgba(200, 80, 30, 0.6);
+  border-right: 5px solid rgba(60, 20, 8, 0.85);
+  border-bottom: 3px solid rgba(60, 20, 8, 0.7);
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  position: relative;
+  box-shadow:
+    inset 2px 0 6px rgba(255, 150, 60, 0.08),
+    4px 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Decorative border inset on cover */
+.pw-book::before {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border: 1px solid rgba(200, 140, 60, 0.3);
+  pointer-events: none;
+}
+
+/* Pages edge on right side */
+.pw-book::after {
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: 4px;
+  bottom: 4px;
+  width: 5px;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(230, 210, 180, 0.55) 0px,
+    rgba(230, 210, 180, 0.55) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+.pw-book-cover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 6px;
+  width: 100%;
+}
+
+.pw-book-title {
+  font-family: var(--font-pixel), monospace;
+  font-size: 0.28rem;
+  color: rgba(255, 215, 140, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.pw-book-author {
+  font-family: var(--font-vt323), monospace;
+  font-size: 0.7rem;
+  color: rgba(220, 170, 90, 0.65);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.pw-book-shadow {
+  width: 88px;
+  height: 6px;
+  background: rgba(0, 0, 0, 0.3);
+  filter: blur(5px);
+  margin-top: 2px;
+}
+
+/* ── Laptop ────────────────────────────────── */
+.pw-laptop-wrap {
+  position: absolute;
+  right: 26%;
+  bottom: 28%;
+  transform: translateX(50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pw-laptop-screen {
+  width: 340px;
+  height: 210px;
+  border: 2px solid rgba(74, 222, 128, 0.28);
+  background: rgba(4, 7, 16, 0.92);
+  padding: 10px 14px;
+  font-family: var(--font-vt323), monospace;
+  font-size: 1.1rem;
+  line-height: 1.45;
+  box-shadow:
+    0 0 36px rgba(74, 222, 128, 0.10),
+    inset 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+.pw-ln { margin: 0; }
+
+/* Thin hinge between screen and base */
+.pw-laptop-hinge {
+  width: 344px;
+  height: 4px;
+  background: rgba(163, 176, 201, 0.32);
+  border-left: 2px solid rgba(163, 176, 201, 0.18);
+  border-right: 2px solid rgba(163, 176, 201, 0.18);
+}
+
+/* Keyboard deck */
+.pw-laptop-base {
+  width: 356px;
+  height: 24px;
+  background: rgba(28, 40, 60, 0.75);
+  border: 2px solid rgba(163, 176, 201, 0.2);
+  border-top: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Tiny keyboard row texture */
+.pw-laptop-keys {
+  width: 290px;
+  height: 7px;
+  background: repeating-linear-gradient(
+    to right,
+    rgba(163, 176, 201, 0.15) 0px,
+    rgba(163, 176, 201, 0.15) 6px,
+    transparent 6px,
+    transparent 8px
+  );
+}
+
+/* ── Tea mug ───────────────────────────────── */
+.pw-mug-wrap {
+  position: absolute;
+  right: calc(26% - 270px);
+  bottom: 28%;
+}
+
+.pw-mug {
+  width: 46px;
+  height: 50px;
+  border: 2px solid rgba(163, 176, 201, 0.3);
+  background: rgba(11, 18, 32, 0.85);
+  position: relative;
+}
+
+/* Handle */
+.pw-mug::before {
+  content: '';
+  position: absolute;
+  right: -16px;
+  top: 10px;
+  width: 13px;
+  height: 20px;
+  border: 2px solid rgba(163, 176, 201, 0.3);
+  border-left: none;
+  border-radius: 0 6px 6px 0;
+}
+
+/* Tea level inside */
+.pw-mug::after {
+  content: '';
+  position: absolute;
+  inset: 7px 4px auto;
+  height: 4px;
+  background: rgba(180, 120, 60, 0.5);
+}
+
+/* Steam wisps above mug */
+.pw-steam {
+  position: absolute;
+  bottom: 50px;
+  left: 9px;
+  width: 3px;
+  height: 16px;
+  background: linear-gradient(to top, rgba(183, 194, 214, 0.4), transparent);
+  animation: pw-steam 3s ease-in-out infinite;
+}
+
+.pw-steam--2 {
+  left: 26px;
+  animation-delay: 1.2s;
+}
+
+@keyframes pw-steam {
+  0%, 100% { opacity: 0;    transform: translateY(0)    scaleX(1); }
+  35%       { opacity: 0.55; transform: translateY(-6px) scaleX(1.4); }
+  70%       { opacity: 0.12; transform: translateY(-11px) scaleX(0.6); }
+}
+
+/* ── Reduced motion ────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .pw-lamp-glow,
+  .pw-steam,
+  .pw-steam--2 { animation: none; opacity: 0.7; }
 }

@@ -64,13 +64,13 @@ export default function BackgroundCanvas() {
     let drops: Drop[] = []
 
     const initDrops = (width: number, height: number) => {
-      const count = Math.floor(width / 38)
+      const count = Math.floor(width / 110)   // sparse
       drops = Array.from({ length: count }, () => ({
         x: Math.random() * width,
         y: Math.random() * -height,
-        speed: 0.35 + Math.random() * 0.8,
-        chars: Array.from({ length: 10 }, () => CHARS[Math.floor(Math.random() * CHARS.length)]),
-        baseAlpha: 0.055 + Math.random() * 0.055,
+        speed: 0.08 + Math.random() * 0.14,   // very slow drift
+        chars: Array.from({ length: 6 }, () => CHARS[Math.floor(Math.random() * CHARS.length)]),
+        baseAlpha: 0.028 + Math.random() * 0.025,  // subtle
       }))
     }
 
@@ -88,8 +88,8 @@ export default function BackgroundCanvas() {
         y: Math.floor(Math.random() * Math.ceil(height / GRID)) * GRID,
         dir,
         progress: 0,
-        speed: 0.005 + Math.random() * 0.009,
-        segLen: (2 + Math.floor(Math.random() * 5)) * GRID,
+        speed: 0.002 + Math.random() * 0.004,   // slow pulses
+        segLen: (3 + Math.floor(Math.random() * 5)) * GRID,
       })
     }
 
@@ -103,7 +103,7 @@ export default function BackgroundCanvas() {
       initDrops(w, h)
       // seed pulses on first run
       if (pulses.length === 0) {
-        for (let i = 0; i < 12; i++) addPulse(w, h)
+        for (let i = 0; i < 6; i++) addPulse(w, h)
       }
     }
 
