@@ -17,31 +17,15 @@ const vt323 = VT323({
 })
 
 export const metadata: Metadata = {
-  title: 'Aykhan Pashayev | Cloud Security Engineer',
+  title: 'Aykhan Pashayev',
   description:
-    'Aykhan Pashayev — Cloud Security Engineer building IAM threat detection systems that respond in seconds, not hours. AWS-native, AI-assisted, product-minded.',
-  keywords: [
-    'Cloud Security',
-    'IAM',
-    'AWS',
-    'Threat Detection',
-    'Incident Response',
-    'Security Engineering',
-  ],
+    'Cloud security engineer building AWS systems that detect threats and fight back automatically.',
   authors: [{ name: 'Aykhan Pashayev' }],
   openGraph: {
     type: 'website',
     url: 'https://aykhanpashayev.github.io/',
-    title: 'Aykhan Pashayev | Cloud Security Engineer',
-    description:
-      'Building IAM threat detection systems that respond in seconds. AWS-native, AI-assisted, product-minded.',
-    images: [{ url: 'https://aykhanpashayev.github.io/assets/img/og-card.svg' }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Aykhan Pashayev | Cloud Security Engineer',
-    description: 'Building IAM threat detection systems that respond in seconds.',
-    images: ['https://aykhanpashayev.github.io/assets/img/og-card.svg'],
+    title: 'Aykhan Pashayev',
+    description: 'Cloud security engineer building AWS systems that detect threats and fight back.',
   },
 }
 
@@ -61,20 +45,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <header className="site-header" role="banner">
           <nav className="site-nav" aria-label="Primary">
-            <a href="#proof" className="nav-link">Proof</a>
-            <a href="#projects" className="nav-link">Projects</a>
             <a href="#journey" className="nav-link">Journey</a>
-            <a href="#capabilities" className="nav-link">Capabilities</a>
-            <a href="#about" className="nav-link">About</a>
-            <a href="#contact" className="nav-link">Contact</a>
-            <a
-              href="/assets/Aykhan Pashayev Resume.pdf"
-              className="nav-link nav-link--accent"
-              target="_blank"
-              rel="noopener"
-            >
-              Resume
-            </a>
+            <a href="#projects" className="nav-link">Projects</a>
+            <a href="#achievements" className="nav-link">Achievements</a>
+            <a href="#contact" className="nav-link nav-link--accent">Contact</a>
           </nav>
         </header>
 

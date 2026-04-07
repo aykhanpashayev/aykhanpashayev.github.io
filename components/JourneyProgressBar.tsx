@@ -21,6 +21,7 @@ export default function JourneyProgressBar() {
 
     function update() {
       ticking = false
+      if (!section || !fill || !progressEl) return
       const rect = section.getBoundingClientRect()
       const vh = window.innerHeight || 1
       const start = vh * 0.7
