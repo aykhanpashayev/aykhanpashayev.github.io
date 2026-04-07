@@ -15,7 +15,7 @@ export default function SectionObserver() {
           }
         })
       },
-      { threshold: 0.07, rootMargin: '0px 0px -48px 0px' }
+      { threshold: 0.08, rootMargin: '0px 0px -64px 0px' }
     )
 
     targets.forEach((el) => observer.observe(el))
