@@ -90,17 +90,9 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   overflow-x: hidden;
   background-color: var(--bg);
-  background-image: var(--circuit);
-  background-size: var(--circuit-size);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-/* main content above fixed background canvas (z-index: 0) */
-#main {
-  position: relative;
-  z-index: 1;
 }
 
 /* ── CRT scanlines (fixed overlay, top of everything) ── */
@@ -222,9 +214,7 @@ body::after {
   min-height: 100vh;
   width: 100%;
   overflow: hidden;
-  background-color: var(--bg);
-  background-image: var(--circuit);
-  background-size: var(--circuit-size);
+  background-color: rgba(11, 18, 32, 0.55);
 }
 
 .hero-stack {
@@ -308,7 +298,33 @@ body::after {
 }
 
 /* =========================
-   8. HERO TYPOGRAPHY
+   8. HERO ENTRANCE ANIMATION
+   ========================= */
+
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-anim {
+  opacity: 0;
+  animation: hero-fade-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.hero-anim--1 { animation-delay: 0.05s; }
+.hero-anim--2 { animation-delay: 0.15s; }
+.hero-anim--3 { animation-delay: 0.25s; }
+.hero-anim--4 { animation-delay: 0.35s; }
+.hero-anim--5 { animation-delay: 0.45s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-anim {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* =========================
+   9. HERO TYPOGRAPHY
    ========================= */
 
 .hero-title {
@@ -497,8 +513,6 @@ body::after {
   padding: var(--section-padding) 2rem;
   scroll-margin-top: 80px;
   position: relative;
-  background-image: var(--circuit);
-  background-size: var(--circuit-size);
 }
 
 /* all section children above circuit pattern */
@@ -695,7 +709,7 @@ body::after {
    ========================= */
 
 .section--journey {
-  background-color: var(--bg-2);
+  background-color: rgba(8, 16, 28, 0.68);
 }
 
 /* 3-column timeline grid: [left cards] [center line] [right cards] */
@@ -928,7 +942,7 @@ body::after {
    ========================= */
 
 .section--projects {
-  background-color: var(--bg);
+  background-color: rgba(11, 18, 32, 0.6);
 }
 
 .projects-grid {
@@ -1170,7 +1184,7 @@ body::after {
    ========================= */
 
 .section--achievements {
-  background-color: var(--bg-2);
+  background-color: rgba(8, 16, 28, 0.68);
 }
 
 .achievements-sys-log {
@@ -1307,7 +1321,7 @@ body::after {
    ========================= */
 
 .section--contact {
-  background-color: var(--bg);
+  background-color: rgba(11, 18, 32, 0.6);
 }
 
 .contact-terminal {
@@ -1337,8 +1351,6 @@ body::after {
    ========================= */
 
 .site-footer {
-  position: relative;
-  z-index: 1;
   text-align: center;
   padding: 2rem;
   color: var(--muted);

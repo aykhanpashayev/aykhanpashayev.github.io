@@ -1,31 +1,5 @@
 'use client'
 
-import { motion, useReducedMotion } from 'framer-motion'
-
-const container = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.05,
-    },
-  },
-}
-
-const item = {
-  hidden: { opacity: 0, y: 18 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
-  },
-}
-
-const itemReduced = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { duration: 0.3 } },
-}
-
 function PixelTerminal() {
   return (
     <div className="pixel-terminal" aria-hidden="true">
@@ -51,35 +25,26 @@ function PixelTerminal() {
 }
 
 export default function HeroContent() {
-  const reduced = useReducedMotion()
-  const child = reduced ? itemReduced : item
-
   return (
     <div className="hero-inner">
-      <motion.div
-        className="hero-text"
-        variants={container}
-        initial="hidden"
-        animate="show"
-      >
-        <motion.h1 className="hero-title" variants={child}>
+      <div className="hero-text">
+        <h1 className="hero-title hero-anim hero-anim--1">
           hey, i&apos;m aykhan.
-        </motion.h1>
+        </h1>
 
-        <motion.p className="hero-value-prop" variants={child}>
+        <p className="hero-value-prop hero-anim hero-anim--2">
           curiosity and late-night building sessions.
-        </motion.p>
+        </p>
 
-        <motion.div className="hero-status" variants={child}>
+        <div className="hero-status hero-anim hero-anim--3">
           <span className="hero-status-dot" aria-hidden="true" />
           <span>open to new quests</span>
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="hero-cta"
+        <div
+          className="hero-cta hero-anim hero-anim--4"
           role="group"
           aria-label="Primary actions"
-          variants={child}
         >
           <a className="btn btn--primary" href="#journey">start journey</a>
           <a
@@ -90,9 +55,9 @@ export default function HeroContent() {
           >
             Resume
           </a>
-        </motion.div>
+        </div>
 
-        <motion.nav className="hero-links" aria-label="External links" variants={child}>
+        <nav className="hero-links hero-anim hero-anim--5" aria-label="External links">
           <a href="https://github.com/aykhanpashayev" target="_blank" rel="noopener">
             GitHub
           </a>
@@ -104,8 +69,8 @@ export default function HeroContent() {
           <a href="mailto:aykhan.pashayev001@gmail.com">
             Email
           </a>
-        </motion.nav>
-      </motion.div>
+        </nav>
+      </div>
 
       <div className="hero-visual" aria-hidden="true">
         <PixelTerminal />
