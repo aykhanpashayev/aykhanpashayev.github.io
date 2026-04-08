@@ -1431,7 +1431,7 @@ a:focus-visible { text-decoration: underline; }
 }
 
 @media (max-width: 720px) {
-  .hero-content { padding: 0 1.5rem; }
+  .hero-content { padding-left: 1.5rem; padding-right: 1.5rem; }
   .hero-title { font-size: 3.2rem; }
   .hero-cta { flex-wrap: wrap; }
   .lamp-glow { right: 5%; top: 10%; width: 300px; height: 300px; }
@@ -1888,6 +1888,42 @@ a:focus-visible { text-decoration: underline; }
    26. MOBILE RESPONSIVE
    ========================= */
 
+/* ── Fix header: make it sticky on mobile so nav is always reachable ── */
+@media (max-width: 768px) {
+  .site-header {
+    position: fixed;
+    z-index: 100;
+    background: rgba(8, 16, 28, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 179, 92, 0.08);
+  }
+
+  /* site-nav already gets its own bg at 900px — remove it so header handles it */
+  .site-nav {
+    background: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  /* Push hero content below the fixed nav (~52px tall) */
+  .hero-content {
+    padding-top: 88px;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  /* Sections anchor-scroll below the fixed nav */
+  .section { scroll-margin-top: 72px; }
+
+  /* Nav link touch targets — minimum 44×44px */
+  .nav-link {
+    min-height: 44px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
 /* ── Reduce section padding on smaller screens ── */
 @media (max-width: 768px) {
   :root { --section-padding: 4rem; }
@@ -1897,7 +1933,7 @@ a:focus-visible { text-decoration: underline; }
 @media (max-width: 480px) {
   :root { --section-padding: 3rem; }
   .section { padding-left: 1rem; padding-right: 1rem; }
-  .hero-content { padding-top: 10vh; padding-left: 1rem; padding-right: 1rem; }
+  .hero-content { padding-top: 80px; padding-left: 1rem; padding-right: 1rem; }
 }
 
 /* ── Hide pixel workspace items on mobile; keep lamp glow as ambiance ── */
@@ -1916,24 +1952,24 @@ a:focus-visible { text-decoration: underline; }
     animation: none;
   }
 
-  /* Simplified overlay — no need for left-to-right fade without workspace */
+  /* Simplified overlay — no left-to-right fade needed without workspace */
   .hero::before {
-    background:
-      linear-gradient(to bottom,
-        rgba(8, 16, 28, 0.88) 0%,
-        rgba(8, 16, 28, 0.72) 55%,
-        rgba(8, 16, 28, 0.88) 100%
-      );
+    background: linear-gradient(
+      to bottom,
+      rgba(8, 16, 28, 0.88) 0%,
+      rgba(8, 16, 28, 0.72) 55%,
+      rgba(8, 16, 28, 0.88) 100%
+    );
   }
 }
 
-/* ── Section header on small screens ── */
+/* ── Section headings on small screens ── */
 @media (max-width: 600px) {
   .section-header h2 { font-size: 2.2rem; }
   .section-header { margin-bottom: 2.5rem; }
 }
 
-/* ── Project terminal scan rows: prevent text overflow ── */
+/* ── Project terminal: prevent scan-row overflow on phones ── */
 @media (max-width: 480px) {
   .ptv-scan-key { min-width: 68px; font-size: 0.78rem; }
   .proj-terminal { font-size: 0.92rem; }
@@ -1945,9 +1981,9 @@ a:focus-visible { text-decoration: underline; }
   .journey-col { padding: 0.4rem 0 0.4rem 0.6rem; }
 }
 
-/* ── Nav on very small screens ── */
+/* ── Nav on very small screens (≤400px) ── */
 @media (max-width: 400px) {
-  .site-nav { gap: 0.5rem; padding: 0.75rem 1rem; }
+  .site-nav { gap: 0.5rem; padding: 0.65rem 0.75rem; }
   .nav-link { font-size: 0.7rem; }
-  .nav-link--accent { padding: 0.3rem 0.5rem; }
+  .nav-link--accent { padding: 0.25rem 0.5rem; }
 }
