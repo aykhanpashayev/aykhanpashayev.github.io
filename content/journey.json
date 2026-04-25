@@ -3,72 +3,72 @@
     {
       "id": "level-0",
       "level": "Level 0",
-      "title": "How Do Games Work?",
-      "dateRange": "Age 15",
-      "blurb": "it started with one question — how do people actually make video games? found Python, stayed up too late writing bad code, loved every second of it. that curiosity never really left.",
+      "title": "the spark",
+      "dateRange": "",
+      "blurb": "googled \"how do people make video games\" and found python. stayed up way too late writing terrible code and never looked back.",
       "highlights": [],
       "links": []
     },
     {
       "id": "level-1",
       "level": "Level 1",
-      "title": "Hardware & Networks",
-      "dateRange": "2022",
-      "blurb": "started a bachelor's in IT. first real labs: taking apart computers, sysadmin fundamentals, learning to think from the ground up. then deep into Packet Tracer — routing protocols, subnetting, building and breaking network topologies. somewhere in there it clicked: i was more interested in what could go wrong than how to set things up.",
+      "title": "under the hood",
+      "dateRange": "",
+      "blurb": "tore apart computers, built networks in packet tracer, learned how systems actually work. realized i cared more about what could break than how to set it up.",
+      "highlights": [],
+      "links": []
+    },
+    {
+      "id": "level-2",
+      "level": "Level 2",
+      "title": "going all in",
+      "dateRange": "",
+      "blurb": "transferred to FIU and bet everything on cybersecurity. got Security+, built a home lab, and made hackthebox a nightly habit.",
       "highlights": [],
       "links": []
     },
     {
       "id": "level-3",
       "level": "Level 3",
-      "title": "The FIU Transfer",
-      "dateRange": "2023",
-      "blurb": "transferring to FIU was the biggest call i made for my career. went all-in on cybersecurity: got Security+, built a home lab with Kali Linux, started pen testing, blue teaming, and made HackTheBox a regular habit.",
+      "title": "the lab",
+      "dateRange": "",
+      "blurb": "first real tech job — running a hardware lab, tutoring students, explaining things until they clicked. the kind of work that quietly makes you sharper at everything.",
+      "highlights": [],
+      "links": []
+    },
+    {
+      "id": "level-4",
+      "level": "Level 4",
+      "title": "cloud unlocked",
+      "dateRange": "",
+      "blurb": "took a free AWS course on a whim and went deep fast. cloud security made instant sense — certified as solutions architect and started building.",
       "highlights": [],
       "links": []
     },
     {
       "id": "level-5",
       "level": "Level 5",
-      "title": "Lab Life",
-      "dateRange": "2024 – 2025",
-      "blurb": "got my first tech job — Hardware Lab Assistant at FIU. fell in love with it. managed the lab environment, tutored students in C and Java, ran hardware workshops. great team. the kind of job that makes you better at explaining anything.",
+      "title": "trial by fire",
+      "dateRange": "",
+      "blurb": "captained a 5-person CCDC team with one week of prep against squads who trained for months. held operations under constant red team pressure and placed 16th out of 49.",
       "highlights": [],
       "links": []
     },
     {
       "id": "level-6",
       "level": "Level 6",
-      "title": "Cloud Discovery",
-      "dateRange": "2025",
-      "blurb": "FIU offered a free AWS course — took it on a whim. went deep fast. cloud security clicked immediately. built projects, certified as AWS Solutions Architect.",
+      "title": "the admiral",
+      "dateRange": "",
+      "blurb": "first-authored a research paper, got accepted to cyber recon 2026, and shook hands with a U.S. Cyber Command Admiral — all as a college student. curiosity compounds.",
       "highlights": [],
       "links": []
     },
     {
       "id": "level-7",
       "level": "Level 7",
-      "title": "First Authorship",
-      "dateRange": "Oct 2025 – Feb 2026",
-      "blurb": "new role: Course Learning Assistant. mostly tutoring, until a professor offered to bring me into research — using AI to evaluate security requirement completeness. i said yes. ended up as first author on a submitted paper. didn't see that coming.",
-      "highlights": [],
-      "links": []
-    },
-    {
-      "id": "level-8",
-      "level": "Level 8",
-      "title": "CCDC Captain",
-      "dateRange": "Feb 2026",
-      "blurb": "second CCDC, this time as captain. five people, one week of prep, 48 teams. placed 16th. held operations under constant red team pressure until the last minute.",
-      "highlights": [],
-      "links": []
-    },
-    {
-      "id": "level-9",
-      "level": "Level 9",
-      "title": "Everything Connects",
-      "dateRange": "Present",
-      "blurb": "now i work where everything meets — cloud, security engineering, and AI. building systems that actually defend themselves. aiming to become a cloud architect. still just a really curious person who never stopped building.",
+      "title": "next quest",
+      "dateRange": "",
+      "blurb": "cloud, security, AI — it all connects now. the kid who googled how games work is still pulling threads, just bigger ones.",
       "highlights": [],
       "links": []
     }

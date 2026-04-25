@@ -80,73 +80,45 @@ function AnomAITerminal() {
   )
 }
 
-function SGRemediationTerminal() {
+function AIAssuranceTerminal() {
   return (
     <div className="proj-terminal" aria-hidden="true">
       <div className="proj-terminal-bar">
         <span className="proj-terminal-dot" />
         <span className="proj-terminal-dot proj-terminal-dot--dim" />
         <span className="proj-terminal-dot proj-terminal-dot--dim" />
-        <span className="proj-terminal-name">sg-remediator.exe</span>
+        <span className="proj-terminal-name">defender.exe</span>
         <span className="proj-terminal-badge">RUNNING</span>
       </div>
       <div className="proj-terminal-body">
-        <p className="ptv-label">$ drift detected — sg-0x4f2a</p>
-        <div className="ptv-diff-row ptv-diff-row--bad">
-          <span className="ptv-diff-sign">−</span>
-          <span>0.0.0.0/0 :22 OPEN</span>
-        </div>
-        <div className="ptv-diff-row ptv-diff-row--bad">
-          <span className="ptv-diff-sign">−</span>
-          <span>0.0.0.0/0 :3389 OPEN</span>
-        </div>
-        <div className="ptv-diff-row ptv-diff-row--good">
-          <span className="ptv-diff-sign">+</span>
-          <span>10.0.0.0/8 :22 restored</span>
-        </div>
-        <div className="ptv-diff-row ptv-diff-row--good">
-          <span className="ptv-diff-sign">+</span>
-          <span>deny all :3389 restored</span>
-        </div>
-        <p className="ptv-ok">✓ healed in 3.8s</p>
+        <p className="ptv-label">$ scan --framework ISO/IEC-15408</p>
+        <p className="ptv-doc-line">loading 5000+ pages...</p>
+        <p className="ptv-doc-line ptv-doc-line--gap">gap detected — authentication (CC)</p>
+        <p className="ptv-doc-line ptv-doc-line--gap">gap detected — audit logging (FAU)</p>
+        <p className="ptv-doc-line ptv-doc-line--gap">gap detected — access control (FDP)</p>
+        <p className="ptv-ok">✓ 83.3% expert agreement</p>
       </div>
     </div>
   )
 }
 
-function CloudTrailTerminal() {
+function ShopEaseTerminal() {
   return (
     <div className="proj-terminal" aria-hidden="true">
       <div className="proj-terminal-bar">
         <span className="proj-terminal-dot" />
         <span className="proj-terminal-dot proj-terminal-dot--dim" />
         <span className="proj-terminal-dot proj-terminal-dot--dim" />
-        <span className="proj-terminal-name">ct-monitor.exe</span>
+        <span className="proj-terminal-name">shopease.exe</span>
         <span className="proj-terminal-badge">RUNNING</span>
       </div>
       <div className="proj-terminal-body">
-        <p className="ptv-label">$ live event stream</p>
-        <div className="ptv-event-row">
-          <span className="ptv-event-time">14:02:11</span>
-          <span className="ptv-event-ok">✓</span>
-          <span>ConsoleLogin</span>
-        </div>
-        <div className="ptv-event-row">
-          <span className="ptv-event-time">14:03:47</span>
-          <span className="ptv-event-warn">⚠</span>
-          <span>CreatePolicy</span>
-        </div>
-        <div className="ptv-event-row">
-          <span className="ptv-event-time">14:04:01</span>
-          <span className="ptv-event-warn">⚠</span>
-          <span>PutBucketPolicy</span>
-        </div>
-        <div className="ptv-event-row">
-          <span className="ptv-event-time">14:04:58</span>
-          <span className="ptv-event-crit">🚨</span>
-          <span>DeleteTrail</span>
-        </div>
-        <p className="ptv-ok">✓ 40+ APIs monitored</p>
+        <p className="ptv-label">$ runbook --scenario payment-outage</p>
+        <p className="ptv-doc-line">rto target: 2hr · rpo target: 15min</p>
+        <p className="ptv-doc-line ptv-doc-line--gap">⚠ primary region: degraded</p>
+        <p className="ptv-doc-line">→ failover: initiating</p>
+        <p className="ptv-doc-line">→ db snapshot: restoring</p>
+        <p className="ptv-ok">✓ recovery time: 1hr 47min</p>
       </div>
     </div>
   )
@@ -155,8 +127,8 @@ function CloudTrailTerminal() {
 const PROJECT_VISUALS: Record<string, React.ComponentType> = {
   'project-radius': RadiusTerminal,
   'project-anomai': AnomAITerminal,
-  'project-sg-remediation': SGRemediationTerminal,
-  'project-cloudtrail-monitoring': CloudTrailTerminal,
+  'project-ai-assurance': AIAssuranceTerminal,
+  'project-shopease': ShopEaseTerminal,
 }
 
 export default function Home() {
@@ -270,9 +242,6 @@ export default function Home() {
                         {isActive ? '▶ ACTIVE' : '✓ CLEARED'}
                       </span>
                     </div>
-                    {item.dateRange && (
-                      <p className="journey-dates">{item.dateRange}</p>
-                    )}
                   </div>
                 </div>
 
@@ -393,9 +362,6 @@ export default function Home() {
 
         <div className="achievements-grid">
           {proofs.map((item) => {
-            const stats = item.stats as
-              | { placement?: string; team?: string; prep?: string }
-              | undefined
             const credential = item.credential as
               | { label: string; url: string }
               | undefined
@@ -409,23 +375,9 @@ export default function Home() {
                   </div>
                   <div className="achievement-body">
                     <h3 className="achievement-title">{item.title}</h3>
-                    <p className="achievement-meta">
-                      {item.date}
-                      {item.issuer ? ` · ${item.issuer}` : ''}
-                    </p>
 
-                    {stats && (
-                      <div className="achievement-stats">
-                        {stats.placement && (
-                          <span className="achievement-stat">{stats.placement} placement</span>
-                        )}
-                        {stats.team && (
-                          <span className="achievement-stat">{stats.team} team</span>
-                        )}
-                        {stats.prep && (
-                          <span className="achievement-stat">{stats.prep} prep</span>
-                        )}
-                      </div>
+                    {item.description && (
+                      <p className="achievement-desc">{item.description}</p>
                     )}
 
                     {credential && (

@@ -4,13 +4,8 @@
       "id": "cert-aws-saa",
       "type": "certification",
       "title": "AWS Solutions Architect Associate",
-      "date": "Jan 2026",
-      "issuer": "Amazon Web Services",
-      "description": "Deep understanding of AWS architecture: designing secure, scalable, cost-effective systems across EC2, S3, VPC, IAM, Lambda, and CloudWatch.",
-      "badge": {
-        "src": "https://images.credly.com/size/340x340/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png",
-        "alt": "AWS SAA Certification Badge"
-      },
+      "description": "not just certified — built production-grade IAM detection systems on AWS before sitting the exam.",
+      "badge": null,
       "credential": {
         "label": "Verify on Credly",
         "url": "https://www.credly.com/badges/4e6ff5d3-f40f-4a2f-a990-5b788cdfa85d/public_url"
@@ -20,9 +15,7 @@
       "id": "cert-security-plus",
       "type": "certification",
       "title": "CompTIA Security+",
-      "date": "Dec 2024",
-      "issuer": "CompTIA",
-      "description": "Core security fundamentals: cryptography, identity management, risk assessment, network defense, and incident response.",
+      "description": "first cert. the one that made everything start to click.",
       "badge": null,
       "credential": {
         "label": "Verify on Credly",
@@ -30,26 +23,39 @@
       }
     },
     {
-      "id": "ccdc-captain",
+      "id": "defender-award",
       "type": "achievement",
-      "title": "CCDC Regional Qualifier — Team Captain",
-      "date": "Feb 2026",
-      "issuer": "Collegiate Cyber Defense Competition",
-      "description": "Led undersized 5-person team to 16th place out of 49 teams. One week of preparation. Held operations under constant red team pressure.",
-      "stats": {
-        "placement": "16th / 48",
-        "team": "5 members",
-        "prep": "1 week"
-      },
+      "title": "U.S. Cyber Command Defender Award",
+      "description": "shook hands with an Admiral as a college student. that's what winning a national competition across 28 teams gets you.",
+      "badge": null,
+      "credential": {
+        "label": "Verify",
+        "url": "/assets/defender-award.pdf"
+      }
+    },
+    {
+      "id": "capstone-innovative",
+      "type": "achievement",
+      "title": "Most Innovative Project — FIU Capstone",
+      "description": "awarded Most Innovative Senior Design Project across 100+ competing teams at FIU Capstone.",
       "badge": null
     },
     {
-      "id": "research-ai-assurance",
-      "type": "research",
-      "title": "First-Authored Research Paper",
-      "date": "Oct 2025 – Feb 2026",
-      "issuer": "AI Security Assurance · Submitted",
-      "description": "Research using AI to evaluate security requirement completeness against ISO/IEC 15408 for defense critical infrastructure. Identifies gaps before code exists.",
+      "id": "academic-excellence",
+      "type": "achievement",
+      "title": "Academic Excellence Award",
+      "description": "recognized for academic performance and technical achievement across the department.",
+      "badge": null,
+      "credential": {
+        "label": "Verify",
+        "url": "/assets/academic-excellence.pdf"
+      }
+    },
+    {
+      "id": "ccdc-captain",
+      "type": "achievement",
+      "title": "CCDC Regional Qualifier — Team Captain",
+      "description": "5 people. one week of prep. placed 16th out of 49 teams. most teams had a year.",
       "badge": null
     }
   ]

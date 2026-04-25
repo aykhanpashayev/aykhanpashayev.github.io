@@ -1133,6 +1133,29 @@ body::after {
   color: var(--green);
 }
 
+/* Document scanning lines (AI Assurance terminal) */
+.ptv-doc-line {
+  margin: 0;
+  font-size: 0.88rem;
+  color: rgba(163, 176, 201, 0.6);
+  animation: ptv-doc-fade 0.6s ease forwards;
+  opacity: 0;
+}
+
+.ptv-doc-line:nth-child(2) { animation-delay: 0.3s; }
+.ptv-doc-line:nth-child(3) { animation-delay: 0.8s; }
+.ptv-doc-line:nth-child(4) { animation-delay: 1.3s; }
+.ptv-doc-line:nth-child(5) { animation-delay: 1.8s; }
+
+.ptv-doc-line--gap {
+  color: var(--amber);
+}
+
+@keyframes ptv-doc-fade {
+  from { opacity: 0; transform: translateY(2px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 /* Diff rows (SG Remediation) */
 .ptv-diff-row {
   display: flex;
@@ -1339,6 +1362,14 @@ body::after {
 .achievement-link:hover {
   color: var(--amber);
   text-decoration: underline;
+}
+
+/* Achievement description text */
+.achievement-desc {
+  margin: 0 0 0.5rem 0;
+  font-size: var(--text-sm);
+  color: var(--muted);
+  line-height: 1.55;
 }
 
 /* =========================
