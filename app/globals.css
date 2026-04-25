@@ -1372,34 +1372,6 @@ body::after {
   line-height: 1.55;
 }
 
-/* Featured achievement card variant — cards 1 & 2 */
-.achievement-card--featured {
-  border-color: rgba(255, 179, 92, 0.32);
-  box-shadow: 6px 6px 0 rgba(5, 8, 18, 0.9), 0 0 18px rgba(255, 179, 92, 0.08);
-}
-
-.achievement-card--featured .achievement-icon-wrap {
-  background: rgba(255, 179, 92, 0.1);
-  border-right-color: rgba(255, 179, 92, 0.35);
-}
-
-.achievement-card--featured .achievement-icon {
-  text-shadow: 0 0 14px rgba(255, 179, 92, 0.8), 0 0 28px rgba(255, 179, 92, 0.4);
-}
-
-.achievement-card--featured::before {
-  border-color: rgba(255, 179, 92, 0.4);
-}
-
-.achievement-card--featured::after {
-  border-color: rgba(255, 179, 92, 0.4);
-}
-
-.achievement-card--featured:hover {
-  border-color: rgba(255, 179, 92, 0.5);
-  box-shadow: 6px 8px 0 rgba(5, 8, 18, 0.9), 0 0 28px rgba(255, 179, 92, 0.12);
-}
-
 /* =========================
    19. CONTACT SECTION
    ========================= */

@@ -102,39 +102,23 @@ function AIAssuranceTerminal() {
   )
 }
 
-function CloudTrailTerminal() {
+function ShopEaseTerminal() {
   return (
     <div className="proj-terminal" aria-hidden="true">
       <div className="proj-terminal-bar">
         <span className="proj-terminal-dot" />
         <span className="proj-terminal-dot proj-terminal-dot--dim" />
         <span className="proj-terminal-dot proj-terminal-dot--dim" />
-        <span className="proj-terminal-name">ct-monitor.exe</span>
+        <span className="proj-terminal-name">shopease.exe</span>
         <span className="proj-terminal-badge">RUNNING</span>
       </div>
       <div className="proj-terminal-body">
-        <p className="ptv-label">$ live event stream</p>
-        <div className="ptv-event-row">
-          <span className="ptv-event-time">14:02:11</span>
-          <span className="ptv-event-ok">✓</span>
-          <span>ConsoleLogin</span>
-        </div>
-        <div className="ptv-event-row">
-          <span className="ptv-event-time">14:03:47</span>
-          <span className="ptv-event-warn">⚠</span>
-          <span>CreatePolicy</span>
-        </div>
-        <div className="ptv-event-row">
-          <span className="ptv-event-time">14:04:01</span>
-          <span className="ptv-event-warn">⚠</span>
-          <span>PutBucketPolicy</span>
-        </div>
-        <div className="ptv-event-row">
-          <span className="ptv-event-time">14:04:58</span>
-          <span className="ptv-event-crit">🚨</span>
-          <span>DeleteTrail</span>
-        </div>
-        <p className="ptv-ok">✓ 40+ APIs monitored</p>
+        <p className="ptv-label">$ runbook --scenario payment-outage</p>
+        <p className="ptv-doc-line">rto target: 2hr · rpo target: 15min</p>
+        <p className="ptv-doc-line ptv-doc-line--gap">⚠ primary region: degraded</p>
+        <p className="ptv-doc-line">→ failover: initiating</p>
+        <p className="ptv-doc-line">→ db snapshot: restoring</p>
+        <p className="ptv-ok">✓ recovery time: 1hr 47min</p>
       </div>
     </div>
   )
@@ -144,7 +128,7 @@ const PROJECT_VISUALS: Record<string, React.ComponentType> = {
   'project-radius': RadiusTerminal,
   'project-anomai': AnomAITerminal,
   'project-ai-assurance': AIAssuranceTerminal,
-  'project-cloudtrail-monitoring': CloudTrailTerminal,
+  'project-shopease': ShopEaseTerminal,
 }
 
 export default function Home() {
@@ -378,16 +362,12 @@ export default function Home() {
 
         <div className="achievements-grid">
           {proofs.map((item) => {
-            const stats = item.stats as
-              | { placement?: string; team?: string; prep?: string }
-              | undefined
             const credential = item.credential as
               | { label: string; url: string }
               | undefined
-            const featured = (item as Record<string, unknown>).featured as boolean | undefined
 
             return (
-              <article key={item.id} className={`achievement-card${featured ? ' achievement-card--featured' : ''}`}>
+              <article key={item.id} className="achievement-card">
                 <div className="achievement-card-inner">
                   <div className="achievement-icon-wrap" aria-hidden="true">
                     <span className="achievement-icon">★</span>
@@ -395,27 +375,9 @@ export default function Home() {
                   </div>
                   <div className="achievement-body">
                     <h3 className="achievement-title">{item.title}</h3>
-                    <p className="achievement-meta">
-                      {item.date}
-                      {item.issuer ? ` · ${item.issuer}` : ''}
-                    </p>
 
                     {item.description && (
                       <p className="achievement-desc">{item.description}</p>
-                    )}
-
-                    {stats && (
-                      <div className="achievement-stats">
-                        {stats.placement && (
-                          <span className="achievement-stat">{stats.placement} placement</span>
-                        )}
-                        {stats.team && (
-                          <span className="achievement-stat">{stats.team} team</span>
-                        )}
-                        {stats.prep && (
-                          <span className="achievement-stat">{stats.prep} prep</span>
-                        )}
-                      </div>
                     )}
 
                     {credential && (
