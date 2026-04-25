@@ -258,9 +258,6 @@ export default function Home() {
                         {isActive ? '▶ ACTIVE' : '✓ CLEARED'}
                       </span>
                     </div>
-                    {item.dateRange && (
-                      <p className="journey-dates">{item.dateRange}</p>
-                    )}
                   </div>
                 </div>
 
