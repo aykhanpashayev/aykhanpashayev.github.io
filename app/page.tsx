@@ -80,35 +80,23 @@ function AnomAITerminal() {
   )
 }
 
-function SGRemediationTerminal() {
+function AIAssuranceTerminal() {
   return (
     <div className="proj-terminal" aria-hidden="true">
       <div className="proj-terminal-bar">
         <span className="proj-terminal-dot" />
         <span className="proj-terminal-dot proj-terminal-dot--dim" />
         <span className="proj-terminal-dot proj-terminal-dot--dim" />
-        <span className="proj-terminal-name">sg-remediator.exe</span>
+        <span className="proj-terminal-name">defender.exe</span>
         <span className="proj-terminal-badge">RUNNING</span>
       </div>
       <div className="proj-terminal-body">
-        <p className="ptv-label">$ drift detected — sg-0x4f2a</p>
-        <div className="ptv-diff-row ptv-diff-row--bad">
-          <span className="ptv-diff-sign">−</span>
-          <span>0.0.0.0/0 :22 OPEN</span>
-        </div>
-        <div className="ptv-diff-row ptv-diff-row--bad">
-          <span className="ptv-diff-sign">−</span>
-          <span>0.0.0.0/0 :3389 OPEN</span>
-        </div>
-        <div className="ptv-diff-row ptv-diff-row--good">
-          <span className="ptv-diff-sign">+</span>
-          <span>10.0.0.0/8 :22 restored</span>
-        </div>
-        <div className="ptv-diff-row ptv-diff-row--good">
-          <span className="ptv-diff-sign">+</span>
-          <span>deny all :3389 restored</span>
-        </div>
-        <p className="ptv-ok">✓ healed in 3.8s</p>
+        <p className="ptv-label">$ scan --framework ISO/IEC-15408</p>
+        <p className="ptv-doc-line">loading 5000+ pages...</p>
+        <p className="ptv-doc-line ptv-doc-line--gap">gap detected — authentication (CC)</p>
+        <p className="ptv-doc-line ptv-doc-line--gap">gap detected — audit logging (FAU)</p>
+        <p className="ptv-doc-line ptv-doc-line--gap">gap detected — access control (FDP)</p>
+        <p className="ptv-ok">✓ 83.3% expert agreement</p>
       </div>
     </div>
   )
@@ -155,7 +143,7 @@ function CloudTrailTerminal() {
 const PROJECT_VISUALS: Record<string, React.ComponentType> = {
   'project-radius': RadiusTerminal,
   'project-anomai': AnomAITerminal,
-  'project-sg-remediation': SGRemediationTerminal,
+  'project-ai-assurance': AIAssuranceTerminal,
   'project-cloudtrail-monitoring': CloudTrailTerminal,
 }
 
@@ -399,9 +387,10 @@ export default function Home() {
             const credential = item.credential as
               | { label: string; url: string }
               | undefined
+            const featured = (item as Record<string, unknown>).featured as boolean | undefined
 
             return (
-              <article key={item.id} className="achievement-card">
+              <article key={item.id} className={`achievement-card${featured ? ' achievement-card--featured' : ''}`}>
                 <div className="achievement-card-inner">
                   <div className="achievement-icon-wrap" aria-hidden="true">
                     <span className="achievement-icon">★</span>
@@ -413,6 +402,10 @@ export default function Home() {
                       {item.date}
                       {item.issuer ? ` · ${item.issuer}` : ''}
                     </p>
+
+                    {item.description && (
+                      <p className="achievement-desc">{item.description}</p>
+                    )}
 
                     {stats && (
                       <div className="achievement-stats">

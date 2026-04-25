@@ -1,6 +1,57 @@
 {
   "proof": [
     {
+      "id": "defender-award",
+      "type": "achievement",
+      "title": "U.S. Cyber Command Defender Award",
+      "date": "2026",
+      "issuer": "U.S. Cyber Command",
+      "description": "national competition across 28 teams. first-authored research paper accepted to Cyber Recon 2026. shook hands with an Admiral.",
+      "badge": null,
+      "featured": true,
+      "credential": {
+        "label": "Verify",
+        "url": "/assets/defender-award.pdf"
+      }
+    },
+    {
+      "id": "capstone-innovative",
+      "type": "achievement",
+      "title": "Most Innovative Project — FIU Capstone",
+      "date": "2026",
+      "issuer": "FIU",
+      "description": "awarded across 100+ teams. AnomAI — self-calibrating IAM anomaly detection that needs zero manual tuning.",
+      "badge": null,
+      "featured": true
+    },
+    {
+      "id": "academic-excellence",
+      "type": "achievement",
+      "title": "Academic Excellence Award",
+      "date": "April 2026",
+      "issuer": "FIU Tech Talent Summit · April 2026",
+      "description": "",
+      "badge": null,
+      "credential": {
+        "label": "Verify",
+        "url": "/assets/academic-excellence.pdf"
+      }
+    },
+    {
+      "id": "ccdc-captain",
+      "type": "achievement",
+      "title": "CCDC Regional Qualifier — Team Captain",
+      "date": "Feb 2026",
+      "issuer": "Collegiate Cyber Defense Competition",
+      "description": "Led undersized 5-person team to 16th place out of 49 teams. One week of preparation. Held operations under constant red team pressure.",
+      "stats": {
+        "placement": "16th / 48",
+        "team": "5 members",
+        "prep": "1 week"
+      },
+      "badge": null
+    },
+    {
       "id": "cert-aws-saa",
       "type": "certification",
       "title": "AWS Solutions Architect Associate",
@@ -28,29 +79,6 @@
         "label": "Verify on Credly",
         "url": "https://www.credly.com/badges/a7f4ccaf-85b2-48f1-979f-a69070afebb2/public_url"
       }
-    },
-    {
-      "id": "ccdc-captain",
-      "type": "achievement",
-      "title": "CCDC Regional Qualifier — Team Captain",
-      "date": "Feb 2026",
-      "issuer": "Collegiate Cyber Defense Competition",
-      "description": "Led undersized 5-person team to 16th place out of 49 teams. One week of preparation. Held operations under constant red team pressure.",
-      "stats": {
-        "placement": "16th / 48",
-        "team": "5 members",
-        "prep": "1 week"
-      },
-      "badge": null
-    },
-    {
-      "id": "research-ai-assurance",
-      "type": "research",
-      "title": "First-Authored Research Paper",
-      "date": "Oct 2025 – Feb 2026",
-      "issuer": "AI Security Assurance · Submitted",
-      "description": "Research using AI to evaluate security requirement completeness against ISO/IEC 15408 for defense critical infrastructure. Identifies gaps before code exists.",
-      "badge": null
     }
   ]
 }

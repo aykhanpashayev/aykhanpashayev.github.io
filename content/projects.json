@@ -8,7 +8,7 @@
       },
       "title": "Radius — AWS IAM Threat Detection & Automated Response",
       "dateRange": "Mar 2026 – Apr 2026",
-      "description": "AWS Organizations-scale IAM threat detection platform with automated containment. Detects compromised credentials, calculates blast radius, and disables attackers in seconds.",
+      "description": "A security analyst takes 45–60 minutes to respond to a compromised identity. Radius does it in seconds. AWS Organizations-scale IAM threat detection with automated containment — detects compromised credentials, calculates blast radius, and disables attackers before the damage spreads.",
       "highlights": [
         "8 Lambda functions orchestrating detection, scoring, and response",
         "7 detection rules covering privilege escalation, credential stuffing, and anomalous access patterns",
@@ -42,7 +42,7 @@
       },
       "title": "AnomAI — AWS IAM Anomaly Detection & Incident Explanation",
       "dateRange": "Jan 2026 – Apr 2026",
-      "description": "AI-powered IAM anomaly detection pipeline. Ingests CloudTrail events, runs 6 anomaly detectors, and surfaces incidents via Flask dashboard with LLM-powered incident explanation.",
+      "description": "Most detection systems need someone constantly adjusting thresholds. AnomAI calibrates itself. Ingests CloudTrail events, runs 6 self-calibrating detectors, and surfaces incidents via Flask dashboard with LLM-powered explanation — zero manual tuning, ever.",
       "highlights": [
         "S3-triggered Lambda pipeline processing raw CloudTrail → structured signals",
         "6 anomaly detectors: unusual hours, new principal, permission creep, API velocity, geo anomaly, service abuse",
@@ -68,37 +68,19 @@
       ]
     },
     {
-      "id": "project-sg-remediation",
-      "image": {
-        "src": "/assets/img/projects/sg-remediation-thumb.png",
-        "alt": "Pixel-art scene: cracked firewall wall auto-healing via Lambda with SNS alert bell"
-      },
-      "title": "Security Group Auto-Remediation with AWS Config & Lambda",
-      "dateRange": "Jul 2025",
-      "description": "Self-healing security pipeline that detects unauthorized Security Group changes and restores approved rules automatically. MTTD under 1 second, MTTR approximately 4 seconds.",
-      "highlights": [
-        "AWS Config Rules detecting Security Group drift in near-real-time",
-        "Lambda function restoring approved inbound/outbound rules",
-        "SNS notifications with before/after rule comparison",
-        "CloudWatch dashboard tracking remediation metrics",
-        "Zero manual intervention required after deployment"
-      ],
-      "why": "I built this to shrink the 'danger window' from minutes/hours down to near-immediate recovery, without relying on external tools.",
-      "metrics": {
-        "mttd": "< 1 second",
-        "mttr": "~4 seconds",
-        "automation": "100%"
-      },
-      "role": "Solo builder — AWS Config rules, Lambda remediation, monitoring",
-      "challenge": "AWS Config evaluation latency varies. I had to design the Lambda function to handle concurrent invocations and avoid race conditions when multiple rules fired simultaneously.",
-      "architecture": {
-        "src": "/assets/img/projects/sg-remediation-architecture.svg",
-        "alt": "AWS Config Rule → Lambda → EC2 Security Group → SNS notification flow"
-      },
-      "tags": ["AWS", "Config", "Lambda", "Security Groups", "Automation", "CloudWatch"],
-      "links": [
-        { "label": "GitHub", "url": "https://github.com/aykhanpashayev/aws-config-lambda-remediation-lab" }
-      ]
+      "id": "project-ai-assurance",
+      "image": null,
+      "title": "AI-Assisted Security Assurance Framework",
+      "dateRange": "Oct 2025 – Feb 2026",
+      "description": "Most security framework reviews take days of expert manual work. This pipeline does it in minutes. Gemini-powered document analysis that reads defense-critical architecture documentation and flags security requirement gaps against ISO/IEC 15408 — tested on real 5G drone documentation across 5,000+ pages. 83.3% expert agreement across domain reviewers. Zero high-risk false positives.",
+      "highlights": [],
+      "why": "",
+      "metrics": {},
+      "role": "",
+      "challenge": "",
+      "architecture": null,
+      "tags": ["AI/ML", "Gemini", "ISO/IEC 15408", "Python", "Security Frameworks", "Research"],
+      "links": []
     },
     {
       "id": "project-cloudtrail-monitoring",
@@ -108,7 +90,7 @@
       },
       "title": "CloudTrail Event-Driven Monitoring & Alerting",
       "dateRange": "Jun 2025",
-      "description": "Native AWS monitoring pipeline analyzing CloudTrail logs to detect failed authentication attempts and sensitive configuration changes without external SIEM tools.",
+      "description": "Most teams find out they've been breached weeks after the fact. This watches 40+ AWS APIs in real time and fires alerts the moment something looks wrong — failed auth attempts, sensitive config changes, all of it. No external SIEM required.",
       "highlights": [
         "EventBridge rules filtering 40+ security-relevant API calls",
         "CloudWatch Alarms triggering SNS notifications",
